@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "cats": "Unsere Katzen",
+    "advice": "Ratgeber",
+    "contact": "Kontakt",
+    "book": "Buchen"
+  },
+  "hero": {
+    "title": "Feline Eleganz",
+    "subtitle": "Authentisch",
+    "description": "Wir bewahren die Erhabenheit und das sanfte Gemüt der ursprünglichen sibirischen Katze."
+  },
+  "footer": {
+    "tagline": "Exzellenzzucht Sibirische Neva Masquerade",
+    "explore": "Entdecken",
+    "contacts": "Kontakte",
+    "location": "Italien, [Standort]",
+    "privacy": "Datenschutz",
+    "cookies": "Cookies",
+    "rights": "Alle Rechte vorbehalten"
+  },
+  "catPage": {
+  "birth": "Geburtsdatum",
+  "health": "Gesundheit",
+  "inquire": "Jetzt anfragen",
+  "techDetails": "Technische Details",
+  "sex": "Geschlecht",
+  "color": "Farbe",
+  "ems": "EMS-Code",
+  "pedigree": "Stammbaum",
+  "lineage": "Ahnentafel",
+  "lineage_sub": "Die Abstammung",
+  "sire": "Vater",
+  "dam": "Mutter",
+  "current": "Aktuelles Exemplar"
+}
+}

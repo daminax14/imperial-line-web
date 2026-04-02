@@ -1,0 +1,39 @@
+{
+  "nav": {
+    "home": "Home",
+    "cats": "I Nostri Gatti",
+    "advice": "Consigli",
+    "contact": "Contatti",
+    "book": "Prenota"
+  },
+  "hero": {
+    "title": "Eleganza Felina",
+    "subtitle": "Autentica",
+    "description": "Preserviamo la maestosità del gatto Siberiano originale."
+  },
+  "footer": {
+    "tagline": "Allevamento d'Eccellenza Siberiani Neva Masquerade",
+    "explore": "Esplora",
+    "contacts": "Contatti",
+    "location": "Italia, [Località]",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "rights": "Tutti i diritti riservati"
+  },
+  "catPage": {
+  "birth": "Nascita",
+  "health": "Salute",
+  "inquire": "Richiedi Informazioni",
+  "techDetails": "Dettagli Tecnici",
+  "sex": "Sesso",
+  "color": "Colore",
+  "ems": "Codice EMS",
+  "pedigree": "Pedigree",
+  "lineage": "Albero Genealogico",
+  "lineage_sub": "The Lineage",
+  "sire": "Sire (Padre)",
+  "dam": "Dam (Madre)",
+  "current": "Soggetto Attuale"
+}
+  
+}

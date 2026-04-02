@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  /* Qui diciamo a Tailwind che i nostri font sono quelli caricati da Next.js */
+  --font-serif: var(--font-playfair), serif;
+  --font-sans: var(--font-inter), sans-serif;
+  
+  /* Definiamo il nostro oro */
+  --color-gold-200: #D4AF37;
+
+  /* Ricarichiamo le tue animazioni fighe nel nuovo formato */
+  @keyframes slow-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+  @keyframes scroll-line {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
+  --animate-scroll-line: scroll-line 1.5s ease-in-out infinite;
+}
+
+/* Stili di base senza usare @apply che fa arrabbiare il compilatore */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #FCFAF8;
+    color: #1A1A1A;
+    font-family: var(--font-inter), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), serif;
+  }
+}

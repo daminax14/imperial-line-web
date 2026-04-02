@@ -1,0 +1,38 @@
+{
+  "nav": {
+    "home": "Home",
+    "cats": "Our Cats",
+    "advice": "Advice",
+    "contact": "Contact",
+    "book": "Book Now"
+  },
+  "hero": {
+    "title": "Feline Elegance",
+    "subtitle": "Authentic",
+    "description": "Preserving the majesty and gentle temperament of the original Siberian cat."
+  },
+  "footer": {
+  "tagline": "Excellence Breeding Siberian Neva Masquerade",
+  "explore": "Explore",
+  "contacts": "Contacts",
+  "location": "Italy, [Location]",
+  "privacy": "Privacy",
+  "cookies": "Cookies",
+  "rights": "All rights reserved"
+  },
+  "catPage": {
+  "birth": "Birth",
+  "health": "Health",
+  "inquire": "Inquire Now",
+  "techDetails": "Technical Details",
+  "sex": "Sex",
+  "color": "Color",
+  "ems": "EMS Code",
+  "pedigree": "Pedigree",
+  "lineage": "Family Tree",
+  "lineage_sub": "The Lineage",
+  "sire": "Sire (Father)",
+  "dam": "Dam (Mother)",
+  "current": "Current Exemplar"
+}
+}
