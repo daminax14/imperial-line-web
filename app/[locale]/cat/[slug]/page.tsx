@@ -17,6 +17,7 @@ async function getCat(slug: string, locale: string) {
     sex,
     emsCode,
     status,
+    pedigreeUrl,
     father->{
       name,
       "imageUrl": image.asset->url,
@@ -107,14 +108,25 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { label: dict.catPage.sex, value: cat.sex },
-              { label: dict.catPage.color, value: cat.color },
-              { label: dict.catPage.ems, value: cat.emsCode },
-              { label: dict.catPage.pedigree, value: "ANFI / FIFE" },
+              { label: dict.catPage.sex, value: cat.sex, href: null },
+              { label: dict.catPage.color, value: cat.color, href: null },
+              { label: dict.catPage.ems, value: cat.emsCode, href: null },
+              { label: dict.catPage.pedigree, value: cat.pedigreeUrl ? 'Apri ↗' : 'ANFI / FIFE', href: cat.pedigreeUrl || null },
             ].map((item, i) => (
               <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-slate-50">
                 <p className="text-[10px] uppercase tracking-widest text-slate-400 mb-2">{item.label}</p>
-                <p className="font-bold text-slate-800 text-lg">{item.value || '---'}</p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-[#2f6f99] text-lg hover:underline"
+                  >
+                    {item.value || '---'}
+                  </a>
+                ) : (
+                  <p className="font-bold text-slate-800 text-lg">{item.value || '---'}</p>
+                )}
               </div>
             ))}
           </div>
@@ -128,38 +140,58 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               <h3 className="text-4xl font-serif mt-2 italic text-slate-900">{dict.catPage.lineage}</h3>
             </div>
 
-            <div className="flex flex-col items-center gap-8 relative z-10">
-              <div className="flex flex-wrap justify-center gap-16 md:gap-40 relative">
-                <div className="hidden md:block absolute top-[40%] left-1/2 -translate-x-1/2 w-64 h-px bg-slate-200 -z-10"></div>
-                
+            <div className="flex flex-col items-center gap-0 relative z-10 px-6">
+              {/* Parents row */}
+              <div className="flex items-end justify-center gap-10 md:gap-40 w-full">
                 {cat.father && (
-                  <div className="text-center">
-                    <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100">
+                  <div className="text-center flex flex-col items-center gap-3">
+                    <p className="text-[10px] uppercase tracking-widest text-gold-200 font-bold">{dict.catPage.sire}</p>
+                    <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100">
                       <img src={urlFor(cat.father.imageUrl).width(400).url()} className="w-full h-full object-cover" alt="Sire" />
                     </div>
-                    <p className="mt-6 text-[10px] uppercase tracking-widest text-gold-200 font-bold">{dict.catPage.sire}</p>
-                    <p className="font-serif italic text-xl mt-1 text-slate-800">{cat.father.name}</p>
+                    <p className="font-serif italic text-xl text-slate-800">{cat.father.name}</p>
                   </div>
                 )}
 
                 {cat.mother && (
-                  <div className="text-center">
-                    <div className="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100">
+                  <div className="text-center flex flex-col items-center gap-3">
+                    <p className="text-[10px] uppercase tracking-widest text-gold-200 font-bold">{dict.catPage.dam}</p>
+                    <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100">
                       <img src={urlFor(cat.mother.imageUrl).width(400).url()} className="w-full h-full object-cover" alt="Dam" />
                     </div>
-                    <p className="mt-6 text-[10px] uppercase tracking-widest text-gold-200 font-bold">{dict.catPage.dam}</p>
-                    <p className="font-serif italic text-xl mt-1 text-slate-800">{cat.mother.name}</p>
+                    <p className="font-serif italic text-xl text-slate-800">{cat.mother.name}</p>
                   </div>
                 )}
               </div>
 
-              <div className="w-px h-16 bg-gradient-to-b from-slate-200 to-gold-200 mt-4"></div>
+              {/* Connector lines + arrow — uses CSS borders, no magic offsets */}
+              {cat.father || cat.mother ? (
+                <div className="flex justify-center w-full">
+                  {cat.father && cat.mother ? (
+                    /* Both parents: T-shape using borders */
+                    <div className="flex">
+                      <div className="w-16 border-b border-r border-slate-300 h-6" />
+                      <div className="w-16 border-b border-l border-slate-300 h-6" />
+                    </div>
+                  ) : (
+                    <div className="w-px h-6 bg-slate-300" />
+                  )}
+                </div>
+              ) : null}
+              {(cat.father || cat.mother) && (
+                <div className="flex flex-col items-center">
+                  <div className="w-px h-6 bg-gradient-to-b from-slate-300 to-yellow-400" />
+                  <div className="text-yellow-500 text-lg leading-none">▼</div>
+                </div>
+              )}
 
-              <div className="text-center">
+              {/* Current cat */}
+              <div className="text-center flex flex-col items-center gap-3 mt-1">
                 <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] overflow-hidden border-8 border-[#c2c8d4] shadow-2xl">
                   <img src={urlFor(cat.imageUrl).width(500).url()} className="w-full h-full object-cover" alt="Current" />
                 </div>
-                <p className="text-gold-200 tracking-[0.2em] text-[10px] uppercase font-bold mt-4">{dict.catPage.current}</p>
+                <p className="text-gold-200 tracking-[0.2em] text-[10px] uppercase font-bold">{dict.catPage.current}</p>
+                <p className="font-serif italic text-xl text-slate-800">{cat.name}</p>
               </div>
             </div>
           </section>

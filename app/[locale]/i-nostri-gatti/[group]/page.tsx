@@ -17,6 +17,7 @@ type CatItem = {
   sex?: string
   emsCode?: string
   status?: string
+  pedigreeUrl?: string
   father?: {
     name?: string
     image?: any
@@ -63,6 +64,7 @@ async function getCats(locale: string): Promise<CatItem[]> {
     sex,
     emsCode,
     status,
+    pedigreeUrl,
     father->{
       name,
       image,
@@ -146,14 +148,23 @@ export default async function CatsGroupPage({
                       <h2 className="text-5xl md:text-6xl font-serif italic leading-[0.95] text-[#2f6f99]">{cat.name}</h2>
                       <p className="text-3xl md:text-4xl mt-4 font-serif text-[#2f6f99]">{cat.color || 'Siberian Neva Masquerade'}</p>
 
-                      {cat.slug && (
+                      {cat.pedigreeUrl ? (
+                        <a
+                          href={cat.pedigreeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-5 bg-[#2f6f99] text-white py-2 px-8 rounded-full font-bold transition-all uppercase tracking-widest text-[10px] hover:bg-[#255b7d]"
+                        >
+                          Pedigree ↗
+                        </a>
+                      ) : cat.slug ? (
                         <Link
                           href={`/${locale}/cat/${cat.slug}`}
                           className="inline-block mt-5 bg-[#2f6f99] text-white py-2 px-8 rounded-full font-bold transition-all uppercase tracking-widest text-[10px] hover:bg-[#255b7d]"
                         >
-                          Pedigree
+                          Scheda completa
                         </Link>
-                      )}
+                      ) : null}
 
                       <div className="mt-7 space-y-3 text-sm text-[#2f5f86]">
                         <p>
@@ -204,43 +215,92 @@ export default async function CatsGroupPage({
 
                   {(cat.father || cat.mother) && (
                     <section className="mt-14">
-                      <h3 className="text-5xl font-serif italic text-[#2f6f99] text-center">Genitori:</h3>
+                      <h3 className="text-3xl font-serif italic text-[#2f6f99] text-center mb-10">Albero genealogico</h3>
 
-                      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-                        <div className="flex items-start gap-4">
-                          {cat.mother?.image ? (
-                            <img
-                              src={urlFor(cat.mother.image).width(500).url()}
-                              className="w-44 h-52 object-cover rounded-sm shadow-sm"
-                              alt={cat.mother?.name || 'Madre'}
-                            />
-                          ) : (
-                            <div className="w-44 h-52 rounded-sm bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
-                              Immagine madre
+                      {/* Tree layout: parents on top, current cat at bottom with connecting arrows */}
+                      <div className="flex flex-col items-center gap-0">
+
+                        {/* Parents row */}
+                        <div className="flex items-end justify-center gap-10 md:gap-28 w-full">
+                          {cat.mother && (
+                            <div className="flex flex-col items-center gap-3">
+                              <p className="text-[10px] uppercase tracking-widest text-[#2f6f99]/60 font-bold">Madre</p>
+                              {cat.mother.image ? (
+                                <img
+                                  src={urlFor(cat.mother.image).width(300).url()}
+                                  className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-md"
+                                  alt={cat.mother?.name || 'Madre'}
+                                />
+                              ) : (
+                                <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
+                                  Madre
+                                </div>
+                              )}
+                              <p className="font-serif italic text-xl text-[#2f6f99] text-center">{cat.mother?.name || 'Madre'}</p>
+                              {cat.mother.color && (
+                                <p className="text-xs text-[#2f5f86]/70 text-center">{cat.mother.color}</p>
+                              )}
                             </div>
                           )}
-                          <div className="pt-2">
-                            <p className="font-serif italic text-4xl leading-[1.1] text-[#2f6f99]">{cat.mother?.name || 'Madre'}</p>
-                            <p className="mt-4 text-sm text-[#2f5f86]">{cat.mother?.color || '(dati colore)'}</p>
-                          </div>
+
+                          {cat.father && (
+                            <div className="flex flex-col items-center gap-3">
+                              <p className="text-[10px] uppercase tracking-widest text-[#2f6f99]/60 font-bold">Padre</p>
+                              {cat.father.image ? (
+                                <img
+                                  src={urlFor(cat.father.image).width(300).url()}
+                                  className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-md"
+                                  alt={cat.father?.name || 'Padre'}
+                                />
+                              ) : (
+                                <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
+                                  Padre
+                                </div>
+                              )}
+                              <p className="font-serif italic text-xl text-[#2f6f99] text-center">{cat.father?.name || 'Padre'}</p>
+                              {cat.father.color && (
+                                <p className="text-xs text-[#2f5f86]/70 text-center">{cat.father.color}</p>
+                              )}
+                            </div>
+                          )}
                         </div>
 
-                        <div className="flex items-start gap-4 md:flex-row-reverse md:text-right">
-                          {cat.father?.image ? (
+                        {/* Connector lines + arrow — uses CSS borders, no magic offsets */}
+                        {cat.mother || cat.father ? (
+                          <div className="flex justify-center w-full">
+                            {cat.mother && cat.father ? (
+                              /* Both parents: T-shape using borders */
+                              <div className="flex">
+                                <div className="w-16 border-b border-r border-[#2f6f99]/40 h-6" />
+                                <div className="w-16 border-b border-l border-[#2f6f99]/40 h-6" />
+                              </div>
+                            ) : (
+                              /* Single parent: vertical line */
+                              <div className="w-px h-6 bg-[#2f6f99]/40" />
+                            )}
+                          </div>
+                        ) : null}
+                        {(cat.mother || cat.father) && (
+                          <div className="flex flex-col items-center">
+                            <div className="w-px h-6 bg-[#2f6f99]/40" />
+                            <div className="text-[#2f6f99]/60 text-lg leading-none">▼</div>
+                          </div>
+                        )}
+
+                        {/* Current cat */}
+                        <div className="flex flex-col items-center gap-3 mt-1">
+                          {cat.image ? (
                             <img
-                              src={urlFor(cat.father.image).width(500).url()}
-                              className="w-44 h-52 object-cover rounded-sm shadow-sm"
-                              alt={cat.father?.name || 'Padre'}
+                              src={urlFor(cat.image).width(300).url()}
+                              className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-lg border-2 border-[#2f6f99]/30"
+                              alt={cat.name}
                             />
                           ) : (
-                            <div className="w-44 h-52 rounded-sm bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
-                              Immagine padre
+                            <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border-2 border-[#2f6f99]/30 flex items-center justify-center text-xs text-[#2f5f86]/70">
+                              {cat.name}
                             </div>
                           )}
-                          <div className="pt-2">
-                            <p className="font-serif italic text-4xl leading-[1.1] text-[#2f6f99]">{cat.father?.name || 'Padre'}</p>
-                            <p className="mt-4 text-sm text-[#2f5f86]">{cat.father?.color || '(dati colore)'}</p>
-                          </div>
+                          <p className="font-serif italic text-2xl text-[#2f6f99] font-semibold text-center">{cat.name}</p>
                         </div>
                       </div>
                     </section>
