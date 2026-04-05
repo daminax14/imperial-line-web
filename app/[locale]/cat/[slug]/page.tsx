@@ -49,7 +49,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const statusStyle = cat.status ? statusColors[cat.status] || 'bg-slate-100 text-slate-800' : 'hidden';
 
   return (
-    <main className="bg-[#FCFAF8] min-h-screen pt-[120px] pb-24">
+    <main className="bg-[#c2c8d4] min-h-screen pt-[120px] pb-24">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* PARTE 1: PRESENTAZIONE */}
@@ -156,7 +156,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               <div className="w-px h-16 bg-gradient-to-b from-slate-200 to-gold-200 mt-4"></div>
 
               <div className="text-center">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] overflow-hidden border-8 border-[#FCFAF8] shadow-2xl">
+                <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] overflow-hidden border-8 border-[#c2c8d4] shadow-2xl">
                   <img src={urlFor(cat.imageUrl).width(500).url()} className="w-full h-full object-cover" alt="Current" />
                 </div>
                 <p className="text-gold-200 tracking-[0.2em] text-[10px] uppercase font-bold mt-4">{dict.catPage.current}</p>
