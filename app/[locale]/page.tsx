@@ -66,7 +66,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </section>
 
       {/* 2. BREED SECTIONS SUBMENU - Testi da Sanity */}
-      {breedSections && breedSections.length > 0 && (
+      {Array.isArray(breedSections) && breedSections.length > 0 && (
         <section className="py-12 bg-white/60 backdrop-blur-sm border-b border-white/40">
           <div className="max-w-4xl mx-auto px-6">
             <ul className="divide-y divide-slate-200/70">
@@ -103,7 +103,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       {/* 3. THE STARS GALLERY - Contenuti da Sanity */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:row justify-between items-start md:items-end mb-16 gap-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
             <div>
               <p className="text-xs uppercase tracking-widest text-gold-200">Bloodlines</p>
               <h2 className="text-5xl font-serif text-slate-900 mt-1">{dict.nav.cats}</h2>
