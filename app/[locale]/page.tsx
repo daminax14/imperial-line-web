@@ -96,9 +96,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="inline-block px-3 py-1 mb-4 border border-white/30 backdrop-blur-md rounded-full">
            <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Est. 2026 — Excellence</p>
         </div>
-        <h1 className="text-6xl md:text-8xl font-serif italic text-white leading-tight mb-6 drop-shadow-2xl">
+        <h1 className="text-1xl md:text-5xl font-serif italic text-white leading-tight mb-6 drop-shadow-2xl">
           {dict.hero.title} <br/> 
-          <span className="text-yellow-100/90 drop-shadow-sm">{dict.hero.subtitle}</span>
+          <span className="text-[#D4AF37]  md:text-2xl drop-shadow-sm">{dict.hero.subtitle}</span>
         </h1>
         <p className="text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto drop-shadow-md">
           {dict.hero.description}

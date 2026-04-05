@@ -17,23 +17,28 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 py-4 md:py-5 flex justify-between items-center">
         
-        <Link href={`/${locale}`} className="flex items-center gap-2 group">
-          <img
-            src="/logo.jpeg"
-            alt="Imperial Line"
-            width={110}
-            height={44}
-            className="object-contain rounded"
-          />
-        </Link>
+        {/* CONTENITORE LOGO CON POSIZIONAMENTO A SBALZO */}
+        <div className="relative w-[180px] h-[100px] flex-shrink-0"> 
+          <Link 
+            href={`/${locale}`} 
+            className="absolute -top-3 left-0 w-[220px] h-[140px] z-[40] transition-transform hover:scale-105"
+          >
+            <img
+              src="/logo.jpeg"
+              alt="Imperial Line"
+              className="w-full h-full object-contain drop-shadow-md"
+            />
+          </Link>
+        </div>
 
-        {/* MENU CENTRALE - NOTA: usiamo dict.nav.xxx */}
+        {/* MENU CENTRALE */}
         <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] text-slate-500 font-bold">
           <Link href={`/${locale}`} className="hover:text-gold-200 transition-colors">
             {dict?.nav?.home || 'Home'}
           </Link>
+          
           <div className="relative group">
             <Link href={`/${locale}/i-nostri-gatti/moon`} className="hover:text-gold-200 transition-colors inline-flex items-center gap-2">
               {dict?.nav?.cats || 'Gatti'}
@@ -51,6 +56,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
               </div>
             </div>
           </div>
+
           <Link href={`/${locale}/gattini-disponibili`} className="hover:text-gold-200 transition-colors">
             {dict?.nav?.availableKittens || 'Gattini disponibili'}
           </Link>
@@ -65,6 +71,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
         </div>
 
+        {/* LINGUA E TASTO PRENOTA */}
         <div className="flex items-center gap-6">
           <div className="border-r border-slate-200 pr-6">
             <details className="relative group">
@@ -100,7 +107,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </div>
 
           <Link href={`/${locale}/contatti`} className="hidden sm:block text-[10px] bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase">
-            {dict?.nav?.book || 'Book Now'}
+            {dict?.nav?.book || 'Prenota'}
           </Link>
         </div>
       </nav>
