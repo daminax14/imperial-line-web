@@ -1,8 +1,7 @@
 import { client, urlFor } from '@/lib/sanity'
 import Link from 'next/link'
-import { getDictionary } from '@/lib/get-dictionary' // Importiamo il caricatore di JSON
+import { getDictionary } from '@/lib/get-dictionary'
 
-// Funzione aggiornata per Sanity: ora accetta la lingua
 async function getCats(locale: string) {
   const query = `*[_type == "cat"] {
     _id,
@@ -10,27 +9,42 @@ async function getCats(locale: string) {
     "slug": slug.current,
     image,
     category,
-    // Prende la descrizione nella lingua corretta, altrimenti fallback sull'italiano
     "description": coalesce(description[${locale}], description.it)
   }`
   const data = await client.fetch(query)
   return data
 }
 
+async function getBreedSections(locale: string) {
+  const query = `*[_type == "breedSection"] | order(order asc) {
+    _id,
+    "title": coalesce(title.${locale}, title.it),
+    "slug": slug.current,
+    "excerpt": coalesce(excerpt.${locale}, excerpt.it)
+  }`
+  const data = await client.fetch(query)
+  return data
+}
+
+type BreedSection = {
+  _id: string
+  title: string
+  slug: string
+  excerpt?: string
+}
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
-  // 1. Recuperiamo la lingua dall'URL
   const { locale } = await params
-  
-  // 2. Carichiamo il dizionario JSON per i testi fissi (Hero, Bottoni, ecc.)
   const dict = await getDictionary(locale as 'it' | 'en' | 'de')
-  
-  // 3. Carichiamo i gatti da Sanity passando la lingua
-  const cats = await getCats(locale)
+  const [cats, breedSections] = await Promise.all([
+    getCats(locale),
+    getBreedSections(locale),
+  ])
 
   return (
-    <main className="bg-[#FCFAF8] min-h-screen text-[#1A1A1A] font-sans">
+    <main className="bg-[#c2c8d4] min-h-screen text-[#1A1A1A] font-sans">
       
-      {/* 1. HERO SECTION - Testi presi dal JSON */}
+      {/* 1. HERO SECTION */}
       <section className="relative h-[60vh] w-full mt-[80px] flex items-center justify-center overflow-hidden bg-slate-100">
         <div className="absolute inset-0">
           <img 
@@ -51,7 +65,42 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      {/* 2. THE STARS GALLERY - Contenuti da Sanity */}
+      {/* 2. BREED SECTIONS SUBMENU - Testi da Sanity */}
+      {breedSections && breedSections.length > 0 && (
+        <section className="py-12 bg-white/60 backdrop-blur-sm border-b border-white/40">
+          <div className="max-w-4xl mx-auto px-6">
+            <ul className="divide-y divide-slate-200/70">
+              {breedSections.map((section: BreedSection, index: number) => (
+                <li key={section._id}>
+                  <Link
+                    href={`/${locale}/razza/${section.slug}`}
+                    className="flex items-start gap-5 py-5 group transition-colors hover:bg-white/40 rounded-xl px-4 -mx-4"
+                  >
+                    <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border-2 border-gold-200 flex items-center justify-center text-gold-200 font-bold text-xs group-hover:bg-gold-200 group-hover:text-white transition-all">
+                      {index + 1}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-serif text-slate-900 group-hover:text-gold-200 transition-colors leading-snug">
+                        {section.title}
+                      </h3>
+                      {section.excerpt && (
+                        <p className="mt-1 text-sm text-slate-500 font-light leading-relaxed line-clamp-2">
+                          {section.excerpt}
+                        </p>
+                      )}
+                    </div>
+                    <span className="flex-shrink-0 mt-1 text-slate-300 group-hover:text-gold-200 transition-colors text-lg">
+                      →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* 3. THE STARS GALLERY - Contenuti da Sanity */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:row justify-between items-start md:items-end mb-16 gap-4">

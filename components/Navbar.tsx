@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 
 export default function Navbar({ dict, locale }: { dict: any, locale: string }) {
@@ -17,8 +18,15 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         
-        <Link href={`/${locale}`} className="text-2xl font-serif text-slate-900 group flex items-center gap-1">
-          Imperial <span className="italic text-gold-200 font-light">Line</span>
+        <Link href={`/${locale}`} className="flex items-center gap-2 group">
+          <Image
+            src="/logo-placeholder.png"
+            alt="Imperial Line"
+            width={110}
+            height={28}
+            priority
+            className="object-contain"
+          />
         </Link>
 
         {/* MENU CENTRALE - NOTA: usiamo dict.nav.xxx */}
