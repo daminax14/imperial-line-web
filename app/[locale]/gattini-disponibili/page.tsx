@@ -338,64 +338,78 @@ function HistoryLitterCard({
   const coverImg = litter.coverImage ?? litter.motherImage ?? litter.fatherImage ?? null
   const href = litter.slug ? `/${locale}/cucciolate/${litter.slug}` : undefined
 
-  const PhotoBlock = (
-    <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
-      {coverImg ? (
-        <img
-          src={urlFor(coverImg).width(700).height(525).fit('crop').url()}
-          alt={litter.title || 'Cucciolata'}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-        />
-      ) : (
-        <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-          <span className="text-slate-300 text-3xl font-serif italic tracking-widest">◦ ◦ ◦</span>
+  const cardContent = (
+    <>
+      {/* Cover image */}
+      <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+        {coverImg ? (
+          <img
+            src={urlFor(coverImg).width(700).height(525).fit('crop').url()}
+            alt={litter.title || 'Cucciolata'}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
+            <span className="text-slate-300 text-3xl font-serif italic tracking-widest">◦ ◦ ◦</span>
+          </div>
+        )}
+        {/* Gradient overlay with title */}
+        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/65 to-transparent" />
+        <div className="absolute bottom-3 left-4 right-4">
+          <p className="text-white font-serif italic text-lg leading-tight drop-shadow">
+            {litter.title || 'Cucciolata'}
+          </p>
+          {litter.birthDate && (
+            <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate)}</p>
+          )}
         </div>
-      )}
-      <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 to-transparent" />
-      <div className="absolute bottom-3 left-4 right-4">
-        <p className="text-white font-serif italic text-lg leading-tight drop-shadow">
-          {litter.title || 'Cucciolata'}
-        </p>
-        {litter.birthDate && (
-          <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate)}</p>
+        {/* "Click to view" hover hint */}
+        {href && (
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+              Vedi dettagli →
+            </span>
+          </div>
         )}
       </div>
-    </div>
+
+      {/* Card footer */}
+      <div className="px-5 py-4">
+        {(litter.fatherName || litter.motherName) && (
+          <div className="flex items-center gap-3 mb-3">
+            <CirclePhoto
+              image={litter.fatherImage}
+              name={litter.fatherName}
+              alt={litter.fatherName || 'Padre'}
+            />
+            <span className="text-[#2f6f99] font-light text-lg">×</span>
+            <CirclePhoto
+              image={litter.motherImage}
+              name={litter.motherName}
+              alt={litter.motherName || 'Madre'}
+            />
+          </div>
+        )}
+        {litter.notes && (
+          <p className="text-xs text-[#6a85a0] leading-relaxed line-clamp-2">
+            {litter.notes}
+          </p>
+        )}
+        {href && (
+          <p className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#2f6f99]">
+            Dettaglio cuccioli <span>→</span>
+          </p>
+        )}
+      </div>
+    </>
   )
 
   return (
-    <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+    <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl cursor-pointer">
       {href ? (
-        <Link href={href} className="block">{PhotoBlock}</Link>
+        <Link href={href} className="block">{cardContent}</Link>
       ) : (
-        PhotoBlock
-      )}
-      {(litter.fatherName || litter.motherName || litter.notes || href) && (
-        <div className="px-5 py-4">
-          {(litter.fatherName || litter.motherName) && (
-            <p className="text-sm text-[#4a6580]">
-              {litter.fatherName && <span className="italic">{litter.fatherName}</span>}
-              {litter.fatherName && litter.motherName && (
-                <span className="mx-1.5 text-[#2f6f99]">×</span>
-              )}
-              {litter.motherName && <span className="italic">{litter.motherName}</span>}
-            </p>
-          )}
-          {litter.notes && (
-            <p className="text-xs text-[#6a85a0] mt-1.5 leading-relaxed line-clamp-2">
-              {litter.notes}
-            </p>
-          )}
-          {href && (
-            <Link
-              href={href}
-              className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
-            >
-              <span>Dettaglio cuccioli</span>
-              <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
-            </Link>
-          )}
-        </div>
+        cardContent
       )}
     </article>
   )

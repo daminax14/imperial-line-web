@@ -21,11 +21,11 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
         
         <Link href={`/${locale}`} className="flex items-center gap-2 group">
           <img
-            src="/logo-placeholder.png"
+            src="/logo.jpeg"
             alt="Imperial Line"
             width={110}
-            height={28}
-            className="object-contain"
+            height={44}
+            className="object-contain rounded"
           />
         </Link>
 

@@ -81,15 +81,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
     </div>
 
-    {/* 1. HERO SECTION - Più immersiva */}
+    {/* 1. HERO SECTION */}
     <section className="relative h-[85vh] w-full mt-[80px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 scale-110">
         <img 
-          src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?q=80&w=2500" 
+          src="/main_menu.JPG" 
           className="w-full h-full object-cover opacity-90 animate-slow-zoom" 
-          alt="Siberian Cat Hero" 
+          alt="Imperial Line – Siberian Neva Masquerade" 
         />
-        {/* Overlay sfumato per non avere stacchi netti */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-[#e5e7eb]"></div>
       </div>
       
@@ -104,6 +103,59 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <p className="text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto drop-shadow-md">
           {dict.hero.description}
         </p>
+      </div>
+    </section>
+
+    {/* 1b. GALLERY SECTION – home images */}
+    <section className="py-20 relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2 text-center">Imperial Line</p>
+        <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-10 text-center leading-tight">
+          Il nostro allevamento
+        </h2>
+        {/* Asymmetric editorial grid */}
+        <div className="grid grid-cols-12 grid-rows-2 gap-3 h-[600px] md:h-[680px]">
+          {/* Large left image */}
+          <div className="col-span-12 md:col-span-5 row-span-2 overflow-hidden rounded-2xl shadow-xl">
+            <img
+              src="/home_1.JPG"
+              alt="Imperial Line – foto 1"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          {/* Top-right large */}
+          <div className="col-span-6 md:col-span-4 row-span-1 overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/home_2.JPG"
+              alt="Imperial Line – foto 2"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          {/* Top-far-right */}
+          <div className="col-span-6 md:col-span-3 row-span-1 overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/home_3.JPG"
+              alt="Imperial Line – foto 3"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          {/* Bottom-right */}
+          <div className="col-span-6 md:col-span-4 row-span-1 overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/home_4.JPG"
+              alt="Imperial Line – foto 4"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          {/* Bottom-far-right */}
+          <div className="col-span-6 md:col-span-3 row-span-1 overflow-hidden rounded-2xl shadow-lg">
+            <img
+              src="/home_5.JPG"
+              alt="Imperial Line – foto 5"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
       </div>
     </section>
 
