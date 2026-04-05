@@ -2,7 +2,9 @@
   "nav": {
     "home": "Home",
     "cats": "I Nostri Gatti",
+    "availableKittens": "Gattini disponibili",
     "advice": "Consigli",
+    "adoptionConditions": "Condizioni per l'adozione",
     "contact": "Contatti",
     "book": "Prenota"
   },
@@ -21,19 +23,177 @@
     "rights": "Tutti i diritti riservati"
   },
   "catPage": {
-  "birth": "Nascita",
-  "health": "Salute",
-  "inquire": "Richiedi Informazioni",
-  "techDetails": "Dettagli Tecnici",
-  "sex": "Sesso",
-  "color": "Colore",
-  "ems": "Codice EMS",
-  "pedigree": "Pedigree",
-  "lineage": "Albero Genealogico",
-  "lineage_sub": "The Lineage",
-  "sire": "Sire (Padre)",
-  "dam": "Dam (Madre)",
-  "current": "Soggetto Attuale"
-}
-  
+    "birth": "Nascita",
+    "health": "Salute",
+    "inquire": "Richiedi Informazioni",
+    "techDetails": "Dettagli Tecnici",
+    "sex": "Sesso",
+    "color": "Colore",
+    "ems": "Codice EMS",
+    "pedigree": "Pedigree",
+    "lineage": "Albero Genealogico",
+    "lineage_sub": "The Lineage",
+    "sire": "Sire (Padre)",
+    "dam": "Dam (Madre)",
+    "current": "Soggetto Attuale"
+  },
+  "adoptionPage": {
+    "title": "Condizioni per l'adozione",
+    "intro": "Per garantire benessere e serenità ai nostri cuccioli e alle nuove famiglie, seguiamo regole precise e trasparenti in ogni fase dell'adozione.",
+    "sections": [
+      {
+        "title": "Consegna alla 14ª settimana di vita",
+        "paragraphs": [
+          "I gattini lasceranno la nostra casa e verranno affidati alle nuove famiglie solo al compimento della 14ª settimana.",
+          "Questo periodo è fondamentale per uno sviluppo sano e completo vicino alla mamma e ai fratellini."
+        ],
+        "points": []
+      },
+      {
+        "title": "Salute garantita e test genetici",
+        "paragraphs": [
+          "Tutti i nostri gatti adulti sono sottoposti a test genetici per le patologie più comuni: FIV, FeLV, PKD e HCM.",
+          "Una copia dei risultati dei test viene consegnata ai nuovi proprietari al momento dell'affido."
+        ],
+        "points": []
+      },
+      {
+        "title": "Pedigree originale",
+        "paragraphs": [
+          "Ogni cucciolo viene ceduto con pedigree originale FIFe o WCF, a tutela di genealogia e purezza della razza.",
+          "Forniamo inoltre la copia del pedigree dei genitori."
+        ],
+        "points": []
+      },
+      {
+        "title": "Cure veterinarie complete",
+        "paragraphs": [
+          "I cuccioli ricevono due cicli di sverminazione e due vaccinazioni.",
+          "Alla consegna viene fornito il libretto sanitario che certifica lo stato di buona salute."
+        ],
+        "points": []
+      },
+      {
+        "title": "Aggiornamenti e supporto continuo",
+        "paragraphs": [
+          "Dopo la prenotazione inviamo regolarmente foto, video e aggiornamenti sulla crescita del gattino.",
+          "Rimaniamo disponibili nel tempo per consigli e supporto, con l'obiettivo di favorire benessere e adattamento nella nuova casa."
+        ],
+        "points": []
+      },
+      {
+        "title": "Cuccioli da compagnia e sterilizzazione",
+        "paragraphs": [
+          "Salvo accordi differenti, i cuccioli sono ceduti con pedigree da compagnia.",
+          "La sterilizzazione è richiesta intorno ai 6-8 mesi, o quando indicato dal veterinario, al raggiungimento di circa il 70-80% del peso da adulto.",
+          "Non sterilizziamo i cuccioli prima della consegna, perché li riteniamo troppo giovani per affrontare un intervento precoce."
+        ],
+        "points": []
+      },
+      {
+        "title": "Pedigree da riproduzione",
+        "paragraphs": [
+          "La cessione con pedigree da riproduzione è possibile solo previo accordo specifico prima della stipula del contratto.",
+          "Non cediamo cuccioli ad allevamenti in gabbia isolatoria o che mischiano razze diverse: selezioniamo con attenzione famiglie e allevamenti."
+        ],
+        "points": []
+      },
+      {
+        "title": "Cuccioli destinati all'estero",
+        "paragraphs": [
+          "Per l'estero sono necessari vaccino antirabbico, tempi di attesa di legge e passaporto internazionale.",
+          "Le spese aggiuntive per documenti e vaccinazioni sono a carico dell'acquirente."
+        ],
+        "points": []
+      },
+      {
+        "title": "Prenotazione, caparra e lista d'attesa",
+        "paragraphs": [
+          "Un cucciolo è considerato prenotato solo dopo il versamento della caparra di 350 euro.",
+          "In caso di ripensamento la caparra in genere non è rimborsabile, salvo eccezioni motivate e comunicate tempestivamente.",
+          "È disponibile una lista d'attesa gratuita per chi desidera un cucciolo Imperial Line ma non è ancora pronto alla prenotazione."
+        ],
+        "points": []
+      },
+      {
+        "title": "Spedizione e viaggio",
+        "paragraphs": [
+          "Per quanto possibile preferiamo la consegna diretta o il ritiro da parte della nuova famiglia.",
+          "La spedizione aerea per l'estero è possibile, mentre rifiutiamo la spedizione tramite corrieri."
+        ],
+        "points": []
+      },
+      {
+        "title": "Il nostro impegno quotidiano",
+        "paragraphs": [
+          "Cresciamo i gattini in casa e li abituiamo gradualmente alla vita domestica e alla socializzazione.",
+          "Prima della consegna ci assicuriamo che siano autonomi, in piena salute e sereni nel contatto umano."
+        ],
+        "points": [
+          "Abituazione ai rumori quotidiani della casa.",
+          "Socializzazione con persone e altri gatti.",
+          "Educazione alla toelettatura: spazzola, unghie, primo bagnetto.",
+          "Uso corretto della lettiera.",
+          "Alimentazione autonoma con cibo umido e secco di qualità.",
+          "Aggiornamenti regolari con foto, video e informazioni sul carattere.",
+          "Consegna di un gattino in ottime condizioni sanitarie.",
+          "Starter kit omaggio con cibo, giochino e copertina."
+        ]
+      },
+      {
+        "title": "Relazione con le nuove famiglie",
+        "paragraphs": [
+          "Manteniamo un contatto continuo e sereno con le famiglie anche dopo l'affido.",
+          "Rispondiamo a dubbi e domande, offrendo supporto per garantire ai cuccioli un ambiente ideale."
+        ],
+        "points": []
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "Prenotazione",
+    "subtitle": "Modulo di pre-adozione",
+    "intro": "Compila il modulo per aiutarci a conoscere meglio le tue esigenze e guidarti nella scelta del gattino piu adatto.",
+    "submit": "Invia",
+    "thanks": "Grazie per l'interesse verso Imperial Line. Dopo l'invio del modulo ti contatteremo entro 24 ore via email o al recapito indicato.",
+    "fields": {
+      "name": "Nome e Cognome*",
+      "namePlaceholder": "Il tuo nome e cognome",
+      "allergic": "Sei allergico ai gatti?*",
+      "genderPreference": "Vuoi una femminuccia o un maschietto?*",
+      "specificKitten": "Sei interessato ad un gattino in particolare? *facoltativo",
+      "specificKittenPlaceholder": "Inserisci il tuo messaggio",
+      "futureLitter": "Vuoi prenotare un gattino da una prossima cucciolata? *facoltativo",
+      "colorPreference": "Se si, hai qualche preferenza di colore? *facoltativo",
+      "colorPlaceholder": "Risposta breve",
+      "otherPets": "Hai altri animali domestici?*",
+      "aboutYou": "Raccontaci di te*",
+      "aboutYouPlaceholder": "Inserisci il tuo messaggio",
+      "email": "Email*",
+      "emailPlaceholder": "Il tuo indirizzo email"
+    },
+    "options": {
+      "yes": "Si",
+      "no": "No",
+      "female": "Femmina",
+      "male": "Maschio",
+      "noPreference": "Non e importante/Non lo so ancora",
+      "otherCats": "Si, ho altri gatti",
+      "noOtherCats": "Si, ma non ho altri gatti",
+      "wantCat": "No, ma vorrei avere un gatto"
+    }
+  },
+  "availableKittensPage": {
+    "title": "Gattini disponibili",
+    "intro": "In questa sezione trovi i gattini attualmente disponibili e lo storico delle cucciolate gia nate o pianificate.",
+    "availableTitle": "Disponibili ora",
+    "plannedTitle": "Cucciolate pianificate",
+    "historyTitle": "Storico cucciolate",
+    "emptyAvailable": "Al momento non ci sono gattini disponibili.",
+    "emptyPlanned": "Nessuna cucciolata pianificata al momento.",
+    "emptyHistory": "Storico non disponibile per ora.",
+    "details": "Dettagli",
+    "plannedLabel": "Prevista",
+    "bornLabel": "Nata"
+  }
 }

@@ -2,7 +2,9 @@
   "nav": {
     "home": "Home",
     "cats": "Our Cats",
+    "availableKittens": "Available Kittens",
     "advice": "Advice",
+    "adoptionConditions": "Adoption Conditions",
     "contact": "Contact",
     "book": "Book Now"
   },
@@ -12,27 +14,87 @@
     "description": "Preserving the majesty and gentle temperament of the original Siberian cat."
   },
   "footer": {
-  "tagline": "Excellence Breeding Siberian Neva Masquerade",
-  "explore": "Explore",
-  "contacts": "Contacts",
-  "location": "Italy, [Location]",
-  "privacy": "Privacy",
-  "cookies": "Cookies",
-  "rights": "All rights reserved"
+    "tagline": "Excellence Breeding Siberian Neva Masquerade",
+    "explore": "Explore",
+    "contacts": "Contacts",
+    "location": "Italy, [Location]",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "rights": "All rights reserved"
   },
   "catPage": {
-  "birth": "Birth",
-  "health": "Health",
-  "inquire": "Inquire Now",
-  "techDetails": "Technical Details",
-  "sex": "Sex",
-  "color": "Color",
-  "ems": "EMS Code",
-  "pedigree": "Pedigree",
-  "lineage": "Family Tree",
-  "lineage_sub": "The Lineage",
-  "sire": "Sire (Father)",
-  "dam": "Dam (Mother)",
-  "current": "Current Exemplar"
-}
+    "birth": "Birth",
+    "health": "Health",
+    "inquire": "Inquire Now",
+    "techDetails": "Technical Details",
+    "sex": "Sex",
+    "color": "Color",
+    "ems": "EMS Code",
+    "pedigree": "Pedigree",
+    "lineage": "Family Tree",
+    "lineage_sub": "The Lineage",
+    "sire": "Sire (Father)",
+    "dam": "Dam (Mother)",
+    "current": "Current Exemplar"
+  },
+  "adoptionPage": {
+    "title": "Adoption Conditions",
+    "intro": "Below you can find our adoption rules. The full translation is being refined and structured section by section.",
+    "sections": [
+      {
+        "title": "Translation in progress",
+        "paragraphs": [
+          "The complete content is currently available in Italian and will be translated into English soon.",
+          "You can still browse this page structure and we can add the full English version section by section."
+        ],
+        "points": []
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "Reservation",
+    "subtitle": "Pre-adoption form",
+    "intro": "Fill out this form to help us understand your needs and guide you toward the most suitable kitten.",
+    "submit": "Send",
+    "thanks": "Thank you for your interest in Imperial Line. After submitting the form we will contact you within 24 hours by email or using your preferred contact method.",
+    "fields": {
+      "name": "Full name*",
+      "namePlaceholder": "Your full name",
+      "allergic": "Are you allergic to cats?*",
+      "genderPreference": "Would you prefer a female or a male kitten?*",
+      "specificKitten": "Are you interested in a specific kitten? *optional",
+      "specificKittenPlaceholder": "Write your message",
+      "futureLitter": "Would you like to reserve a kitten from an upcoming litter? *optional",
+      "colorPreference": "If yes, do you have a color preference? *optional",
+      "colorPlaceholder": "Short answer",
+      "otherPets": "Do you have other pets?*",
+      "aboutYou": "Tell us about yourself*",
+      "aboutYouPlaceholder": "Write your message",
+      "email": "Email*",
+      "emailPlaceholder": "Your email address"
+    },
+    "options": {
+      "yes": "Yes",
+      "no": "No",
+      "female": "Female",
+      "male": "Male",
+      "noPreference": "No preference / Not sure yet",
+      "otherCats": "Yes, I have other cats",
+      "noOtherCats": "Yes, but no other cats",
+      "wantCat": "No, but I would like to have a cat"
+    }
+  },
+  "availableKittensPage": {
+    "title": "Available Kittens",
+    "intro": "Here you can view currently available kittens and the history of past or planned litters.",
+    "availableTitle": "Available now",
+    "plannedTitle": "Planned litters",
+    "historyTitle": "Litter history",
+    "emptyAvailable": "There are currently no available kittens.",
+    "emptyPlanned": "No planned litters at the moment.",
+    "emptyHistory": "No historical litters available yet.",
+    "details": "Details",
+    "plannedLabel": "Planned",
+    "bornLabel": "Born"
+  }
 }

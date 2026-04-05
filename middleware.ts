@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-let locales = ['it', 'en', 'de']
+let locales = ['it', 'en', 'de', 'fr']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
@@ -19,5 +19,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|images).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|images|.*\\..*).*)'],
 }

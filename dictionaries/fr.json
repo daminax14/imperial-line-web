@@ -1,0 +1,100 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "cats": "Nos Chats",
+    "availableKittens": "Chatons disponibles",
+    "advice": "Conseils",
+    "adoptionConditions": "Conditions d'adoption",
+    "contact": "Contact",
+    "book": "Reserver"
+  },
+  "hero": {
+    "title": "Elegance feline",
+    "subtitle": "Authentique",
+    "description": "Nous preservons la majeste et la douceur du chat Siberien d'origine."
+  },
+  "footer": {
+    "tagline": "Elevage d'excellence Siberien Neva Masquerade",
+    "explore": "Explorer",
+    "contacts": "Contacts",
+    "location": "Italie, [Localite]",
+    "privacy": "Confidentialite",
+    "cookies": "Cookies",
+    "rights": "Tous droits reserves"
+  },
+  "catPage": {
+    "birth": "Naissance",
+    "health": "Sante",
+    "inquire": "Demander des informations",
+    "techDetails": "Details techniques",
+    "sex": "Sexe",
+    "color": "Couleur",
+    "ems": "Code EMS",
+    "pedigree": "Pedigree",
+    "lineage": "Arbre genealogique",
+    "lineage_sub": "La Lignee",
+    "sire": "Sire (Pere)",
+    "dam": "Dam (Mere)",
+    "current": "Sujet actuel"
+  },
+  "adoptionPage": {
+    "title": "Conditions d'adoption",
+    "intro": "Vous trouverez ici nos regles d'adoption. La traduction complete sera integree progressivement.",
+    "sections": [
+      {
+        "title": "Traduction en cours",
+        "paragraphs": [
+          "Le contenu complet est actuellement disponible en italien et sera bientot traduit en francais.",
+          "La structure de la page est deja prete pour integrer chaque section traduite."
+        ],
+        "points": []
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "Reservation",
+    "subtitle": "Formulaire de pre-adoption",
+    "intro": "Remplissez ce formulaire pour nous aider a vous accompagner dans le choix du chaton le plus adapte.",
+    "submit": "Envoyer",
+    "thanks": "Merci pour votre interessement. Nous repondrons dans les plus brefs delais par email ou via le contact fourni.",
+    "fields": {
+      "name": "Nom et prenom*",
+      "namePlaceholder": "Votre nom et prenom",
+      "allergic": "Etes-vous allergique aux chats ?*",
+      "genderPreference": "Souhaitez-vous une femelle ou un male ?*",
+      "specificKitten": "Etes-vous interesse par un chaton en particulier ? *facultatif",
+      "specificKittenPlaceholder": "Ecrivez votre message",
+      "futureLitter": "Souhaitez-vous reserver un chaton d'une prochaine portee ? *facultatif",
+      "colorPreference": "Avez-vous une preference de couleur ? *facultatif",
+      "colorPlaceholder": "Reponse courte",
+      "otherPets": "Avez-vous d'autres animaux domestiques ?*",
+      "aboutYou": "Parlez-nous de vous*",
+      "aboutYouPlaceholder": "Ecrivez votre message",
+      "email": "Email*",
+      "emailPlaceholder": "Votre adresse email"
+    },
+    "options": {
+      "yes": "Oui",
+      "no": "Non",
+      "female": "Femelle",
+      "male": "Male",
+      "noPreference": "Pas de preference / Je ne sais pas encore",
+      "otherCats": "Oui, j'ai d'autres chats",
+      "noOtherCats": "Oui, mais je n'ai pas d'autres chats",
+      "wantCat": "Non, mais je souhaite un chat"
+    }
+  },
+  "availableKittensPage": {
+    "title": "Chatons disponibles",
+    "intro": "Retrouvez ici les chatons actuellement disponibles ainsi que l'historique des portees passees et planifiees.",
+    "availableTitle": "Disponibles maintenant",
+    "plannedTitle": "Portees planifiees",
+    "historyTitle": "Historique des portees",
+    "emptyAvailable": "Aucun chaton disponible pour le moment.",
+    "emptyPlanned": "Aucune portee planifiee actuellement.",
+    "emptyHistory": "Historique non disponible pour le moment.",
+    "details": "Details",
+    "plannedLabel": "Prevue",
+    "bornLabel": "Nee"
+  }
+}

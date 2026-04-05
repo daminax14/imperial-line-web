@@ -15,121 +15,155 @@ async function getCats(locale: string) {
   return data
 }
 
-async function getBreedSections(locale: string) {
-  const query = `*[_type == "breedSection"] | order(order asc) {
-    _id,
-    "title": coalesce(title.${locale}, title.it),
-    "slug": slug.current,
-    "excerpt": coalesce(excerpt.${locale}, excerpt.it)
-  }`
-  const data = await client.fetch(query)
-  return data
+type TopicItem = {
+  id: string
+  title: string
+  content: string
 }
 
-type BreedSection = {
-  _id: string
-  title: string
-  slug: string
-  excerpt?: string
+function getSiberianTopics(): TopicItem[] {
+  return [
+    {
+      id: 'topic-1',
+      title: 'Storia e origini del gatto siberiano',
+      content:
+        'Il gatto siberiano nasce nelle regioni fredde della Russia e si e adattato nei secoli a climi rigidi con un mantello fitto e idrorepellente. E una razza naturale, selezionata piu dall ambiente che dall intervento umano, con carattere equilibrato e grande resistenza.',
+    },
+    {
+      id: 'topic-2',
+      title: 'La variante Neva Masquerade e le sue caratteristiche',
+      content:
+        'Il Neva Masquerade e la variante colorpoint del siberiano, riconoscibile per il contrasto tra corpo chiaro e estremita piu scure, spesso con occhi azzurri intensi. Mantiene struttura, temperamento e robustezza del siberiano classico, con un aspetto particolarmente elegante.',
+    },
+    {
+      id: 'topic-3',
+      title: 'Perche scegliere un gatto siberiano?',
+      content:
+        'E una scelta ideale per chi desidera un gatto affettuoso ma non invadente, intelligente e adatto alla vita familiare. Si lega molto alle persone, convive bene con bambini e altri animali e mostra una notevole capacita di adattamento agli spazi domestici.',
+    },
+    {
+      id: 'topic-4',
+      title: 'Il gatto siberiano e ipoallergenico?',
+      content:
+        'Non esiste un gatto completamente anallergico, ma molti soggetti siberiani producono livelli piu bassi della proteina Fel d1 rispetto ad altre razze. Per chi soffre di allergie leggere o moderate puo risultare meglio tollerato, ma la valutazione resta sempre individuale.',
+    },
+    {
+      id: 'topic-5',
+      title: 'Sapevi che il gatto Siberiano e utilizzato anche nella pet therapy ?',
+      content:
+        'Grazie al temperamento socievole e alla sensibilita verso l umore umano, in alcuni contesti il siberiano viene coinvolto in percorsi assistiti. La sua presenza puo favorire rilassamento, motivazione e interazione, soprattutto in attivita educative o di supporto emotivo.',
+    },
+  ]
 }
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const dict = await getDictionary(locale as 'it' | 'en' | 'de')
-  const [cats, breedSections] = await Promise.all([
-    getCats(locale),
-    getBreedSections(locale),
-  ])
+  const dict = await getDictionary(locale)
+  const cats = await getCats(locale)
+  const siberianTopics = getSiberianTopics()
 
-  return (
-    <main className="bg-[#c2c8d4] min-h-screen text-[#1A1A1A] font-sans">
+ return (
+  <main className="relative min-h-screen text-[#1A1A1A] font-sans overflow-hidden">
+    
+    {/* SFONDO COMPLESSO: Texture + Gradienti */}
+    <div className="fixed inset-0 -z-10 bg-[#e5e7eb]">
+      {/* Texture a grana (Noise) - Opzionale via CSS o immagine */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
       
-      {/* 1. HERO SECTION */}
-      <section className="relative h-[60vh] w-full mt-[80px] flex items-center justify-center overflow-hidden bg-slate-100">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?q=80&w=2500" 
-            className="w-full h-full object-cover opacity-80 animate-slow-zoom" 
-            alt="Siberian Cat Hero" 
-          />
+      {/* Elementi Geometrici "Vivi" */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-[120px] animate-pulse"></div>
+      <div className="absolute bottom-[20%] right-[-5%] w-[400px] h-[400px] bg-gold-100/30 rounded-full blur-[100px]"></div>
+      
+      {/* Linee sottili decorative */}
+      <div className="absolute inset-0 overflow-hidden opacity-20">
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
+        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
+      </div>
+    </div>
+
+    {/* 1. HERO SECTION - Più immersiva */}
+    <section className="relative h-[85vh] w-full mt-[80px] flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 scale-110">
+        <img 
+          src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?q=80&w=2500" 
+          className="w-full h-full object-cover opacity-90 animate-slow-zoom" 
+          alt="Siberian Cat Hero" 
+        />
+        {/* Overlay sfumato per non avere stacchi netti */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-[#e5e7eb]"></div>
+      </div>
+      
+      <div className="relative z-10 text-center px-6">
+        <div className="inline-block px-3 py-1 mb-4 border border-white/30 backdrop-blur-md rounded-full">
+           <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Est. 2026 — Excellence</p>
         </div>
+        <h1 className="text-6xl md:text-8xl font-serif italic text-white leading-tight mb-6 drop-shadow-2xl">
+          {dict.hero.title} <br/> 
+          <span className="text-yellow-100/90 drop-shadow-sm">{dict.hero.subtitle}</span>
+        </h1>
+        <p className="text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+          {dict.hero.description}
+        </p>
+      </div>
+    </section>
+
+    {/* 2. THE STARS GALLERY */}
+    <section className="py-32 relative">
+      <div className="max-w-7xl mx-auto px-6">
         
-        <div className="relative z-10 text-center px-6">
-          <p className="text-xs uppercase tracking-[0.4em] text-white font-semibold drop-shadow-md">Est. 2026</p>
-          <h1 className="text-5xl md:text-7xl font-serif italic text-white leading-tight mt-3 mb-6 drop-shadow-lg">
-            {dict.hero.title} <br/> <span className="text-gold-200">{dict.hero.subtitle}</span>
-          </h1>
-          <p className="text-lg text-white/90 font-light leading-relaxed max-w-lg mx-auto drop-shadow-md">
-            {dict.hero.description}
-          </p>
-        </div>
-      </section>
-
-      {/* 2. BREED SECTIONS SUBMENU - Testi da Sanity */}
-      {Array.isArray(breedSections) && breedSections.length > 0 && (
-        <section className="py-12 bg-white/60 backdrop-blur-sm border-b border-white/40">
-          <div className="max-w-4xl mx-auto px-6">
-            <ul className="divide-y divide-slate-200/70">
-              {breedSections.map((section: BreedSection, index: number) => (
-                <li key={section._id}>
-                  <Link
-                    href={`/${locale}/razza/${section.slug}`}
-                    className="flex items-start gap-5 py-5 group transition-colors hover:bg-white/40 rounded-xl px-4 -mx-4"
-                  >
-                    <span className="mt-1 flex-shrink-0 w-6 h-6 rounded-full border-2 border-gold-200 flex items-center justify-center text-gold-200 font-bold text-xs group-hover:bg-gold-200 group-hover:text-white transition-all">
-                      {index + 1}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-serif text-slate-900 group-hover:text-gold-200 transition-colors leading-snug">
-                        {section.title}
-                      </h3>
-                      {section.excerpt && (
-                        <p className="mt-1 text-sm text-slate-500 font-light leading-relaxed line-clamp-2">
-                          {section.excerpt}
-                        </p>
-                      )}
-                    </div>
-                    <span className="flex-shrink-0 mt-1 text-slate-300 group-hover:text-gold-200 transition-colors text-lg">
-                      →
-                    </span>
-                  </Link>
-                </li>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          
+          {/* Colonna Sinistra: Topics (Sticky) */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32">
+            <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2">Knowledge Base</p>
+            <h2 className="text-5xl font-serif text-slate-900 mb-8 leading-none">Approfondimenti</h2>
+            
+            <div className="space-y-4">
+              {siberianTopics.map((topic) => (
+                <details key={topic.id} name="siberian-topics" className="group border-b border-slate-300/50 pb-4">
+                  <summary className="cursor-pointer list-none flex justify-between items-center py-2 group-open:text-amber-700 transition-colors">
+                    <span className="font-serif text-xl">{topic.title}</span>
+                    <span className="text-2xl transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <div className="pt-2">
+                    <p className="text-sm text-slate-600 leading-relaxed italic">{topic.content}</p>
+                  </div>
+                </details>
               ))}
-            </ul>
-          </div>
-        </section>
-      )}
-
-      {/* 3. THE STARS GALLERY - Contenuti da Sanity */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-gold-200">Bloodlines</p>
-              <h2 className="text-5xl font-serif text-slate-900 mt-1">{dict.nav.cats}</h2>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
-            {cats.map((cat: any) => (
-              <Link href={`/${locale}/cat/${cat.slug}`} key={cat._id} className="group block">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-xl mb-5 bg-slate-100 shadow-sm transition-all duration-700 group-hover:shadow-xl group-hover:-translate-y-1">
-                  <img 
-                    src={urlFor(cat.image).width(1000).url()} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                    alt={cat.name} 
-                  />
-                </div>
-                <div className="text-center px-1">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-gold-200 font-semibold">{cat.category}</p>
-                  <h3 className="text-2xl font-serif text-slate-800 mt-1">{cat.name}</h3>
-                </div>
-              </Link>
-            ))}
+          {/* Colonna Destra: Cards Gatti */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              {cats.map((cat: any) => (
+                <Link href={`/${locale}/cat/${cat.slug}`} key={cat._id} className="group relative">
+                  {/* Card con ombra morbida ed effetto hover solido */}
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 shadow-2xl">
+                    <img 
+                      src={urlFor(cat.image).width(1000).url()} 
+                      className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" 
+                      alt={cat.name} 
+                    />
+                    {/* Badge sovrapposto */}
+                    <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                      <p className="text-[9px] uppercase tracking-widest text-white">{cat.category}</p>
+                    </div>
+                  </div>
+                  
+                  <div className="text-left translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
+                    <h3 className="text-3xl font-serif text-slate-800">{cat.name}</h3>
+                    <div className="w-0 group-hover:w-full h-px bg-amber-600 transition-all duration-500 mt-2"></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
 
-    </main>
-  )
+        </div>
+      </div>
+    </section>
+
+  </main>
+)
 }

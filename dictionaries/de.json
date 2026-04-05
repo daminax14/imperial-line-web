@@ -2,7 +2,9 @@
   "nav": {
     "home": "Startseite",
     "cats": "Unsere Katzen",
+    "availableKittens": "Verfugbare Kitten",
     "advice": "Ratgeber",
+    "adoptionConditions": "Adoptionsbedingungen",
     "contact": "Kontakt",
     "book": "Buchen"
   },
@@ -21,18 +23,78 @@
     "rights": "Alle Rechte vorbehalten"
   },
   "catPage": {
-  "birth": "Geburtsdatum",
-  "health": "Gesundheit",
-  "inquire": "Jetzt anfragen",
-  "techDetails": "Technische Details",
-  "sex": "Geschlecht",
-  "color": "Farbe",
-  "ems": "EMS-Code",
-  "pedigree": "Stammbaum",
-  "lineage": "Ahnentafel",
-  "lineage_sub": "Die Abstammung",
-  "sire": "Vater",
-  "dam": "Mutter",
-  "current": "Aktuelles Exemplar"
-}
+    "birth": "Geburtsdatum",
+    "health": "Gesundheit",
+    "inquire": "Jetzt anfragen",
+    "techDetails": "Technische Details",
+    "sex": "Geschlecht",
+    "color": "Farbe",
+    "ems": "EMS-Code",
+    "pedigree": "Stammbaum",
+    "lineage": "Ahnentafel",
+    "lineage_sub": "Die Abstammung",
+    "sire": "Vater",
+    "dam": "Mutter",
+    "current": "Aktuelles Exemplar"
+  },
+  "adoptionPage": {
+    "title": "Adoptionsbedingungen",
+    "intro": "Unten finden Sie unsere Adoptionsregeln. Die vollständige Übersetzung wird schrittweise ergänzt.",
+    "sections": [
+      {
+        "title": "Übersetzung in Arbeit",
+        "paragraphs": [
+          "Der vollständige Inhalt ist aktuell auf Italienisch verfügbar und wird zeitnah ins Deutsche übertragen.",
+          "Die Seitenstruktur ist bereits vorbereitet, damit die Übersetzung Abschnitt für Abschnitt ergänzt werden kann."
+        ],
+        "points": []
+      }
+    ]
+  },
+  "contactPage": {
+    "title": "Reservierung",
+    "subtitle": "Voradoptionsformular",
+    "intro": "Fullen Sie dieses Formular aus, damit wir Ihre Wunsche besser verstehen und das passende Kitten empfehlen konnen.",
+    "submit": "Senden",
+    "thanks": "Vielen Dank fur Ihr Interesse an Imperial Line. Nach dem Absenden melden wir uns innerhalb von 24 Stunden per E-Mail oder uber den angegebenen Kontaktweg.",
+    "fields": {
+      "name": "Vor- und Nachname*",
+      "namePlaceholder": "Ihr Vor- und Nachname",
+      "allergic": "Sind Sie gegen Katzen allergisch?*",
+      "genderPreference": "Wunschen Sie ein weibliches oder mannliches Kitten?*",
+      "specificKitten": "Interessieren Sie sich fur ein bestimmtes Kitten? *optional",
+      "specificKittenPlaceholder": "Geben Sie Ihre Nachricht ein",
+      "futureLitter": "Mochten Sie ein Kitten aus einem kommenden Wurf reservieren? *optional",
+      "colorPreference": "Falls ja, haben Sie eine Farbprferenz? *optional",
+      "colorPlaceholder": "Kurze Antwort",
+      "otherPets": "Haben Sie andere Haustiere?*",
+      "aboutYou": "Erzahlen Sie uns etwas uber sich*",
+      "aboutYouPlaceholder": "Geben Sie Ihre Nachricht ein",
+      "email": "E-Mail*",
+      "emailPlaceholder": "Ihre E-Mail-Adresse"
+    },
+    "options": {
+      "yes": "Ja",
+      "no": "Nein",
+      "female": "Weiblich",
+      "male": "Mannlich",
+      "noPreference": "Keine Prferenz / Noch unsicher",
+      "otherCats": "Ja, ich habe andere Katzen",
+      "noOtherCats": "Ja, aber keine anderen Katzen",
+      "wantCat": "Nein, aber ich mochte eine Katze"
+    }
+  },
+  "availableKittensPage": {
+    "title": "Verfugbare Kitten",
+    "intro": "Hier finden Sie aktuell verfugbare Kitten sowie die Historie vergangener und geplanter Wurfe.",
+    "availableTitle": "Jetzt verfugbar",
+    "plannedTitle": "Geplante Wurfe",
+    "historyTitle": "Wurf-Historie",
+    "emptyAvailable": "Derzeit sind keine Kitten verfugbar.",
+    "emptyPlanned": "Momentan sind keine Wurfe geplant.",
+    "emptyHistory": "Noch keine Historie verfugbar.",
+    "details": "Details",
+    "plannedLabel": "Geplant",
+    "bornLabel": "Geboren"
+  }
 }
