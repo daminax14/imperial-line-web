@@ -105,21 +105,28 @@ export default async function CatsGroupPage({
   const sectionSubtitle = normalizedGroup === 'king' ? 'Maschi' : 'Femmine'
 
   return (
-    <main className="relative min-h-screen pt-32 pb-32 text-zinc-900 font-sans selection:bg-zinc-300 overflow-hidden bg-[#FAFAFA]">
+    <main className="relative min-h-screen pt-32 pb-32 text-zinc-900 font-sans selection:bg-zinc-300 overflow-hidden bg-[#edf3fb]">
       
-      {/* SFONDO ANIMATO "ETHEREAL SHADOWS" (Light Version) */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#FAFAFA]">
-        
-        {/* Grana / Noise overlay per l'effetto materico */}
-        <div 
-          className="absolute inset-0 opacity-[0.35] mix-blend-overlay z-10"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+      {/* SFONDO DINAMICO: mesh + forme morbide */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[radial-gradient(circle_at_20%_15%,#f9fcff_0%,#edf3fb_45%,#e6eef9_100%)]">
+        <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(66,142,191,0.15)_0%,rgba(255,255,255,0)_35%,rgba(212,175,55,0.14)_100%)]"></div>
+
+        {/* Grain leggero per evitare piattezza */}
+        <div
+          className="absolute inset-0 opacity-[0.22] mix-blend-overlay z-10"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
         ></div>
-        
-        {/* Ombre fluttuanti (Shadows) */}
-        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-zinc-300/60 mix-blend-multiply blur-[120px] animate-[pulse_14s_ease-in-out_infinite]"></div>
-        <div className="absolute top-[30%] right-[-20%] w-[70vw] h-[70vw] rounded-full bg-zinc-300/50 mix-blend-multiply blur-[150px] animate-[pulse_18s_ease-in-out_infinite_alternate]"></div>
-        <div className="absolute bottom-[-20%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-zinc-400/40 mix-blend-multiply blur-[130px] animate-[pulse_12s_ease-in-out_infinite_alternate-reverse]"></div>
+
+        {/* Blob principali */}
+        <div className="absolute -top-[16%] -left-[8%] w-[54vw] h-[54vw] rounded-[42%_58%_65%_35%/40%_42%_58%_60%] bg-[#72acd1]/50 blur-[95px] animate-[pulse_18s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[8%] right-[-16%] w-[58vw] h-[58vw] rounded-[60%_40%_45%_55%/53%_60%_40%_47%] bg-[#f0d37a]/40 blur-[110px] animate-[pulse_22s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-[-20%] left-[4%] w-[62vw] h-[62vw] rounded-[38%_62%_52%_48%/52%_44%_56%_48%] bg-[#5f8fbc]/36 blur-[115px] animate-[pulse_20s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-[-14%] right-[4%] w-[46vw] h-[46vw] rounded-[55%_45%_58%_42%/42%_62%_38%_58%] bg-[#d7b357]/34 blur-[90px] animate-[pulse_16s_ease-in-out_infinite]"></div>
+
+        {/* Accenti morbidi "orb" */}
+        <div className="absolute top-[28%] left-[18%] w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/55 blur-xl animate-[pulse_8s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[52%] right-[22%] w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#9ec4e3]/55 blur-lg animate-[pulse_10s_ease-in-out_infinite]"></div>
+        <div className="absolute bottom-[18%] left-[42%] w-20 h-20 rounded-full bg-[#f3df9d]/55 blur-lg animate-[pulse_12s_ease-in-out_infinite]"></div>
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10">
