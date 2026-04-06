@@ -47,18 +47,18 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
           
           <div className="relative group flex justify-center">
-            <Link href={`/${locale}/i-nostri-gatti/king`} className={`${desktopNavItemClass} inline-flex gap-2 px-2`}>
+            <Link href={`/${locale}/i-nostri-gatti/kings`} className={`${desktopNavItemClass} inline-flex gap-2 px-2`}>
               <span>{dict?.nav?.cats || 'Gatti'}</span>
               <span className="text-[9px]">▾</span>
             </Link>
 
             <div className="pointer-events-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all absolute left-1/2 top-full -translate-x-1/2 pt-3 min-w-[200px] z-30">
               <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-2 text-[10px] tracking-[0.18em] uppercase">
-                <Link href={`/${locale}/i-nostri-gatti/king`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
-                  King
+                <Link href={`/${locale}/i-nostri-gatti/kings`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
+                  Kings
                 </Link>
-                <Link href={`/${locale}/i-nostri-gatti/queen`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
-                  Queen
+                <Link href={`/${locale}/i-nostri-gatti/queens`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
+                  Queens
                 </Link>
               </div>
             </div>
@@ -141,18 +141,18 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             {dict?.nav?.home || 'Home'}
           </Link>
           <Link
-            href={`/${locale}/i-nostri-gatti/king`}
+            href={`/${locale}/i-nostri-gatti/kings`}
             className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
             onClick={closeMobileMenu}
           >
-            King
+            Kings
           </Link>
           <Link
-            href={`/${locale}/i-nostri-gatti/queen`}
+            href={`/${locale}/i-nostri-gatti/queens`}
             className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
             onClick={closeMobileMenu}
           >
-            Queen
+            Queens
           </Link>
           <Link
             href={`/${locale}/gattini-disponibili`}

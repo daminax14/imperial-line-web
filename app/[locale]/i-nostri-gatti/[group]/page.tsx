@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary, isSupportedLocale } from '@/lib/get-dictionary'
+import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 
 type CatItem = {
   _id: string
@@ -30,12 +31,12 @@ type CatItem = {
   }
 }
 
-type GroupView = 'king' | 'queen'
+type GroupView = 'kings' | 'queens'
 
 function normalizeGroup(value: string): GroupView | null {
   const normalized = value.toLowerCase()
-  if (normalized === 'king' || normalized === 'male' || normalized === 'maschi') return 'king'
-  if (normalized === 'queen' || normalized === 'female' || normalized === 'femmine') return 'queen'
+  if (normalized === 'kings' || normalized === 'king' || normalized === 'male' || normalized === 'maschi') return 'kings'
+  if (normalized === 'queens' || normalized === 'queen' || normalized === 'female' || normalized === 'femmine') return 'queens'
   return null
 }
 
@@ -100,34 +101,13 @@ export default async function CatsGroupPage({
   const dict = await getDictionary(locale)
   const cats = await getCats(locale)
 
-  const filteredCats = cats.filter((cat) => (normalizedGroup === 'king' ? isKing(cat) : isQueen(cat)))
-  const sectionTitle = normalizedGroup === 'king' ? 'King' : 'Queen'
-  const sectionSubtitle = normalizedGroup === 'king' ? 'Maschi' : 'Femmine'
+  const filteredCats = cats.filter((cat) => (normalizedGroup === 'kings' ? isKing(cat) : isQueen(cat)))
+  const sectionTitle = normalizedGroup === 'kings' ? 'Kings' : 'Queens'
+  const sectionSubtitle = ""
 
   return (
     <main className="relative min-h-screen pt-32 pb-32 text-zinc-900 font-sans selection:bg-zinc-300 overflow-hidden bg-[#edf3fb]">
-      
-      {/* SFONDO DINAMICO: mesh + forme morbide */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[radial-gradient(circle_at_20%_15%,#f9fcff_0%,#edf3fb_45%,#e6eef9_100%)]">
-        <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(66,142,191,0.15)_0%,rgba(255,255,255,0)_35%,rgba(212,175,55,0.14)_100%)]"></div>
-
-        {/* Grain leggero per evitare piattezza */}
-        <div
-          className="absolute inset-0 opacity-[0.22] mix-blend-overlay z-10"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")` }}
-        ></div>
-
-        {/* Blob principali */}
-        <div className="absolute -top-[16%] -left-[8%] w-[54vw] h-[54vw] rounded-[42%_58%_65%_35%/40%_42%_58%_60%] bg-[#72acd1]/50 blur-[95px] animate-[pulse_18s_ease-in-out_infinite]"></div>
-        <div className="absolute top-[8%] right-[-16%] w-[58vw] h-[58vw] rounded-[60%_40%_45%_55%/53%_60%_40%_47%] bg-[#f0d37a]/40 blur-[110px] animate-[pulse_22s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[-20%] left-[4%] w-[62vw] h-[62vw] rounded-[38%_62%_52%_48%/52%_44%_56%_48%] bg-[#5f8fbc]/36 blur-[115px] animate-[pulse_20s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[-14%] right-[4%] w-[46vw] h-[46vw] rounded-[55%_45%_58%_42%/42%_62%_38%_58%] bg-[#d7b357]/34 blur-[90px] animate-[pulse_16s_ease-in-out_infinite]"></div>
-
-        {/* Accenti morbidi "orb" */}
-        <div className="absolute top-[28%] left-[18%] w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/55 blur-xl animate-[pulse_8s_ease-in-out_infinite]"></div>
-        <div className="absolute top-[52%] right-[22%] w-16 h-16 md:w-24 md:h-24 rounded-full bg-[#9ec4e3]/55 blur-lg animate-[pulse_10s_ease-in-out_infinite]"></div>
-        <div className="absolute bottom-[18%] left-[42%] w-20 h-20 rounded-full bg-[#f3df9d]/55 blur-lg animate-[pulse_12s_ease-in-out_infinite]"></div>
-      </div>
+      <CatsEtherealBackground />
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10">
         
@@ -141,24 +121,24 @@ export default async function CatsGroupPage({
           {/* TOGGLE MODERNO */}
           <div className="inline-flex rounded-full bg-white/60 backdrop-blur-md p-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-white/50">
             <Link
-              href={`/${locale}/i-nostri-gatti/king`}
+              href={`/${locale}/i-nostri-gatti/kings`}
               className={`px-8 py-3 text-[10px] uppercase tracking-widest font-semibold rounded-full transition-all duration-300 ${
-                normalizedGroup === 'king' 
+                normalizedGroup === 'kings' 
                   ? 'bg-white text-black shadow-[0_2px_10px_rgba(0,0,0,0.08)]' 
                   : 'text-zinc-500 hover:text-black'
               }`}
             >
-              King
+              Kings
             </Link>
             <Link
-              href={`/${locale}/i-nostri-gatti/queen`}
+              href={`/${locale}/i-nostri-gatti/queens`}
               className={`px-8 py-3 text-[10px] uppercase tracking-widest font-semibold rounded-full transition-all duration-300 ${
-                normalizedGroup === 'queen' 
+                normalizedGroup === 'queens' 
                   ? 'bg-white text-black shadow-[0_2px_10px_rgba(0,0,0,0.08)]' 
                   : 'text-zinc-500 hover:text-black'
               }`}
             >
-              Queen
+              Queens
             </Link>
           </div>
         </div>
@@ -270,7 +250,7 @@ export default async function CatsGroupPage({
                       {(cat.father || cat.mother) && (
                         <div className="mt-16 pt-10 border-t border-zinc-200/60">
                           <p className="text-[11px] uppercase tracking-[0.3em] text-zinc-500 font-semibold mb-8 text-center md:text-left drop-shadow-sm">
-                            Lineage / Linea di sangue
+                            Parents
                           </p>
                           
                           <div className="flex items-center justify-center md:justify-start gap-8 md:gap-14">
