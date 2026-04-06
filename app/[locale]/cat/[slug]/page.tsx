@@ -164,35 +164,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                 )}
               </div>
 
-              {/* Connector lines + arrow — uses CSS borders, no magic offsets */}
-              {cat.father || cat.mother ? (
-                <div className="flex justify-center w-full">
-                  {cat.father && cat.mother ? (
-                    /* Both parents: T-shape using borders */
-                    <div className="flex">
-                      <div className="w-16 border-b border-r border-slate-300 h-6" />
-                      <div className="w-16 border-b border-l border-slate-300 h-6" />
-                    </div>
-                  ) : (
-                    <div className="w-px h-6 bg-slate-300" />
-                  )}
-                </div>
-              ) : null}
-              {(cat.father || cat.mother) && (
-                <div className="flex flex-col items-center">
-                  <div className="w-px h-6 bg-gradient-to-b from-slate-300 to-yellow-400" />
-                  <div className="text-yellow-500 text-lg leading-none">▼</div>
-                </div>
-              )}
 
-              {/* Current cat */}
-              <div className="text-center flex flex-col items-center gap-3 mt-1">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-[2rem] overflow-hidden border-8 border-[#c2c8d4] shadow-2xl">
-                  <img src={urlFor(cat.imageUrl).width(500).url()} className="w-full h-full object-cover" alt="Current" />
-                </div>
-                <p className="text-gold-200 tracking-[0.2em] text-[10px] uppercase font-bold">{dict.catPage.current}</p>
-                <p className="font-serif italic text-xl text-slate-800">{cat.name}</p>
-              </div>
             </div>
           </section>
         )}
