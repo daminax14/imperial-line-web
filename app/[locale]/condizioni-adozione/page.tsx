@@ -38,7 +38,7 @@ export default async function AdoptionConditionsPage({
   const sections = normalizeSections(pageData.sections)
 
   return (
-    <main className="bg-[#c2c8d4] min-h-screen pt-[120px] pb-24">
+    <main className="bg-[#c2c8d4] min-h-screen pt-40 pb-24">
       <div className="max-w-5xl mx-auto px-6">
         <header className="mb-8 text-center">
           <h1 className="text-4xl md:text-5xl font-serif italic text-[#2f6f99]">{title}</h1>
