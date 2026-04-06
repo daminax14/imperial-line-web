@@ -107,14 +107,19 @@ export default async function CatsGroupPage({
   return (
     <main className="relative min-h-screen pt-32 pb-32 text-zinc-900 font-sans selection:bg-zinc-300 overflow-hidden bg-[#FAFAFA]">
       
-      {/* SFONDO ANIMATO "WATERCOLOR / AURORA" */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Nuvola Rosa (in alto a sinistra, pulsa lentamente) */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-rose-200/40 mix-blend-multiply blur-[100px] animate-[pulse_8s_ease-in-out_infinite]"></div>
-        {/* Nuvola Azzurra/Lavanda (in mezzo a destra, pulsa e si muove) */}
-        <div className="absolute top-[20%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-indigo-100/50 mix-blend-multiply blur-[120px] animate-[pulse_12s_ease-in-out_infinite_alternate]"></div>
-        {/* Nuvola Calda/Ambra (in basso a sinistra) */}
-        <div className="absolute -bottom-[10%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-amber-100/40 mix-blend-multiply blur-[130px] animate-[pulse_10s_ease-in-out_infinite_alternate-reverse]"></div>
+      {/* SFONDO ANIMATO "ETHEREAL SHADOWS" (Light Version) */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-[#FAFAFA]">
+        
+        {/* Grana / Noise overlay per l'effetto materico */}
+        <div 
+          className="absolute inset-0 opacity-[0.35] mix-blend-overlay z-10"
+          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}
+        ></div>
+        
+        {/* Ombre fluttuanti (Shadows) */}
+        <div className="absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-zinc-300/60 mix-blend-multiply blur-[120px] animate-[pulse_14s_ease-in-out_infinite]"></div>
+        <div className="absolute top-[30%] right-[-20%] w-[70vw] h-[70vw] rounded-full bg-zinc-300/50 mix-blend-multiply blur-[150px] animate-[pulse_18s_ease-in-out_infinite_alternate]"></div>
+        <div className="absolute bottom-[-20%] left-[10%] w-[60vw] h-[60vw] rounded-full bg-zinc-400/40 mix-blend-multiply blur-[130px] animate-[pulse_12s_ease-in-out_infinite_alternate-reverse]"></div>
       </div>
 
       <div className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-10">
@@ -191,7 +196,7 @@ export default async function CatsGroupPage({
                       </p>
 
                       {cat.description && (
-                        <p className="text-zinc-700 leading-relaxed font-light mb-10 text-justify bg-white/30 p-6 rounded-2xl backdrop-blur-sm border border-white/40">
+                        <p className="text-zinc-700 leading-relaxed font-light mb-10 text-justify bg-white/30 p-6 rounded-2xl backdrop-blur-sm border border-white/40 shadow-sm">
                           {cat.description}
                         </p>
                       )}
@@ -247,7 +252,7 @@ export default async function CatsGroupPage({
                         {cat.slug && (
                           <Link
                             href={`/${locale}/cat/${cat.slug}`}
-                            className="bg-white border border-zinc-200 text-zinc-900 text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full shadow-sm hover:border-zinc-400 hover:shadow-md transition-all duration-300"
+                            className="bg-white/80 backdrop-blur-sm border border-zinc-200 text-zinc-900 text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full shadow-sm hover:border-zinc-400 hover:shadow-md transition-all duration-300"
                           >
                             Scheda completa
                           </Link>
