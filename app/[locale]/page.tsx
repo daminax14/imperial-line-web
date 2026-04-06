@@ -9,7 +9,7 @@ async function getCats(locale: string) {
     "slug": slug.current,
     image,
     category,
-    "description": coalesce(description[${locale}], description.it)
+    "description": coalesce(description[${locale}], description.it, description)
   }`
   const data = await client.fetch(query)
   return data

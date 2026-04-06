@@ -9,8 +9,8 @@ async function getCat(slug: string, locale: string) {
     "imageUrl": image.asset->url,
     category,
     // Recupero localizzato con fallback su IT
-    "description": coalesce(description[${locale}], description.it),
-    "color": coalesce(color[${locale}], color.it),
+    "description": coalesce(description[${locale}], description.it, description),
+    "color": coalesce(color[${locale}], color.it, color),
     birthDate,
     health,
     breed,

@@ -1,6 +1,48 @@
+import Link from 'next/link'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import ContactRequestForm from '@/components/ContactRequestForm'
+
+function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'facebook' | 'email' | 'phone' }) {
+  const cls = 'w-5 h-5 text-[#2f6f99] flex-shrink-0'
+  if (kind === 'instagram') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    )
+  }
+  if (kind === 'tiktok') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
+        <path d="M14 4v9.2a3.8 3.8 0 1 1-2.7-3.64" />
+        <path d="M14 4c1 2 2.5 3.2 4.5 3.5" />
+      </svg>
+    )
+  }
+  if (kind === 'facebook') {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
+        <path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.3c0-.8.2-1.3 1.4-1.3h1.5V5.5c-.3 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2h-2.5V14h2.5v7h3Z" />
+      </svg>
+    )
+  }
+  if (kind === 'email') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m4 7 8 6 8-6" />
+      </svg>
+    )
+  }
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.7.6 2.6a2 2 0 0 1-.4 2L8 9.6a16 16 0 0 0 6.4 6.4l1.3-1.3a2 2 0 0 1 2-.4c.9.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2Z" />
+    </svg>
+  )
+}
 
 export default async function ContattiPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -8,18 +50,32 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
   const contact = dict?.contactPage || {}
   const fields = contact?.fields || {}
   const options = contact?.options || {}
+  const breeder = dict?.breederContacts || {}
 
   return (
     <main className="relative min-h-screen pt-[120px] pb-24 overflow-hidden bg-[#edf3fb]">
       <CatsEtherealBackground />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        <section className="text-center mb-12 space-y-4">
+        <section className="text-center mb-8 space-y-4">
           <p className="text-xs uppercase tracking-[0.35em] text-[#2f6f99] font-semibold">Imperial Line</p>
           <h1 className="text-4xl md:text-6xl font-serif italic text-[#2f6f99]">{contact?.title || 'Prenotazione'}</h1>
-          <p className="text-[#2f5f86] max-w-3xl mx-auto leading-relaxed text-sm md:text-base">
-            {contact?.intro || 'Compila il modulo per aiutarci a conoscere meglio le tue esigenze.'}
+        </section>
+
+        <section className="max-w-4xl mx-auto rounded-[1.6rem] border border-white/55 bg-white/45 backdrop-blur-md shadow-[0_20px_45px_-30px_rgba(32,72,112,0.45)] p-6 md:p-8 mb-10 space-y-4">
+          <p className="text-[#2f5f86] leading-relaxed text-sm md:text-base">
+            {contact?.introLead || 'Compila qui i tuoi dati e aiutaci a scegliere la famiglia perfetta con cui i nostri gattini passeranno il resto della loro vita.'}
           </p>
+          <p className="text-[#2f5f86] leading-relaxed text-sm md:text-base">
+            {contact?.introConditions || "Prima di compilare il modulo assicurati di aver letto le condizioni di base alle quali i gattini Imperial Line lasceranno la loro casa. Se non lo hai ancora fatto le trovi qui."}
+          </p>
+          <Link
+            href={`/${locale}/condizioni-adozione`}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors"
+          >
+            <span>{contact?.conditionsCta || "Vai alle condizioni d'adozione"}</span>
+            <span>→</span>
+          </Link>
         </section>
 
         <section className="grid grid-cols-1 lg:grid-cols-[1.08fr,0.92fr] gap-8 items-start">
@@ -27,30 +83,74 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
             <ContactRequestForm fields={fields} options={options} contact={contact} />
           </div>
 
-          <div className="space-y-4">
-            <div className="rounded-[2rem] overflow-hidden border border-white/50 bg-white/30 backdrop-blur-md shadow-[0_24px_60px_-35px_rgba(32,72,112,0.45)] p-3">
-              <img
-                src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?q=80&w=1200&auto=format&fit=crop"
-                alt="Gattino occhi azzurri"
-                className="w-full rounded-[1.4rem] object-cover aspect-[4/5]"
-              />
+          <aside className="space-y-4">
+            <div className="rounded-[1.5rem] border border-white/50 bg-white/35 backdrop-blur-md shadow-[0_18px_36px_-28px_rgba(32,72,112,0.45)] p-5">
+              <p className="text-[#2f5f86] text-sm leading-relaxed">
+                {contact?.afterFormNote || "Grazie per l'interesse e la fiducia accordata al nostro piccolo allevamento Imperial Line. Una volta compilato e inviato il modulo di cui sopra, sarai contattato da noi entro 24 ore via email (o tramite un altro metodo di contatto da voi fornito). Successivamente, quando la vostra richiesta di adozione sarà accettata potremo procedere alla stipula del contratto di prenotazione del gattino desiderato. Se invece avete altre domande e chiarimenti non esitate a contattarci! Saremo lieti di conoscervi e rispondere a tutte le vostre domande. Grazie!"}
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="rounded-[1.5rem] overflow-hidden border border-white/50 bg-white/30 backdrop-blur-md shadow-[0_18px_36px_-28px_rgba(32,72,112,0.45)] p-2.5">
-                <img
-                  src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=1200&auto=format&fit=crop"
-                  alt="Gattino silver"
-                  className="w-full rounded-[1rem] object-cover aspect-[3/4]"
-                />
-              </div>
-              <div className="rounded-[1.5rem] border border-white/50 bg-white/35 backdrop-blur-md shadow-[0_18px_36px_-28px_rgba(32,72,112,0.45)] p-5 flex items-center">
-                <p className="text-[#2f5f86] text-sm leading-relaxed">
-                  {contact?.thanks || "Grazie per l'interesse verso Imperial Line. Ti ricontatteremo a breve via email o tramite il recapito indicato."}
-                </p>
+            <div className="rounded-[1.5rem] border border-white/50 bg-white/35 backdrop-blur-md shadow-[0_18px_36px_-28px_rgba(32,72,112,0.45)] p-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#2f6f99]/80 font-semibold mb-4">
+                    {contact?.socialTitle || 'Seguici anche sui nostri social'}
+                  </p>
+                  <div className="space-y-3.5 text-[#2f5f86]">
+                    <a
+                      href={breeder?.tiktokUrl || 'https://tiktok.com/@Imperial_line_siberians'}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors"
+                    >
+                      <SocialIcon kind="tiktok" />
+                      <span className="text-sm">{breeder?.tiktokHandle || '@Imperial_line_siberians'}</span>
+                    </a>
+                    <a
+                      href={breeder?.instagramUrl || 'https://instagram.com/imperial_line_siberians'}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors"
+                    >
+                      <SocialIcon kind="instagram" />
+                      <span className="text-sm">{breeder?.instagramHandle || 'imperial_line_siberians'}</span>
+                    </a>
+                    <a
+                      href={breeder?.facebookUrl || '#'}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors"
+                    >
+                      <SocialIcon kind="facebook" />
+                      <span className="text-sm">{breeder?.facebookLabel || 'Imperial Line'}</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-[#2f6f99]/80 font-semibold mb-4">
+                    {dict?.footer?.contacts || 'Contatti'}
+                  </p>
+                  <div className="space-y-3.5 text-[#2f5f86]">
+                    <a
+                      href={`mailto:${breeder?.email || 'Imperial-line-siberians@hotmail.com'}`}
+                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors break-all"
+                    >
+                      <SocialIcon kind="email" />
+                      <span className="text-sm">{breeder?.email || 'Imperial-line-siberians@hotmail.com'}</span>
+                    </a>
+                    <a
+                      href={`tel:${(breeder?.phone || '+49 17660923988').replace(/\s+/g, '')}`}
+                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors"
+                    >
+                      <SocialIcon kind="phone" />
+                      <span className="text-sm">{breeder?.phone || '+49 17660923988'}</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </aside>
         </section>
       </div>
     </main>

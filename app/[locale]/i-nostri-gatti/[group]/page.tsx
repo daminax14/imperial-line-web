@@ -57,8 +57,8 @@ async function getCats(locale: string): Promise<CatItem[]> {
     "slug": slug.current,
     image,
     category,
-    "description": coalesce(description[${locale}], description.it),
-    "color": coalesce(color[${locale}], color.it),
+    "description": coalesce(description[${locale}], description.it, description),
+    "color": coalesce(color[${locale}], color.it, color),
     birthDate,
     health,
     breed,
@@ -69,12 +69,12 @@ async function getCats(locale: string): Promise<CatItem[]> {
     father->{
       name,
       image,
-      "color": coalesce(color[${locale}], color.it)
+      "color": coalesce(color[${locale}], color.it, color)
     },
     mother->{
       name,
       image,
-      "color": coalesce(color[${locale}], color.it)
+      "color": coalesce(color[${locale}], color.it, color)
     }
   }`
 

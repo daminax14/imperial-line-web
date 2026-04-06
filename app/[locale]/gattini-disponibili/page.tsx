@@ -36,15 +36,18 @@ type LitterItem = {
 
 async function getAvailableKittens(locale: string): Promise<AvailableKitten[]> {
   const query = `*[_type == "cat" && (
-    status in ["Disponibile", "Available", "Disponible"] ||
-    category in ["Kitten", "Cucciolo", "Gattino"]
+    category in ["Cuccioli", "Kitten", "Cucciolo", "Gattino"] &&
+    (
+      !defined(status) ||
+      status in ["Disponibile", "Available", "Disponible", "Libero", "Free", "In Valutazione"]
+    )
   )] | order(birthDate desc) {
     _id,
     name,
     "slug": slug.current,
     image,
     sex,
-    "color": coalesce(color[$locale], color.it),
+    "color": coalesce(color[$locale], color.it, color),
     birthDate,
     status
   }`
@@ -56,9 +59,9 @@ async function getLitters(locale: string): Promise<LitterItem[]> {
   const query = `*[_type == "litter"] | order(coalesce(plannedDate, birthDate, _createdAt) desc) {
     _id,
     "slug": slug.current,
-    "title": coalesce(title[$locale], title.it),
+    "title": coalesce(title[$locale], title.it, title),
     status,
-    "notes": coalesce(notes[$locale], notes.it),
+    "notes": coalesce(notes[$locale], notes.it, notes),
     plannedDate,
     birthDate,
     "fatherName": father->name,
@@ -201,7 +204,7 @@ function KittenCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-sm italic text-slate-400 bg-slate-50">
-            Foto non disponibile
+            {dict?.photoUnavailable || 'Foto non disponibile'}
           </div>
         )}
         {kitten.status && (
@@ -257,7 +260,7 @@ function PlannedLitterCard({
             <div className="aspect-[4/3] md:h-full md:aspect-auto">
               <img
                 src={urlFor(coverImg).width(600).height(480).fit('crop').url()}
-                alt={litter.title || 'Cucciolata pianificata'}
+                alt={litter.title || dict?.plannedTitle || 'Cucciolata pianificata'}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -274,12 +277,12 @@ function PlannedLitterCard({
                 className="group/title inline-block"
               >
                 <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug group-hover/title:text-[#2f6f99] transition-colors">
-                  {litter.title || 'Nuova cucciolata'}
+                  {litter.title || dict?.newLitterTitle || 'Nuova cucciolata'}
                 </h3>
               </Link>
             ) : (
               <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug">
-                {litter.title || 'Nuova cucciolata'}
+                {litter.title || dict?.newLitterTitle || 'Nuova cucciolata'}
               </h3>
             )}
             {litter.plannedDate && (
@@ -294,14 +297,14 @@ function PlannedLitterCard({
               <CirclePhoto
                 image={litter.fatherImage}
                 name={litter.fatherName}
-                alt={litter.fatherName || 'Padre'}
+                alt={litter.fatherName || dict?.fatherLabel || 'Padre'}
                 href={litter.fatherSlug ? `/${locale}/cat/${litter.fatherSlug}` : undefined}
               />
               <span className="text-[#2f6f99] text-xl font-light leading-none">×</span>
               <CirclePhoto
                 image={litter.motherImage}
                 name={litter.motherName}
-                alt={litter.motherName || 'Madre'}
+                alt={litter.motherName || dict?.motherLabel || 'Madre'}
                 href={litter.motherSlug ? `/${locale}/cat/${litter.motherSlug}` : undefined}
               />
             </div>
@@ -331,21 +334,22 @@ function PlannedLitterCard({
 function HistoryLitterCard({
   litter,
   locale,
+  dict,
 }: {
   litter: LitterItem
   locale: string
+  dict: any
 }) {
   const coverImg = litter.coverImage ?? litter.motherImage ?? litter.fatherImage ?? null
   const href = litter.slug ? `/${locale}/cucciolate/${litter.slug}` : undefined
 
   const cardContent = (
     <>
-      {/* Cover image */}
       <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
         {coverImg ? (
           <img
             src={urlFor(coverImg).width(700).height(525).fit('crop').url()}
-            alt={litter.title || 'Cucciolata'}
+            alt={litter.title || dict?.litterTitle || 'Cucciolata'}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
@@ -353,40 +357,37 @@ function HistoryLitterCard({
             <span className="text-slate-300 text-3xl font-serif italic tracking-widest">◦ ◦ ◦</span>
           </div>
         )}
-        {/* Gradient overlay with title */}
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/65 to-transparent" />
         <div className="absolute bottom-3 left-4 right-4">
           <p className="text-white font-serif italic text-lg leading-tight drop-shadow">
-            {litter.title || 'Cucciolata'}
+            {litter.title || dict?.litterTitle || 'Cucciolata'}
           </p>
           {litter.birthDate && (
             <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate)}</p>
           )}
         </div>
-        {/* "Click to view" hover hint */}
         {href && (
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
-              Vedi dettagli →
+              {dict?.viewDetails || 'Vedi dettagli'} →
             </span>
           </div>
         )}
       </div>
 
-      {/* Card footer */}
       <div className="px-5 py-4">
         {(litter.fatherName || litter.motherName) && (
           <div className="flex items-center gap-3 mb-3">
             <CirclePhoto
               image={litter.fatherImage}
               name={litter.fatherName}
-              alt={litter.fatherName || 'Padre'}
+              alt={litter.fatherName || dict?.fatherLabel || 'Padre'}
             />
             <span className="text-[#2f6f99] font-light text-lg">×</span>
             <CirclePhoto
               image={litter.motherImage}
               name={litter.motherName}
-              alt={litter.motherName || 'Madre'}
+              alt={litter.motherName || dict?.motherLabel || 'Madre'}
             />
           </div>
         )}
@@ -397,7 +398,7 @@ function HistoryLitterCard({
         )}
         {href && (
           <p className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#2f6f99]">
-            Dettaglio cuccioli <span>→</span>
+            {dict?.kittenDetails || 'Dettaglio cuccioli'} <span>→</span>
           </p>
         )}
       </div>
@@ -437,8 +438,6 @@ export default async function AvailableKittensPage({
   return (
     <main className="pt-[120px] pb-32 bg-[#b7bfcc] min-h-screen text-[#1f2f43]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* ── Page header ─────────────────────────────────────────── */}
         <header className="text-center mb-20">
           <p className="text-xs uppercase tracking-[0.42em] text-[#2f6f99] font-semibold mb-3">
             Imperial Line
@@ -453,10 +452,9 @@ export default async function AvailableKittensPage({
           </p>
         </header>
 
-        {/* ── Section 1: available kittens ────────────────────────── */}
         <section className="mb-20">
           <SectionHead
-            sup="Da adottare"
+            sup={pageText?.availableSup || 'Da adottare'}
             title={pageText?.availableTitle || 'Disponibili ora'}
           />
           {availableKittens.length === 0 ? (
@@ -477,10 +475,9 @@ export default async function AvailableKittensPage({
           )}
         </section>
 
-        {/* ── Section 2: planned litters ──────────────────────────── */}
         <section className="mb-20">
           <SectionHead
-            sup="In arrivo"
+            sup={pageText?.plannedSup || 'In arrivo'}
             title={pageText?.plannedTitle || 'Cucciolate pianificate'}
           />
           {plannedLitters.length === 0 ? (
@@ -496,10 +493,9 @@ export default async function AvailableKittensPage({
           )}
         </section>
 
-        {/* ── Section 3: history ──────────────────────────────────── */}
         <section>
           <SectionHead
-            sup="Passato"
+            sup={pageText?.historySup || 'Passato'}
             title={pageText?.historyTitle || 'Storico cucciolate'}
           />
           {historyLitters.length === 0 ? (
@@ -509,12 +505,11 @@ export default async function AvailableKittensPage({
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {historyLitters.map((litter) => (
-                <HistoryLitterCard key={litter._id} litter={litter} locale={locale} />
+                <HistoryLitterCard key={litter._id} litter={litter} locale={locale} dict={pageText} />
               ))}
             </div>
           )}
         </section>
-
       </div>
     </main>
   )

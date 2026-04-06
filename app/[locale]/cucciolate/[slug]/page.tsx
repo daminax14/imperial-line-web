@@ -43,9 +43,9 @@ type Litter = {
 async function getLitter(slug: string, locale: string): Promise<Litter | null> {
   const query = `*[_type == "litter" && slug.current == $slug][0] {
     _id,
-    "title": coalesce(title[$locale], title.it),
+    "title": coalesce(title[$locale], title.it, title),
     status,
-    "notes": coalesce(notes[$locale], notes.it),
+    "notes": coalesce(notes[$locale], notes.it, notes),
     plannedDate,
     birthDate,
     coverImage,
@@ -69,7 +69,7 @@ async function getLitter(slug: string, locale: string): Promise<Litter | null> {
       "slug": slug.current,
       image,
       sex,
-      "color": coalesce(color[$locale], color.it),
+      "color": coalesce(color[$locale], color.it, color),
       birthDate,
       status,
       emsCode
@@ -122,10 +122,12 @@ function ParentCard({
   parent,
   role,
   locale,
+  pageText,
 }: {
   parent: Parent
   role: string
   locale: string
+  pageText: any
 }) {
   const inner = (
     <div className="group/parent flex flex-col items-center text-center gap-3">
@@ -155,7 +157,7 @@ function ParentCard({
         )}
         {parent.slug && (
           <span className="inline-block mt-2 text-xs font-semibold text-[#2f6f99]">
-            Scheda completa →
+            {pageText?.details || 'Scheda completa'} →
           </span>
         )}
       </div>
@@ -177,9 +179,11 @@ function ParentCard({
 function KittenCard({
   kitten,
   locale,
+  pageText,
 }: {
   kitten: Kitten
   locale: string
+  pageText: any
 }) {
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
@@ -192,7 +196,7 @@ function KittenCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-400 italic text-sm bg-slate-50">
-            Foto non disponibile
+            {pageText?.photoUnavailable || 'Foto non disponibile'}
           </div>
         )}
         {kitten.status && (
@@ -215,7 +219,7 @@ function KittenCard({
           <p className="text-xs font-mono text-[#6a85a0]">{kitten.emsCode}</p>
         )}
         {kitten.birthDate && (
-          <p className="text-xs text-[#6a85a0]">Nato/a: {fmtDate(kitten.birthDate)}</p>
+          <p className="text-xs text-[#6a85a0]">{pageText?.bornLabel || 'Nato/a'}: {fmtDate(kitten.birthDate)}</p>
         )}
 
         {kitten.slug ? (
@@ -223,11 +227,11 @@ function KittenCard({
             href={`/${locale}/cat/${kitten.slug}`}
             className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
           >
-            <span>Scheda completa</span>
+            <span>{pageText?.details || 'Scheda completa'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
           </Link>
         ) : (
-          <p className="mt-3 text-xs text-slate-400 italic">Scheda non ancora disponibile</p>
+          <p className="mt-3 text-xs text-slate-400 italic">{pageText?.sheetNotAvailable || 'Scheda non ancora disponibile'}</p>
         )}
       </div>
     </article>
@@ -251,6 +255,9 @@ export default async function LitterPage({
 
   const coverImg = litter.coverImage ?? null
   const isPlanned = !litter.birthDate && Boolean(litter.plannedDate)
+  const kittens = Array.isArray(litter.kittens) ? litter.kittens : []
+  const pageText = dict?.litterPage || {}
+  const listText = dict?.availableKittensPage || {}
 
   return (
     <main className="pt-[120px] pb-32 bg-[#b7bfcc] min-h-screen text-[#1f2f43]">
@@ -259,10 +266,10 @@ export default async function LitterPage({
         {/* ── Breadcrumb ───────────────────────────────────────────── */}
         <nav className="mb-10 flex items-center gap-2 text-xs text-[#4a6580]">
           <Link href={`/${locale}/gattini-disponibili`} className="hover:text-[#2f6f99] transition-colors">
-            Gattini disponibili
+            {listText?.title || 'Gattini disponibili'}
           </Link>
           <span className="opacity-40">/</span>
-          <span className="text-[#1f3c57] font-medium">{litter.title || 'Cucciolata'}</span>
+          <span className="text-[#1f3c57] font-medium">{litter.title || pageText?.litterTitle || 'Cucciolata'}</span>
         </nav>
 
         {/* ── Hero: cover + title ───────────────────────────────────── */}
@@ -272,7 +279,7 @@ export default async function LitterPage({
             {coverImg ? (
               <img
                 src={urlFor(coverImg).width(1200).height(900).fit('crop').url()}
-                alt={litter.title || 'Cucciolata'}
+                alt={litter.title || pageText?.litterTitle || 'Cucciolata'}
                 className="w-full h-full object-cover"
               />
             ) : (
@@ -288,33 +295,33 @@ export default async function LitterPage({
               Imperial Line
             </p>
             <h1 className="text-4xl md:text-5xl font-serif italic text-[#1f3c57] leading-tight">
-              {litter.title || 'Cucciolata'}
+              {litter.title || pageText?.litterTitle || 'Cucciolata'}
             </h1>
             <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
 
             <div className="mt-5 space-y-2 text-sm text-[#4a6580]">
               {litter.status && (
                 <p>
-                  <span className="font-semibold text-[#1f3c57]">Stato:</span>{' '}
+                  <span className="font-semibold text-[#1f3c57]">{pageText?.statusLabel || 'Stato'}:</span>{' '}
                   {litter.status}
                 </p>
               )}
               {isPlanned && litter.plannedDate && (
                 <p>
-                  <span className="font-semibold text-[#1f3c57]">Data prevista:</span>{' '}
+                  <span className="font-semibold text-[#1f3c57]">{pageText?.expectedDateLabel || 'Data prevista'}:</span>{' '}
                   {fmtDate(litter.plannedDate)}
                 </p>
               )}
               {!isPlanned && litter.birthDate && (
                 <p>
-                  <span className="font-semibold text-[#1f3c57]">Data di nascita:</span>{' '}
+                  <span className="font-semibold text-[#1f3c57]">{pageText?.birthDateLabel || 'Data di nascita'}:</span>{' '}
                   {fmtDate(litter.birthDate)}
                 </p>
               )}
-              {litter.kittens.length > 0 && (
+              {kittens.length > 0 && (
                 <p>
-                  <span className="font-semibold text-[#1f3c57]">Numero cuccioli:</span>{' '}
-                  {litter.kittens.length}
+                  <span className="font-semibold text-[#1f3c57]">{pageText?.kittensCountLabel || 'Numero cuccioli'}:</span>{' '}
+                  {kittens.length}
                 </p>
               )}
             </div>
@@ -332,17 +339,17 @@ export default async function LitterPage({
           <section className="mb-16">
             <div className="mb-7">
               <p className="text-xs uppercase tracking-[0.38em] text-[#2f6f99]/70 font-semibold mb-1.5">
-                Genitori
+                {pageText?.parentsSup || 'Genitori'}
               </p>
               <h2 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57]">
-                King &amp; Queen
+                {pageText?.parentsTitle || 'King & Queen'}
               </h2>
               <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
             </div>
 
             <div className="flex flex-wrap justify-center md:justify-start gap-12 md:gap-20 bg-white/70 rounded-3xl px-8 py-10 border border-white/60 shadow-sm">
               {litter.father && (
-                <ParentCard parent={litter.father} role="Padre (Sire)" locale={locale} />
+                <ParentCard parent={litter.father} role={pageText?.sireLabel || 'Padre (Sire)'} locale={locale} pageText={pageText} />
               )}
               {litter.father && litter.mother && (
                 <div className="hidden md:flex items-center">
@@ -350,7 +357,7 @@ export default async function LitterPage({
                 </div>
               )}
               {litter.mother && (
-                <ParentCard parent={litter.mother} role="Madre (Dam)" locale={locale} />
+                <ParentCard parent={litter.mother} role={pageText?.damLabel || 'Madre (Dam)'} locale={locale} pageText={pageText} />
               )}
             </div>
           </section>
@@ -360,24 +367,24 @@ export default async function LitterPage({
         <section>
           <div className="mb-7">
             <p className="text-xs uppercase tracking-[0.38em] text-[#2f6f99]/70 font-semibold mb-1.5">
-              {isPlanned ? 'Cuccioli attesi' : 'I cuccioli'}
+              {isPlanned ? (pageText?.expectedKittensSup || 'Cuccioli attesi') : (pageText?.kittensSup || 'I cuccioli')}
             </p>
             <h2 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57]">
-              {isPlanned ? 'In arrivo…' : 'Schede individuali'}
+              {isPlanned ? (pageText?.comingSoonTitle || 'In arrivo...') : (pageText?.individualSheetsTitle || 'Schede individuali')}
             </h2>
             <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
           </div>
 
-          {litter.kittens.length === 0 ? (
+          {kittens.length === 0 ? (
             <div className="rounded-2xl border border-white/50 bg-white/50 px-6 py-10 text-center text-sm text-[#3a5570]">
               {isPlanned
-                ? 'I cuccioli saranno aggiunti non appena nati.'
-                : 'Nessun cucciolo collegato a questa cucciolata.'}
+                ? (pageText?.expectedEmpty || 'I cuccioli saranno aggiunti non appena nati.')
+                : (pageText?.kittensEmpty || 'Nessun cucciolo collegato a questa cucciolata.')}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-              {litter.kittens.map((kitten) => (
-                <KittenCard key={kitten._id} kitten={kitten} locale={locale} />
+              {kittens.map((kitten) => (
+                <KittenCard key={kitten._id} kitten={kitten} locale={locale} pageText={pageText} />
               ))}
             </div>
           )}
@@ -390,7 +397,7 @@ export default async function LitterPage({
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/back"
           >
             <span className="transition-transform duration-200 group-hover/back:-translate-x-1">←</span>
-            <span>Torna a Gattini disponibili</span>
+            <span>{pageText?.backToAvailable || 'Torna a Gattini disponibili'}</span>
           </Link>
         </div>
 
