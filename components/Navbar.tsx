@@ -9,6 +9,8 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
   const pathname = usePathname()
   const locales = ['it', 'de', 'en', 'fr']
   const currentLocale = locales.includes(locale) ? locale : 'it'
+  const desktopNavItemClass =
+    'flex min-h-[40px] items-center justify-center text-center leading-[1.15] hover:text-gold-200 transition-colors'
 
   const getTranslatedPath = (newLocale: string) => {
     if (!pathname) return `/${newLocale}`
@@ -21,13 +23,13 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
-      <nav className="max-w-7xl mx-auto px-6 py-4 md:py-5 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 md:py-5 flex items-center justify-between gap-4 lg:gap-8">
         
         {/* CONTENITORE LOGO CON POSIZIONAMENTO A SBALZO */}
-        <div className="relative w-[180px] h-[100px] flex-shrink-0"> 
+        <div className="relative w-[150px] md:w-[170px] h-[88px] md:h-[96px] flex-shrink-0"> 
           <Link 
             href={`/${locale}`} 
-            className="absolute -top-3 left-0 w-[220px] h-[140px] z-[40] transition-transform hover:scale-105"
+            className="absolute -top-2 md:-top-3 left-0 w-[190px] md:w-[210px] h-[120px] md:h-[132px] z-[40] transition-transform hover:scale-105"
           >
             <img
               src="/logo.jpeg"
@@ -39,18 +41,18 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
 
 
         {/* MENU  CENTRALE */}
-        <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] text-slate-500 font-bold">
-          <Link href={`/${locale}`} className="hover:text-gold-200 transition-colors">
+        <div className="hidden md:grid flex-1 max-w-3xl grid-cols-[0.85fr_1.1fr_1fr_0.85fr_1.35fr_0.85fr] items-center gap-x-3 text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+          <Link href={`/${locale}`} className={desktopNavItemClass}>
             {dict?.nav?.home || 'Home'}
           </Link>
           
-          <div className="relative group">
-            <Link href={`/${locale}/i-nostri-gatti/king`} className="hover:text-gold-200 transition-colors inline-flex items-center gap-2">
-              {dict?.nav?.cats || 'Gatti'}
+          <div className="relative group flex justify-center">
+            <Link href={`/${locale}/i-nostri-gatti/king`} className={`${desktopNavItemClass} inline-flex gap-2 px-2`}>
+              <span>{dict?.nav?.cats || 'Gatti'}</span>
               <span className="text-[9px]">▾</span>
             </Link>
 
-            <div className="pointer-events-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all absolute left-0 top-full pt-3 min-w-[200px] z-30">
+            <div className="pointer-events-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all absolute left-1/2 top-full -translate-x-1/2 pt-3 min-w-[200px] z-30">
               <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-2 text-[10px] tracking-[0.18em] uppercase">
                 <Link href={`/${locale}/i-nostri-gatti/king`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
                   King
@@ -62,16 +64,16 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             </div>
           </div>
 
-          <Link href={`/${locale}/gattini-disponibili`} className="hover:text-gold-200 transition-colors">
+          <Link href={`/${locale}/gattini-disponibili`} className={`${desktopNavItemClass} px-1`}>
             {dict?.nav?.availableKittens || 'Gattini disponibili'}
           </Link>
-          <Link href={`/${locale}/consigli`} className="hover:text-gold-200 transition-colors">
+          <Link href={`/${locale}/consigli`} className={desktopNavItemClass}>
             {dict?.nav?.advice || 'Consigli'}
           </Link>
-          <Link href={`/${locale}/condizioni-adozione`} className="hover:text-gold-200 transition-colors">
+          <Link href={`/${locale}/condizioni-adozione`} className={`${desktopNavItemClass} px-1`}>
             {dict?.nav?.adoptionConditions || "Condizioni per l'adozione"}
           </Link>
-          <Link href={`/${locale}/contatti`} className="hover:text-gold-200 transition-colors">
+          <Link href={`/${locale}/contatti`} className={desktopNavItemClass}>
             {dict?.nav?.contact || 'Contatti'}
           </Link>
         </div>
@@ -88,8 +90,8 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
         </button>
 
         {/* LINGUA E TASTO PRENOTA */}
-        <div className="flex items-center gap-6">
-          <div className="border-r border-slate-200 pr-6">
+        <div className="flex items-center justify-end gap-4 md:gap-5 flex-shrink-0 min-w-fit">
+          <div className="border-r border-slate-200 pr-4 md:pr-5">
             <details className="relative group">
               <summary className="list-none cursor-pointer flex items-center gap-2.5 select-none">
                 <div className="w-4 h-4 rounded-full overflow-hidden border border-slate-100 shadow-sm">
@@ -122,7 +124,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             </details>
           </div>
 
-          <Link href={`/${locale}/contatti`} className="hidden sm:block text-[10px] bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase">
+          <Link href={`/${locale}/contatti`} className="hidden sm:block text-[10px] bg-slate-900 text-white px-5 md:px-6 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase whitespace-nowrap">
             {dict?.nav?.book || 'Prenota'}
           </Link>
         </div>
