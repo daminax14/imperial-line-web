@@ -39,13 +39,112 @@
   },
   "adoptionPage": {
     "title": "Conditions d'adoption",
-    "intro": "Vous trouverez ici nos regles d'adoption. La traduction complete sera integree progressivement.",
+    "intro": "Pour garantir le bien-etre et la serenite de nos chatons et de leurs nouvelles familles, nous suivons des regles claires et transparentes a chaque etape de l'adoption.",
     "sections": [
       {
-        "title": "Traduction en cours",
+        "title": "Depart a 14 semaines",
         "paragraphs": [
-          "Le contenu complet est actuellement disponible en italien et sera bientot traduit en francais.",
-          "La structure de la page est deja prete pour integrer chaque section traduite."
+          "Nos chatons quittent notre maison et rejoignent leur nouvelle famille uniquement a partir de 14 semaines.",
+          "Cette periode est essentielle pour un developpement sain et complet aux cotes de leur mere et de leur fratrie."
+        ],
+        "points": []
+      },
+      {
+        "title": "Garantie de sante et tests genetiques",
+        "paragraphs": [
+          "Tous nos chats adultes sont testes pour les pathologies les plus courantes : FIV, FeLV, PKD et HCM.",
+          "Une copie des resultats des tests est remise aux nouveaux proprietaires lors de la remise du chaton."
+        ],
+        "points": []
+      },
+      {
+        "title": "Pedigree original",
+        "paragraphs": [
+          "Chaque chaton est confie avec un pedigree original FIFe ou WCF, afin de proteger la lignee et l'integrite de la race.",
+          "Nous fournissons egalement une copie des pedigrees des deux parents."
+        ],
+        "points": []
+      },
+      {
+        "title": "Suivi veterinaire complet",
+        "paragraphs": [
+          "Les chatons recoivent deux vermifugations et deux vaccinations.",
+          "Au moment de la remise, un carnet de sante est fourni pour certifier leur bon etat general."
+        ],
+        "points": []
+      },
+      {
+        "title": "Mises a jour et accompagnement continu",
+        "paragraphs": [
+          "Apres la reservation, nous partageons regulierement des photos, videos et nouvelles de croissance.",
+          "Nous restons disponibles dans le temps pour des conseils et un accompagnement, afin de favoriser le bien-etre et l'adaptation dans le nouveau foyer."
+        ],
+        "points": []
+      },
+      {
+        "title": "Chatons de compagnie et sterilisation",
+        "paragraphs": [
+          "Sauf accord contraire, les chatons sont confies avec pedigree de compagnie.",
+          "La sterilisation est demandee vers 6 a 8 mois, ou selon l'avis du veterinaire, lorsque le chaton atteint environ 70 a 80 pour cent de son poids adulte attendu.",
+          "Nous ne sterilisons pas les chatons avant leur depart car nous les considerons trop jeunes pour une intervention precoce."
+        ],
+        "points": []
+      },
+      {
+        "title": "Pedigree de reproduction",
+        "paragraphs": [
+          "La cession avec pedigree de reproduction est possible uniquement apres accord specifique avant la signature du contrat.",
+          "Nous ne confions pas de chatons a des elevages en cages d'isolement ni a des programmes de croisement : familles et eleveurs sont selectionnes avec soin."
+        ],
+        "points": []
+      },
+      {
+        "title": "Chatons pour l'etranger",
+        "paragraphs": [
+          "Pour les adoptions internationales, la vaccination antirabique, les delais legaux et le passeport international sont obligatoires.",
+          "Les frais supplementaires pour documents et vaccinations sont a la charge de l'acheteur."
+        ],
+        "points": []
+      },
+      {
+        "title": "Reservation, acompte et liste d'attente",
+        "paragraphs": [
+          "Un chaton est considere reserve uniquement apres reception d'un acompte de 350 euros.",
+          "En cas de changement d'avis, l'acompte n'est generalement pas remboursable, sauf exceptions justifiees et communiquees rapidement.",
+          "Une liste d'attente gratuite est disponible pour les personnes qui souhaitent un chaton Imperial Line sans etre encore pretes a reserver."
+        ],
+        "points": []
+      },
+      {
+        "title": "Transport et voyage",
+        "paragraphs": [
+          "Quand cela est possible, nous privilegions la remise en main propre ou le retrait par la nouvelle famille.",
+          "Le transport aerien vers l'etranger est possible, tandis que l'envoi par transporteur n'est pas accepte."
+        ],
+        "points": []
+      },
+      {
+        "title": "Notre engagement quotidien",
+        "paragraphs": [
+          "Nous elevons les chatons a la maison et les preparons progressivement a la vie familiale et a la socialisation.",
+          "Avant leur depart, nous verifions qu'ils sont autonomes, en bonne sante et a l'aise dans le contact humain."
+        ],
+        "points": [
+          "Habituation aux bruits habituels de la maison.",
+          "Socialisation avec les personnes et les autres chats.",
+          "Initiation au toilettage : brosse, griffes, premier bain.",
+          "Bonne utilisation de la litiere.",
+          "Alimentation autonome avec croquettes et patee de qualite.",
+          "Mises a jour regulieres avec photos, videos et notes de caractere.",
+          "Remise d'un chaton en excellent etat de sante.",
+          "Kit de depart offert avec nourriture, jouet et couverture."
+        ]
+      },
+      {
+        "title": "Relation avec les nouvelles familles",
+        "paragraphs": [
+          "Nous maintenons un contact continu et cordial avec les familles meme apres l'adoption.",
+          "Nous repondons aux questions et offrons un accompagnement afin que les chatons vivent dans un environnement ideal."
         ],
         "points": []
       }
@@ -83,6 +182,47 @@
       "noOtherCats": "Oui, mais je n'ai pas d'autres chats",
       "wantCat": "Non, mais je souhaite un chat"
     }
+  },
+  "advicePage": {
+    "eyebrow": "Guide d'Excellence",
+    "titleLine1": "Vivre avec un",
+    "titleAccent": "Siberien",
+    "intro": "Ce n'est pas seulement un chat, c'est un membre de votre famille. Voici comment lui offrir une vie saine et heureuse, digne de sa majeste.",
+    "ctaTitle": "Vous avez d'autres questions ?",
+    "ctaDescription": "Nous restons disponibles avant et apres l'adoption. La sante de nos chatons est toujours notre priorite absolue.",
+    "ctaButton": "Ecrivez-nous sur WhatsApp",
+    "tips": [
+      {
+        "title": "L'arrivee a la maison",
+        "description": "Les premiers jours sont essentiels. Preparez une piece securisee avec tout le necessaire avant de lui laisser explorer le reste de la maison. Le Siberien est curieux mais a besoin de son rythme.",
+        "icon": "🏠",
+        "points": [
+          "Preparer une litiere propre",
+          "Eviter les bruits forts les premiers jours",
+          "Utiliser des diffuseurs de pheromones pour l'apaiser"
+        ]
+      },
+      {
+        "title": "Nutrition royale",
+        "description": "Un chat imposant comme le Siberien a besoin de proteines de tres haute qualite. Evitez les exces de cereales et privilegiez une alimentation equilibree, seche et humide.",
+        "icon": "🥩",
+        "points": [
+          "Proteines animales en priorite",
+          "Eau fraiche en permanence (idealement une fontaine)",
+          "Complement en taurine"
+        ]
+      },
+      {
+        "title": "Vie sociale",
+        "description": "Le Siberien est souvent appele le chat-chien. Il aime la compagnie et supporte mal la solitude prolongee. Jouez avec lui chaque jour.",
+        "icon": "🐈",
+        "points": [
+          "Sessions de jeu de 15 minutes",
+          "Stimulation mentale avec des puzzles",
+          "Socialisation progressive avec d'autres animaux"
+        ]
+      }
+    ]
   },
   "availableKittensPage": {
     "title": "Chatons disponibles",

@@ -183,6 +183,47 @@
       "wantCat": "No, ma vorrei avere un gatto"
     }
   },
+  "advicePage": {
+    "eyebrow": "Guida all'Eccellenza",
+    "titleLine1": "Vivere con un",
+    "titleAccent": "Siberiano",
+    "intro": "Non e solo un gatto, e un membro della famiglia regale. Ecco come garantirgli una vita sana, felice e degna della sua maestosita.",
+    "ctaTitle": "Hai altre domande?",
+    "ctaDescription": "Siamo a tua disposizione per consulenze pre e post-adozione. La salute dei nostri cuccioli e la nostra priorita assoluta.",
+    "ctaButton": "Scrivici su WhatsApp",
+    "tips": [
+      {
+        "title": "L'Arrivo a Casa",
+        "description": "I primi giorni sono cruciali. Crea una stanza sicura con tutto il necessario prima di esplorare il resto della casa. Il Siberiano e curioso ma ha bisogno dei suoi tempi.",
+        "icon": "🏠",
+        "points": [
+          "Prepara una lettiera pulita",
+          "Evita rumori forti i primi giorni",
+          "Usa diffusori di feromoni per il relax"
+        ]
+      },
+      {
+        "title": "Nutrizione Regale",
+        "description": "Un gatto imponente come il Siberiano ha bisogno di proteine di altissima qualita. Evita cereali e punta su diete bilanciate, secche e umide.",
+        "icon": "🥩",
+        "points": [
+          "Proteine animali al primo posto",
+          "Acqua sempre fresca (meglio se a fontanella)",
+          "Integrazione di Taurina"
+        ]
+      },
+      {
+        "title": "Vita Sociale",
+        "description": "Il Siberiano e spesso chiamato il gatto-cane. Ama la compagnia e soffre la solitudine prolungata. Impara a giocare con lui quotidianamente.",
+        "icon": "🐈",
+        "points": [
+          "Sessioni di gioco di 15 min",
+          "Stimolazione mentale con puzzle",
+          "Socializzazione graduale con altri pet"
+        ]
+      }
+    ]
+  },
   "availableKittensPage": {
     "title": "Gattini disponibili",
     "intro": "In questa sezione trovi i gattini attualmente disponibili e lo storico delle cucciolate gia nate o pianificate.",

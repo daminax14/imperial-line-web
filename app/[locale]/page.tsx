@@ -15,6 +15,12 @@ async function getCats(locale: string) {
   return data
 }
 
+function isOwnedCategory(category: unknown): boolean {
+  if (typeof category !== 'string') return false
+  const normalized = category.trim().toLowerCase()
+  return normalized === 'kings' || normalized === 'queens' || normalized === 'king' || normalized === 'queen'
+}
+
 type TopicItem = {
   id: string
   title: string
@@ -60,6 +66,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const { locale } = await params
   const dict = await getDictionary(locale)
   const cats = await getCats(locale)
+  const ownedCats = Array.isArray(cats) ? cats.filter((cat: any) => isOwnedCategory(cat?.category)) : []
   const siberianTopics = getSiberianTopics()
 
  return (
@@ -188,7 +195,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           {/* Colonna Destra: Cards Gatti */}
           <div className="lg:col-span-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {cats.map((cat: any) => (
+              {ownedCats.map((cat: any) => (
                 <Link href={`/${locale}/cat/${cat.slug}`} key={cat._id} className="group relative">
                   {/* Card con ombra morbida ed effetto hover solido */}
                   <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 shadow-2xl">

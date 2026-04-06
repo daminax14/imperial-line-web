@@ -39,15 +39,114 @@
   },
   "adoptionPage": {
     "title": "Adoptionsbedingungen",
-    "intro": "Unten finden Sie unsere Adoptionsregeln. Die vollständige Übersetzung wird schrittweise ergänzt.",
+      "intro": "Um das Wohlbefinden und die Gelassenheit unserer Kitten und ihrer neuen Familien zu sichern, folgen wir in jeder Phase der Adoption klaren und transparenten Regeln.",
     "sections": [
       {
-        "title": "Übersetzung in Arbeit",
+          "title": "Abgabe mit 14 Wochen",
         "paragraphs": [
-          "Der vollständige Inhalt ist aktuell auf Italienisch verfügbar und wird zeitnah ins Deutsche übertragen.",
-          "Die Seitenstruktur ist bereits vorbereitet, damit die Übersetzung Abschnitt für Abschnitt ergänzt werden kann."
+            "Unsere Kitten verlassen unser Zuhause und ziehen erst mit 14 Wochen in ihre neuen Familien.",
+            "Diese Zeit ist grundlegend für eine gesunde und vollständige Entwicklung an der Seite der Mutter und Geschwister."
         ],
         "points": []
+        },
+        {
+          "title": "Gesundheitsgarantie und Gentests",
+          "paragraphs": [
+            "Alle unsere erwachsenen Katzen werden auf die häufigsten Erkrankungen getestet: FIV, FeLV, PKD und HCM.",
+            "Eine Kopie der Testergebnisse wird den neuen Besitzern bei der Übergabe ausgehändigt."
+          ],
+          "points": []
+        },
+        {
+          "title": "Original-Stammbaum",
+          "paragraphs": [
+            "Jedes Kitten wird mit einem originalen FIFe- oder WCF-Stammbaum abgegeben, zum Schutz von Abstammung und Rasse.",
+            "Wir stellen zudem eine Kopie der Stammbäume beider Eltern bereit."
+          ],
+          "points": []
+        },
+        {
+          "title": "Vollständige tierärztliche Betreuung",
+          "paragraphs": [
+            "Die Kitten erhalten zwei Entwurmungen und zwei Impfungen.",
+            "Bei der Abgabe wird ein Gesundheitsheft übergeben, das ihren guten Gesundheitszustand bescheinigt."
+          ],
+          "points": []
+        },
+        {
+          "title": "Updates und kontinuierliche Unterstützung",
+          "paragraphs": [
+            "Nach der Reservierung senden wir regelmäßig Fotos, Videos und Entwicklungsupdates.",
+            "Wir bleiben auch danach verfügbar für Beratung und Unterstützung, damit Eingewöhnung und Wohlbefinden im neuen Zuhause optimal verlaufen."
+          ],
+          "points": []
+        },
+        {
+          "title": "Begleitkatzen und Kastration",
+          "paragraphs": [
+            "Sofern nicht anders vereinbart, werden Kitten mit Liebhaber-Stammbaum abgegeben.",
+            "Die Kastration ist etwa mit 6 bis 8 Monaten erforderlich oder nach tierärztlicher Empfehlung, sobald das Kitten etwa 70 bis 80 Prozent des erwarteten Endgewichts erreicht hat.",
+            "Wir kastrieren Kitten vor der Abgabe nicht, da wir sie für einen frühen Eingriff noch zu jung halten."
+          ],
+          "points": []
+        },
+        {
+          "title": "Stammbaum für Zucht",
+          "paragraphs": [
+            "Die Abgabe mit Zuchtstammbaum ist nur nach einer spezifischen Vereinbarung vor Vertragsunterzeichnung möglich.",
+            "Wir geben keine Kitten an Zuchten mit Isolationskäfigen oder Mischzuchtprogrammen ab: Familien und Züchter werden sorgfältig ausgewählt."
+          ],
+          "points": []
+        },
+        {
+          "title": "Kitten für das Ausland",
+          "paragraphs": [
+            "Bei internationaler Abgabe sind Tollwutimpfung, gesetzliche Wartezeiten und ein internationaler Heimtierausweis erforderlich.",
+            "Zusatzkosten für Dokumente und Impfungen trägt der Käufer."
+          ],
+          "points": []
+        },
+        {
+          "title": "Reservierung, Anzahlung und Warteliste",
+          "paragraphs": [
+            "Ein Kitten gilt erst nach Eingang einer Anzahlung von 350 Euro als reserviert.",
+            "Bei einem Rücktritt wird die Anzahlung in der Regel nicht erstattet, außer bei begründeten und zeitnah mitgeteilten Ausnahmen.",
+            "Für alle, die ein Imperial Line Kitten möchten, aber noch nicht reservieren können, gibt es eine kostenlose Warteliste."
+          ],
+          "points": []
+        },
+        {
+          "title": "Versand und Reise",
+          "paragraphs": [
+            "Wann immer möglich, bevorzugen wir die persönliche Übergabe oder die Abholung durch die neue Familie.",
+            "Flugtransport ins Ausland ist möglich, Kuriertransport wird nicht akzeptiert."
+          ],
+          "points": []
+        },
+        {
+          "title": "Unser täglicher Einsatz",
+          "paragraphs": [
+            "Wir ziehen die Kitten im Haus auf und bereiten sie schrittweise auf Alltag und Sozialisierung vor.",
+            "Vor der Abgabe stellen wir sicher, dass sie selbstständig, gesund und im Kontakt mit Menschen sicher sind."
+          ],
+          "points": [
+            "Gewöhnung an typische Haushaltsgeräusche.",
+            "Sozialisierung mit Menschen und anderen Katzen.",
+            "Gewöhnung an Pflege: Bürste, Krallenpflege, erstes Bad.",
+            "Richtige Nutzung der Katzentoilette.",
+            "Selbstständige Fütterung mit hochwertigem Nass- und Trockenfutter.",
+            "Regelmäßige Updates mit Fotos, Videos und Charakterhinweisen.",
+            "Abgabe eines Kittens in ausgezeichnetem Gesundheitszustand.",
+            "Kostenloses Starter-Set mit Futter, Spielzeug und Decke."
+          ]
+        },
+        {
+          "title": "Beziehung zu den neuen Familien",
+          "paragraphs": [
+            "Wir pflegen auch nach der Abgabe einen kontinuierlichen und freundlichen Kontakt zu den Familien.",
+            "Wir beantworten Fragen und bieten Unterstützung, damit die Kitten in einem idealen Umfeld leben können."
+          ],
+          "points": []
       }
     ]
   },
@@ -83,6 +182,47 @@
       "noOtherCats": "Ja, aber keine anderen Katzen",
       "wantCat": "Nein, aber ich mochte eine Katze"
     }
+  },
+  "advicePage": {
+    "eyebrow": "Leitfaden zur Exzellenz",
+    "titleLine1": "Leben mit einer",
+    "titleAccent": "Sibirischen Katze",
+    "intro": "Sie ist nicht nur eine Katze, sondern ein Mitglied Ihrer Familie. So sichern Sie ihr ein gesundes, gluckliches Leben, das ihrer Majestat wurdig ist.",
+    "ctaTitle": "Haben Sie weitere Fragen?",
+    "ctaDescription": "Wir stehen fur Beratung vor und nach der Adoption zur Verfugung. Die Gesundheit unserer Kitten hat immer oberste Prioritat.",
+    "ctaButton": "Schreiben Sie uns auf WhatsApp",
+    "tips": [
+      {
+        "title": "Ankunft zu Hause",
+        "description": "Die ersten Tage sind entscheidend. Richten Sie einen sicheren Raum mit allem Notigen ein, bevor das ganze Zuhause erkundet wird. Die Sibirische Katze ist neugierig, braucht aber ihr eigenes Tempo.",
+        "icon": "🏠",
+        "points": [
+          "Saubere Katzentoilette vorbereiten",
+          "In den ersten Tagen laute Gerausche vermeiden",
+          "Pheromon-Diffuser zur Beruhigung nutzen"
+        ]
+      },
+      {
+        "title": "Konigliche Ernahrung",
+        "description": "Eine imposante Katze wie die Sibirische braucht hochwertiges Eiweiss. Vermeiden Sie zu viele Getreideanteile und setzen Sie auf ausgewogene Trocken- und Nassnahrung.",
+        "icon": "🥩",
+        "points": [
+          "Tierische Proteine an erster Stelle",
+          "Stets frisches Wasser (am besten aus einem Brunnen)",
+          "Erganzung mit Taurin"
+        ]
+      },
+      {
+        "title": "Soziales Leben",
+        "description": "Die Sibirische Katze wird oft Katzen-Hund genannt. Sie liebt Gesellschaft und leidet bei langer Einsamkeit. Spielen Sie taglich mit ihr.",
+        "icon": "🐈",
+        "points": [
+          "Spielrunden von 15 Minuten",
+          "Mentale Forderung mit Intelligenzspielen",
+          "Schrittweise Sozialisierung mit anderen Haustieren"
+        ]
+      }
+    ]
   },
   "availableKittensPage": {
     "title": "Verfugbare Kitten",

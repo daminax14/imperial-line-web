@@ -39,13 +39,112 @@
   },
   "adoptionPage": {
     "title": "Adoption Conditions",
-    "intro": "Below you can find our adoption rules. The full translation is being refined and structured section by section.",
+    "intro": "To ensure wellbeing and serenity for our kittens and their new families, we follow clear and transparent rules throughout every stage of adoption.",
     "sections": [
       {
-        "title": "Translation in progress",
+        "title": "Delivery at 14 weeks of age",
         "paragraphs": [
-          "The complete content is currently available in Italian and will be translated into English soon.",
-          "You can still browse this page structure and we can add the full English version section by section."
+          "Kittens leave our home and join their new families only after reaching 14 weeks of age.",
+          "This period is essential for healthy and complete development near their mother and siblings."
+        ],
+        "points": []
+      },
+      {
+        "title": "Health guarantee and genetic testing",
+        "paragraphs": [
+          "All our adult cats are tested for the most common conditions: FIV, FeLV, PKD and HCM.",
+          "A copy of the test results is provided to new owners at handover."
+        ],
+        "points": []
+      },
+      {
+        "title": "Original pedigree",
+        "paragraphs": [
+          "Each kitten is placed with an original FIFe or WCF pedigree, protecting lineage and breed integrity.",
+          "We also provide a copy of both parents pedigrees."
+        ],
+        "points": []
+      },
+      {
+        "title": "Complete veterinary care",
+        "paragraphs": [
+          "Kittens receive two deworming cycles and two vaccinations.",
+          "At delivery, a health booklet is provided to certify their good health condition."
+        ],
+        "points": []
+      },
+      {
+        "title": "Updates and ongoing support",
+        "paragraphs": [
+          "After reservation, we regularly share photos, videos and growth updates.",
+          "We remain available over time for guidance and support, to help wellbeing and adaptation in the new home."
+        ],
+        "points": []
+      },
+      {
+        "title": "Companion kittens and neutering",
+        "paragraphs": [
+          "Unless otherwise agreed, kittens are placed with companion pedigree.",
+          "Neutering is required around 6 to 8 months, or when indicated by your veterinarian, once the kitten reaches about 70 to 80 percent of expected adult weight.",
+          "We do not neuter kittens before delivery because we consider them too young for early surgery."
+        ],
+        "points": []
+      },
+      {
+        "title": "Breeding pedigree",
+        "paragraphs": [
+          "Placement with breeding pedigree is possible only after a specific agreement before contract signing.",
+          "We do not place kittens in isolation-cage breeding facilities or mixed-breed programs: we carefully select families and breeders."
+        ],
+        "points": []
+      },
+      {
+        "title": "Kittens for abroad",
+        "paragraphs": [
+          "For international placement, rabies vaccination, legal waiting periods and an international passport are required.",
+          "Additional costs for documents and vaccinations are covered by the buyer."
+        ],
+        "points": []
+      },
+      {
+        "title": "Reservation, deposit and waiting list",
+        "paragraphs": [
+          "A kitten is considered reserved only after receiving a 350 euro deposit.",
+          "In case of reconsideration, the deposit is generally non-refundable, except for justified exceptions communicated promptly.",
+          "A free waiting list is available for those who want an Imperial Line kitten but are not ready to reserve yet."
+        ],
+        "points": []
+      },
+      {
+        "title": "Shipping and travel",
+        "paragraphs": [
+          "Whenever possible, we prefer direct handover or pickup by the new family.",
+          "Air transport for abroad is possible, while courier shipment is not accepted."
+        ],
+        "points": []
+      },
+      {
+        "title": "Our daily commitment",
+        "paragraphs": [
+          "We raise kittens at home and gradually prepare them for domestic life and socialization.",
+          "Before handover, we make sure they are independent, healthy and confident in human contact."
+        ],
+        "points": [
+          "Habituation to everyday home sounds.",
+          "Socialization with people and other cats.",
+          "Grooming training: brush, nail care, first bath.",
+          "Correct litter box habits.",
+          "Independent feeding with quality wet and dry food.",
+          "Regular updates with photos, videos and temperament notes.",
+          "Delivery of a kitten in excellent health condition.",
+          "Complimentary starter kit with food, toy and blanket."
+        ]
+      },
+      {
+        "title": "Relationship with new families",
+        "paragraphs": [
+          "We maintain continuous and friendly contact with families even after placement.",
+          "We answer questions and provide support to ensure kittens have an ideal environment."
         ],
         "points": []
       }
@@ -83,6 +182,47 @@
       "noOtherCats": "Yes, but no other cats",
       "wantCat": "No, but I would like to have a cat"
     }
+  },
+  "advicePage": {
+    "eyebrow": "Guide to Excellence",
+    "titleLine1": "Living with a",
+    "titleAccent": "Siberian",
+    "intro": "It is not just a cat, it is a member of your royal family. Here is how to guarantee a healthy, happy life worthy of its majesty.",
+    "ctaTitle": "Do you have more questions?",
+    "ctaDescription": "We are available for pre and post-adoption support. The health of our kittens is always our top priority.",
+    "ctaButton": "Write to us on WhatsApp",
+    "tips": [
+      {
+        "title": "Arrival at Home",
+        "description": "The first days are crucial. Create a safe room with everything needed before exploring the rest of the house. The Siberian is curious but needs its own pace.",
+        "icon": "🏠",
+        "points": [
+          "Prepare a clean litter box",
+          "Avoid loud noises in the first days",
+          "Use pheromone diffusers for relaxation"
+        ]
+      },
+      {
+        "title": "Royal Nutrition",
+        "description": "A majestic cat like the Siberian needs top quality protein. Avoid excessive grains and prefer balanced dry and wet diets.",
+        "icon": "🥩",
+        "points": [
+          "Animal proteins first",
+          "Fresh water always available (ideally a fountain)",
+          "Taurine supplementation"
+        ]
+      },
+      {
+        "title": "Social Life",
+        "description": "The Siberian is often called a cat-dog. It loves company and can suffer from prolonged loneliness. Play with it daily.",
+        "icon": "🐈",
+        "points": [
+          "15-minute play sessions",
+          "Mental stimulation with puzzles",
+          "Gradual socialization with other pets"
+        ]
+      }
+    ]
   },
   "availableKittensPage": {
     "title": "Available Kittens",
