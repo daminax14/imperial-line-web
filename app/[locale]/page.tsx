@@ -27,47 +27,13 @@ type TopicItem = {
   content: string
 }
 
-function getSiberianTopics(): TopicItem[] {
-  return [
-    {
-      id: 'topic-1',
-      title: 'Storia e origini del gatto siberiano',
-      content:
-        'Il gatto siberiano nasce nelle regioni fredde della Russia e si e adattato nei secoli a climi rigidi con un mantello fitto e idrorepellente. E una razza naturale, selezionata piu dall ambiente che dall intervento umano, con carattere equilibrato e grande resistenza.',
-    },
-    {
-      id: 'topic-2',
-      title: 'La variante Neva Masquerade e le sue caratteristiche',
-      content:
-        'Il Neva Masquerade e la variante colorpoint del siberiano, riconoscibile per il contrasto tra corpo chiaro e estremita piu scure, spesso con occhi azzurri intensi. Mantiene struttura, temperamento e robustezza del siberiano classico, con un aspetto particolarmente elegante.',
-    },
-    {
-      id: 'topic-3',
-      title: 'Perche scegliere un gatto siberiano?',
-      content:
-        'E una scelta ideale per chi desidera un gatto affettuoso ma non invadente, intelligente e adatto alla vita familiare. Si lega molto alle persone, convive bene con bambini e altri animali e mostra una notevole capacita di adattamento agli spazi domestici.',
-    },
-    {
-      id: 'topic-4',
-      title: 'Il gatto siberiano e ipoallergenico?',
-      content:
-        'Non esiste un gatto completamente anallergico, ma molti soggetti siberiani producono livelli piu bassi della proteina Fel d1 rispetto ad altre razze. Per chi soffre di allergie leggere o moderate puo risultare meglio tollerato, ma la valutazione resta sempre individuale.',
-    },
-    {
-      id: 'topic-5',
-      title: 'Sapevi che il gatto Siberiano e utilizzato anche nella pet therapy ?',
-      content:
-        'Grazie al temperamento socievole e alla sensibilita verso l umore umano, in alcuni contesti il siberiano viene coinvolto in percorsi assistiti. La sua presenza puo favorire rilassamento, motivazione e interazione, soprattutto in attivita educative o di supporto emotivo.',
-    },
-  ]
-}
-
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const dict = await getDictionary(locale)
   const cats = await getCats(locale)
   const ownedCats = Array.isArray(cats) ? cats.filter((cat: any) => isOwnedCategory(cat?.category)) : []
-  const siberianTopics = getSiberianTopics()
+  const homePage = dict?.homePage || {}
+  const siberianTopics = (homePage?.topics || []) as TopicItem[]
 
  return (
   <main className="relative min-h-screen text-[#1A1A1A] font-sans overflow-hidden">
@@ -118,7 +84,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2 text-center">Imperial Line</p>
         <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-10 text-center leading-tight">
-          Il nostro allevamento
+          {homePage?.galleryTitle || 'Il nostro allevamento'}
         </h2>
         {/* Asymmetric editorial grid */}
         <div className="grid grid-cols-12 grid-rows-2 gap-3 h-[600px] md:h-[680px]">
@@ -174,8 +140,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           
           {/* Colonna Sinistra: Topics (Sticky) */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2">Knowledge Base</p>
-            <h2 className="text-5xl font-serif text-slate-900 mb-8 leading-none">Approfondimenti</h2>
+            <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2">{homePage?.knowledgeEyebrow || 'Knowledge Base'}</p>
+            <h2 className="text-5xl font-serif text-slate-900 mb-8 leading-none">{homePage?.knowledgeTitle || 'Approfondimenti'}</h2>
             
             <div className="space-y-4">
               {siberianTopics.map((topic) => (

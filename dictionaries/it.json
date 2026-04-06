@@ -13,6 +13,38 @@
     "subtitle": "Certificati FIFe",
     "description": "Allevamento su piccola scala di gatti siberiani tradizionali e Neva Masquerade"
   },
+  "homePage": {
+    "galleryTitle": "Il nostro allevamento",
+    "knowledgeEyebrow": "Knowledge Base",
+    "knowledgeTitle": "Approfondimenti",
+    "topics": [
+      {
+        "id": "topic-1",
+        "title": "Storia e origini del gatto siberiano",
+        "content": "Il gatto siberiano nasce nelle regioni fredde della Russia e si e adattato nei secoli a climi rigidi con un mantello fitto e idrorepellente. E una razza naturale, selezionata piu dall ambiente che dall intervento umano, con carattere equilibrato e grande resistenza."
+      },
+      {
+        "id": "topic-2",
+        "title": "La variante Neva Masquerade e le sue caratteristiche",
+        "content": "Il Neva Masquerade e la variante colorpoint del siberiano, riconoscibile per il contrasto tra corpo chiaro e estremita piu scure, spesso con occhi azzurri intensi. Mantiene struttura, temperamento e robustezza del siberiano classico, con un aspetto particolarmente elegante."
+      },
+      {
+        "id": "topic-3",
+        "title": "Perche scegliere un gatto siberiano?",
+        "content": "E una scelta ideale per chi desidera un gatto affettuoso ma non invadente, intelligente e adatto alla vita familiare. Si lega molto alle persone, convive bene con bambini e altri animali e mostra una notevole capacita di adattamento agli spazi domestici."
+      },
+      {
+        "id": "topic-4",
+        "title": "Il gatto siberiano e ipoallergenico?",
+        "content": "Non esiste un gatto completamente anallergico, ma molti soggetti siberiani producono livelli piu bassi della proteina Fel d1 rispetto ad altre razze. Per chi soffre di allergie leggere o moderate puo risultare meglio tollerato, ma la valutazione resta sempre individuale."
+      },
+      {
+        "id": "topic-5",
+        "title": "Sapevi che il gatto siberiano e utilizzato anche nella pet therapy?",
+        "content": "Grazie al temperamento socievole e alla sensibilita verso l umore umano, in alcuni contesti il siberiano viene coinvolto in percorsi assistiti. La sua presenza puo favorire rilassamento, motivazione e interazione, soprattutto in attivita educative o di supporto emotivo."
+      }
+    ]
+  },
   "footer": {
     "tagline": "Allevamento d'Eccellenza Siberiani Neva Masquerade",
     "explore": "Esplora",
@@ -285,5 +317,26 @@
     "photoUnavailable": "Foto non disponibile",
     "bornLabel": "Nato/a",
     "backToAvailable": "Torna a Gattini disponibili"
+  },
+  "catsGroupPage": {
+    "kingsLabel": "Kings",
+    "queensLabel": "Queens",
+    "emptyTitle": "Nessun soggetto disponibile",
+    "emptyDescription": "I contenuti per questa sezione saranno pubblicati a breve.",
+    "imageUnavailable": "Immagine non disponibile",
+    "defaultColor": "Siberian Neva Masquerade",
+    "fivLabel": "FIV",
+    "felvLabel": "FELV",
+    "hcmLabel": "HCM",
+    "pkdLabel": "PKD",
+    "bloodGroupLabel": "Gruppo Sanguigno",
+    "showResultsLabel": "Risultati Show",
+    "dataPlaceholder": "(data)",
+    "pedigreeButton": "Pedigree",
+    "parentsTitle": "Genitori",
+    "motherLabel": "Madre",
+    "fatherLabel": "Padre",
+    "unknownMother": "Sconosciuta",
+    "unknownFather": "Sconosciuto"
   }
 }

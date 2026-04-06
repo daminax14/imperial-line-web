@@ -13,6 +13,38 @@
     "subtitle": "Authentic",
     "description": "Preserving the majesty and gentle temperament of the original Siberian cat."
   },
+  "homePage": {
+    "galleryTitle": "Our cattery",
+    "knowledgeEyebrow": "Knowledge Base",
+    "knowledgeTitle": "Insights",
+    "topics": [
+      {
+        "id": "topic-1",
+        "title": "History and origins of the Siberian cat",
+        "content": "The Siberian cat comes from the cold regions of Russia and has adapted over centuries to harsh climates, developing a dense and water-repellent coat. It is a natural breed, shaped more by environment than by human intervention, with a balanced temperament and remarkable resilience."
+      },
+      {
+        "id": "topic-2",
+        "title": "The Neva Masquerade variant and its features",
+        "content": "The Neva Masquerade is the colorpoint variant of the Siberian, recognizable by the contrast between a lighter body and darker extremities, often paired with deep blue eyes. It preserves the structure, temperament, and robustness of the classic Siberian, with an especially elegant appearance."
+      },
+      {
+        "id": "topic-3",
+        "title": "Why choose a Siberian cat?",
+        "content": "It is an ideal choice for those seeking an affectionate but not invasive cat, intelligent and well suited to family life. It bonds strongly with people, lives well with children and other animals, and shows excellent adaptability to home environments."
+      },
+      {
+        "id": "topic-4",
+        "title": "Is the Siberian cat hypoallergenic?",
+        "content": "There is no completely non-allergenic cat, but many Siberian cats produce lower levels of the Fel d1 protein compared to other breeds. For people with mild or moderate allergies, they can be better tolerated, though assessment always remains individual."
+      },
+      {
+        "id": "topic-5",
+        "title": "Did you know the Siberian cat is also used in pet therapy?",
+        "content": "Thanks to its sociable temperament and sensitivity to human mood, the Siberian is involved in assisted programs in some contexts. Its presence can promote relaxation, motivation, and interaction, especially in educational or emotional support activities."
+      }
+    ]
+  },
   "footer": {
     "tagline": "Excellence Breeding Siberian Neva Masquerade",
     "explore": "Explore",
@@ -285,5 +317,26 @@
     "photoUnavailable": "Photo not available",
     "bornLabel": "Born",
     "backToAvailable": "Back to Available Kittens"
+  },
+  "catsGroupPage": {
+    "kingsLabel": "Kings",
+    "queensLabel": "Queens",
+    "emptyTitle": "No cats available",
+    "emptyDescription": "Content for this section will be published soon.",
+    "imageUnavailable": "Image not available",
+    "defaultColor": "Siberian Neva Masquerade",
+    "fivLabel": "FIV",
+    "felvLabel": "FeLV",
+    "hcmLabel": "HCM",
+    "pkdLabel": "PKD",
+    "bloodGroupLabel": "Blood Group",
+    "showResultsLabel": "Show Results",
+    "dataPlaceholder": "(data)",
+    "pedigreeButton": "Pedigree",
+    "parentsTitle": "Parents",
+    "motherLabel": "Mother",
+    "fatherLabel": "Father",
+    "unknownMother": "Unknown",
+    "unknownFather": "Unknown"
   }
 }

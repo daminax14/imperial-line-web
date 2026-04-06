@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
+import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
 
@@ -436,8 +437,9 @@ export default async function AvailableKittensPage({
   const historyLitters = litters.filter((item) => !isPlannedLitter(item))
 
   return (
-    <main className="pt-[120px] pb-32 bg-[#b7bfcc] min-h-screen text-[#1f2f43]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main className="relative pt-[120px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
+      <CatsEtherealBackground />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-20">
           <p className="text-xs uppercase tracking-[0.42em] text-[#2f6f99] font-semibold mb-3">
             Imperial Line

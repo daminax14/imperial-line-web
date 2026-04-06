@@ -13,6 +13,38 @@
     "subtitle": "Authentisch",
     "description": "Wir bewahren die Erhabenheit und das sanfte Gemüt der ursprünglichen sibirischen Katze."
   },
+  "homePage": {
+    "galleryTitle": "Unsere Zucht",
+    "knowledgeEyebrow": "Wissensbasis",
+    "knowledgeTitle": "Vertiefungen",
+    "topics": [
+      {
+        "id": "topic-1",
+        "title": "Geschichte und Ursprung der Sibirischen Katze",
+        "content": "Die Sibirische Katze stammt aus den kalten Regionen Russlands und hat sich uber Jahrhunderte an harte Klimabedingungen angepasst, mit einem dichten und wasserabweisenden Fell. Sie ist eine naturliche Rasse, die eher von der Umwelt als vom Menschen gepragt wurde, mit ausgeglichenem Charakter und grosser Widerstandskraft."
+      },
+      {
+        "id": "topic-2",
+        "title": "Die Neva Masquerade Variante und ihre Merkmale",
+        "content": "Die Neva Masquerade ist die Colorpoint-Variante der Sibirischen Katze, erkennbar am Kontrast zwischen hellem Korper und dunkleren Extremitaten, oft mit intensiv blauen Augen. Sie behalt Struktur, Temperament und Robustheit der klassischen Sibirischen Katze bei und wirkt besonders elegant."
+      },
+      {
+        "id": "topic-3",
+        "title": "Warum eine Sibirische Katze wahlen?",
+        "content": "Sie ist die ideale Wahl fur alle, die eine liebevolle, aber nicht aufdringliche Katze suchen, intelligent und familientauglich. Sie bindet sich stark an Menschen, lebt gut mit Kindern und anderen Tieren zusammen und zeigt eine bemerkenswerte Anpassungsfahigkeit an den Alltag im Haus."
+      },
+      {
+        "id": "topic-4",
+        "title": "Ist die Sibirische Katze hypoallergen?",
+        "content": "Es gibt keine vollstandig allergenfreie Katze, aber viele Sibirische Katzen produzieren geringere Mengen des Proteins Fel d1 als andere Rassen. Fur Menschen mit leichten oder mittleren Allergien kann sie besser vertraglich sein, die Bewertung bleibt jedoch immer individuell."
+      },
+      {
+        "id": "topic-5",
+        "title": "Wussten Sie, dass die Sibirische Katze auch in der tiergestutzten Therapie eingesetzt wird?",
+        "content": "Dank ihres sozialen Temperaments und ihrer Sensibilitat fur menschliche Stimmungen wird die Sibirische Katze in manchen Kontexten in assistierte Programme eingebunden. Ihre Anwesenheit kann Entspannung, Motivation und Interaktion fordern, besonders in padagogischen oder emotionalen Unterstutzungsangeboten."
+      }
+    ]
+  },
   "footer": {
     "tagline": "Exzellenzzucht Sibirische Neva Masquerade",
     "explore": "Entdecken",
@@ -285,5 +317,26 @@
     "photoUnavailable": "Foto nicht verfugbar",
     "bornLabel": "Geboren",
     "backToAvailable": "Zuruck zu verfugbaren Kitten"
+  },
+  "catsGroupPage": {
+    "kingsLabel": "Kings",
+    "queensLabel": "Queens",
+    "emptyTitle": "Keine Tiere verfugbar",
+    "emptyDescription": "Inhalte fur diesen Bereich werden in Kurze veroffentlicht.",
+    "imageUnavailable": "Bild nicht verfugbar",
+    "defaultColor": "Sibirische Neva Masquerade",
+    "fivLabel": "FIV",
+    "felvLabel": "FeLV",
+    "hcmLabel": "HCM",
+    "pkdLabel": "PKD",
+    "bloodGroupLabel": "Blutgruppe",
+    "showResultsLabel": "Show-Ergebnisse",
+    "dataPlaceholder": "(Daten)",
+    "pedigreeButton": "Stammbaum",
+    "parentsTitle": "Eltern",
+    "motherLabel": "Mutter",
+    "fatherLabel": "Vater",
+    "unknownMother": "Unbekannt",
+    "unknownFather": "Unbekannt"
   }
 }

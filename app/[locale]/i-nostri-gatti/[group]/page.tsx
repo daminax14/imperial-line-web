@@ -41,13 +41,13 @@ function normalizeGroup(value: string): GroupView | null {
 }
 
 function isKing(cat: CatItem): boolean {
-  const source = `${cat.category || ''} ${cat.sex || ''}`.toLowerCase()
-  return ['king', 'male', 'maschio', 'maschi'].some((token) => source.includes(token))
+  const category = (cat.category || '').trim().toLowerCase()
+  return category === 'king' || category === 'kings'
 }
 
 function isQueen(cat: CatItem): boolean {
-  const source = `${cat.category || ''} ${cat.sex || ''}`.toLowerCase()
-  return ['queen', 'female', 'femmina', 'femmine'].some((token) => source.includes(token))
+  const category = (cat.category || '').trim().toLowerCase()
+  return category === 'queen' || category === 'queens'
 }
 
 async function getCats(locale: string): Promise<CatItem[]> {
@@ -100,9 +100,12 @@ export default async function CatsGroupPage({
 
   const dict = await getDictionary(locale)
   const cats = await getCats(locale)
+  const groupText = dict?.catsGroupPage || {}
 
   const filteredCats = cats.filter((cat) => (normalizedGroup === 'kings' ? isKing(cat) : isQueen(cat)))
-  const sectionTitle = normalizedGroup === 'kings' ? 'Kings' : 'Queens'
+  const sectionTitle = normalizedGroup === 'kings'
+    ? (groupText?.kingsLabel || 'Kings')
+    : (groupText?.queensLabel || 'Queens')
   const sectionSubtitle = ""
 
   return (
@@ -128,7 +131,7 @@ export default async function CatsGroupPage({
                   : 'text-zinc-500 hover:text-black'
               }`}
             >
-              Kings
+              {groupText?.kingsLabel || 'Kings'}
             </Link>
             <Link
               href={`/${locale}/i-nostri-gatti/queens`}
@@ -138,7 +141,7 @@ export default async function CatsGroupPage({
                   : 'text-zinc-500 hover:text-black'
               }`}
             >
-              Queens
+              {groupText?.queensLabel || 'Queens'}
             </Link>
           </div>
         </div>
@@ -146,8 +149,8 @@ export default async function CatsGroupPage({
         {/* LISTA GATTI */}
         {filteredCats.length === 0 ? (
           <section className="flex flex-col items-center justify-center py-32 text-center bg-white/40 backdrop-blur-sm rounded-3xl border border-white/60 shadow-sm">
-            <h2 className="text-3xl font-serif font-light text-zinc-500">Nessun soggetto disponibile</h2>
-            <p className="text-zinc-500 mt-4 text-sm tracking-wide">I contenuti per questa sezione saranno pubblicati a breve.</p>
+            <h2 className="text-3xl font-serif font-light text-zinc-500">{groupText?.emptyTitle || 'Nessun soggetto disponibile'}</h2>
+            <p className="text-zinc-500 mt-4 text-sm tracking-wide">{groupText?.emptyDescription || 'I contenuti per questa sezione saranno pubblicati a breve.'}</p>
           </section>
         ) : (
           <div className="space-y-32 md:space-y-48">
@@ -169,7 +172,7 @@ export default async function CatsGroupPage({
                           />
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center text-[10px] uppercase tracking-widest text-zinc-400">
-                            Immagine non disponibile
+                            {groupText?.imageUnavailable || 'Immagine non disponibile'}
                           </div>
                         )}
                       </div>
@@ -179,7 +182,7 @@ export default async function CatsGroupPage({
                     <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'} flex flex-col justify-center`}>
                       <h2 className="text-5xl md:text-6xl font-serif font-light text-black mb-4 drop-shadow-sm">{cat.name}</h2>
                       <p className="text-sm md:text-base font-medium tracking-widest uppercase text-zinc-600 mb-10">
-                        {cat.color || 'Siberian Neva Masquerade'}
+                        {cat.color || groupText?.defaultColor || 'Siberian Neva Masquerade'}
                       </p>
 
                       {cat.description && (
@@ -199,28 +202,28 @@ export default async function CatsGroupPage({
                           <p className="text-sm font-medium text-zinc-900">{cat.health || '—'}</p>
                         </div>
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">FIV</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.fivLabel || 'FIV'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">FELV</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.felvLabel || 'FELV'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">HCM</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.hcmLabel || 'HCM'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                         <div>
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">PKD</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.pkdLabel || 'PKD'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                         <div className="col-span-2 md:col-span-1">
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">Gruppo Sanguigno</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.bloodGroupLabel || 'Gruppo Sanguigno'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                         <div className="col-span-2">
-                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">Risultati Show</p>
-                          <p className="text-sm font-medium text-zinc-900">(data)</p>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-500 mb-1">{groupText?.showResultsLabel || 'Risultati Show'}</p>
+                          <p className="text-sm font-medium text-zinc-900">{groupText?.dataPlaceholder || '(data)'}</p>
                         </div>
                       </div>
 
@@ -233,63 +236,56 @@ export default async function CatsGroupPage({
                             rel="noopener noreferrer"
                             className="bg-zinc-900 text-white text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.2)] hover:bg-zinc-700 hover:-translate-y-0.5 transition-all duration-300"
                           >
-                            Pedigree ↗
+                            {groupText?.pedigreeButton || 'Pedigree'} ↗
                           </a>
                         )}
-                        {cat.slug && (
-                          <Link
-                            href={`/${locale}/cat/${cat.slug}`}
-                            className="bg-white/80 backdrop-blur-sm border border-zinc-200 text-zinc-900 text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full shadow-sm hover:border-zinc-400 hover:shadow-md transition-all duration-300"
-                          >
-                            Scheda completa
-                          </Link>
-                        )}
+                        
                       </div>
 
                       {/* ALBERO GENEALOGICO (GENITORI INGRANDITI) */}
                       {(cat.father || cat.mother) && (
                         <div className="mt-16 pt-10 border-t border-zinc-200/60">
                           <p className="text-[11px] uppercase tracking-[0.3em] text-zinc-500 font-semibold mb-8 text-center md:text-left drop-shadow-sm">
-                            Parents
+                            {groupText?.parentsTitle || 'Parents'}
                           </p>
                           
-                          <div className="flex items-center justify-center md:justify-start gap-8 md:gap-14">
+                          <div className="flex items-center justify-center md:justify-start gap-10 md:gap-20">
                             
                             {/* MADRE */}
                             {cat.mother && (
-                              <div className="flex flex-col items-center gap-4 group/parent">
-                                <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden bg-white border-[3px] border-white shadow-[0_8px_25px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover/parent:scale-105 group-hover/parent:shadow-[0_12px_35px_rgba(0,0,0,0.15)]">
+                              <div className="flex flex-col items-center gap-5 group/parent">
+                                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden bg-white border-[3px] border-white shadow-[0_8px_25px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover/parent:scale-105 group-hover/parent:shadow-[0_12px_35px_rgba(0,0,0,0.15)]">
                                   {cat.mother.image ? (
-                                    <img src={urlFor(cat.mother.image).width(400).url()} className="w-full h-full object-cover" alt={cat.mother.name} />
+                                    <img src={urlFor(cat.mother.image).width(640).url()} className="w-full h-full object-cover" alt={cat.mother.name} />
                                   ) : (
                                     <span className="flex items-center justify-center w-full h-full text-[9px] uppercase tracking-widest text-zinc-400 bg-zinc-50">Img</span>
                                   )}
                                 </div>
                                 <div className="text-center">
-                                  <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium mb-1.5">Madre</p>
-                                  <p className="font-serif text-lg md:text-xl text-zinc-900 leading-tight">{cat.mother.name || 'Sconosciuta'}</p>
+                                  <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium mb-1.5">{groupText?.motherLabel || 'Madre'}</p>
+                                  <p className="font-serif text-lg md:text-xl text-zinc-900 leading-tight">{cat.mother.name || groupText?.unknownMother || 'Sconosciuta'}</p>
                                 </div>
                               </div>
                             )}
 
                             {/* LINEA DI CONGIUNZIONE */}
                             {cat.mother && cat.father && (
-                              <div className="w-8 md:w-16 h-[2px] bg-zinc-300 rounded-full mt-[-40px] md:mt-[-50px]"></div>
+                              <div className="w-10 md:w-20 h-[2px] bg-zinc-300 rounded-full mt-[-55px] md:mt-[-68px]"></div>
                             )}
 
                             {/* PADRE */}
                             {cat.father && (
-                              <div className="flex flex-col items-center gap-4 group/parent">
-                                <div className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden bg-white border-[3px] border-white shadow-[0_8px_25px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover/parent:scale-105 group-hover/parent:shadow-[0_12px_35px_rgba(0,0,0,0.15)]">
+                              <div className="flex flex-col items-center gap-5 group/parent">
+                                <div className="w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden bg-white border-[3px] border-white shadow-[0_8px_25px_rgba(0,0,0,0.1)] transition-transform duration-500 group-hover/parent:scale-105 group-hover/parent:shadow-[0_12px_35px_rgba(0,0,0,0.15)]">
                                   {cat.father.image ? (
-                                    <img src={urlFor(cat.father.image).width(400).url()} className="w-full h-full object-cover" alt={cat.father.name} />
+                                    <img src={urlFor(cat.father.image).width(640).url()} className="w-full h-full object-cover" alt={cat.father.name} />
                                   ) : (
                                     <span className="flex items-center justify-center w-full h-full text-[9px] uppercase tracking-widest text-zinc-400 bg-zinc-50">Img</span>
                                   )}
                                 </div>
                                 <div className="text-center">
-                                  <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium mb-1.5">Padre</p>
-                                  <p className="font-serif text-lg md:text-xl text-zinc-900 leading-tight">{cat.father.name || 'Sconosciuto'}</p>
+                                  <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium mb-1.5">{groupText?.fatherLabel || 'Padre'}</p>
+                                  <p className="font-serif text-lg md:text-xl text-zinc-900 leading-tight">{cat.father.name || groupText?.unknownFather || 'Sconosciuto'}</p>
                                 </div>
                               </div>
                             )}

@@ -13,6 +13,38 @@
     "subtitle": "Authentique",
     "description": "Nous preservons la majeste et la douceur du chat Siberien d'origine."
   },
+  "homePage": {
+    "galleryTitle": "Notre elevage",
+    "knowledgeEyebrow": "Base de connaissances",
+    "knowledgeTitle": "Approfondissements",
+    "topics": [
+      {
+        "id": "topic-1",
+        "title": "Histoire et origines du chat Siberien",
+        "content": "Le chat Siberien est originaire des regions froides de Russie et s'est adapte au fil des siecles a des climats rigoureux, avec un pelage dense et hydrofuge. C'est une race naturelle, faconnee davantage par l'environnement que par l'intervention humaine, avec un caractere equilibre et une grande resistance."
+      },
+      {
+        "id": "topic-2",
+        "title": "La variete Neva Masquerade et ses caracteristiques",
+        "content": "Le Neva Masquerade est la variete colorpoint du Siberien, reconnaissable au contraste entre un corps clair et des extremites plus foncees, souvent accompagnees d'yeux bleus intenses. Il conserve la structure, le temperament et la robustesse du Siberien classique, avec une allure particulierement elegante."
+      },
+      {
+        "id": "topic-3",
+        "title": "Pourquoi choisir un chat Siberien ?",
+        "content": "C'est un choix ideal pour ceux qui recherchent un chat affectueux mais non envahissant, intelligent et adapte a la vie de famille. Il s'attache fortement aux personnes, cohabite bien avec les enfants et les autres animaux, et montre une grande capacite d'adaptation au cadre domestique."
+      },
+      {
+        "id": "topic-4",
+        "title": "Le chat Siberien est-il hypoallergenique ?",
+        "content": "Il n'existe pas de chat totalement anallergique, mais de nombreux Siberiens produisent des niveaux plus faibles de la proteine Fel d1 que d'autres races. Pour les personnes souffrant d'allergies legeres ou moderees, il peut etre mieux tolere, meme si l'evaluation reste toujours individuelle."
+      },
+      {
+        "id": "topic-5",
+        "title": "Saviez-vous que le chat Siberien est aussi utilise en mediation animale ?",
+        "content": "Grace a son temperament sociable et a sa sensibilite a l'humeur humaine, le Siberien est implique dans certains contextes de parcours assistes. Sa presence peut favoriser la detente, la motivation et l'interaction, notamment dans des activites educatives ou de soutien emotionnel."
+      }
+    ]
+  },
   "footer": {
     "tagline": "Elevage d'excellence Siberien Neva Masquerade",
     "explore": "Explorer",
@@ -285,5 +317,26 @@
     "photoUnavailable": "Photo non disponible",
     "bornLabel": "Ne",
     "backToAvailable": "Retour aux chatons disponibles"
+  },
+  "catsGroupPage": {
+    "kingsLabel": "Kings",
+    "queensLabel": "Queens",
+    "emptyTitle": "Aucun sujet disponible",
+    "emptyDescription": "Le contenu de cette section sera publie prochainement.",
+    "imageUnavailable": "Image non disponible",
+    "defaultColor": "Siberien Neva Masquerade",
+    "fivLabel": "FIV",
+    "felvLabel": "FeLV",
+    "hcmLabel": "HCM",
+    "pkdLabel": "PKD",
+    "bloodGroupLabel": "Groupe sanguin",
+    "showResultsLabel": "Resultats des expositions",
+    "dataPlaceholder": "(donnees)",
+    "pedigreeButton": "Pedigree",
+    "parentsTitle": "Parents",
+    "motherLabel": "Mere",
+    "fatherLabel": "Pere",
+    "unknownMother": "Inconnue",
+    "unknownFather": "Inconnu"
   }
 }

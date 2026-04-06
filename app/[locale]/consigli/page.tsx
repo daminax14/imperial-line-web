@@ -1,5 +1,6 @@
 import React from 'react'
 import { getDictionary } from '@/lib/get-dictionary'
+import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 
 type AdviceTip = {
   title: string
@@ -15,8 +16,9 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
   const tips = (advice?.tips || []) as AdviceTip[]
 
   return (
-    <main className="pt-[150px] pb-24 bg-[#FCFAF8] min-h-screen">
-      <div className="max-w-7xl mx-auto px-6">
+    <main className="relative pt-[150px] pb-24 bg-[#edf3fb] min-h-screen overflow-hidden">
+      <CatsEtherealBackground />
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         
         {/* Header Sezione */}
         <div className="max-w-3xl mb-20">
