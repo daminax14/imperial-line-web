@@ -30,18 +30,18 @@ type CatItem = {
   }
 }
 
-type GroupView = 'moon' | 'queen'
+type GroupView = 'king' | 'queen'
 
 function normalizeGroup(value: string): GroupView | null {
   const normalized = value.toLowerCase()
-  if (normalized === 'moon' || normalized === 'king' || normalized === 'male' || normalized === 'maschi') return 'moon'
+  if (normalized === 'king' || normalized === 'male' || normalized === 'maschi') return 'king'
   if (normalized === 'queen' || normalized === 'female' || normalized === 'femmine') return 'queen'
   return null
 }
 
-function isMoon(cat: CatItem): boolean {
+function isKing(cat: CatItem): boolean {
   const source = `${cat.category || ''} ${cat.sex || ''}`.toLowerCase()
-  return ['moon', 'king', 'male', 'maschio', 'maschi'].some((token) => source.includes(token))
+  return ['king', 'male', 'maschio', 'maschi'].some((token) => source.includes(token))
 }
 
 function isQueen(cat: CatItem): boolean {
@@ -100,9 +100,9 @@ export default async function CatsGroupPage({
   const dict = await getDictionary(locale)
   const cats = await getCats(locale)
 
-  const filteredCats = cats.filter((cat) => (normalizedGroup === 'moon' ? isMoon(cat) : isQueen(cat)))
-  const sectionTitle = normalizedGroup === 'moon' ? 'Moon' : 'Queen'
-  const sectionSubtitle = normalizedGroup === 'moon' ? 'Maschi' : 'Femmine'
+  const filteredCats = cats.filter((cat) => (normalizedGroup === 'king' ? isKing(cat) : isQueen(cat)))
+  const sectionTitle = normalizedGroup === 'king' ? 'King' : 'Queen'
+  const sectionSubtitle = normalizedGroup === 'king' ? 'Maschi' : 'Femmine'
 
   return (
     <main className="bg-[#b7bfcc] min-h-screen pt-[120px] pb-24 text-[#2f5f86]">
@@ -115,12 +115,12 @@ export default async function CatsGroupPage({
 
           <div className="inline-flex rounded-full bg-white/70 border border-white/50 p-1 shadow-sm">
             <Link
-              href={`/${locale}/i-nostri-gatti/moon`}
+              href={`/${locale}/i-nostri-gatti/king`}
               className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
-                normalizedGroup === 'moon' ? 'bg-[#2f5f86] text-white' : 'text-[#2f5f86]/70 hover:text-[#2f5f86]'
+                normalizedGroup === 'king' ? 'bg-[#2f5f86] text-white' : 'text-[#2f5f86]/70 hover:text-[#2f5f86]'
               }`}
             >
-              Moon
+              King
             </Link>
             <Link
               href={`/${locale}/i-nostri-gatti/queen`}
