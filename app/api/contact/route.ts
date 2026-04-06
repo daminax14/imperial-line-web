@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+export const runtime = 'nodejs'
+
 type ContactPayload = {
   fullName?: string
   allergic?: string
@@ -50,6 +52,9 @@ export async function POST(request: Request) {
       },
     })
 
+    // Verify SMTP connectivity/auth first to provide clearer failures.
+    await transporter.verify()
+
     const subject = `Nuova richiesta contatto Imperial Line - ${payload.fullName}`
     const text = [
       `Nome: ${payload.fullName}`,
@@ -90,7 +95,26 @@ export async function POST(request: Request) {
     })
 
     return NextResponse.json({ message: 'Richiesta inviata con successo. Grazie!' })
-  } catch {
-    return NextResponse.json({ message: 'Errore durante invio richiesta.' }, { status: 500 })
+  } catch (error: unknown) {
+    const err = error as { code?: string; message?: string; response?: string }
+    const details = `${err.code || 'UNKNOWN'} ${err.message || ''} ${err.response || ''}`.toLowerCase()
+
+    let message = 'Errore durante invio richiesta.'
+
+    if (details.includes('auth') || details.includes('535') || details.includes('invalid login')) {
+      message = 'Autenticazione SMTP fallita. Verifica SMTP_USER/SMTP_PASS e l\'abilitazione SMTP su Outlook.'
+    } else if (details.includes('timeout') || details.includes('etimedout') || details.includes('econnrefused')) {
+      message = 'Connessione SMTP non riuscita. Controlla SMTP_HOST/SMTP_PORT/SMTP_SECURE.'
+    } else if (details.includes('self signed') || details.includes('certificate')) {
+      message = 'Errore TLS/SSL SMTP. Verifica le impostazioni di sicurezza del provider.'
+    }
+
+    console.error('Contact API email error:', {
+      code: err.code,
+      message: err.message,
+      response: err.response,
+    })
+
+    return NextResponse.json({ message }, { status: 500 })
   }
 }
