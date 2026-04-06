@@ -265,43 +265,7 @@ export default async function CatsGroupPage({
                           )}
                         </div>
 
-                        {/* Connector lines + arrow — uses CSS borders, no magic offsets */}
-                        {cat.mother || cat.father ? (
-                          <div className="flex justify-center w-full">
-                            {cat.mother && cat.father ? (
-                              /* Both parents: T-shape using borders */
-                              <div className="flex">
-                                <div className="w-16 border-b border-r border-[#2f6f99]/40 h-6" />
-                                <div className="w-16 border-b border-l border-[#2f6f99]/40 h-6" />
-                              </div>
-                            ) : (
-                              /* Single parent: vertical line */
-                              <div className="w-px h-6 bg-[#2f6f99]/40" />
-                            )}
-                          </div>
-                        ) : null}
-                        {(cat.mother || cat.father) && (
-                          <div className="flex flex-col items-center">
-                            <div className="w-px h-6 bg-[#2f6f99]/40" />
-                            <div className="text-[#2f6f99]/60 text-lg leading-none">▼</div>
-                          </div>
-                        )}
 
-                        {/* Current cat */}
-                        <div className="flex flex-col items-center gap-3 mt-1">
-                          {cat.image ? (
-                            <img
-                              src={urlFor(cat.image).width(300).url()}
-                              className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-lg border-2 border-[#2f6f99]/30"
-                              alt={cat.name}
-                            />
-                          ) : (
-                            <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border-2 border-[#2f6f99]/30 flex items-center justify-center text-xs text-[#2f5f86]/70">
-                              {cat.name}
-                            </div>
-                          )}
-                          <p className="font-serif italic text-2xl text-[#2f6f99] font-semibold text-center">{cat.name}</p>
-                        </div>
                       </div>
                     </section>
                   )}
