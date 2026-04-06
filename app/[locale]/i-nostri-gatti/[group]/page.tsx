@@ -105,27 +105,34 @@ export default async function CatsGroupPage({
   const sectionSubtitle = normalizedGroup === 'king' ? 'Maschi' : 'Femmine'
 
   return (
-    <main className="bg-[#b7bfcc] min-h-screen pt-[120px] pb-24 text-[#2f5f86]">
-      <div className="max-w-5xl mx-auto px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6 mb-10">
+    <main className="bg-[#FAFAFA] min-h-screen pt-32 pb-32 text-zinc-900 font-sans selection:bg-zinc-200">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-10">
+        
+        {/* HEADER SEZIONE */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-24 pb-8 border-b border-zinc-200">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-[#2f5f86]/70 font-semibold">{sectionSubtitle}</p>
-            <h1 className="text-4xl md:text-5xl font-serif italic text-[#2f5f86] mt-2">{sectionTitle}</h1>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-medium mb-4">{sectionSubtitle}</p>
+            <h1 className="text-5xl md:text-7xl font-serif font-light tracking-tight text-zinc-900">{sectionTitle}</h1>
           </div>
 
-          <div className="inline-flex rounded-full bg-white/70 border border-white/50 p-1 shadow-sm">
+          {/* TOGGLE MODERNO */}
+          <div className="inline-flex rounded-full bg-zinc-100 p-1.5 shadow-inner">
             <Link
               href={`/${locale}/i-nostri-gatti/king`}
-              className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
-                normalizedGroup === 'king' ? 'bg-[#2f5f86] text-white' : 'text-[#2f5f86]/70 hover:text-[#2f5f86]'
+              className={`px-8 py-3 text-[10px] uppercase tracking-widest font-semibold rounded-full transition-all duration-300 ${
+                normalizedGroup === 'king' 
+                  ? 'bg-white text-black shadow-[0_2px_10px_rgba(0,0,0,0.05)]' 
+                  : 'text-zinc-400 hover:text-black'
               }`}
             >
               King
             </Link>
             <Link
               href={`/${locale}/i-nostri-gatti/queen`}
-              className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold rounded-full transition-colors ${
-                normalizedGroup === 'queen' ? 'bg-[#2f5f86] text-white' : 'text-[#2f5f86]/70 hover:text-[#2f5f86]'
+              className={`px-8 py-3 text-[10px] uppercase tracking-widest font-semibold rounded-full transition-all duration-300 ${
+                normalizedGroup === 'queen' 
+                  ? 'bg-white text-black shadow-[0_2px_10px_rgba(0,0,0,0.05)]' 
+                  : 'text-zinc-400 hover:text-black'
               }`}
             >
               Queen
@@ -133,142 +140,158 @@ export default async function CatsGroupPage({
           </div>
         </div>
 
+        {/* LISTA GATTI */}
         {filteredCats.length === 0 ? (
-          <section className="rounded-[2rem] border border-white/60 bg-white/40 p-10 text-center shadow-sm">
-            <h2 className="text-2xl font-serif text-[#2f5f86]">Nessun soggetto disponibile</h2>
-            <p className="text-[#2f5f86]/80 mt-3">I contenuti per questa sezione saranno pubblicati a breve.</p>
+          <section className="flex flex-col items-center justify-center py-32 text-center">
+            <h2 className="text-3xl font-serif font-light text-zinc-400">Nessun soggetto disponibile</h2>
+            <p className="text-zinc-400 mt-4 text-sm tracking-wide">I contenuti per questa sezione saranno pubblicati a breve.</p>
           </section>
         ) : (
-          <div className="space-y-20">
-            {filteredCats.map((cat) => {
+          <div className="space-y-32 md:space-y-48">
+            {filteredCats.map((cat, index) => {
+              // Alterna l'ordine dell'immagine su desktop per un look editoriale dinamico
+              const isEven = index % 2 === 0
+
               return (
-                <article key={cat._id} className="pt-4 first:pt-0">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <div className="order-2 md:order-1">
-                      <h2 className="text-5xl md:text-6xl font-serif italic leading-[0.95] text-[#2f6f99]">{cat.name}</h2>
-                      <p className="text-3xl md:text-4xl mt-4 font-serif text-[#2f6f99]">{cat.color || 'Siberian Neva Masquerade'}</p>
-
-                      {cat.pedigreeUrl ? (
-                        <a
-                          href={cat.pedigreeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block mt-5 bg-[#2f6f99] text-white py-2 px-8 rounded-full font-bold transition-all uppercase tracking-widest text-[10px] hover:bg-[#255b7d]"
-                        >
-                          Pedigree ↗
-                        </a>
-                      ) : cat.slug ? (
-                        <Link
-                          href={`/${locale}/cat/${cat.slug}`}
-                          className="inline-block mt-5 bg-[#2f6f99] text-white py-2 px-8 rounded-full font-bold transition-all uppercase tracking-widest text-[10px] hover:bg-[#255b7d]"
-                        >
-                          Scheda completa
-                        </Link>
-                      ) : null}
-
-                      <div className="mt-7 space-y-3 text-sm text-[#2f5f86]">
-                        <p>
-                          <span className="font-semibold">{dict.catPage.birth}:</span> {cat.birthDate || '(data)'}
-                        </p>
-                        <p>
-                          <span className="font-semibold">{dict.catPage.health}:</span> {cat.health || '(data)'}
-                        </p>
-                        <p>
-                          <span className="font-semibold">Fiv:</span> (data)
-                        </p>
-                        <p>
-                          <span className="font-semibold">Felv:</span> (data)
-                        </p>
-                        <p>
-                          <span className="font-semibold">Hcm:</span> (data)
-                        </p>
-                        <p>
-                          <span className="font-semibold">Pkd:</span> (data)
-                        </p>
-                        <p>
-                          <span className="font-semibold">Gruppo sanguigno:</span> (data)
-                        </p>
-                        <p>
-                          <span className="font-semibold">Risultati show:</span> (data)
-                        </p>
+                <article key={cat._id} className="group">
+                  <div className={`grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-24 items-center`}>
+                    
+                    {/* COLONNA IMMAGINE */}
+                    <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <div className="relative overflow-hidden rounded-2xl bg-zinc-100 aspect-[3/4]">
+                        {cat.image ? (
+                          <img
+                            src={urlFor(cat.image).width(1200).url()}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            alt={cat.name}
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center text-[10px] uppercase tracking-widest text-zinc-400">
+                            Immagine non disponibile
+                          </div>
+                        )}
                       </div>
+                    </div>
+
+                    {/* COLONNA CONTENUTO */}
+                    <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'} flex flex-col justify-center`}>
+                      <h2 className="text-5xl md:text-6xl font-serif font-light text-black mb-4">{cat.name}</h2>
+                      <p className="text-sm md:text-base font-medium tracking-widest uppercase text-zinc-500 mb-10">
+                        {cat.color || 'Siberian Neva Masquerade'}
+                      </p>
 
                       {cat.description && (
-                        <p className="mt-6 text-sm text-[#2f5f86]/85 leading-relaxed max-w-xl">{cat.description}</p>
+                        <p className="text-zinc-600 leading-relaxed font-light mb-10 text-justify">
+                          {cat.description}
+                        </p>
                       )}
-                    </div>
 
-                    <div className="order-1 md:order-2">
-                      {cat.image ? (
-                        <img
-                          src={urlFor(cat.image).width(1200).url()}
-                          className="rounded-2xl w-full object-cover aspect-[4/5] shadow-md"
-                          alt={cat.name}
-                        />
-                      ) : (
-                        <div className="rounded-2xl border border-white/60 bg-white/50 w-full aspect-[4/5] flex items-center justify-center text-[#2f5f86]/70">
-                          Immagine non disponibile
+                      {/* GRIGLIA SPECIFICHE (Stile Minimal/Tech) */}
+                      <div className="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-4 border-y border-zinc-200 py-8 mb-10">
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">{dict.catPage.birth || 'Nascita'}</p>
+                          <p className="text-sm font-medium text-zinc-800">{cat.birthDate || '—'}</p>
+                        </div>
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">{dict.catPage.health || 'Salute'}</p>
+                          <p className="text-sm font-medium text-zinc-800">{cat.health || '—'}</p>
+                        </div>
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">FIV</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">FELV</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">HCM</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                        <div>
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">PKD</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                        <div className="col-span-2 md:col-span-1">
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">Gruppo Sanguigno</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                        <div className="col-span-2">
+                          <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">Risultati Show</p>
+                          <p className="text-sm font-medium text-zinc-800">(data)</p>
+                        </div>
+                      </div>
+
+                      {/* BOTTONI AZIONE */}
+                      <div className="flex flex-wrap gap-4">
+                        {cat.pedigreeUrl && (
+                          <a
+                            href={cat.pedigreeUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-black text-white text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full hover:bg-zinc-800 transition-all"
+                          >
+                            Pedigree ↗
+                          </a>
+                        )}
+                        {cat.slug && (
+                          <Link
+                            href={`/${locale}/cat/${cat.slug}`}
+                            className="border border-zinc-300 text-black text-[10px] uppercase tracking-[0.2em] font-medium px-8 py-3.5 rounded-full hover:border-black transition-all"
+                          >
+                            Scheda completa
+                          </Link>
+                        )}
+                      </div>
+
+                      {/* ALBERO GENEALOGICO MINIMAL */}
+                      {(cat.father || cat.mother) && (
+                        <div className="mt-16 pt-10 border-t border-zinc-100">
+                          <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-400 font-medium mb-8 text-center md:text-left">
+                            Lineage
+                          </p>
+                          <div className="flex items-center justify-center md:justify-start gap-12">
+                            {cat.mother && (
+                              <div className="flex flex-col items-center gap-4">
+                                <div className="w-16 h-16 rounded-full overflow-hidden bg-zinc-100 border border-zinc-200">
+                                  {cat.mother.image ? (
+                                    <img src={urlFor(cat.mother.image).width(150).url()} className="w-full h-full object-cover" alt={cat.mother.name} />
+                                  ) : (
+                                    <span className="flex items-center justify-center w-full h-full text-[8px] uppercase tracking-widest text-zinc-400">Img</span>
+                                  )}
+                                </div>
+                                <div className="text-center">
+                                  <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">Madre</p>
+                                  <p className="font-serif text-zinc-900">{cat.mother.name || 'Sconosciuta'}</p>
+                                </div>
+                              </div>
+                            )}
+
+                            {cat.mother && cat.father && (
+                              <div className="w-px h-10 bg-zinc-200 mt-[-20px]"></div>
+                            )}
+
+                            {cat.father && (
+                              <div className="flex flex-col items-center gap-4">
+                                <div className="w-16 h-16 rounded-full overflow-hidden bg-zinc-100 border border-zinc-200">
+                                  {cat.father.image ? (
+                                    <img src={urlFor(cat.father.image).width(150).url()} className="w-full h-full object-cover" alt={cat.father.name} />
+                                  ) : (
+                                    <span className="flex items-center justify-center w-full h-full text-[8px] uppercase tracking-widest text-zinc-400">Img</span>
+                                  )}
+                                </div>
+                                <div className="text-center">
+                                  <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-1">Padre</p>
+                                  <p className="font-serif text-zinc-900">{cat.father.name || 'Sconosciuto'}</p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
                       )}
+
                     </div>
                   </div>
-
-                  {(cat.father || cat.mother) && (
-                    <section className="mt-14">
-                      <h3 className="text-3xl font-serif italic text-[#2f6f99] text-center mb-10">Albero genealogico</h3>
-
-                      {/* Tree layout: parents on top, current cat at bottom with connecting arrows */}
-                      <div className="flex flex-col items-center gap-0">
-
-                        {/* Parents row */}
-                        <div className="flex items-end justify-center gap-10 md:gap-28 w-full">
-                          {cat.mother && (
-                            <div className="flex flex-col items-center gap-3">
-                              <p className="text-[10px] uppercase tracking-widest text-[#2f6f99]/60 font-bold">Madre</p>
-                              {cat.mother.image ? (
-                                <img
-                                  src={urlFor(cat.mother.image).width(300).url()}
-                                  className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-md"
-                                  alt={cat.mother?.name || 'Madre'}
-                                />
-                              ) : (
-                                <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
-                                  Madre
-                                </div>
-                              )}
-                              <p className="font-serif italic text-xl text-[#2f6f99] text-center">{cat.mother?.name || 'Madre'}</p>
-                              {cat.mother.color && (
-                                <p className="text-xs text-[#2f5f86]/70 text-center">{cat.mother.color}</p>
-                              )}
-                            </div>
-                          )}
-
-                          {cat.father && (
-                            <div className="flex flex-col items-center gap-3">
-                              <p className="text-[10px] uppercase tracking-widest text-[#2f6f99]/60 font-bold">Padre</p>
-                              {cat.father.image ? (
-                                <img
-                                  src={urlFor(cat.father.image).width(300).url()}
-                                  className="w-28 h-32 md:w-36 md:h-40 object-cover rounded-xl shadow-md"
-                                  alt={cat.father?.name || 'Padre'}
-                                />
-                              ) : (
-                                <div className="w-28 h-32 md:w-36 md:h-40 rounded-xl bg-white/50 border border-white/60 flex items-center justify-center text-xs text-[#2f5f86]/70">
-                                  Padre
-                                </div>
-                              )}
-                              <p className="font-serif italic text-xl text-[#2f6f99] text-center">{cat.father?.name || 'Padre'}</p>
-                              {cat.father.color && (
-                                <p className="text-xs text-[#2f5f86]/70 text-center">{cat.father.color}</p>
-                              )}
-                            </div>
-                          )}
-                        </div>
-
-
-                      </div>
-                    </section>
-                  )}
                 </article>
               )
             })}
