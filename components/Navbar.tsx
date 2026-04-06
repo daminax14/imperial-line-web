@@ -37,7 +37,8 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
         </div>
 
-        {/* MENU CENTRALE */}
+
+        {/* MENU  CENTRALE */}
         <div className="hidden md:flex items-center gap-8 text-[11px] uppercase tracking-[0.2em] text-slate-500 font-bold">
           <Link href={`/${locale}`} className="hover:text-gold-200 transition-colors">
             {dict?.nav?.home || 'Home'}
