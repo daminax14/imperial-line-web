@@ -47,8 +47,8 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
             </h4>
             <ul className="text-sm text-slate-500 space-y-2 font-light">
               <li>📍 {dict.location}</li>
-              <li>📧 info@imperialline.com</li>
-              <li>📞 +39 333 123 4567</li>
+              <li>📧 Imperial-line-siberians@hotmail.com</li>
+              <li>📞 +49 17660923988</li>
             </ul>
           </div>
 
