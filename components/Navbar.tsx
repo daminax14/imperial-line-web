@@ -2,8 +2,10 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 export default function Navbar({ dict, locale }: { dict: any, locale: string }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const locales = ['it', 'de', 'en', 'fr']
   const currentLocale = locales.includes(locale) ? locale : 'it'
@@ -14,6 +16,8 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
     segments[1] = newLocale
     return segments.join('/')
   }
+
+  const closeMobileMenu = () => setMobileMenuOpen(false)
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 border-b border-slate-100">
@@ -71,6 +75,17 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
         </div>
 
+        {/* HAMBURGER MENU (mobile) */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Toggle menu"
+        >
+          <div className={`h-0.5 w-6 bg-slate-800 transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+          <div className={`h-0.5 w-6 bg-slate-800 transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
+          <div className={`h-0.5 w-6 bg-slate-800 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+        </button>
+
         {/* LINGUA E TASTO PRENOTA */}
         <div className="flex items-center gap-6">
           <div className="border-r border-slate-200 pr-6">
@@ -111,6 +126,68 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
         </div>
       </nav>
+
+      {/* MOBILE MENU DRAWER */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 py-4 space-y-3">
+          <Link
+            href={`/${locale}`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.home || 'Home'}
+          </Link>
+          <Link
+            href={`/${locale}/i-nostri-gatti/king`}
+            className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
+            onClick={closeMobileMenu}
+          >
+            King
+          </Link>
+          <Link
+            href={`/${locale}/i-nostri-gatti/queen`}
+            className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
+            onClick={closeMobileMenu}
+          >
+            Queen
+          </Link>
+          <Link
+            href={`/${locale}/gattini-disponibili`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.availableKittens || 'Gattini disponibili'}
+          </Link>
+          <Link
+            href={`/${locale}/consigli`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.advice || 'Consigli'}
+          </Link>
+          <Link
+            href={`/${locale}/condizioni-adozione`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.adoptionConditions || "Condizioni per l'adozione"}
+          </Link>
+          <Link
+            href={`/${locale}/contatti`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.contact || 'Contatti'}
+          </Link>
+          <Link
+            href={`/${locale}/contatti`}
+            className="block w-full text-center text-xs bg-slate-900 text-white px-4 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase mt-4"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.book || 'Prenota'}
+          </Link>
+        </div>
+      )}
     </header>
   )
 }
