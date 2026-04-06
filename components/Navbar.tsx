@@ -45,7 +45,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
           
           <div className="relative group">
-            <Link href={`/${locale}/i-nostri-gatti/moon`} className="hover:text-gold-200 transition-colors inline-flex items-center gap-2">
+            <Link href={`/${locale}/i-nostri-gatti/king`} className="hover:text-gold-200 transition-colors inline-flex items-center gap-2">
               {dict?.nav?.cats || 'Gatti'}
               <span className="text-[9px]">▾</span>
             </Link>
