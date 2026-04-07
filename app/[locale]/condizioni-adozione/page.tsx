@@ -34,7 +34,7 @@ export default async function AdoptionConditionsPage({
   const dict = await getDictionary(locale)
 
   const pageData = dict?.adoptionPage || {}
-  const title = typeof pageData.title === 'string' ? pageData.title : "Condizioni per l'adozione"
+  const title = typeof pageData.title === 'string' ? pageData.title : 'Adoption conditions'
   const intro = typeof pageData.intro === 'string' ? pageData.intro : ''
   const sections = normalizeSections(pageData.sections)
 
@@ -50,7 +50,7 @@ export default async function AdoptionConditionsPage({
 
         {sections.length === 0 ? (
           <section className="rounded-2xl border border-slate-200 bg-white/70 p-8 shadow-sm text-slate-700">
-            Contenuti in aggiornamento.
+            {pageData?.emptyState || 'Content is being updated.'}
           </section>
         ) : (
           <section className="rounded-2xl p-2 md:p-4">

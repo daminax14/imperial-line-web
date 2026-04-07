@@ -18,6 +18,7 @@
     "galleryTitle": "Unsere Zucht",
     "knowledgeEyebrow": "Wissensbasis",
     "knowledgeTitle": "Vertiefungen",
+    "knowledgeEmpty": "Inhalte werden aktualisiert.",
     "topics": [
       {
         "id": "topic-1",
@@ -43,6 +44,37 @@
         "id": "topic-5",
         "title": "Wussten Sie, dass die Sibirische Katze auch in der tiergestutzten Therapie eingesetzt wird?",
         "content": "Dank ihres sozialen Temperaments und ihrer Sensibilitat fur menschliche Stimmungen wird die Sibirische Katze in manchen Kontexten in assistierte Programme eingebunden. Ihre Anwesenheit kann Entspannung, Motivation und Interaktion fordern, besonders in padagogischen oder emotionalen Unterstutzungsangeboten."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "Uber uns",
+    "intro": "Wir sind eine kleine Familienzucht fur Sibirische Katzen und Neva Masquerade. Wir arbeiten mit Sorgfalt, Ethik und Leidenschaft und wahlen gesunde Linien mit ausgeglichenem Charakter.",
+    "emptyState": "Inhalte werden aktualisiert.",
+    "sections": [
+      {
+        "id": "wer-wir-sind",
+        "title": "Wer wir sind",
+        "content": "Imperial Line entstand als Familienprojekt: wenige Tiere aufziehen, sie taglich begleiten und den Kitten ein ruhiges Aufwachsen im Zuhause bieten.\n\nWir setzen auf Qualitat statt Quantitat: Jeder Wurf wird sorgfaltig geplant, mit Respekt fur die Mutter und das Wohl der Kitten.",
+        "image": "/home_1.JPG"
+      },
+      {
+        "id": "ziele",
+        "title": "Unsere Ziele",
+        "content": "Unser Ziel ist es, den traditionellen sibirischen Typ zu bewahren: robuste Struktur, korrektes Fell und sanftes, soziales Temperament.\n\nWir arbeiten mit getesteten Linien und verbessern Gesundheit, Charakterbalance und allgemeine Rassequalitat.",
+        "image": "/home_2.JPG"
+      },
+      {
+        "id": "mission",
+        "title": "Unsere Mission",
+        "content": "Unsere Mission ist es, Familien vom Reservierungsprozess bis zur Eingewohnung des Kittens bewusst zu begleiten.\n\nAuch nach der Abgabe bleiben wir mit praktischen Tipps, Support und Updates an eurer Seite.",
+        "image": "/home_3.JPG"
+      },
+      {
+        "id": "alltag",
+        "title": "Unser Alltag",
+        "content": "Unsere Kitten wachsen im Haus auf und erleben echte Menschen, Gerausche und Routinen. So entwickeln sie Sicherheit, Vertrauen und Anpassungsfahigkeit.\n\nVor der Abgabe arbeiten wir an Sozialisierung, Basispflege und Selbststandigkeit.",
+        "image": "/home_4.JPG"
       }
     ]
   },
@@ -79,11 +111,22 @@
     "lineage_sub": "Die Abstammung",
     "sire": "Vater",
     "dam": "Mutter",
-    "current": "Aktuelles Exemplar"
+    "current": "Aktuelles Exemplar",
+    "notFound": "Katze nicht gefunden.",
+    "backToKingsList": "Zuruck zur Kings-Liste",
+    "backToQueensList": "Zuruck zur Queens-Liste",
+    "livesIn": "Lebt jetzt in",
+    "defaultBreed": "Sibirische Neva Masquerade",
+    "defaultHealth": "Getestet",
+    "photoUnavailable": "Foto nicht verfugbar",
+    "galleryPrevious": "Vorheriges Bild",
+    "galleryNext": "Nachstes Bild",
+    "galleryGoTo": "Gehe zu Bild"
   },
   "adoptionPage": {
     "title": "Adoptionsbedingungen",
       "intro": "Um das Wohlbefinden und die Gelassenheit unserer Kitten und ihrer neuen Familien zu sichern, folgen wir in jeder Phase der Adoption klaren und transparenten Regeln.",
+    "emptyState": "Inhalte werden aktualisiert.",
     "sections": [
       {
           "title": "Abgabe mit 14 Wochen",
@@ -204,6 +247,12 @@
     "afterFormNote": "Vielen Dank für Ihr Interesse und Ihr Vertrauen in unsere kleine Imperial Line Zucht. Sobald Sie das obige Formular ausgefüllt und gesendet haben, werden wir Sie innerhalb von 24 Stunden per E-Mail (oder über eine andere von Ihnen angegebene Kontaktmethode) kontaktieren. Wenn Ihre Adoptionsanfrage angenommen wird, können wir anschließend mit der Unterzeichnung des Reservierungsvertrags für das gewünschte Kitten fortfahren. Falls Sie weitere Fragen oder Klärungen benötigen, zögern Sie nicht, uns zu kontaktieren. Wir freuen uns, Sie kennenzulernen und alle Ihre Fragen zu beantworten. Vielen Dank!",
     "socialTitle": "Kontakte und soziale Netzwerke",
     "submit": "Senden",
+    "messages": {
+      "required": "Bitte fullen Sie alle Pflichtfelder aus, bevor Sie senden.",
+      "sendFailed": "Anfrage konnte nicht gesendet werden.",
+      "sendInProgress": "Wird gesendet...",
+      "sendSuccess": "Anfrage erfolgreich gesendet."
+    },
     "thanks": "Vielen Dank fur Ihr Interesse an Imperial Line. Nach dem Absenden melden wir uns innerhalb von 24 Stunden per E-Mail oder uber den angegebenen Kontaktweg.",
     "fields": {
       "name": "Vor- und Nachname*",
@@ -317,7 +366,12 @@
     "sheetNotAvailable": "Profil noch nicht verfugbar",
     "photoUnavailable": "Foto nicht verfugbar",
     "bornLabel": "Geboren",
-    "backToAvailable": "Zuruck zu verfugbaren Kitten"
+    "backToAvailable": "Zuruck zu verfugbaren Kitten",
+    "notesLabel": "Notizen",
+    "galleryScrollLeft": "Fotos nach links scrollen",
+    "galleryScrollRight": "Fotos nach rechts scrollen",
+    "galleryOpenPhoto": "Foto offnen",
+    "galleryScrollHint": "Scrollen, um alle Fotos zu sehen"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     const payload = (await request.json()) as ContactPayload
 
     if (!required(payload.fullName) || !required(payload.email) || !required(payload.aboutYou) || !required(payload.allergic) || !required(payload.gender) || !required(payload.otherPets)) {
-      return NextResponse.json({ message: 'Campi obbligatori mancanti.' }, { status: 400 })
+      return NextResponse.json({ message: 'Required fields are missing.' }, { status: 400 })
     }
 
     const smtpHost = process.env.SMTP_HOST
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
     if (!smtpHost || !Number.isFinite(smtpPort) || !smtpUser || !smtpPass || !contactFrom || !contactTo) {
       return NextResponse.json(
-        { message: 'Configurazione email mancante. Imposta SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_FROM e CONTACT_TO nelle variabili ambiente.' },
+        { message: 'Email configuration is missing. Set SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_FROM and CONTACT_TO in environment variables.' },
         { status: 500 }
       )
     }
@@ -55,33 +55,33 @@ export async function POST(request: Request) {
     // Verify SMTP connectivity/auth first to provide clearer failures.
     await transporter.verify()
 
-    const subject = `Nuova richiesta contatto Imperial Line - ${payload.fullName}`
+    const subject = `New Imperial Line contact request - ${payload.fullName}`
     const text = [
-      `Nome: ${payload.fullName}`,
+      `Name: ${payload.fullName}`,
       `Email: ${payload.email}`,
-      `Allergico ai gatti: ${payload.allergic}`,
-      `Preferenza sesso: ${payload.gender}`,
-      `Interesse gattino specifico: ${payload.specificKitten || '-'}`,
-      `Interesse prossima cucciolata: ${payload.futureLitter || '-'}`,
-      `Preferenza colore: ${payload.colorPreference || '-'}`,
-      `Altri animali: ${payload.otherPets}`,
+      `Cat allergy: ${payload.allergic}`,
+      `Gender preference: ${payload.gender}`,
+      `Specific kitten interest: ${payload.specificKitten || '-'}`,
+      `Upcoming litter interest: ${payload.futureLitter || '-'}`,
+      `Color preference: ${payload.colorPreference || '-'}`,
+      `Other pets: ${payload.otherPets}`,
       '',
-      'Racconto:',
+      'Additional notes:',
       payload.aboutYou || '-',
     ].join('\n')
 
     const html = `
       <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
-        <h2 style="margin-bottom: 12px;">Nuova richiesta contatto Imperial Line</h2>
-        <p><strong>Nome:</strong> ${payload.fullName}</p>
+        <h2 style="margin-bottom: 12px;">New Imperial Line contact request</h2>
+        <p><strong>Name:</strong> ${payload.fullName}</p>
         <p><strong>Email:</strong> ${payload.email}</p>
-        <p><strong>Allergico ai gatti:</strong> ${payload.allergic}</p>
-        <p><strong>Preferenza sesso:</strong> ${payload.gender}</p>
-        <p><strong>Interesse gattino specifico:</strong> ${payload.specificKitten || '-'}</p>
-        <p><strong>Interesse prossima cucciolata:</strong> ${payload.futureLitter || '-'}</p>
-        <p><strong>Preferenza colore:</strong> ${payload.colorPreference || '-'}</p>
-        <p><strong>Altri animali:</strong> ${payload.otherPets}</p>
-        <p><strong>Racconto:</strong><br/>${(payload.aboutYou || '-').replace(/\n/g, '<br/>')}</p>
+        <p><strong>Cat allergy:</strong> ${payload.allergic}</p>
+        <p><strong>Gender preference:</strong> ${payload.gender}</p>
+        <p><strong>Specific kitten interest:</strong> ${payload.specificKitten || '-'}</p>
+        <p><strong>Upcoming litter interest:</strong> ${payload.futureLitter || '-'}</p>
+        <p><strong>Color preference:</strong> ${payload.colorPreference || '-'}</p>
+        <p><strong>Other pets:</strong> ${payload.otherPets}</p>
+        <p><strong>Additional notes:</strong><br/>${(payload.aboutYou || '-').replace(/\n/g, '<br/>')}</p>
       </div>
     `
 
@@ -94,19 +94,19 @@ export async function POST(request: Request) {
       html,
     })
 
-    return NextResponse.json({ message: 'Richiesta inviata con successo. Grazie!' })
+    return NextResponse.json({ message: 'Request sent successfully. Thank you!' })
   } catch (error: unknown) {
     const err = error as { code?: string; message?: string; response?: string }
     const details = `${err.code || 'UNKNOWN'} ${err.message || ''} ${err.response || ''}`.toLowerCase()
 
-    let message = 'Errore durante invio richiesta.'
+    let message = 'Error while sending request.'
 
     if (details.includes('auth') || details.includes('535') || details.includes('invalid login')) {
-      message = 'Autenticazione SMTP fallita. Verifica SMTP_USER/SMTP_PASS e l\'abilitazione SMTP su Outlook.'
+      message = 'SMTP authentication failed. Check SMTP_USER/SMTP_PASS and SMTP access on your provider.'
     } else if (details.includes('timeout') || details.includes('etimedout') || details.includes('econnrefused')) {
-      message = 'Connessione SMTP non riuscita. Controlla SMTP_HOST/SMTP_PORT/SMTP_SECURE.'
+      message = 'SMTP connection failed. Check SMTP_HOST/SMTP_PORT/SMTP_SECURE.'
     } else if (details.includes('self signed') || details.includes('certificate')) {
-      message = 'Errore TLS/SSL SMTP. Verifica le impostazioni di sicurezza del provider.'
+      message = 'SMTP TLS/SSL error. Verify provider security settings.'
     }
 
     console.error('Contact API email error:', {

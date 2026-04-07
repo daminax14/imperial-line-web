@@ -74,8 +74,9 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const { slug, locale } = await params;
   const cat = await getCat(slug, locale);
   const dict = await getDictionary(locale as 'it' | 'en' | 'de');
+  const catText = dict?.catPage || {}
 
-  if (!cat) return <div className="p-20 text-center text-xl font-serif">Miao? Not found.</div>
+  if (!cat) return <div className="p-20 text-center text-xl font-serif">{catText?.notFound || 'Cat not found.'}</div>
 
   // Badge Status dinamico
   const statusColors: Record<string, string> = {
@@ -100,7 +101,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               href={`/${locale}/i-nostri-gatti/${listGroup}/elenco`}
               className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/30 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] hover:bg-[#2f6f99] hover:text-white transition-colors"
             >
-              ← Torna all'elenco {listGroup === 'kings' ? 'Kings' : 'Queens'}
+              ← {listGroup === 'kings' ? (catText?.backToKingsList || 'Back to Kings list') : (catText?.backToQueensList || 'Back to Queens list')}
             </Link>
           </div>
         )}
@@ -117,7 +118,17 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   className="absolute -inset-[2px] -z-10 rounded-[18px]"
                   style={{ backgroundColor: 'rgba(47, 111, 153, 0.14)' }}
                 />
-                <CatPhotoGallery mainImage={cat.imageUrl} extraImages={cat.galleryUrls} name={cat.name} />
+                <CatPhotoGallery
+                  mainImage={cat.imageUrl}
+                  extraImages={cat.galleryUrls}
+                  name={cat.name}
+                  emptyText={catText?.photoUnavailable}
+                  galleryTexts={{
+                    previousLabel: catText?.galleryPrevious,
+                    nextLabel: catText?.galleryNext,
+                    dotLabel: catText?.galleryGoTo,
+                  }}
+                />
               </div>
             </div>
             {cat.status && (
@@ -128,7 +139,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             {soldStatus && cat.destinationCountry && (
               <div className="absolute top-6 left-6 z-20 rotate-[-6deg] rounded-2xl border-2 border-[#2f6f99] bg-white/95 px-4 py-2.5 shadow-[0_12px_26px_-18px_rgba(22,52,82,0.7)]">
                 <div className="absolute inset-1 rounded-xl border border-dashed border-[#2f6f99]/35 pointer-events-none" />
-                <p className="relative text-[9px] uppercase tracking-[0.22em] text-[#2f6f99] font-bold">Ora vive in</p>
+                <p className="relative text-[9px] uppercase tracking-[0.22em] text-[#2f6f99] font-bold">{catText?.livesIn || 'Now lives in'}</p>
                 <p className="relative text-sm md:text-base font-serif font-semibold text-[#1f3c57] leading-tight inline-flex items-center gap-1.5">
                   {destinationCode ? (
                     <img
@@ -149,7 +160,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/70 bg-white/85 px-3.5 py-1.5 font-bold uppercase tracking-widest text-[11px] text-[#1f3c57] shadow-sm">
               <span>{cat.category}</span>
               <span className="text-gold-200">•</span>
-              <span>{cat.breed || 'Siberian Neva Masquerade'}</span>
+              <span>{cat.breed || catText?.defaultBreed || 'Siberian Neva Masquerade'}</span>
             </span>
             <h1 className="text-5xl md:text-7xl font-serif text-slate-900 mt-4 mb-8 leading-tight">
               {cat.name}
@@ -183,7 +194,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   </div>
                   <div className="sm:col-span-2 rounded-xl border border-slate-100 bg-white/85 p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>
-                    <p className="font-semibold text-slate-900">{cat.health || 'Tested'}</p>
+                    <p className="font-semibold text-slate-900">{cat.health || catText?.defaultHealth || 'Tested'}</p>
                   </div>
                 </div>
 

@@ -12,10 +12,12 @@ export default function HomeKnowledgeTopics({
   topics,
   eyebrow,
   title,
+  emptyText,
 }: {
   topics: TopicItem[]
   eyebrow: string
   title: string
+  emptyText?: string
 }) {
   const safeTopics = useMemo(() => (Array.isArray(topics) ? topics : []), [topics])
   const [activeId, setActiveId] = useState(safeTopics[0]?.id || '')
@@ -61,7 +63,7 @@ export default function HomeKnowledgeTopics({
                   </div>
                 </>
               ) : (
-                <p className="text-slate-600">Contenuti in aggiornamento.</p>
+                <p className="text-slate-600">{emptyText || 'Content is being updated.'}</p>
               )}
             </div>
           </div>

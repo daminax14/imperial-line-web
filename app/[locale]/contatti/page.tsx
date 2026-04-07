@@ -59,21 +59,21 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <section className="text-center mb-8 space-y-4">
           <p className="text-xs uppercase tracking-[0.35em] text-[#2f6f99] font-semibold">Imperial Line</p>
-          <h1 className="text-4xl md:text-6xl font-serif italic text-[#2f6f99]">{contact?.title || 'Prenotazione'}</h1>
+          <h1 className="text-4xl md:text-6xl font-serif italic text-[#2f6f99]">{contact?.title || 'Reservation'}</h1>
         </section>
 
         <section className="max-w-4xl mx-auto rounded-[1.6rem] border border-white/55 bg-white/45 backdrop-blur-md shadow-[0_20px_45px_-30px_rgba(32,72,112,0.45)] p-6 md:p-8 mb-10 space-y-4">
           <p className="text-[#2f5f86] leading-relaxed text-sm md:text-base">
-            {contact?.introLead || 'Compila qui i tuoi dati e aiutaci a scegliere la famiglia perfetta con cui i nostri gattini passeranno il resto della loro vita.'}
+            {contact?.introLead || 'Fill in your details so we can help match the right kitten to your family.'}
           </p>
           <p className="text-[#2f5f86] leading-relaxed text-sm md:text-base">
-            {contact?.introConditions || "Prima di compilare il modulo assicurati di aver letto le condizioni di base alle quali i gattini Imperial Line lasceranno la loro casa. Se non lo hai ancora fatto le trovi qui."}
+            {contact?.introConditions || 'Please read our adoption conditions before submitting the form.'}
           </p>
           <Link
             href={`/${locale}/condizioni-adozione`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors"
           >
-            <span>{contact?.conditionsCta || "Vai alle condizioni d'adozione"}</span>
+            <span>{contact?.conditionsCta || 'Go to adoption conditions'}</span>
             <span>→</span>
           </Link>
         </section>
@@ -86,7 +86,7 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
           <aside className="space-y-4">
             <div className="rounded-[1.5rem] border border-white/50 bg-white/35 backdrop-blur-md shadow-[0_18px_36px_-28px_rgba(32,72,112,0.45)] p-5">
               <p className="text-[#2f5f86] text-sm leading-relaxed">
-                {contact?.afterFormNote || "Grazie per l'interesse e la fiducia accordata al nostro piccolo allevamento Imperial Line. Una volta compilato e inviato il modulo di cui sopra, sarai contattato da noi entro 24 ore via email (o tramite un altro metodo di contatto da voi fornito). Successivamente, quando la vostra richiesta di adozione sarà accettata potremo procedere alla stipula del contratto di prenotazione del gattino desiderato. Se invece avete altre domande e chiarimenti non esitate a contattarci! Saremo lieti di conoscervi e rispondere a tutte le vostre domande. Grazie!"}
+                {contact?.afterFormNote || 'Thank you for your interest. We will contact you as soon as possible after your request is submitted.'}
               </p>
             </div>
 
@@ -94,7 +94,7 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-[#2f6f99]/80 font-semibold mb-4">
-                    {contact?.socialTitle || 'Seguici anche sui nostri social'}
+                    {contact?.socialTitle || 'Follow us on social media'}
                   </p>
                   <div className="space-y-3.5 text-[#2f5f86]">
                     <a
@@ -129,7 +129,7 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
 
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-[#2f6f99]/80 font-semibold mb-4">
-                    {dict?.footer?.contacts || 'Contatti'}
+                    {dict?.footer?.contacts || 'Contacts'}
                   </p>
                   <div className="space-y-3.5 text-[#2f5f86]">
                     <a

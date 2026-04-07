@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary, isSupportedLocale } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
-import Footer from '@/components/Footer'
 
 type GroupView = 'kings' | 'queens'
 
@@ -72,9 +71,8 @@ export default async function CatsGroupListPage({
     : (groupText?.queensLabel || 'Queens')
 
   return (
-    <>
-      <main className="relative min-h-screen pt-32 pb-24 text-zinc-900 font-sans overflow-hidden bg-[#edf3fb]">
-        <CatsEtherealBackground />
+    <main className="relative min-h-screen pt-32 pb-24 text-zinc-900 font-sans overflow-hidden bg-[#edf3fb]">
+      <CatsEtherealBackground />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 pb-6 border-b border-zinc-200/60">
@@ -160,9 +158,6 @@ export default async function CatsGroupListPage({
             </section>
           )}
         </div>
-      </main>
-
-      <Footer dict={dict} locale={locale} />
-    </>
+    </main>
   )
 }

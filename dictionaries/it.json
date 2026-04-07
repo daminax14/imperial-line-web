@@ -18,6 +18,7 @@
     "galleryTitle": "Il nostro allevamento",
     "knowledgeEyebrow": "Knowledge Base",
     "knowledgeTitle": "Approfondimenti",
+    "knowledgeEmpty": "Contenuti in aggiornamento.",
     "topics": [
       {
         "id": "topic-1",
@@ -49,6 +50,7 @@
   "aboutPage": {
     "title": "Su di noi",
     "intro": "Siamo un piccolo allevamento familiare dedicato al Siberiano e al Neva Masquerade. Lavoriamo con attenzione, etica e passione, selezionando linee sane e caratteri equilibrati.",
+    "emptyState": "Contenuti in aggiornamento.",
     "sections": [
       {
         "id": "chi-siamo",
@@ -109,11 +111,22 @@
     "lineage_sub": "The Lineage",
     "sire": "Sire (Padre)",
     "dam": "Dam (Madre)",
-    "current": "Soggetto Attuale"
+    "current": "Soggetto Attuale",
+    "notFound": "Gatto non trovato.",
+    "backToKingsList": "Torna all'elenco Kings",
+    "backToQueensList": "Torna all'elenco Queens",
+    "livesIn": "Ora vive in",
+    "defaultBreed": "Siberian Neva Masquerade",
+    "defaultHealth": "Test effettuati",
+    "photoUnavailable": "Foto non disponibile",
+    "galleryPrevious": "Immagine precedente",
+    "galleryNext": "Immagine successiva",
+    "galleryGoTo": "Vai all'immagine"
   },
   "adoptionPage": {
     "title": "Condizioni per l'adozione",
     "intro": "Per garantire benessere e serenità ai nostri cuccioli e alle nuove famiglie, seguiamo regole precise e trasparenti in ogni fase dell'adozione.",
+    "emptyState": "Contenuti in aggiornamento.",
     "sections": [
       {
         "title": "Consegna alla 14ª settimana di vita",
@@ -234,6 +247,12 @@
     "afterFormNote": "Grazie per l'interesse e la fiducia accordata al nostro piccolo allevamento Imperial Line. Una volta compilato e inviato il modulo di cui sopra, sarai contattato da noi entro 24 ore via email (o tramite un altro metodo di contatto da voi fornito). Successivamente, quando la vostra richiesta di adozione sarà accettata potremo procedere alla stipula del contratto di prenotazione del gattino desiderato. Se invece avete altre domande e chiarimenti non esitate a contattarci! Saremo lieti di conoscervi e rispondere a tutte le vostre domande. Grazie!",
     "socialTitle": "Recapiti e social",
     "submit": "Invia",
+    "messages": {
+      "required": "Compila tutti i campi obbligatori prima di inviare.",
+      "sendFailed": "Invio non riuscito.",
+      "sendInProgress": "Invio in corso...",
+      "sendSuccess": "Richiesta inviata con successo."
+    },
     "thanks": "Grazie per l'interesse verso Imperial Line. Dopo l'invio del modulo ti contatteremo entro 24 ore via email o al recapito indicato.",
     "fields": {
       "name": "Nome e Cognome*",
@@ -347,7 +366,12 @@
     "sheetNotAvailable": "Scheda non ancora disponibile",
     "photoUnavailable": "Foto non disponibile",
     "bornLabel": "Nato/a",
-    "backToAvailable": "Torna a Gattini disponibili"
+    "backToAvailable": "Torna a Gattini disponibili",
+    "notesLabel": "Note",
+    "galleryScrollLeft": "Scorri foto a sinistra",
+    "galleryScrollRight": "Scorri foto a destra",
+    "galleryOpenPhoto": "Apri foto",
+    "galleryScrollHint": "Scorri per vedere tutte le foto"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",

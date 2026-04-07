@@ -74,10 +74,10 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             {dict?.nav?.advice || 'Consigli'}
           </Link>
           <Link href={`/${locale}/condizioni-adozione`} className={`${desktopNavItemClass} px-1`}>
-            {dict?.nav?.adoptionConditions || "Condizioni per l'adozione"}
+            {dict?.nav?.adoptionConditions || 'Adoption conditions'}
           </Link>
           <Link href={`/${locale}/contatti`} className={desktopNavItemClass}>
-            {dict?.contactPage?.title || 'Prenotazione'}
+            {dict?.contactPage?.title || 'Reservation'}
           </Link>
         </div>
 
@@ -180,14 +180,14 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
             onClick={closeMobileMenu}
           >
-            {dict?.nav?.adoptionConditions || "Condizioni per l'adozione"}
+            {dict?.nav?.adoptionConditions || 'Adoption conditions'}
           </Link>
           <Link
             href={`/${locale}/contatti`}
             className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
             onClick={closeMobileMenu}
           >
-            {dict?.contactPage?.title || 'Prenotazione'}
+            {dict?.contactPage?.title || 'Reservation'}
           </Link>
         </div>
       )}

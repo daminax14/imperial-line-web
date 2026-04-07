@@ -1,102 +1,45 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useMemo } from 'react'
+import { HorizontalImageStack } from '@/components/ui/horizontal-image-stack'
 
 type CatPhotoGalleryProps = {
   mainImage?: string
   extraImages?: string[]
   name: string
+  emptyText?: string
+  galleryTexts?: {
+    previousLabel?: string
+    nextLabel?: string
+    dotLabel?: string
+  }
 }
 
-export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPhotoGalleryProps) {
+export default function CatPhotoGallery({ mainImage, extraImages, name, emptyText, galleryTexts }: CatPhotoGalleryProps) {
   const images = useMemo(() => {
     const list = [mainImage, ...(extraImages || [])].filter((item): item is string => Boolean(item))
-    return Array.from(new Set(list))
+    return Array.from(new Set(list)).map((src, index) => ({
+      id: `${name}-${index + 1}`,
+      src,
+      alt: `${name} foto ${index + 1}`,
+    }))
   }, [mainImage, extraImages])
 
-  const [activeImage, setActiveImage] = useState(images[0] || '')
-  const thumbsRef = useRef<HTMLDivElement | null>(null)
-
-  const scrollThumbs = (direction: 'left' | 'right') => {
-    if (!thumbsRef.current) return
-    const offset = direction === 'left' ? -220 : 220
-    thumbsRef.current.scrollBy({ left: offset, behavior: 'smooth' })
-  }
-
-  if (!activeImage) {
+  if (images.length === 0) {
     return (
       <div className="relative rounded-[1.7rem] bg-slate-100/80 aspect-[4/5] flex items-center justify-center text-slate-400 text-sm">
-        Foto non disponibile
+        {emptyText || 'Photo not available'}
       </div>
     )
   }
 
   return (
-    <div className="space-y-4">
-      <div className="relative rounded-[1.7rem] overflow-hidden">
-        <img
-          src={activeImage}
-          className="w-full object-cover aspect-[4/5] z-10"
-          alt={name}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/18 via-transparent to-black/5" />
-      </div>
-
-      {images.length > 1 && (
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            {images.length > 4 && (
-              <button
-                type="button"
-                onClick={() => scrollThumbs('left')}
-                className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label="Scorri foto a sinistra"
-              >
-                ‹
-              </button>
-            )}
-
-            <div
-              ref={thumbsRef}
-              className="flex gap-2 overflow-x-auto pb-2 flex-1 scrollbar-thin scrollbar-thumb-[#2f6f99]/40 scrollbar-track-transparent"
-            >
-              {images.map((imgSrc, index) => {
-                const selected = imgSrc === activeImage
-                return (
-                  <button
-                    key={`${imgSrc}-${index}`}
-                    type="button"
-                    onClick={() => setActiveImage(imgSrc)}
-                    className={`relative rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 w-[78px] ${
-                      selected ? 'border-gold-200 shadow-md' : 'border-white/70 hover:border-[#2f6f99]'
-                    }`}
-                    aria-label={`Apri foto ${index + 1} di ${name}`}
-                  >
-                    <img src={imgSrc} alt={`${name} anteprima ${index + 1}`} className="w-full aspect-square object-cover" />
-                  </button>
-                )
-              })}
-            </div>
-
-            {images.length > 4 && (
-              <button
-                type="button"
-                onClick={() => scrollThumbs('right')}
-                className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label="Scorri foto a destra"
-              >
-                ›
-              </button>
-            )}
-          </div>
-
-          {images.length > 4 && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">
-              Scorri per vedere tutte le foto
-            </p>
-          )}
-        </div>
-      )}
+    <div className="relative rounded-[1.7rem] overflow-hidden">
+      <HorizontalImageStack
+        images={images}
+        className="h-[540px] min-h-0 rounded-[1.7rem] bg-transparent"
+        texts={galleryTexts}
+      />
     </div>
   )
 }

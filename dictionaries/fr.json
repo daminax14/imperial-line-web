@@ -18,6 +18,7 @@
     "galleryTitle": "Notre elevage",
     "knowledgeEyebrow": "Base de connaissances",
     "knowledgeTitle": "Approfondissements",
+    "knowledgeEmpty": "Contenu en cours de mise a jour.",
     "topics": [
       {
         "id": "topic-1",
@@ -43,6 +44,37 @@
         "id": "topic-5",
         "title": "Saviez-vous que le chat Siberien est aussi utilise en mediation animale ?",
         "content": "Grace a son temperament sociable et a sa sensibilite a l'humeur humaine, le Siberien est implique dans certains contextes de parcours assistes. Sa presence peut favoriser la detente, la motivation et l'interaction, notamment dans des activites educatives ou de soutien emotionnel."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "A propos",
+    "intro": "Nous sommes un petit elevage familial dedie au Siberien et au Neva Masquerade. Nous travaillons avec soin, ethique et passion, en selectionnant des lignes saines et des temperaments equilibres.",
+    "emptyState": "Contenu en cours de mise a jour.",
+    "sections": [
+      {
+        "id": "qui-nous-sommes",
+        "title": "Qui nous sommes",
+        "content": "Imperial Line est ne d'un projet familial : elever peu de chats, les suivre chaque jour et offrir aux chatons une croissance sereine a la maison.\n\nNous croyons a la qualite avant la quantite : chaque portee est planifiee avec soin, dans le respect de la mere et du bien-etre des petits.",
+        "image": "/home_1.JPG"
+      },
+      {
+        "id": "objectifs",
+        "title": "Nos objectifs",
+        "content": "Notre objectif est de preserver le type traditionnel du Siberien : structure robuste, pelage correct et temperament doux et sociable.\n\nNous selectionnons des lignes testees et travaillons a ameliorer la sante, l'equilibre du caractere et la qualite globale de la race.",
+        "image": "/home_2.JPG"
+      },
+      {
+        "id": "mission",
+        "title": "Notre mission",
+        "content": "Notre mission est d'accompagner chaque famille de la reservation a l'arrivee du chaton a la maison.\n\nNous restons disponibles apres l'adoption avec conseils pratiques, suivi et support continu.",
+        "image": "/home_3.JPG"
+      },
+      {
+        "id": "approche",
+        "title": "Notre approche quotidienne",
+        "content": "Les chatons grandissent a la maison, au contact de personnes, de sons et de routines reelles. Cela renforce confiance, securite et adaptation.\n\nAvant le depart, nous travaillons la socialisation, les bases du toilettage et l'autonomie.",
+        "image": "/home_4.JPG"
       }
     ]
   },
@@ -79,11 +111,22 @@
     "lineage_sub": "La Lignee",
     "sire": "Sire (Pere)",
     "dam": "Dam (Mere)",
-    "current": "Sujet actuel"
+    "current": "Sujet actuel",
+    "notFound": "Chat introuvable.",
+    "backToKingsList": "Retour a la liste Kings",
+    "backToQueensList": "Retour a la liste Queens",
+    "livesIn": "Vit maintenant en",
+    "defaultBreed": "Siberien Neva Masquerade",
+    "defaultHealth": "Tests effectues",
+    "photoUnavailable": "Photo non disponible",
+    "galleryPrevious": "Image precedente",
+    "galleryNext": "Image suivante",
+    "galleryGoTo": "Aller a l'image"
   },
   "adoptionPage": {
     "title": "Conditions d'adoption",
     "intro": "Pour garantir le bien-etre et la serenite de nos chatons et de leurs nouvelles familles, nous suivons des regles claires et transparentes a chaque etape de l'adoption.",
+    "emptyState": "Contenu en cours de mise a jour.",
     "sections": [
       {
         "title": "Depart a 14 semaines",
@@ -204,6 +247,12 @@
     "afterFormNote": "Merci pour l'interet et la confiance accordes a notre petit elevage Imperial Line. Une fois le formulaire ci-dessus rempli et envoye, vous serez contacte par nous dans les 24 heures par email (ou via un autre moyen de contact que vous aurez fourni). Ensuite, lorsque votre demande d'adoption sera acceptee, nous pourrons proceder a la signature du contrat de reservation du chaton souhaite. Si vous avez d'autres questions ou besoin de precisions, n'hesitez pas a nous contacter. Nous serons ravis de vous connaitre et de repondre a toutes vos questions. Merci !",
     "socialTitle": "Contacts et reseaux sociaux",
     "submit": "Envoyer",
+    "messages": {
+      "required": "Veuillez remplir tous les champs obligatoires avant l'envoi.",
+      "sendFailed": "Echec de l'envoi de la demande.",
+      "sendInProgress": "Envoi en cours...",
+      "sendSuccess": "Demande envoyee avec succes."
+    },
     "thanks": "Merci pour votre interessement. Nous repondrons dans les plus brefs delais par email ou via le contact fourni.",
     "fields": {
       "name": "Nom et prenom*",
@@ -317,7 +366,12 @@
     "sheetNotAvailable": "Fiche pas encore disponible",
     "photoUnavailable": "Photo non disponible",
     "bornLabel": "Ne",
-    "backToAvailable": "Retour aux chatons disponibles"
+    "backToAvailable": "Retour aux chatons disponibles",
+    "notesLabel": "Notes",
+    "galleryScrollLeft": "Faire defiler les photos vers la gauche",
+    "galleryScrollRight": "Faire defiler les photos vers la droite",
+    "galleryOpenPhoto": "Ouvrir la photo",
+    "galleryScrollHint": "Faites defiler pour voir toutes les photos"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",

@@ -6,9 +6,15 @@ type LitterPhotoGalleryProps = {
   mainImage?: string
   extraImages?: string[]
   title: string
+  texts?: {
+    scrollLeft?: string
+    scrollRight?: string
+    openPhoto?: string
+    scrollHint?: string
+  }
 }
 
-export default function LitterPhotoGallery({ mainImage, extraImages, title }: LitterPhotoGalleryProps) {
+export default function LitterPhotoGallery({ mainImage, extraImages, title, texts }: LitterPhotoGalleryProps) {
   const images = useMemo(() => {
     const list = [mainImage, ...(extraImages || [])].filter((item): item is string => Boolean(item))
     return Array.from(new Set(list))
@@ -44,7 +50,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title }: Li
                 type="button"
                 onClick={() => scrollThumbs('left')}
                 className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label="Scorri foto a sinistra"
+                aria-label={texts?.scrollLeft || 'Scroll photos left'}
               >
                 ‹
               </button>
@@ -64,7 +70,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title }: Li
                     className={`relative rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 w-[78px] ${
                       selected ? 'border-gold-200 shadow-md' : 'border-white/70 hover:border-[#2f6f99]'
                     }`}
-                    aria-label={`Apri foto ${index + 1}`}
+                    aria-label={`${texts?.openPhoto || 'Open photo'} ${index + 1}`}
                   >
                     <img src={imgSrc} alt={`${title} ${index + 1}`} className="w-full aspect-square object-cover" />
                   </button>
@@ -77,7 +83,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title }: Li
                 type="button"
                 onClick={() => scrollThumbs('right')}
                 className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label="Scorri foto a destra"
+                aria-label={texts?.scrollRight || 'Scroll photos right'}
               >
                 ›
               </button>
@@ -85,7 +91,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title }: Li
           </div>
 
           {images.length > 4 && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Scorri per vedere tutte le foto</p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{texts?.scrollHint || 'Scroll to see all photos'}</p>
           )}
         </div>
       )}

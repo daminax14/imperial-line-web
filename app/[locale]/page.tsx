@@ -31,7 +31,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       
       <div className="relative z-10 text-center px-6">
         <div className="inline-block px-3 py-1 mb-4 border border-white/30 backdrop-blur-md rounded-full">
-           <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Est. 2026 — Excellence</p>
+           <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Est. 2024 — Excellence</p>
         </div>
         <h1 className="text-1xl md:text-5xl font-serif italic text-white leading-tight mb-6 drop-shadow-2xl break-words">
           {dict.hero.title} <br/> 
@@ -46,7 +46,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     <HomeKnowledgeTopics
       topics={siberianTopics}
       eyebrow={homePage?.knowledgeEyebrow || 'Knowledge Base'}
-      title={homePage?.knowledgeTitle || 'Approfondimenti'}
+      title={homePage?.knowledgeTitle || 'Insights'}
+      emptyText={homePage?.knowledgeEmpty || 'Content is being updated.'}
     />
 
   </main>

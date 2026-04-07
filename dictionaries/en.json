@@ -18,6 +18,7 @@
     "galleryTitle": "Our cattery",
     "knowledgeEyebrow": "Knowledge Base",
     "knowledgeTitle": "Insights",
+    "knowledgeEmpty": "Content is being updated.",
     "topics": [
       {
         "id": "topic-1",
@@ -43,6 +44,37 @@
         "id": "topic-5",
         "title": "Did you know the Siberian cat is also used in pet therapy?",
         "content": "Thanks to its sociable temperament and sensitivity to human mood, the Siberian is involved in assisted programs in some contexts. Its presence can promote relaxation, motivation, and interaction, especially in educational or emotional support activities."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "About us",
+    "intro": "We are a small family cattery dedicated to Siberian and Neva Masquerade cats. We work with care, ethics and passion, selecting healthy lines and balanced temperaments.",
+    "emptyState": "Content is being updated.",
+    "sections": [
+      {
+        "id": "who-we-are",
+        "title": "Who we are",
+        "content": "Imperial Line was born from a family project: to raise a small number of cats, follow them every day, and give kittens a calm growth path in a home environment.\n\nWe believe in quality over quantity: each litter is planned with care, respecting the mother timing and each kitten wellbeing.",
+        "image": "/home_1.JPG"
+      },
+      {
+        "id": "goals",
+        "title": "Our goals",
+        "content": "Our goal is to preserve the traditional Siberian type: strong structure, correct coat and a gentle, social temperament.\n\nWe select tested bloodlines and work to improve health, character balance and overall breed quality.",
+        "image": "/home_2.JPG"
+      },
+      {
+        "id": "mission",
+        "title": "Our mission",
+        "content": "Our mission is to guide each family through a conscious path, from reservation to the kitten first days at home.\n\nWe stay available even after placement with practical advice, ongoing support and updates.",
+        "image": "/home_3.JPG"
+      },
+      {
+        "id": "daily-approach",
+        "title": "Our daily approach",
+        "content": "Kittens grow up at home, in contact with real people, sounds and routines. This helps build confidence, trust and adaptation skills.\n\nBefore placement, we work on socialization, basic grooming and autonomy so each kitten is ready for the new family.",
+        "image": "/home_4.JPG"
       }
     ]
   },
@@ -79,11 +111,22 @@
     "lineage_sub": "The Lineage",
     "sire": "Sire (Father)",
     "dam": "Dam (Mother)",
-    "current": "Current Exemplar"
+    "current": "Current Exemplar",
+    "notFound": "Cat not found.",
+    "backToKingsList": "Back to Kings list",
+    "backToQueensList": "Back to Queens list",
+    "livesIn": "Now lives in",
+    "defaultBreed": "Siberian Neva Masquerade",
+    "defaultHealth": "Tested",
+    "photoUnavailable": "Photo not available",
+    "galleryPrevious": "Previous image",
+    "galleryNext": "Next image",
+    "galleryGoTo": "Go to image"
   },
   "adoptionPage": {
     "title": "Adoption Conditions",
     "intro": "To ensure wellbeing and serenity for our kittens and their new families, we follow clear and transparent rules throughout every stage of adoption.",
+    "emptyState": "Content is being updated.",
     "sections": [
       {
         "title": "Delivery at 14 weeks of age",
@@ -204,6 +247,12 @@
     "afterFormNote": "Thank you for your interest and trust in our small Imperial Line cattery. Once you complete and submit the form above, we will contact you within 24 hours by email (or another contact method you provided). Afterwards, once your adoption request is accepted, we can proceed with signing the reservation contract for your desired kitten. If you have any other questions or need clarification, do not hesitate to contact us. We will be happy to meet you and answer all your questions. Thank you!",
     "socialTitle": "Contacts and social",
     "submit": "Send",
+    "messages": {
+      "required": "Please fill in all required fields before sending.",
+      "sendFailed": "Unable to send request.",
+      "sendInProgress": "Sending...",
+      "sendSuccess": "Request sent successfully."
+    },
     "thanks": "Thank you for your interest in Imperial Line. After submitting the form we will contact you within 24 hours by email or using your preferred contact method.",
     "fields": {
       "name": "Full name*",
@@ -317,7 +366,12 @@
     "sheetNotAvailable": "Profile not available yet",
     "photoUnavailable": "Photo not available",
     "bornLabel": "Born",
-    "backToAvailable": "Back to Available Kittens"
+    "backToAvailable": "Back to Available Kittens",
+    "notesLabel": "Notes",
+    "galleryScrollLeft": "Scroll photos left",
+    "galleryScrollRight": "Scroll photos right",
+    "galleryOpenPhoto": "Open photo",
+    "galleryScrollHint": "Scroll to see all photos"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",

@@ -205,7 +205,7 @@ function KittenCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-sm italic text-slate-400 bg-slate-50">
-            {dict?.photoUnavailable || 'Foto non disponibile'}
+            {dict?.photoUnavailable || 'Photo not available'}
           </div>
         )}
         {kitten.status && (
@@ -223,7 +223,7 @@ function KittenCard({
         </p>
         {kitten.birthDate && (
           <p className="text-xs text-[#6a85a0] mt-1">
-            {dict?.bornLabel || 'Nato/a'}: {fmtDate(kitten.birthDate)}
+            {dict?.bornLabel || 'Born'}: {fmtDate(kitten.birthDate)}
           </p>
         )}
         {kitten.slug && (
@@ -231,7 +231,7 @@ function KittenCard({
             href={`/${locale}/cat/${kitten.slug}`}
             className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
           >
-            <span>{dict?.details || 'Scheda completa'}</span>
+            <span>{dict?.details || 'Full profile'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
           </Link>
         )}
@@ -261,7 +261,7 @@ function PlannedLitterCard({
             <div className="aspect-[4/3] md:h-full md:aspect-auto">
               <img
                 src={urlFor(coverImg).width(600).height(480).fit('crop').url()}
-                alt={litter.title || dict?.plannedTitle || 'Cucciolata pianificata'}
+                alt={litter.title || dict?.plannedTitle || 'Planned litter'}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -270,7 +270,7 @@ function PlannedLitterCard({
         <div className="flex-1 p-6 md:p-8 flex flex-col justify-center gap-5">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-[#2f6f99]/70 font-semibold mb-1">
-              {dict?.plannedLabel || 'Cucciolata pianificata'}
+              {dict?.plannedLabel || 'Planned litter'}
             </p>
             {litter.slug ? (
               <Link
@@ -278,12 +278,12 @@ function PlannedLitterCard({
                 className="group/title inline-block"
               >
                 <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug group-hover/title:text-[#2f6f99] transition-colors">
-                  {litter.title || dict?.newLitterTitle || 'Nuova cucciolata'}
+                  {litter.title || dict?.newLitterTitle || 'New litter'}
                 </h3>
               </Link>
             ) : (
               <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug">
-                {litter.title || dict?.newLitterTitle || 'Nuova cucciolata'}
+                {litter.title || dict?.newLitterTitle || 'New litter'}
               </h3>
             )}
             {litter.plannedDate && (
@@ -320,7 +320,7 @@ function PlannedLitterCard({
               href={`/${locale}/cucciolate/${litter.slug}`}
               className="inline-flex items-center gap-1 mt-1 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
             >
-              <span>{dict?.litterDetails || 'Vedi cucciolata'}</span>
+              <span>{dict?.litterDetails || 'View litter'}</span>
               <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
             </Link>
           )}
@@ -350,7 +350,7 @@ function HistoryLitterCard({
         {coverImg ? (
           <img
             src={urlFor(coverImg).width(700).height(525).fit('crop').url()}
-            alt={litter.title || dict?.litterTitle || 'Cucciolata'}
+            alt={litter.title || dict?.litterTitle || 'Litter'}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
@@ -361,7 +361,7 @@ function HistoryLitterCard({
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/65 to-transparent" />
         <div className="absolute bottom-3 left-4 right-4">
           <p className="text-white font-serif italic text-lg leading-tight drop-shadow">
-            {litter.title || dict?.litterTitle || 'Cucciolata'}
+            {litter.title || dict?.litterTitle || 'Litter'}
           </p>
           {litter.birthDate && (
             <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate)}</p>
@@ -370,7 +370,7 @@ function HistoryLitterCard({
         {href && (
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
             <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
-              {dict?.viewDetails || 'Vedi dettagli'} →
+              {dict?.viewDetails || 'View details'} →
             </span>
           </div>
         )}
@@ -399,7 +399,7 @@ function HistoryLitterCard({
         )}
         {href && (
           <p className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#2f6f99]">
-            {dict?.kittenDetails || 'Dettaglio cuccioli'} <span>→</span>
+            {dict?.kittenDetails || 'Kitten details'} <span>→</span>
           </p>
         )}
       </div>
@@ -445,23 +445,23 @@ export default async function AvailableKittensPage({
             Imperial Line
           </p>
           <h1 className="text-5xl md:text-7xl font-serif italic text-[#2f6f99]">
-            {pageText?.title || 'Gattini disponibili'}
+            {pageText?.title || 'Available kittens'}
           </h1>
           <div className="mt-5 mx-auto w-16 h-px bg-[#2f6f99]/40" />
           <p className="max-w-2xl mx-auto mt-5 text-[#3a5570] leading-relaxed">
             {pageText?.intro ||
-              'Consulta i gattini disponibili, le cucciolate pianificate e il nostro storico.'}
+              'Browse available kittens, planned litters, and our history.'}
           </p>
         </header>
 
         <section className="mb-20">
           <SectionHead
-            sup={pageText?.availableSup || 'Da adottare'}
-            title={pageText?.availableTitle || 'Disponibili ora'}
+            sup={pageText?.availableSup || 'Ready for adoption'}
+            title={pageText?.availableTitle || 'Available now'}
           />
           {availableKittens.length === 0 ? (
             <EmptyBox
-              text={pageText?.emptyAvailable || 'Al momento non ci sono gattini disponibili.'}
+              text={pageText?.emptyAvailable || 'There are currently no available kittens.'}
             />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -479,12 +479,12 @@ export default async function AvailableKittensPage({
 
         <section className="mb-20">
           <SectionHead
-            sup={pageText?.plannedSup || 'In arrivo'}
-            title={pageText?.plannedTitle || 'Cucciolate pianificate'}
+            sup={pageText?.plannedSup || 'Coming soon'}
+            title={pageText?.plannedTitle || 'Planned litters'}
           />
           {plannedLitters.length === 0 ? (
             <EmptyBox
-              text={pageText?.emptyPlanned || 'Nessuna cucciolata pianificata al momento.'}
+              text={pageText?.emptyPlanned || 'No planned litters at the moment.'}
             />
           ) : (
             <div className="space-y-6">
@@ -497,12 +497,12 @@ export default async function AvailableKittensPage({
 
         <section>
           <SectionHead
-            sup={pageText?.historySup || 'Passato'}
-            title={pageText?.historyTitle || 'Storico cucciolate'}
+            sup={pageText?.historySup || 'History'}
+            title={pageText?.historyTitle || 'Litter history'}
           />
           {historyLitters.length === 0 ? (
             <EmptyBox
-              text={pageText?.emptyHistory || 'Storico non disponibile per ora.'}
+              text={pageText?.emptyHistory || 'No historical litters available yet.'}
             />
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
