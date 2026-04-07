@@ -1,6 +1,7 @@
 import { client, urlFor } from '@/lib/sanity'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/get-dictionary'
+import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 
 async function getCats(locale: string) {
   const query = `*[_type == "cat"] {
@@ -37,25 +38,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
  return (
   <main className="relative min-h-screen text-[#1A1A1A] font-sans overflow-hidden">
-    
-    {/* SFONDO COMPLESSO: Texture + Gradienti */}
-    <div className="fixed inset-0 -z-10 bg-[#e5e7eb]">
-      {/* Texture a grana (Noise) - Opzionale via CSS o immagine */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-      
-      {/* Elementi Geometrici "Vivi" */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-[20%] right-[-5%] w-[400px] h-[400px] bg-gold-100/30 rounded-full blur-[100px]"></div>
-      
-      {/* Linee sottili decorative */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
-        <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-slate-400 to-transparent"></div>
-      </div>
-    </div>
+    <CatsEtherealBackground />
 
     {/* 1. HERO SECTION */}
-    <section className="relative h-[85vh] w-full mt-[80px] flex items-center justify-center overflow-hidden">
+    <section className="relative z-10 h-[85vh] w-full mt-[80px] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 scale-110">
         <img 
           src="/main_menu.JPG" 
@@ -80,7 +66,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </section>
 
     {/* 1b. GALLERY SECTION – home images */}
-    <section className="py-20 relative">
+    <section className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2 text-center">Imperial Line</p>
         <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-10 text-center leading-tight">
@@ -133,7 +119,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     </section>
 
     {/* 2. THE STARS GALLERY */}
-    <section className="py-32 relative">
+    <section className="py-32 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
