@@ -10,7 +10,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
   const locales = ['it', 'de', 'en', 'fr']
   const currentLocale = locales.includes(locale) ? locale : 'it'
   const desktopNavItemClass =
-    'flex min-h-[40px] items-center justify-center text-center leading-[1.15] hover:text-gold-200 transition-colors'
+    'flex min-h-[40px] items-center justify-center text-center leading-[1.2] hover:text-gold-200 transition-colors'
 
   const getTranslatedPath = (newLocale: string) => {
     if (!pathname) return `/${newLocale}`
@@ -41,7 +41,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
 
 
         {/* MENU  CENTRALE */}
-        <div className="hidden md:grid flex-1 max-w-3xl grid-cols-[0.85fr_1.1fr_1fr_0.85fr_1.35fr_0.85fr] items-center gap-x-3 text-[10px] uppercase tracking-[0.2em] text-slate-500 font-bold">
+        <div className="hidden md:grid flex-1 max-w-4xl grid-cols-[0.9fr_1.1fr_1fr_0.95fr_0.85fr_1.35fr_0.95fr] items-center gap-x-3 text-[11px] uppercase tracking-[0.14em] text-slate-500 font-bold">
           <Link href={`/${locale}`} className={desktopNavItemClass}>
             {dict?.nav?.home || 'Home'}
           </Link>
@@ -66,6 +66,9 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
 
           <Link href={`/${locale}/gattini-disponibili`} className={`${desktopNavItemClass} px-1`}>
             {dict?.nav?.availableKittens || 'Gattini disponibili'}
+          </Link>
+          <Link href={`/${locale}/su-di-noi`} className={desktopNavItemClass}>
+            {dict?.nav?.aboutUs || 'Su di noi'}
           </Link>
           <Link href={`/${locale}/consigli`} className={desktopNavItemClass}>
             {dict?.nav?.advice || 'Consigli'}
@@ -164,6 +167,13 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             onClick={closeMobileMenu}
           >
             {dict?.nav?.advice || 'Consigli'}
+          </Link>
+          <Link
+            href={`/${locale}/su-di-noi`}
+            className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
+            onClick={closeMobileMenu}
+          >
+            {dict?.nav?.aboutUs || 'Su di noi'}
           </Link>
           <Link
             href={`/${locale}/condizioni-adozione`}

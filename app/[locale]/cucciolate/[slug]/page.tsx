@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
+import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+import LitterPhotoGallery from '@/components/LitterPhotoGallery'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
 
@@ -33,6 +35,7 @@ type Litter = {
   plannedDate?: string
   birthDate?: string
   coverImage?: any
+  galleryUrls?: string[]
   father?: Parent | null
   mother?: Parent | null
   kittens: Kitten[]
@@ -49,6 +52,7 @@ async function getLitter(slug: string, locale: string): Promise<Litter | null> {
     plannedDate,
     birthDate,
     coverImage,
+    "galleryUrls": galleryImages[].asset->url,
     "father": father->{
       name,
       "slug": slug.current,
@@ -130,11 +134,11 @@ function ParentCard({
   pageText: any
 }) {
   const inner = (
-    <div className="group/parent flex flex-col items-center text-center gap-3">
-      <div className="w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 group-hover/parent:scale-105">
+    <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0">
+      <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 group-hover/parent:scale-105">
         {parent.image ? (
           <img
-            src={urlFor(parent.image).width(288).height(288).fit('crop').url()}
+            src={urlFor(parent.image).width(320).height(320).fit('crop').url()}
             alt={parent.name}
             className="w-full h-full object-cover"
           />
@@ -148,7 +152,7 @@ function ParentCard({
         <p className="text-[10px] uppercase tracking-[0.3em] font-semibold text-[#2f6f99]/70">
           {role}
         </p>
-        <p className="text-xl font-serif italic text-[#1f3c57] mt-0.5">{parent.name}</p>
+        <p className="text-lg md:text-xl font-serif italic text-[#1f3c57] mt-0.5 leading-tight">{parent.name}</p>
         {parent.titles && (
           <p className="text-xs text-[#6a85a0] mt-0.5">{parent.titles}</p>
         )}
@@ -186,8 +190,8 @@ function KittenCard({
   pageText: any
 }) {
   return (
-    <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
-      <div className="relative aspect-[3/4] bg-slate-100 overflow-hidden">
+    <article className="group rounded-2xl overflow-hidden bg-[#2f6f99]/12 border border-[#2f6f99]/35 backdrop-blur-md shadow-[0_16px_32px_-24px_rgba(24,60,95,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_36px_-20px_rgba(24,60,95,0.75)]">
+      <div className="relative aspect-[3/4] bg-white/25 backdrop-blur-sm overflow-hidden m-2 rounded-xl border border-white/45">
         {kitten.image ? (
           <img
             src={urlFor(kitten.image).width(600).height(800).fit('crop').url()}
@@ -206,7 +210,7 @@ function KittenCard({
         )}
       </div>
 
-      <div className="px-5 pt-4 pb-5 flex flex-col gap-1">
+      <div className="mx-2 mb-2 px-4 pt-3 pb-4 flex flex-col gap-1 rounded-xl bg-white/45 backdrop-blur-sm border border-white/35">
         <h3 className="text-[1.45rem] font-serif italic text-[#1f3c57] leading-tight">
           {kitten.name}
         </h3>
@@ -260,8 +264,9 @@ export default async function LitterPage({
   const listText = dict?.availableKittensPage || {}
 
   return (
-    <main className="pt-[120px] pb-32 bg-[#b7bfcc] min-h-screen text-[#1f2f43]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main className="relative pt-[120px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
+      <CatsEtherealBackground />
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Breadcrumb ───────────────────────────────────────────── */}
         <nav className="mb-10 flex items-center gap-2 text-xs text-[#4a6580]">
@@ -273,20 +278,24 @@ export default async function LitterPage({
         </nav>
 
         {/* ── Hero: cover + title ───────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start mb-16">
           {/* Photo */}
-          <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-slate-100">
-            {coverImg ? (
-              <img
-                src={urlFor(coverImg).width(1200).height(900).fit('crop').url()}
-                alt={litter.title || pageText?.litterTitle || 'Cucciolata'}
-                className="w-full h-full object-cover"
-              />
-            ) : (
-              <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                <span className="text-slate-300 text-4xl font-serif italic tracking-widest">◦ ◦ ◦</span>
+          <div className="relative box-border p-3 md:p-6">
+            <div className="flex justify-center">
+              <div
+                className="relative w-full rounded-2xl p-4 md:p-5 border border-[#2f6f99]/35 bg-white/10 backdrop-blur-md shadow-[0_20px_40px_-32px_rgba(31,75,116,0.45)]"
+              >
+                <div
+                  className="absolute -inset-[2px] -z-10 rounded-[18px]"
+                  style={{ backgroundColor: 'rgba(47, 111, 153, 0.14)' }}
+                />
+                <LitterPhotoGallery
+                  mainImage={coverImg ? urlFor(coverImg).width(1400).height(1050).fit('crop').url() : undefined}
+                  extraImages={litter.galleryUrls}
+                  title={litter.title || pageText?.litterTitle || 'Cucciolata'}
+                />
               </div>
-            )}
+            </div>
           </div>
 
           {/* Info */}
@@ -299,69 +308,74 @@ export default async function LitterPage({
             </h1>
             <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
 
-            <div className="mt-5 space-y-2 text-sm text-[#4a6580]">
-              {litter.status && (
-                <p>
-                  <span className="font-semibold text-[#1f3c57]">{pageText?.statusLabel || 'Stato'}:</span>{' '}
-                  {litter.status}
-                </p>
-              )}
-              {isPlanned && litter.plannedDate && (
-                <p>
-                  <span className="font-semibold text-[#1f3c57]">{pageText?.expectedDateLabel || 'Data prevista'}:</span>{' '}
-                  {fmtDate(litter.plannedDate)}
-                </p>
-              )}
-              {!isPlanned && litter.birthDate && (
-                <p>
-                  <span className="font-semibold text-[#1f3c57]">{pageText?.birthDateLabel || 'Data di nascita'}:</span>{' '}
-                  {fmtDate(litter.birthDate)}
-                </p>
-              )}
-              {kittens.length > 0 && (
-                <p>
-                  <span className="font-semibold text-[#1f3c57]">{pageText?.kittensCountLabel || 'Numero cuccioli'}:</span>{' '}
-                  {kittens.length}
-                </p>
-              )}
+            <div className="mt-5 bg-gradient-to-br from-white/95 to-white/80 p-5 rounded-[1.6rem] border border-white/80 shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-[#2f6f99]/10 text-[#2f6f99] flex items-center justify-center text-sm">✦</span>
+                <h2 className="text-xl font-serif text-slate-900">{pageText?.litterTitle || 'Dettagli Cucciolata'}</h2>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                {litter.status && (
+                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>📌</span>{pageText?.statusLabel || 'Stato'}</p>
+                    <p className="font-semibold text-slate-900">{litter.status}</p>
+                  </div>
+                )}
+                {isPlanned && litter.plannedDate && (
+                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🗓️</span>{pageText?.expectedDateLabel || 'Data prevista'}</p>
+                    <p className="font-semibold text-slate-900">{fmtDate(litter.plannedDate)}</p>
+                  </div>
+                )}
+                {!isPlanned && litter.birthDate && (
+                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎂</span>{pageText?.birthDateLabel || 'Data di nascita'}</p>
+                    <p className="font-semibold text-slate-900">{fmtDate(litter.birthDate)}</p>
+                  </div>
+                )}
+                <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
+                  <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🐾</span>{pageText?.kittensCountLabel || 'Numero cuccioli'}</p>
+                  <p className="font-semibold text-slate-900">{kittens.length}</p>
+                </div>
+              </div>
             </div>
 
             {litter.notes && (
-              <p className="mt-5 text-[#3a5570] leading-relaxed text-sm md:text-base">
-                {litter.notes}
-              </p>
+              <div className="mt-5 rounded-2xl border border-[#2f6f99]/20 bg-white/80 px-5 py-4 shadow-sm">
+                <p className="text-[10px] uppercase tracking-[0.22em] text-[#2f6f99]/75 font-semibold mb-2 flex items-center gap-1.5">
+                  <span>✎</span>
+                  <span>Note</span>
+                </p>
+                <p className="text-[#3a5570] leading-relaxed text-sm md:text-base">{litter.notes}</p>
+              </div>
+            )}
+
+            {(litter.father || litter.mother) && (
+              <div className="mt-6 rounded-[2rem] border border-white/75 bg-white/85 p-5 shadow-[0_18px_40px_-32px_rgba(32,72,112,0.45)]">
+                <p className="text-xs uppercase tracking-[0.32em] text-[#2f6f99]/70 font-semibold mb-2">
+                  {pageText?.parentsSup || 'Genitori'}
+                </p>
+                <h2 className="text-xl md:text-2xl font-serif italic text-[#1f3c57] mb-4">
+                  {pageText?.parentsTitle || 'King & Queen'}
+                </h2>
+
+                <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-3 md:gap-5">
+                  {litter.father && (
+                    <ParentCard parent={litter.father} role={pageText?.sireLabel || 'Padre (Sire)'} locale={locale} pageText={pageText} />
+                  )}
+                  {litter.father && litter.mother && (
+                    <div className="flex items-center justify-center pt-10 md:pt-12">
+                      <span className="text-[#2f6f99] text-2xl md:text-3xl font-light">×</span>
+                    </div>
+                  )}
+                  {litter.mother && (
+                    <ParentCard parent={litter.mother} role={pageText?.damLabel || 'Madre (Dam)'} locale={locale} pageText={pageText} />
+                  )}
+                </div>
+              </div>
             )}
           </div>
         </div>
-
-        {/* ── Parents ──────────────────────────────────────────────── */}
-        {(litter.father || litter.mother) && (
-          <section className="mb-16">
-            <div className="mb-7">
-              <p className="text-xs uppercase tracking-[0.38em] text-[#2f6f99]/70 font-semibold mb-1.5">
-                {pageText?.parentsSup || 'Genitori'}
-              </p>
-              <h2 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57]">
-                {pageText?.parentsTitle || 'King & Queen'}
-              </h2>
-              <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
-            </div>
-
-            <div className="flex flex-wrap justify-center md:justify-start gap-12 md:gap-20 bg-white/70 rounded-3xl px-8 py-10 border border-white/60 shadow-sm">
-              {litter.father && (
-                <ParentCard parent={litter.father} role={pageText?.sireLabel || 'Padre (Sire)'} locale={locale} pageText={pageText} />
-              )}
-              {litter.father && litter.mother && (
-                <div className="hidden md:flex items-center">
-                  <span className="text-[#2f6f99] text-4xl font-light">×</span>
-                </div>
-              )}
-              {litter.mother && (
-                <ParentCard parent={litter.mother} role={pageText?.damLabel || 'Madre (Dam)'} locale={locale} pageText={pageText} />
-              )}
-            </div>
-          </section>
-        )}
 
         {/* ── Kittens ───────────────────────────────────────────────── */}
         <section>

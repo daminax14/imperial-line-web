@@ -2,13 +2,13 @@
 
 import { useMemo, useRef, useState } from 'react'
 
-type CatPhotoGalleryProps = {
+type LitterPhotoGalleryProps = {
   mainImage?: string
   extraImages?: string[]
-  name: string
+  title: string
 }
 
-export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPhotoGalleryProps) {
+export default function LitterPhotoGallery({ mainImage, extraImages, title }: LitterPhotoGalleryProps) {
   const images = useMemo(() => {
     const list = [mainImage, ...(extraImages || [])].filter((item): item is string => Boolean(item))
     return Array.from(new Set(list))
@@ -19,27 +19,21 @@ export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPho
 
   const scrollThumbs = (direction: 'left' | 'right') => {
     if (!thumbsRef.current) return
-    const offset = direction === 'left' ? -220 : 220
-    thumbsRef.current.scrollBy({ left: offset, behavior: 'smooth' })
+    thumbsRef.current.scrollBy({ left: direction === 'left' ? -220 : 220, behavior: 'smooth' })
   }
 
   if (!activeImage) {
     return (
-      <div className="relative rounded-[1.7rem] bg-slate-100/80 aspect-[4/5] flex items-center justify-center text-slate-400 text-sm">
-        Foto non disponibile
+      <div className="w-full aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center rounded-[1.7rem]">
+        <span className="text-slate-300 text-4xl font-serif italic tracking-widest">◦ ◦ ◦</span>
       </div>
     )
   }
 
   return (
-    <div className="space-y-4">
-      <div className="relative rounded-[1.7rem] overflow-hidden">
-        <img
-          src={activeImage}
-          className="w-full object-cover aspect-[4/5] z-10"
-          alt={name}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/18 via-transparent to-black/5" />
+    <div className="space-y-3">
+      <div className="rounded-[1.7rem] overflow-hidden aspect-[4/3] bg-slate-100">
+        <img src={activeImage} alt={title} className="w-full h-full object-cover" />
       </div>
 
       {images.length > 1 && (
@@ -58,7 +52,7 @@ export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPho
 
             <div
               ref={thumbsRef}
-              className="flex gap-2 overflow-x-auto pb-2 flex-1 scrollbar-thin scrollbar-thumb-[#2f6f99]/40 scrollbar-track-transparent"
+              className="flex gap-2 overflow-x-auto pb-1 flex-1 scrollbar-thin scrollbar-thumb-[#2f6f99]/40 scrollbar-track-transparent"
             >
               {images.map((imgSrc, index) => {
                 const selected = imgSrc === activeImage
@@ -70,9 +64,9 @@ export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPho
                     className={`relative rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 w-[78px] ${
                       selected ? 'border-gold-200 shadow-md' : 'border-white/70 hover:border-[#2f6f99]'
                     }`}
-                    aria-label={`Apri foto ${index + 1} di ${name}`}
+                    aria-label={`Apri foto ${index + 1}`}
                   >
-                    <img src={imgSrc} alt={`${name} anteprima ${index + 1}`} className="w-full aspect-square object-cover" />
+                    <img src={imgSrc} alt={`${title} ${index + 1}`} className="w-full aspect-square object-cover" />
                   </button>
                 )
               })}
@@ -91,9 +85,7 @@ export default function CatPhotoGallery({ mainImage, extraImages, name }: CatPho
           </div>
 
           {images.length > 4 && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">
-              Scorri per vedere tutte le foto
-            </p>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">Scorri per vedere tutte le foto</p>
           )}
         </div>
       )}

@@ -3,6 +3,7 @@
     "home": "Home",
     "cats": "I Nostri Gatti",
     "availableKittens": "Gattini disponibili",
+    "aboutUs": "Su di noi",
     "advice": "Consigli",
     "adoptionConditions": "Condizioni per l'adozione",
     "contact": "Contatti",
@@ -42,6 +43,36 @@
         "id": "topic-5",
         "title": "Sapevi che il gatto siberiano e utilizzato anche nella pet therapy?",
         "content": "Grazie al temperamento socievole e alla sensibilita verso l umore umano, in alcuni contesti il siberiano viene coinvolto in percorsi assistiti. La sua presenza puo favorire rilassamento, motivazione e interazione, soprattutto in attivita educative o di supporto emotivo."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "Su di noi",
+    "intro": "Siamo un piccolo allevamento familiare dedicato al Siberiano e al Neva Masquerade. Lavoriamo con attenzione, etica e passione, selezionando linee sane e caratteri equilibrati.",
+    "sections": [
+      {
+        "id": "chi-siamo",
+        "title": "Chi siamo",
+        "content": "Imperial Line nasce da un progetto familiare: allevare pochi soggetti, seguirli ogni giorno e offrire ai cuccioli una crescita serena in ambiente domestico.\n\nCrediamo nella qualita piu che nella quantita: ogni cucciolata viene pianificata con cura, rispettando i tempi della mamma e il benessere dei piccoli.",
+        "image": "/home_1.JPG"
+      },
+      {
+        "id": "obiettivi",
+        "title": "I nostri obiettivi",
+        "content": "Il nostro obiettivo e preservare il tipo tradizionale del Siberiano: struttura robusta, mantello corretto, temperamento dolce e socievole.\n\nSelezioniamo linee testate e lavoriamo per migliorare salute, equilibrio caratteriale e qualita generale della razza.",
+        "image": "/home_2.JPG"
+      },
+      {
+        "id": "missione",
+        "title": "La nostra missione",
+        "content": "La nostra missione e accompagnare ogni famiglia in un percorso consapevole, dalla prenotazione all inserimento del cucciolo in casa.\n\nRestiamo presenti anche dopo l affido con consigli pratici, supporto continuo e aggiornamenti, per garantire una vita lunga e felice ai nostri mici.",
+        "image": "/home_3.JPG"
+      },
+      {
+        "id": "approccio",
+        "title": "Il nostro approccio quotidiano",
+        "content": "I cuccioli crescono in casa, a contatto con persone, suoni e routine reali. Questo aiuta a sviluppare sicurezza, fiducia e capacita di adattamento.\n\nPrima dell affido lavoriamo su socializzazione, toelettatura di base e autonomia, cosi da consegnare un micio pronto alla nuova vita.",
+        "image": "/home_4.JPG"
       }
     ]
   },
