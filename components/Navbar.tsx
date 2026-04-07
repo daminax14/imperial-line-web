@@ -47,17 +47,17 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           </Link>
           
           <div className="relative group flex justify-center">
-            <Link href={`/${locale}/i-nostri-gatti/kings`} className={`${desktopNavItemClass} inline-flex gap-2 px-2`}>
+            <Link href={`/${locale}/i-nostri-gatti/kings/elenco`} className={`${desktopNavItemClass} inline-flex gap-2 px-2`}>
               <span>{dict?.nav?.cats || 'Gatti'}</span>
               <span className="text-[9px]">▾</span>
             </Link>
 
             <div className="pointer-events-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 transition-all absolute left-1/2 top-full -translate-x-1/2 pt-3 min-w-[200px] z-30">
               <div className="rounded-xl border border-slate-200 bg-white shadow-xl p-2 text-[10px] tracking-[0.18em] uppercase">
-                <Link href={`/${locale}/i-nostri-gatti/kings`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
+                <Link href={`/${locale}/i-nostri-gatti/kings/elenco`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
                   Kings
                 </Link>
-                <Link href={`/${locale}/i-nostri-gatti/queens`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
+                <Link href={`/${locale}/i-nostri-gatti/queens/elenco`} className="block px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-gold-200 transition-colors">
                   Queens
                 </Link>
               </div>
@@ -74,7 +74,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             {dict?.nav?.adoptionConditions || "Condizioni per l'adozione"}
           </Link>
           <Link href={`/${locale}/contatti`} className={desktopNavItemClass}>
-            {dict?.nav?.contact || 'Contatti'}
+            {dict?.contactPage?.title || 'Prenotazione'}
           </Link>
         </div>
 
@@ -89,7 +89,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
           <div className={`h-0.5 w-6 bg-slate-800 transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
         </button>
 
-        {/* LINGUA E TASTO PRENOTA */}
+        {/* LINGUA */}
         <div className="flex items-center justify-end gap-4 md:gap-5 flex-shrink-0 min-w-fit">
           <div className="border-r border-slate-200 pr-4 md:pr-5">
             <details className="relative group">
@@ -124,9 +124,6 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             </details>
           </div>
 
-          <Link href={`/${locale}/contatti`} className="hidden sm:block text-[10px] bg-slate-900 text-white px-5 md:px-6 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase whitespace-nowrap">
-            {dict?.nav?.book || 'Prenota'}
-          </Link>
         </div>
       </nav>
 
@@ -141,14 +138,14 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             {dict?.nav?.home || 'Home'}
           </Link>
           <Link
-            href={`/${locale}/i-nostri-gatti/kings`}
+            href={`/${locale}/i-nostri-gatti/kings/elenco`}
             className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
             onClick={closeMobileMenu}
           >
             Kings
           </Link>
           <Link
-            href={`/${locale}/i-nostri-gatti/queens`}
+            href={`/${locale}/i-nostri-gatti/queens/elenco`}
             className="block text-sm text-slate-600 hover:text-gold-200 py-1 pl-4 border-l-2 border-slate-200"
             onClick={closeMobileMenu}
           >
@@ -180,14 +177,7 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
             className="block text-sm font-semibold text-slate-700 hover:text-gold-200 py-2"
             onClick={closeMobileMenu}
           >
-            {dict?.nav?.contact || 'Contatti'}
-          </Link>
-          <Link
-            href={`/${locale}/contatti`}
-            className="block w-full text-center text-xs bg-slate-900 text-white px-4 py-2.5 rounded-full hover:bg-gold-200 transition-all font-bold tracking-widest uppercase mt-4"
-            onClick={closeMobileMenu}
-          >
-            {dict?.nav?.book || 'Prenota'}
+            {dict?.contactPage?.title || 'Prenotazione'}
           </Link>
         </div>
       )}

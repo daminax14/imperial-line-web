@@ -130,7 +130,7 @@ function StatusPill({ status }: { status?: string }) {
     s.includes('disponib') || s.includes('availab')
       ? 'bg-emerald-500 text-white'
       : s.includes('riservat') || s.includes('reserv')
-        ? 'bg-amber-500 text-white'
+        ? 'bg-gold-200 text-slate-900'
         : s.includes('valutaz')
           ? 'bg-sky-500 text-white'
           : 'bg-slate-500 text-white'

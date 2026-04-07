@@ -1,12 +1,14 @@
 import { client, urlFor } from '@/lib/sanity'
 import Link from 'next/link'
 import { getDictionary } from '@/lib/get-dictionary'
+import CatPhotoGallery from '@/components/CatPhotoGallery'
 
 // Funzione per prendere i dati del gatto filtrando per lingua
 async function getCat(slug: string, locale: string) {
   const query = `*[_type == "cat" && slug.current == $slug][0] {
     name,
     "imageUrl": image.asset->url,
+    "galleryUrls": galleryImages[].asset->url,
     category,
     // Recupero localizzato con fallback su IT
     "description": coalesce(description[${locale}], description.it, description),
@@ -33,6 +35,16 @@ async function getCat(slug: string, locale: string) {
   return data
 }
 
+function formatBirthDate(value?: string): string {
+  if (!value) return '---'
+  const parsed = new Date(`${value}T12:00:00`)
+  if (Number.isNaN(parsed.getTime())) return value
+  const day = String(parsed.getDate()).padStart(2, '0')
+  const month = String(parsed.getMonth() + 1).padStart(2, '0')
+  const year = parsed.getFullYear()
+  return `${day}/${month}/${year}`
+}
+
 export default async function CatPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const cat = await getCat(slug, locale);
@@ -43,7 +55,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   // Badge Status dinamico
   const statusColors: Record<string, string> = {
     'Disponibile': 'bg-emerald-100 text-emerald-800',
-    'Riservato': 'bg-amber-100 text-amber-800',
+    'Riservato': 'bg-gold-200/25 text-slate-800',
     'In Valutazione': 'bg-blue-100 text-blue-800',
     'Rimane in Allevamento': 'bg-gold-200/20 text-slate-800'
   }
@@ -58,11 +70,9 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
           
           <div className="relative group">
             <div className="absolute -inset-4 bg-gold-200/5 rounded-[3rem] transform -rotate-2 transition-transform group-hover:rotate-0"></div>
-            <img 
-              src={urlFor(cat.imageUrl).width(1200).url()} 
-              className="relative rounded-[2.5rem] shadow-2xl w-full object-cover aspect-[4/5] z-10" 
-              alt={cat.name} 
-            />
+            <div className="relative z-10">
+              <CatPhotoGallery mainImage={cat.imageUrl} extraImages={cat.galleryUrls} name={cat.name} />
+            </div>
             {cat.status && (
               <div className={`absolute top-6 right-6 z-20 px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest shadow-md backdrop-blur-md ${statusStyle}`}>
                 {cat.status}
@@ -84,7 +94,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm space-y-3 mt-8">
                 <p className="flex items-center gap-3">
                   <span className="text-gold-200">🎂</span> 
-                  <strong>{dict.catPage.birth}:</strong> {cat.birthDate || '---'}
+                  <strong>{dict.catPage.birth}:</strong> {formatBirthDate(cat.birthDate)}
                 </p>
                 <p className="flex items-center gap-3">
                   <span className="text-gold-200">🩺</span> 

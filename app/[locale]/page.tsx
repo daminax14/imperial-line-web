@@ -45,7 +45,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       <div className="absolute inset-0 scale-110">
         <img 
           src="/main_menu.JPG" 
-          className="w-full h-full object-cover opacity-90 animate-slow-zoom" 
+          className="w-full h-full object-cover object-[center_38%] md:object-center opacity-90 animate-slow-zoom" 
           alt="Imperial Line – Siberian Neva Masquerade" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-transparent to-[#e5e7eb]"></div>
@@ -68,7 +68,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     {/* 1b. GALLERY SECTION – home images */}
     <section className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2 text-center">Imperial Line</p>
+        <p className="text-xs uppercase tracking-widest text-gold-200 font-bold mb-2 text-center">Imperial Line</p>
         <h2 className="text-4xl md:text-5xl font-serif text-slate-900 mb-10 text-center leading-tight">
           {homePage?.galleryTitle || 'Il nostro allevamento'}
         </h2>
@@ -126,13 +126,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           
           {/* Colonna Sinistra: Topics (Sticky) */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <p className="text-xs uppercase tracking-widest text-amber-600 font-bold mb-2">{homePage?.knowledgeEyebrow || 'Knowledge Base'}</p>
+            <p className="text-xs uppercase tracking-widest text-gold-200 font-bold mb-2">{homePage?.knowledgeEyebrow || 'Knowledge Base'}</p>
             <h2 className="text-5xl font-serif text-slate-900 mb-8 leading-none">{homePage?.knowledgeTitle || 'Approfondimenti'}</h2>
             
             <div className="space-y-4">
               {siberianTopics.map((topic) => (
                 <details key={topic.id} name="siberian-topics" className="group border-b border-slate-300/50 pb-4">
-                  <summary className="cursor-pointer list-none flex justify-between items-center py-2 group-open:text-amber-700 transition-colors">
+                  <summary className="cursor-pointer list-none flex justify-between items-center py-2 group-open:text-gold-200 transition-colors">
                     <span className="font-serif text-xl">{topic.title}</span>
                     <span className="text-2xl transition-transform group-open:rotate-45">+</span>
                   </summary>
@@ -164,7 +164,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                   
                   <div className="text-left translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
                     <h3 className="text-3xl font-serif text-slate-800">{cat.name}</h3>
-                    <div className="w-0 group-hover:w-full h-px bg-amber-600 transition-all duration-500 mt-2"></div>
+                    <div className="w-0 group-hover:w-full h-px bg-gold-200 transition-all duration-500 mt-2"></div>
                   </div>
                 </Link>
               ))}
