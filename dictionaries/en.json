@@ -121,7 +121,28 @@
     "photoUnavailable": "Photo not available",
     "galleryPrevious": "Previous image",
     "galleryNext": "Next image",
-    "galleryGoTo": "Go to image"
+    "galleryGoTo": "Go to image",
+    "statusLabels": {
+      "available": "Available",
+      "evaluation": "Under evaluation",
+      "reserved": "Reserved",
+      "held": "Held",
+      "notForSale": "Not for sale",
+      "sold": "Sold",
+      "staysInCattery": "Stays in cattery",
+      "unknown": "Status"
+    },
+    "countryLabels": {
+      "france": "France",
+      "germany": "Germany",
+      "spain": "Spain",
+      "italy": "Italy",
+      "switzerland": "Switzerland",
+      "belgium": "Belgium",
+      "austria": "Austria",
+      "netherlands": "Netherlands",
+      "other": "Other"
+    }
   },
   "adoptionPage": {
     "title": "Adoption Conditions",

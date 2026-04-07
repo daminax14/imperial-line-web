@@ -121,7 +121,28 @@
     "photoUnavailable": "Foto non disponibile",
     "galleryPrevious": "Immagine precedente",
     "galleryNext": "Immagine successiva",
-    "galleryGoTo": "Vai all'immagine"
+    "galleryGoTo": "Vai all'immagine",
+    "statusLabels": {
+      "available": "Disponibile",
+      "evaluation": "In valutazione",
+      "reserved": "Riservato",
+      "held": "Tenuto",
+      "notForSale": "Non in vendita",
+      "sold": "Ceduto",
+      "staysInCattery": "Rimane in allevamento",
+      "unknown": "Stato"
+    },
+    "countryLabels": {
+      "france": "Francia",
+      "germany": "Germania",
+      "spain": "Spagna",
+      "italy": "Italia",
+      "switzerland": "Svizzera",
+      "belgium": "Belgio",
+      "austria": "Austria",
+      "netherlands": "Paesi Bassi",
+      "other": "Altro"
+    }
   },
   "adoptionPage": {
     "title": "Condizioni per l'adozione",

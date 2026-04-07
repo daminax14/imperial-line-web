@@ -123,9 +123,24 @@ function EmptyBox({ text }: { text: string }) {
   )
 }
 
-function StatusPill({ status }: { status?: string }) {
+function StatusPill({ status, labels }: { status?: string; labels?: Record<string, string> }) {
   if (!status) return null
   const s = status.toLowerCase()
+  const getStatusKey = (raw: string): string => {
+    const value = raw.toLowerCase()
+    if (value.includes('disponib') || value.includes('available') || value.includes('disponible') || value.includes('free') || value.includes('libero')) return 'available'
+    if (value.includes('valutaz') || value.includes('evaluation')) return 'evaluation'
+    if (value.includes('riserv') || value.includes('reserved')) return 'reserved'
+    if (value.includes('tenut') || value.includes('held')) return 'held'
+    if (value.includes('non in vendita') || value.includes('not for sale')) return 'notForSale'
+    if (value.includes('cedut') || value.includes('sold')) return 'sold'
+    if (value.includes('rimane in allevamento') || value.includes('stays in cattery')) return 'staysInCattery'
+    return 'unknown'
+  }
+
+  const statusKey = getStatusKey(s)
+  const translated = labels?.[statusKey] || status
+
   const cls =
     s.includes('disponib') || s.includes('availab')
       ? 'bg-emerald-500 text-white'
@@ -136,7 +151,7 @@ function StatusPill({ status }: { status?: string }) {
           : 'bg-slate-500 text-white'
   return (
     <span className={`${cls} text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm`}>
-      {status}
+      {translated}
     </span>
   )
 }
@@ -189,10 +204,12 @@ function KittenCard({
   kitten,
   locale,
   dict,
+  catLabels,
 }: {
   kitten: AvailableKitten
   locale: string
   dict: any
+  catLabels?: Record<string, string>
 }) {
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
@@ -210,7 +227,7 @@ function KittenCard({
         )}
         {kitten.status && (
           <div className="absolute top-3 right-3">
-            <StatusPill status={kitten.status} />
+            <StatusPill status={kitten.status} labels={catLabels} />
           </div>
         )}
       </div>
@@ -427,6 +444,7 @@ export default async function AvailableKittensPage({
   const { locale } = await params
   const dict = await getDictionary(locale)
   const pageText = dict?.availableKittensPage || {}
+  const catLabels = dict?.catPage?.statusLabels || {}
 
   const [availableKittens, litters] = await Promise.all([
     getAvailableKittens(locale),
@@ -471,6 +489,7 @@ export default async function AvailableKittensPage({
                   kitten={kitten}
                   locale={locale}
                   dict={pageText}
+                  catLabels={catLabels}
                 />
               ))}
             </div>

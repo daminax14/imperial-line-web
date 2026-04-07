@@ -70,6 +70,49 @@ function getCountryCode(country?: string): string | null {
   return codes[value] || null
 }
 
+function normalizeStatusKey(status?: string): string {
+  const s = (status || '').trim().toLowerCase()
+  if (!s) return 'unknown'
+  if (s.includes('disponib') || s.includes('available') || s.includes('disponible') || s.includes('free') || s.includes('libero')) return 'available'
+  if (s.includes('valutaz') || s.includes('evaluation') || s.includes('evaluate')) return 'evaluation'
+  if (s.includes('riserv') || s.includes('reserved') || s.includes('reserve')) return 'reserved'
+  if (s.includes('tenut') || s.includes('held')) return 'held'
+  if (s.includes('non in vendita') || s.includes('not for sale')) return 'notForSale'
+  if (s.includes('cedut') || s.includes('sold') || s.includes('vendu')) return 'sold'
+  if (s.includes('rimane in allevamento') || s.includes('stays in cattery')) return 'staysInCattery'
+  return 'unknown'
+}
+
+function normalizeCountryKey(country?: string): string {
+  const value = (country || '').trim().toLowerCase()
+  const map: Record<string, string> = {
+    francia: 'france',
+    france: 'france',
+    germania: 'germany',
+    deutschland: 'germany',
+    germany: 'germany',
+    spagna: 'spain',
+    espana: 'spain',
+    spain: 'spain',
+    italia: 'italy',
+    italy: 'italy',
+    svizzera: 'switzerland',
+    suisse: 'switzerland',
+    schweiz: 'switzerland',
+    switzerland: 'switzerland',
+    belgio: 'belgium',
+    belgique: 'belgium',
+    belgien: 'belgium',
+    belgium: 'belgium',
+    austria: 'austria',
+    'paesi bassi': 'netherlands',
+    niederlande: 'netherlands',
+    pays_bas: 'netherlands',
+    netherlands: 'netherlands',
+  }
+  return map[value] || 'other'
+}
+
 export default async function CatPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const cat = await getCat(slug, locale);
@@ -80,16 +123,26 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
 
   // Badge Status dinamico
   const statusColors: Record<string, string> = {
-    'Disponibile': 'bg-emerald-100 text-emerald-800',
-    'Riservato': 'bg-gold-200/25 text-slate-800',
-    'In Valutazione': 'bg-blue-100 text-blue-800',
-    'Rimane in Allevamento': 'bg-[#1f3c57]/90 text-gold-200 border border-gold-200/40'
+    available: 'bg-emerald-100 text-emerald-800',
+    evaluation: 'bg-blue-100 text-blue-800',
+    reserved: 'bg-gold-200/25 text-slate-800',
+    staysInCattery: 'bg-[#1f3c57]/90 text-gold-200 border border-gold-200/40',
+    sold: 'bg-slate-200 text-slate-800',
+    held: 'bg-slate-100 text-slate-800',
+    notForSale: 'bg-slate-100 text-slate-800',
+    unknown: 'bg-slate-100 text-slate-800',
   }
-  const statusStyle = cat.status ? statusColors[cat.status] || 'bg-slate-100 text-slate-800' : 'hidden';
-  const soldStatus = typeof cat.status === 'string' && (cat.status.toLowerCase().includes('cedut') || cat.status.toLowerCase().includes('sold'))
-  const staysInCattery = typeof cat.status === 'string' && cat.status.toLowerCase().includes('rimane in allevamento')
+  const statusKey = normalizeStatusKey(cat.status)
+  const statusLabels = (catText?.statusLabels || {}) as Record<string, string>
+  const countryLabels = (catText?.countryLabels || {}) as Record<string, string>
+  const localizedStatus = statusLabels[statusKey] || cat.status
+  const statusStyle = cat.status ? statusColors[statusKey] || statusColors.unknown : 'hidden';
+  const soldStatus = statusKey === 'sold'
+  const staysInCattery = statusKey === 'staysInCattery'
   const listGroup = normalizeGroupFromCategory(cat.category)
   const destinationCode = getCountryCode(cat.destinationCountry)
+  const destinationKey = normalizeCountryKey(cat.destinationCountry)
+  const localizedDestination = countryLabels[destinationKey] || cat.destinationCountry
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[132px] pb-24 overflow-hidden">
@@ -133,7 +186,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             </div>
             {cat.status && (
               <div className={`absolute top-6 right-6 z-20 px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest shadow-md backdrop-blur-md ${statusStyle}`}>
-                {cat.status}
+                {localizedStatus}
               </div>
             )}
             {soldStatus && cat.destinationCountry && (
@@ -144,13 +197,13 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   {destinationCode ? (
                     <img
                       src={`https://flagcdn.com/24x18/${destinationCode}.png`}
-                      alt={cat.destinationCountry || 'Destinazione'}
+                      alt={localizedDestination || 'Destination'}
                       className="w-5 h-4 rounded-[2px] border border-[#2f6f99]/20 object-cover"
                     />
                   ) : (
                     <span>📍</span>
                   )}
-                  <span>{cat.destinationCountry}</span>
+                  <span>{localizedDestination}</span>
                 </p>
               </div>
             )}
