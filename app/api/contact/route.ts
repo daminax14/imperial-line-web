@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
 export const runtime = 'nodejs'
 
@@ -19,6 +20,40 @@ function required(value: string | undefined) {
   return typeof value === 'string' && value.trim().length > 0
 }
 
+function buildMessage(payload: ContactPayload) {
+  const subject = `New Imperial Line contact request - ${payload.fullName}`
+  const text = [
+    `Name: ${payload.fullName}`,
+    `Email: ${payload.email}`,
+    `Cat allergy: ${payload.allergic}`,
+    `Gender preference: ${payload.gender}`,
+    `Specific kitten interest: ${payload.specificKitten || '-'}`,
+    `Upcoming litter interest: ${payload.futureLitter || '-'}`,
+    `Color preference: ${payload.colorPreference || '-'}`,
+    `Other pets: ${payload.otherPets}`,
+    '',
+    'Additional notes:',
+    payload.aboutYou || '-',
+  ].join('\n')
+
+  const html = `
+      <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
+        <h2 style="margin-bottom: 12px;">New Imperial Line contact request</h2>
+        <p><strong>Name:</strong> ${payload.fullName}</p>
+        <p><strong>Email:</strong> ${payload.email}</p>
+        <p><strong>Cat allergy:</strong> ${payload.allergic}</p>
+        <p><strong>Gender preference:</strong> ${payload.gender}</p>
+        <p><strong>Specific kitten interest:</strong> ${payload.specificKitten || '-'}</p>
+        <p><strong>Upcoming litter interest:</strong> ${payload.futureLitter || '-'}</p>
+        <p><strong>Color preference:</strong> ${payload.colorPreference || '-'}</p>
+        <p><strong>Other pets:</strong> ${payload.otherPets}</p>
+        <p><strong>Additional notes:</strong><br/>${(payload.aboutYou || '-').replace(/\n/g, '<br/>')}</p>
+      </div>
+    `
+
+  return { subject, text, html }
+}
+
 export async function POST(request: Request) {
   try {
     const payload = (await request.json()) as ContactPayload
@@ -27,19 +62,54 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Required fields are missing.' }, { status: 400 })
     }
 
+    const contactTo = process.env.CONTACT_TO
+    const contactFrom = process.env.CONTACT_FROM
+    const resendApiKey = process.env.RESEND_API_KEY
+    const resendFrom = process.env.RESEND_FROM || contactFrom
+
+    if (!contactTo || !contactFrom) {
+      return NextResponse.json(
+        { message: 'Email configuration is missing. Set at least CONTACT_FROM and CONTACT_TO in environment variables.' },
+        { status: 500 }
+      )
+    }
+
+    const { subject, text, html } = buildMessage(payload)
+
+    let resendError: unknown = null
+
+    if (resendApiKey && resendFrom) {
+      try {
+        const resend = new Resend(resendApiKey)
+        const response = await resend.emails.send({
+          from: resendFrom,
+          to: contactTo,
+          replyTo: payload.email,
+          subject,
+          text,
+          html,
+        })
+
+        if (response.error) {
+          throw new Error(response.error.message || 'Resend send failed')
+        }
+
+        return NextResponse.json({ message: 'Request sent successfully. Thank you!' })
+      } catch (error) {
+        resendError = error
+        console.error('Contact API resend error, falling back to SMTP:', error)
+      }
+    }
+
     const smtpHost = process.env.SMTP_HOST
     const smtpPort = Number(process.env.SMTP_PORT)
     const smtpSecure = String(process.env.SMTP_SECURE).toLowerCase() === 'true'
     const smtpUser = process.env.SMTP_USER
     const smtpPass = process.env.SMTP_PASS
-    const contactTo = process.env.CONTACT_TO
-    const contactFrom = process.env.CONTACT_FROM
 
-    if (!smtpHost || !Number.isFinite(smtpPort) || !smtpUser || !smtpPass || !contactFrom || !contactTo) {
-      return NextResponse.json(
-        { message: 'Email configuration is missing. Set SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS, CONTACT_FROM and CONTACT_TO in environment variables.' },
-        { status: 500 }
-      )
+    if (!smtpHost || !Number.isFinite(smtpPort) || !smtpUser || !smtpPass) {
+      const reason = resendError ? 'Resend failed and SMTP fallback is not configured.' : 'SMTP fallback is not configured.'
+      return NextResponse.json({ message: reason }, { status: 500 })
     }
 
     const transporter = nodemailer.createTransport({
@@ -54,36 +124,6 @@ export async function POST(request: Request) {
 
     // Verify SMTP connectivity/auth first to provide clearer failures.
     await transporter.verify()
-
-    const subject = `New Imperial Line contact request - ${payload.fullName}`
-    const text = [
-      `Name: ${payload.fullName}`,
-      `Email: ${payload.email}`,
-      `Cat allergy: ${payload.allergic}`,
-      `Gender preference: ${payload.gender}`,
-      `Specific kitten interest: ${payload.specificKitten || '-'}`,
-      `Upcoming litter interest: ${payload.futureLitter || '-'}`,
-      `Color preference: ${payload.colorPreference || '-'}`,
-      `Other pets: ${payload.otherPets}`,
-      '',
-      'Additional notes:',
-      payload.aboutYou || '-',
-    ].join('\n')
-
-    const html = `
-      <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
-        <h2 style="margin-bottom: 12px;">New Imperial Line contact request</h2>
-        <p><strong>Name:</strong> ${payload.fullName}</p>
-        <p><strong>Email:</strong> ${payload.email}</p>
-        <p><strong>Cat allergy:</strong> ${payload.allergic}</p>
-        <p><strong>Gender preference:</strong> ${payload.gender}</p>
-        <p><strong>Specific kitten interest:</strong> ${payload.specificKitten || '-'}</p>
-        <p><strong>Upcoming litter interest:</strong> ${payload.futureLitter || '-'}</p>
-        <p><strong>Color preference:</strong> ${payload.colorPreference || '-'}</p>
-        <p><strong>Other pets:</strong> ${payload.otherPets}</p>
-        <p><strong>Additional notes:</strong><br/>${(payload.aboutYou || '-').replace(/\n/g, '<br/>')}</p>
-      </div>
-    `
 
     await transporter.sendMail({
       from: contactFrom,

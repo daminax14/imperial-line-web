@@ -62,9 +62,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <header className="mb-12 text-center">
-          <p className="text-xs uppercase tracking-[0.34em] text-[#2f6f99]/75 font-semibold mb-2">
-            Imperial Line
-          </p>
+          
           <h1 className="text-4xl md:text-6xl font-serif italic text-[#1f3c57]">
             {about?.title || 'About us'}
           </h1>
