@@ -83,10 +83,141 @@
     "explore": "Explore",
     "contacts": "Contacts",
     "socialTitle": "Social",
-    "location": "Italy, [Location]",
+    "location": "Germany",
     "privacy": "Privacy",
     "cookies": "Cookies",
     "rights": "All rights reserved"
+  },
+  "legalTemplates": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: [DATE]",
+      "intro": "This is an informational template to be customized with your actual business data. Before publication, review it with a legal/privacy professional.",
+      "emptyState": "Content is being updated.",
+      "sections": [
+        {
+          "title": "1. Data Controller",
+          "paragraphs": [
+            "Controller: [COMPANY / INDIVIDUAL NAME]",
+            "Address: [FULL ADDRESS]",
+            "Privacy email: [PRIVACY EMAIL]",
+            "Tax/VAT number: [TAX OR VAT ID]"
+          ]
+        },
+        {
+          "title": "2. Categories of data collected",
+          "paragraphs": [
+            "Identification and contact data (for example name, email, phone).",
+            "Data voluntarily provided through contact or reservation forms.",
+            "Technical browsing data (for example IP address, user agent, access logs)."
+          ]
+        },
+        {
+          "title": "3. Purposes and legal basis",
+          "paragraphs": [
+            "Handling user requests (pre-contractual measures / legitimate interest).",
+            "Managing communications related to kittens, availability, and services.",
+            "Complying with legal obligations and defending legal claims when necessary."
+          ]
+        },
+        {
+          "title": "4. Processing methods and retention",
+          "paragraphs": [
+            "Data is processed using electronic and/or paper tools with appropriate safeguards.",
+            "Data is retained only for as long as necessary for the stated purposes, unless legal obligations require otherwise.",
+            "Estimated retention period: [RETENTION PERIOD OR CRITERIA]."
+          ]
+        },
+        {
+          "title": "5. Recipients and transfers outside the EU",
+          "paragraphs": [
+            "Data may be processed by technical suppliers acting as data processors.",
+            "Recipient categories: [HOSTING, EMAIL, ANALYTICS, ETC.].",
+            "Any non-EU transfers are carried out with appropriate safeguards (for example SCCs)."
+          ]
+        },
+        {
+          "title": "6. Data subject rights",
+          "paragraphs": [
+            "Data subjects may exercise rights of access, rectification, erasure, restriction, objection, and portability where applicable.",
+            "To exercise rights, contact: [PRIVACY EMAIL].",
+            "You may also lodge a complaint with your supervisory authority."
+          ]
+        },
+        {
+          "title": "7. Children",
+          "paragraphs": [
+            "This website is not intentionally directed to children under [AGE].",
+            "If you believe a child provided personal data, contact us for removal."
+          ]
+        },
+        {
+          "title": "8. Policy updates",
+          "paragraphs": [
+            "This policy may be updated from time to time.",
+            "Changes will be posted on this page with the updated date."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Last updated: [DATE]",
+      "intro": "This Cookie Policy is a template to complete with the actual cookies used by your website and cookie banner/CMP settings.",
+      "emptyState": "Content is being updated.",
+      "sections": [
+        {
+          "title": "1. What cookies are",
+          "paragraphs": [
+            "Cookies are small text files stored on the user device while browsing.",
+            "They may be technical, analytics, or profiling cookies, first-party or third-party."
+          ]
+        },
+        {
+          "title": "2. Types of cookies used",
+          "paragraphs": [
+            "Necessary technical cookies: [LIST / DESCRIPTION].",
+            "Analytics cookies: [LIST, FOR EXAMPLE GA4, MATOMO, IP ANONYMIZATION YES/NO].",
+            "Marketing/profiling cookies: [OPTIONAL LIST]."
+          ]
+        },
+        {
+          "title": "3. Legal basis",
+          "paragraphs": [
+            "Technical cookies are used based on legitimate interest for website operation.",
+            "Non-technical cookies are set only with user consent through banner/CMP."
+          ]
+        },
+        {
+          "title": "4. Cookie duration",
+          "paragraphs": [
+            "Session cookies: deleted when the browser is closed.",
+            "Persistent cookies: stored until expiration or manual deletion.",
+            "Detailed duration for each cookie: [COOKIE TABLE]."
+          ]
+        },
+        {
+          "title": "5. Preference management",
+          "paragraphs": [
+            "Users can accept, reject, or change cookie preferences via the banner/CMP.",
+            "Cookies can also be managed through browser settings."
+          ]
+        },
+        {
+          "title": "6. Third-party cookies",
+          "paragraphs": [
+            "The website may include third-party services that set their own cookies.",
+            "See third-party privacy/cookie notices for details: [THIRD-PARTY POLICY LINKS]."
+          ]
+        },
+        {
+          "title": "7. Contact",
+          "paragraphs": [
+            "For privacy and cookie information contact: [PRIVACY EMAIL]."
+          ]
+        }
+      ]
+    }
   },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
@@ -111,6 +242,15 @@
     "lineage_sub": "The Lineage",
     "sire": "Sire (Father)",
     "dam": "Dam (Mother)",
+    "zoom": "Enlarge",
+    "close": "Close",
+    "unknownParent": "Unknown",
+    "zoomAriaPrefix": "Enlarge photo of",
+    "sexLabels": {
+      "male": "Male",
+      "female": "Female",
+      "unknown": "Unspecified"
+    },
     "current": "Current Exemplar",
     "notFound": "Cat not found.",
     "backToKingsList": "Back to Kings list",
@@ -118,6 +258,17 @@
     "livesIn": "Now lives in",
     "defaultBreed": "Siberian Neva Masquerade",
     "defaultHealth": "Tested",
+    "testLabels": {
+      "fiv": "FIV",
+      "felv": "FeLV",
+      "hcm": "HCM",
+      "pkd": "PKD"
+    },
+    "testResultLabels": {
+      "negative": "Negative",
+      "positive": "Positive",
+      "notTested": "Not tested"
+    },
     "photoUnavailable": "Photo not available",
     "galleryPrevious": "Previous image",
     "galleryNext": "Next image",

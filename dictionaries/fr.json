@@ -83,10 +83,141 @@
     "explore": "Explorer",
     "contacts": "Contacts",
     "socialTitle": "Reseaux sociaux",
-    "location": "Italie, [Localite]",
+    "location": "Allemagne",
     "privacy": "Confidentialite",
     "cookies": "Cookies",
     "rights": "Tous droits reserves"
+  },
+  "legalTemplates": {
+    "privacy": {
+      "title": "Politique de confidentialite",
+      "lastUpdated": "Derniere mise a jour: [DATE]",
+      "intro": "Ce document est un modele a personnaliser avec les donnees reelles de votre activite. Avant publication, faites valider le contenu par un conseiller juridique.",
+      "emptyState": "Contenu en cours de mise a jour.",
+      "sections": [
+        {
+          "title": "1. Responsable du traitement",
+          "paragraphs": [
+            "Responsable: [NOM ENTREPRISE / PERSONNE]",
+            "Adresse: [ADRESSE COMPLETE]",
+            "Email confidentialite: [EMAIL PRIVACY]",
+            "Numero fiscal / TVA: [NUMERO FISCAL OU TVA]"
+          ]
+        },
+        {
+          "title": "2. Types de donnees collectees",
+          "paragraphs": [
+            "Donnees d'identification et de contact (par exemple nom, email, telephone).",
+            "Donnees fournies volontairement via formulaires de contact ou reservation.",
+            "Donnees techniques de navigation (par exemple adresse IP, user agent, logs d'acces)."
+          ]
+        },
+        {
+          "title": "3. Finalites et base juridique",
+          "paragraphs": [
+            "Repondre aux demandes des utilisateurs (mesures precontractuelles / interet legitime).",
+            "Gerer les communications sur les chatons, disponibilites et services.",
+            "Respecter les obligations legales et proteger les droits du responsable."
+          ]
+        },
+        {
+          "title": "4. Modalites de traitement et conservation",
+          "paragraphs": [
+            "Les donnees sont traitees avec des moyens electroniques et/ou papier avec des mesures de securite appropriees.",
+            "Les donnees sont conservees pendant la duree strictement necessaire, sauf obligations legales differentes.",
+            "Duree estimee de conservation: [DUREE OU CRITERE]."
+          ]
+        },
+        {
+          "title": "5. Destinataires et transferts hors UE",
+          "paragraphs": [
+            "Les donnees peuvent etre traitees par des fournisseurs techniques en tant que sous-traitants.",
+            "Categories de destinataires: [HEBERGEMENT, EMAIL, ANALYTICS, ETC.].",
+            "Les transferts hors UE eventuels sont realises avec des garanties adequates (par exemple SCC)."
+          ]
+        },
+        {
+          "title": "6. Droits des personnes concernees",
+          "paragraphs": [
+            "Vous pouvez exercer les droits d'acces, rectification, effacement, limitation, opposition et portabilite selon la loi applicable.",
+            "Pour exercer vos droits: [EMAIL PRIVACY].",
+            "Vous pouvez aussi introduire une reclamation aupres de l'autorite de controle competente."
+          ]
+        },
+        {
+          "title": "7. Mineurs",
+          "paragraphs": [
+            "Le site n'est pas destine intentionnellement aux mineurs de moins de [AGE].",
+            "Si vous pensez qu'un mineur a fourni des donnees personnelles, contactez-nous pour suppression."
+          ]
+        },
+        {
+          "title": "8. Mises a jour",
+          "paragraphs": [
+            "Cette politique peut etre mise a jour periodiquement.",
+            "Les modifications seront publiees sur cette page avec la date de mise a jour."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "lastUpdated": "Derniere mise a jour: [DATE]",
+      "intro": "Cette politique de cookies est un modele a completer avec les cookies reellement utilises sur votre site et les reglages de votre CMP.",
+      "emptyState": "Contenu en cours de mise a jour.",
+      "sections": [
+        {
+          "title": "1. Qu'est-ce qu'un cookie",
+          "paragraphs": [
+            "Un cookie est un petit fichier texte depose sur l'appareil de l'utilisateur pendant la navigation.",
+            "Les cookies peuvent etre techniques, analytiques ou marketing, de premiere ou tierce partie."
+          ]
+        },
+        {
+          "title": "2. Types de cookies utilises",
+          "paragraphs": [
+            "Cookies techniques necessaires: [LISTE / DESCRIPTION].",
+            "Cookies analytiques: [LISTE, PAR EXEMPLE GA4, MATOMO, ANONYMISATION IP OUI/NON].",
+            "Cookies marketing/profilage: [LISTE EVENTUELLE]."
+          ]
+        },
+        {
+          "title": "3. Base juridique",
+          "paragraphs": [
+            "Les cookies techniques reposent sur l'interet legitime de fonctionnement du site.",
+            "Les cookies non techniques sont installes uniquement avec le consentement de l'utilisateur via le bandeau/CMP."
+          ]
+        },
+        {
+          "title": "4. Duree de conservation",
+          "paragraphs": [
+            "Cookies de session: supprimes a la fermeture du navigateur.",
+            "Cookies persistants: conserves jusqu'a expiration ou suppression manuelle.",
+            "Detail de duree par cookie: [TABLEAU DES COOKIES]."
+          ]
+        },
+        {
+          "title": "5. Gestion des preferences",
+          "paragraphs": [
+            "L'utilisateur peut accepter, refuser ou modifier ses choix via le bandeau/CMP.",
+            "Il est aussi possible de gerer les cookies via les parametres du navigateur."
+          ]
+        },
+        {
+          "title": "6. Cookies tiers",
+          "paragraphs": [
+            "Le site peut integrer des services tiers qui installent leurs propres cookies.",
+            "Pour plus d'informations: [LIENS VERS POLITIQUES TIERS]."
+          ]
+        },
+        {
+          "title": "7. Contact",
+          "paragraphs": [
+            "Pour toute question privacy/cookies: [EMAIL PRIVACY]."
+          ]
+        }
+      ]
+    }
   },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
@@ -111,6 +242,15 @@
     "lineage_sub": "La Lignee",
     "sire": "Sire (Pere)",
     "dam": "Dam (Mere)",
+    "zoom": "Agrandir",
+    "close": "Fermer",
+    "unknownParent": "Inconnu",
+    "zoomAriaPrefix": "Agrandir la photo de",
+    "sexLabels": {
+      "male": "Male",
+      "female": "Femelle",
+      "unknown": "Non specifie"
+    },
     "current": "Sujet actuel",
     "notFound": "Chat introuvable.",
     "backToKingsList": "Retour a la liste Kings",
@@ -118,6 +258,17 @@
     "livesIn": "Vit maintenant en",
     "defaultBreed": "Siberien Neva Masquerade",
     "defaultHealth": "Tests effectues",
+    "testLabels": {
+      "fiv": "FIV",
+      "felv": "FeLV",
+      "hcm": "HCM",
+      "pkd": "PKD"
+    },
+    "testResultLabels": {
+      "negative": "Negatif",
+      "positive": "Positif",
+      "notTested": "Non teste"
+    },
     "photoUnavailable": "Photo non disponible",
     "galleryPrevious": "Image precedente",
     "galleryNext": "Image suivante",

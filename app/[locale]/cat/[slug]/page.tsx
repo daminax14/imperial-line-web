@@ -17,6 +17,7 @@ async function getCat(slug: string, locale: string) {
     "color": coalesce(color[${locale}], color.it, color),
     birthDate,
     health,
+    healthTests,
     breed,
     sex,
     emsCode,
@@ -113,6 +114,23 @@ function normalizeCountryKey(country?: string): string {
   return map[value] || 'other'
 }
 
+function normalizeHealthResultKey(value?: string): string {
+  const v = (value || '').trim().toLowerCase()
+  if (!v) return 'notTested'
+  if (v.includes('positiv') || v.includes('positive')) return 'positive'
+  if (v.includes('negativ') || v.includes('negative')) return 'negative'
+  if (v.includes('non test') || v.includes('not test') || v.includes('not available')) return 'notTested'
+  return 'notTested'
+}
+
+function normalizeSexKey(value?: string): string {
+  const v = (value || '').trim().toLowerCase()
+  if (!v) return 'unknown'
+  if (v.includes('masch') || v.includes('male') || v === 'm') return 'male'
+  if (v.includes('femmin') || v.includes('female') || v === 'f') return 'female'
+  return 'unknown'
+}
+
 export default async function CatPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const cat = await getCat(slug, locale);
@@ -143,6 +161,22 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const destinationCode = getCountryCode(cat.destinationCountry)
   const destinationKey = normalizeCountryKey(cat.destinationCountry)
   const localizedDestination = countryLabels[destinationKey] || cat.destinationCountry
+  const sexLabels = (catText?.sexLabels || {}) as Record<string, string>
+  const sexKey = normalizeSexKey(cat.sex)
+  const localizedSex = sexLabels[sexKey] || cat.sex || '---'
+  const testLabels = (catText?.testLabels || {}) as Record<string, string>
+  const testResultLabels = (catText?.testResultLabels || {}) as Record<string, string>
+  const tests = [
+    { key: 'fiv', label: testLabels.fiv || 'FIV', raw: cat?.healthTests?.fiv },
+    { key: 'felv', label: testLabels.felv || 'FeLV', raw: cat?.healthTests?.felv },
+    { key: 'hcm', label: testLabels.hcm || 'HCM', raw: cat?.healthTests?.hcm },
+    { key: 'pkd', label: testLabels.pkd || 'PKD', raw: cat?.healthTests?.pkd },
+  ].map((item) => {
+    const resultKey = normalizeHealthResultKey(item.raw)
+    const value = testResultLabels[resultKey] || item.raw || testResultLabels.notTested || 'Not tested'
+    return { ...item, resultKey, value }
+  })
+  const hasStructuredTests = tests.some((t) => typeof t.raw === 'string' && t.raw.trim().length > 0)
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[132px] pb-24 overflow-hidden">
@@ -235,7 +269,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   </div>
                   <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>⚥</span>{dict.catPage.sex}</p>
-                    <p className="font-semibold text-slate-900">{cat.sex || '---'}</p>
+                    <p className="font-semibold text-slate-900">{localizedSex}</p>
                   </div>
                   <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎨</span>{dict.catPage.color}</p>
@@ -247,7 +281,28 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   </div>
                   <div className="sm:col-span-2 rounded-xl border border-slate-100 bg-white/85 p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>
-                    <p className="font-semibold text-slate-900">{cat.health || catText?.defaultHealth || 'Tested'}</p>
+                    {hasStructuredTests ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+                        {tests.map((test) => (
+                          <div key={test.key} className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 flex items-center justify-between gap-3">
+                            <span className="text-xs font-semibold text-slate-700 uppercase tracking-[0.12em]">{test.label}</span>
+                            <span
+                              className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                                test.resultKey === 'negative'
+                                  ? 'bg-emerald-100 text-emerald-800'
+                                  : test.resultKey === 'positive'
+                                    ? 'bg-rose-100 text-rose-800'
+                                    : 'bg-slate-100 text-slate-700'
+                              }`}
+                            >
+                              {test.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="font-semibold text-slate-900">{cat.health || catText?.defaultHealth || 'Tested'}</p>
+                    )}
                   </div>
                 </div>
 
@@ -273,6 +328,10 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                   subtitle: dict.catPage.lineage_sub,
                   sire: dict.catPage.sire,
                   dam: dict.catPage.dam,
+                  zoom: dict.catPage.zoom,
+                  close: dict.catPage.close,
+                  unknownParent: dict.catPage.unknownParent,
+                  zoomAriaPrefix: dict.catPage.zoomAriaPrefix,
                 }}
               />
             </div>

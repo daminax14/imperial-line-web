@@ -83,10 +83,141 @@
     "explore": "Esplora",
     "contacts": "Contatti",
     "socialTitle": "Social",
-    "location": "Italia, [Località]",
+    "location": "Germania",
     "privacy": "Privacy",
     "cookies": "Cookies",
     "rights": "Tutti i diritti riservati"
+  },
+  "legalTemplates": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Ultimo aggiornamento: [DATA]",
+      "intro": "Questo documento e un template informativo da personalizzare con i dati reali della tua attivita. Prima della pubblicazione, verifica i contenuti con un consulente legale/privacy.",
+      "emptyState": "Contenuti in aggiornamento.",
+      "sections": [
+        {
+          "title": "1. Titolare del trattamento",
+          "paragraphs": [
+            "Titolare: [NOME AZIENDA / PERSONA]",
+            "Sede: [INDIRIZZO COMPLETO]",
+            "Email privacy: [EMAIL PRIVACY]",
+            "P.IVA / Codice fiscale: [P.IVA O CF]"
+          ]
+        },
+        {
+          "title": "2. Tipologie di dati raccolti",
+          "paragraphs": [
+            "Dati identificativi e di contatto (es. nome, email, telefono).",
+            "Dati forniti volontariamente tramite moduli di contatto o prenotazione.",
+            "Dati tecnici di navigazione (es. indirizzo IP, user agent, log di accesso)."
+          ]
+        },
+        {
+          "title": "3. Finalita e base giuridica",
+          "paragraphs": [
+            "Rispondere alle richieste inviate dall'utente (misure precontrattuali / legittimo interesse).",
+            "Gestire comunicazioni relative a informazioni su cuccioli, disponibilita e servizi.",
+            "Adempiere obblighi di legge e tutelare i diritti del titolare in sede giudiziaria."
+          ]
+        },
+        {
+          "title": "4. Modalita di trattamento e conservazione",
+          "paragraphs": [
+            "I dati sono trattati con strumenti elettronici e/o cartacei, con misure tecniche e organizzative adeguate.",
+            "I dati sono conservati per il tempo strettamente necessario alle finalita indicate, salvo obblighi di legge diversi.",
+            "Periodo di conservazione stimato: [PERIODO O CRITERIO DI CONSERVAZIONE]."
+          ]
+        },
+        {
+          "title": "5. Destinatari e trasferimenti extra UE",
+          "paragraphs": [
+            "I dati possono essere trattati da fornitori tecnici nominati responsabili del trattamento.",
+            "Elenco categorie destinatari: [HOSTING, EMAIL, ANALYTICS, ECC.]",
+            "Eventuali trasferimenti extra UE avvengono secondo garanzie adeguate (es. SCC)."
+          ]
+        },
+        {
+          "title": "6. Diritti dell'interessato",
+          "paragraphs": [
+            "L'interessato puo esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilita nei casi previsti.",
+            "Per esercitare i diritti scrivere a: [EMAIL PRIVACY].",
+            "Resta salvo il diritto di proporre reclamo al Garante per la protezione dei dati personali."
+          ]
+        },
+        {
+          "title": "7. Minori",
+          "paragraphs": [
+            "Il sito non e destinato intenzionalmente a minori di anni [ETA].",
+            "Se ritieni che un minore abbia fornito dati personali, contattaci per la rimozione."
+          ]
+        },
+        {
+          "title": "8. Aggiornamenti della policy",
+          "paragraphs": [
+            "La presente informativa puo essere aggiornata periodicamente.",
+            "Le modifiche saranno pubblicate su questa pagina con data di aggiornamento."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Ultimo aggiornamento: [DATA]",
+      "intro": "Questa Cookie Policy e un template da completare con i cookie effettivamente utilizzati dal tuo sito e dal relativo cookie banner/CMP.",
+      "emptyState": "Contenuti in aggiornamento.",
+      "sections": [
+        {
+          "title": "1. Cosa sono i cookie",
+          "paragraphs": [
+            "I cookie sono piccoli file di testo inviati al dispositivo dell'utente durante la navigazione.",
+            "Possono essere cookie tecnici, analitici o di profilazione, di prima o terza parte."
+          ]
+        },
+        {
+          "title": "2. Tipi di cookie utilizzati",
+          "paragraphs": [
+            "Cookie tecnici necessari: [ELENCO / DESCRIZIONE].",
+            "Cookie analitici: [ELENCO, ES. GA4, MATOMO, ANONIMIZZAZIONE IP SI/NO].",
+            "Cookie di marketing/profilazione: [ELENCO EVENTUALE]."
+          ]
+        },
+        {
+          "title": "3. Base giuridica",
+          "paragraphs": [
+            "I cookie tecnici sono utilizzati sulla base del legittimo interesse a garantire il funzionamento del sito.",
+            "I cookie non tecnici sono installati solo con il consenso dell'utente tramite banner/CMP."
+          ]
+        },
+        {
+          "title": "4. Durata dei cookie",
+          "paragraphs": [
+            "Cookie di sessione: cancellati alla chiusura del browser.",
+            "Cookie persistenti: restano memorizzati fino alla scadenza indicata o cancellazione manuale.",
+            "Dettaglio durata per ciascun cookie: [TABELLA COOKIE]."
+          ]
+        },
+        {
+          "title": "5. Gestione preferenze",
+          "paragraphs": [
+            "L'utente puo accettare, rifiutare o modificare le preferenze cookie tramite il banner/CMP.",
+            "E possibile inoltre gestire i cookie dalle impostazioni del browser."
+          ]
+        },
+        {
+          "title": "6. Cookie di terze parti",
+          "paragraphs": [
+            "Il sito puo integrare servizi di terze parti che impostano cookie autonomi.",
+            "Per maggiori dettagli consultare le rispettive informative: [LINK POLICY TERZE PARTI]."
+          ]
+        },
+        {
+          "title": "7. Contatti",
+          "paragraphs": [
+            "Per informazioni su privacy e cookie: [EMAIL PRIVACY]."
+          ]
+        }
+      ]
+    }
   },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
@@ -111,6 +242,15 @@
     "lineage_sub": "The Lineage",
     "sire": "Sire (Padre)",
     "dam": "Dam (Madre)",
+    "zoom": "Ingrandisci",
+    "close": "Chiudi",
+    "unknownParent": "Sconosciuto",
+    "zoomAriaPrefix": "Ingrandisci foto di",
+    "sexLabels": {
+      "male": "Maschio",
+      "female": "Femmina",
+      "unknown": "Non specificato"
+    },
     "current": "Soggetto Attuale",
     "notFound": "Gatto non trovato.",
     "backToKingsList": "Torna all'elenco Kings",
@@ -118,6 +258,17 @@
     "livesIn": "Ora vive in",
     "defaultBreed": "Siberian Neva Masquerade",
     "defaultHealth": "Test effettuati",
+    "testLabels": {
+      "fiv": "FIV",
+      "felv": "FeLV",
+      "hcm": "HCM",
+      "pkd": "PKD"
+    },
+    "testResultLabels": {
+      "negative": "Negativo",
+      "positive": "Positivo",
+      "notTested": "Non testato"
+    },
     "photoUnavailable": "Foto non disponibile",
     "galleryPrevious": "Immagine precedente",
     "galleryNext": "Immagine successiva",

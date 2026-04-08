@@ -83,10 +83,141 @@
     "explore": "Entdecken",
     "contacts": "Kontakte",
     "socialTitle": "Soziale Netzwerke",
-    "location": "Italien, [Standort]",
+    "location": "Deutschland",
     "privacy": "Datenschutz",
     "cookies": "Cookies",
     "rights": "Alle Rechte vorbehalten"
+  },
+  "legalTemplates": {
+    "privacy": {
+      "title": "Datenschutzerklarung",
+      "lastUpdated": "Letzte Aktualisierung: [DATUM]",
+      "intro": "Dieses Dokument ist eine Vorlage und muss mit den echten Daten deiner Tatigkeit ausgefullt werden. Vor der Veroffentlichung rechtlich pru fen lassen.",
+      "emptyState": "Inhalte werden aktualisiert.",
+      "sections": [
+        {
+          "title": "1. Verantwortlicher",
+          "paragraphs": [
+            "Verantwortlicher: [NAME UNTERNEHMEN / PERSON]",
+            "Anschrift: [VOLLSTANDIGE ADRESSE]",
+            "Datenschutz E-Mail: [PRIVACY EMAIL]",
+            "Steuer-/USt-ID: [STEUER- ODER UST-ID]"
+          ]
+        },
+        {
+          "title": "2. Arten der erhobenen Daten",
+          "paragraphs": [
+            "Identifikations- und Kontaktdaten (zum Beispiel Name, E-Mail, Telefon).",
+            "Freiwillig uber Kontakt- oder Reservierungsformulare ubermittelte Daten.",
+            "Technische Nutzungsdaten (zum Beispiel IP-Adresse, User Agent, Zugriffsprotokolle)."
+          ]
+        },
+        {
+          "title": "3. Zwecke und Rechtsgrundlagen",
+          "paragraphs": [
+            "Bearbeitung von Anfragen (vorvertragliche Massnahmen / berechtigtes Interesse).",
+            "Kommunikation zu Kitten, Verfugbarkeit und Dienstleistungen.",
+            "Erfullung gesetzlicher Pflichten und Rechtsverteidigung falls erforderlich."
+          ]
+        },
+        {
+          "title": "4. Verarbeitung und Speicherdauer",
+          "paragraphs": [
+            "Die Verarbeitung erfolgt elektronisch und/oder auf Papier mit geeigneten Schutzmassnahmen.",
+            "Daten werden nur so lange gespeichert, wie fur die Zwecke erforderlich, sofern keine gesetzlichen Pflichten entgegenstehen.",
+            "Geschaftzte Speicherdauer: [SPEICHERDAUER ODER KRITERIUM]."
+          ]
+        },
+        {
+          "title": "5. Empfanger und Drittlandtransfer",
+          "paragraphs": [
+            "Daten konnen durch technische Dienstleister als Auftragsverarbeiter verarbeitet werden.",
+            "Empfangerkategorien: [HOSTING, EMAIL, ANALYTICS, USW.].",
+            "Etwaige Ubermittlungen ausserhalb der EU erfolgen mit geeigneten Garantien (zum Beispiel SCC)."
+          ]
+        },
+        {
+          "title": "6. Rechte der betroffenen Personen",
+          "paragraphs": [
+            "Betroffene konnen die Rechte auf Auskunft, Berichtigung, Loschung, Einschrankung, Widerspruch und Datenubertragbarkeit ausuben.",
+            "Zur Ausubung der Rechte: [PRIVACY EMAIL].",
+            "Zusatzlich besteht ein Beschwerderecht bei der zustandigen Aufsichtsbehorde."
+          ]
+        },
+        {
+          "title": "7. Minderjahrige",
+          "paragraphs": [
+            "Diese Website richtet sich nicht gezielt an Kinder unter [ALTER].",
+            "Falls ein Kind personenbezogene Daten ubermittelt hat, kontaktiere uns fur die Loschung."
+          ]
+        },
+        {
+          "title": "8. Aktualisierungen",
+          "paragraphs": [
+            "Diese Datenschutzerklarung kann regelmassig aktualisiert werden.",
+            "Anderungen werden auf dieser Seite mit dem Aktualisierungsdatum veroffentlicht."
+          ]
+        }
+      ]
+    },
+    "cookies": {
+      "title": "Cookie-Richtlinie",
+      "lastUpdated": "Letzte Aktualisierung: [DATUM]",
+      "intro": "Diese Cookie-Richtlinie ist eine Vorlage und muss mit den tatsachlich verwendeten Cookies sowie den CMP-Einstellungen erganzt werden.",
+      "emptyState": "Inhalte werden aktualisiert.",
+      "sections": [
+        {
+          "title": "1. Was Cookies sind",
+          "paragraphs": [
+            "Cookies sind kleine Textdateien, die beim Besuch einer Website auf dem Endgerat gespeichert werden.",
+            "Sie konnen technisch notwendig, analytisch oder zu Marketingzwecken eingesetzt werden."
+          ]
+        },
+        {
+          "title": "2. Verwendete Cookie-Typen",
+          "paragraphs": [
+            "Notwendige technische Cookies: [LISTE / BESCHREIBUNG].",
+            "Analyse-Cookies: [LISTE, ZUM BEISPIEL GA4, MATOMO, IP-ANONYMISIERUNG JA/NEIN].",
+            "Marketing-/Profiling-Cookies: [OPTIONALE LISTE]."
+          ]
+        },
+        {
+          "title": "3. Rechtsgrundlage",
+          "paragraphs": [
+            "Technische Cookies basieren auf berechtigtem Interesse zur Bereitstellung der Website.",
+            "Nicht notwendige Cookies werden nur mit Einwilligung uber Banner/CMP gesetzt."
+          ]
+        },
+        {
+          "title": "4. Speicherdauer",
+          "paragraphs": [
+            "Session-Cookies werden nach Schliessen des Browsers geloscht.",
+            "Persistente Cookies bleiben bis zum Ablauf oder manueller Loschung gespeichert.",
+            "Details je Cookie: [COOKIE-TABELLE]."
+          ]
+        },
+        {
+          "title": "5. Verwaltung der Einstellungen",
+          "paragraphs": [
+            "Nutzer konnen Cookies uber Banner/CMP akzeptieren, ablehnen oder anpassen.",
+            "Cookies lassen sich auch uber Browsereinstellungen verwalten."
+          ]
+        },
+        {
+          "title": "6. Drittanbieter-Cookies",
+          "paragraphs": [
+            "Die Website kann Dienste Dritter einbinden, die eigene Cookies setzen.",
+            "Weitere Informationen: [LINKS ZU DRITTANBIETER-RICHTLINIEN]."
+          ]
+        },
+        {
+          "title": "7. Kontakt",
+          "paragraphs": [
+            "Fur Fragen zu Datenschutz und Cookies: [PRIVACY EMAIL]."
+          ]
+        }
+      ]
+    }
   },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
@@ -111,6 +242,15 @@
     "lineage_sub": "Die Abstammung",
     "sire": "Vater",
     "dam": "Mutter",
+    "zoom": "Vergrossern",
+    "close": "Schliessen",
+    "unknownParent": "Unbekannt",
+    "zoomAriaPrefix": "Foto vergroessern von",
+    "sexLabels": {
+      "male": "Mannlich",
+      "female": "Weiblich",
+      "unknown": "Nicht angegeben"
+    },
     "current": "Aktuelles Exemplar",
     "notFound": "Katze nicht gefunden.",
     "backToKingsList": "Zuruck zur Kings-Liste",
@@ -118,6 +258,17 @@
     "livesIn": "Lebt jetzt in",
     "defaultBreed": "Sibirische Neva Masquerade",
     "defaultHealth": "Getestet",
+    "testLabels": {
+      "fiv": "FIV",
+      "felv": "FeLV",
+      "hcm": "HCM",
+      "pkd": "PKD"
+    },
+    "testResultLabels": {
+      "negative": "Negativ",
+      "positive": "Positiv",
+      "notTested": "Nicht getestet"
+    },
     "photoUnavailable": "Foto nicht verfugbar",
     "galleryPrevious": "Vorheriges Bild",
     "galleryNext": "Nachstes Bild",
