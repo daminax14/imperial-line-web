@@ -91,7 +91,7 @@
   "legalTemplates": {
     "privacy": {
       "title": "Privacy Policy",
-      "lastUpdated": "Ultimo aggiornamento: [DATA]",
+      "lastUpdated": "Ultimo aggiornamento:  [DATA]",
       "intro": "Questo documento e un template informativo da personalizzare con i dati reali della tua attivita. Prima della pubblicazione, verifica i contenuti con un consulente legale/privacy.",
       "emptyState": "Contenuti in aggiornamento.",
       "sections": [
