@@ -106,10 +106,15 @@ export async function POST(request: Request) {
     const smtpSecure = String(process.env.SMTP_SECURE).toLowerCase() === 'true'
     const smtpUser = process.env.SMTP_USER
     const smtpPass = process.env.SMTP_PASS
+    const smtpFrom = process.env.SMTP_FROM || contactFrom
 
     if (!smtpHost || !Number.isFinite(smtpPort) || !smtpUser || !smtpPass) {
       const reason = resendError ? 'Resend failed and SMTP fallback is not configured.' : 'SMTP fallback is not configured.'
       return NextResponse.json({ message: reason }, { status: 500 })
+    }
+
+    if (!smtpFrom) {
+      return NextResponse.json({ message: 'SMTP fallback is missing sender address. Set SMTP_FROM or CONTACT_FROM.' }, { status: 500 })
     }
 
     const transporter = nodemailer.createTransport({
@@ -126,7 +131,7 @@ export async function POST(request: Request) {
     await transporter.verify()
 
     await transporter.sendMail({
-      from: contactFrom,
+      from: smtpFrom,
       to: contactTo,
       replyTo: payload.email,
       subject,
