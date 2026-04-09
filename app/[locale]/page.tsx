@@ -1,4 +1,5 @@
 import { getDictionary } from '@/lib/get-dictionary'
+import { client } from '@/lib/sanity'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import HomeKnowledgeTopics from '@/components/HomeKnowledgeTopics'
 
@@ -8,11 +9,28 @@ type TopicItem = {
   content: string
 }
 
+async function getHomeKnowledgeTopics(locale: string): Promise<TopicItem[]> {
+  const query = `*[_type == "homeKnowledgeTopic" && coalesce(isVisible, true) == true] | order(order asc) {
+    id,
+    "title": coalesce(title[$locale], title.it),
+    "content": coalesce(content[$locale], content.it)
+  }`
+
+  const topics = await client.fetch(query, { locale })
+  if (!Array.isArray(topics)) return []
+
+  return topics.filter((topic): topic is TopicItem => (
+    typeof topic?.id === 'string' && topic.id.trim().length > 0 &&
+    typeof topic?.title === 'string' && topic.title.trim().length > 0 &&
+    typeof topic?.content === 'string' && topic.content.trim().length > 0
+  ))
+}
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const dict = await getDictionary(locale)
   const homePage = dict?.homePage || {}
-  const siberianTopics = (homePage?.topics || []) as TopicItem[]
+  const siberianTopics = await getHomeKnowledgeTopics(locale)
 
  return (
   <main className="relative min-h-screen text-[#1A1A1A] font-sans overflow-hidden">

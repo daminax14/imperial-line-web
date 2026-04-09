@@ -132,9 +132,15 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
         {/* BOTTOM BAR */}
         <div className="pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-400 uppercase tracking-widest gap-4">
           <p>© {new Date().getFullYear()} Imperial Line - {footer.rights}</p>
-          <div className="flex gap-6">
+          <div className="flex items-center gap-6">
             <Link href={`/${locale}/privacy`} className="hover:text-slate-900 transition-colors">{footer.privacy}</Link>
             <Link href={`/${locale}/cookies`} className="hover:text-slate-900 transition-colors">{footer.cookies}</Link>
+            <p className="text-[9px] normal-case tracking-[0.18em] text-slate-300/70">
+              Experience Designed by{' '}
+              <a href="#" className="underline underline-offset-2 hover:text-slate-400 transition-colors">
+                Arrowing
+              </a>
+            </p>
           </div>
         </div>
       </div>

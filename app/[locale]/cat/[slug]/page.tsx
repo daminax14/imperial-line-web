@@ -211,6 +211,8 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
     return { ...item, resultKey, value }
   })
   const hasStructuredTests = tests.some((t) => typeof t.raw === 'string' && t.raw.trim().length > 0)
+  const hasPlainHealth = typeof cat.health === 'string' && cat.health.trim().length > 0
+  const hasHealthSection = hasStructuredTests || hasPlainHealth
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
@@ -313,31 +315,33 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🧬</span>{dict.catPage.ems}</p>
                     <p className="font-semibold text-slate-900">{cat.emsCode || '---'}</p>
                   </div>
-                  <div className="sm:col-span-2 rounded-xl border border-slate-100 bg-white/85 p-3.5">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>
-                    {hasStructuredTests ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
-                        {tests.map((test) => (
-                          <div key={test.key} className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 flex items-center justify-between gap-3">
-                            <span className="text-xs font-semibold text-slate-700 uppercase tracking-[0.12em]">{test.label}</span>
-                            <span
-                              className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                                test.resultKey === 'negative'
-                                  ? 'bg-emerald-100 text-emerald-800'
-                                  : test.resultKey === 'positive'
-                                    ? 'bg-rose-100 text-rose-800'
-                                    : 'bg-slate-100 text-slate-700'
-                              }`}
-                            >
-                              {test.value}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="font-semibold text-slate-900">{cat.health || catText?.defaultHealth || 'Tested'}</p>
-                    )}
-                  </div>
+                  {hasHealthSection && (
+                    <div className="sm:col-span-2 rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>
+                      {hasStructuredTests ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
+                          {tests.map((test) => (
+                            <div key={test.key} className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 flex items-center justify-between gap-3">
+                              <span className="text-xs font-semibold text-slate-700 uppercase tracking-[0.12em]">{test.label}</span>
+                              <span
+                                className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                                  test.resultKey === 'negative'
+                                    ? 'bg-emerald-100 text-emerald-800'
+                                    : test.resultKey === 'positive'
+                                      ? 'bg-rose-100 text-rose-800'
+                                      : 'bg-slate-100 text-slate-700'
+                                }`}
+                              >
+                                {test.value}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="font-semibold text-slate-900">{cat.health}</p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {cat.pedigreeUrl && (
