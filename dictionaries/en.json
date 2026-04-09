@@ -91,79 +91,77 @@
   "legalTemplates": {
     "privacy": {
       "title": "Privacy Policy",
-      "lastUpdated": "Last updated : [DATE]",
-      "intro": "This is an informational template to be customized with your actual business data. Before publication, review it with a legal/privacy professional.",
+      "lastUpdated": "Last updated: 09/04/2026",
+      "intro": "This policy explains how we process personal data submitted through the contact/booking form for information requests about our kittens. Data is not sold or shared with third parties for commercial purposes.",
       "emptyState": "Content is being updated.",
       "sections": [
         {
           "title": "1. Data Controller",
           "paragraphs": [
-            "Controller: [COMPANY / INDIVIDUAL NAME]",
-            "Address: [FULL ADDRESS]",
-            "Privacy email: [PRIVACY EMAIL]",
-            "Tax/VAT number: [TAX OR VAT ID]"
+            "Controller: Anamaria Colniceanu",
+            "Address: 86830 Schwabmuenchen, Germany",
+            "Privacy email: Imperial-line-siberians@hotmail.com"
           ]
         },
         {
-          "title": "2. Categories of data collected",
+          "title": "2. Personal data processed",
           "paragraphs": [
-            "Identification and contact data (for example name, email, phone).",
-            "Data voluntarily provided through contact or reservation forms.",
-            "Technical browsing data (for example IP address, user agent, access logs)."
+            "We process data voluntarily submitted by users in the form: full name, email, phone number (if provided), preferences, and information useful to handle the request.",
+            "Technical browsing data (for example IP address and technical logs) may also be processed as necessary for security and website operation."
           ]
         },
         {
           "title": "3. Purposes and legal basis",
           "paragraphs": [
-            "Handling user requests (pre-contractual measures / legitimate interest).",
-            "Managing communications related to kittens, availability, and services.",
-            "Complying with legal obligations and defending legal claims when necessary."
+            "Managing and responding to information requests about kittens, availability, and bookings.",
+            "Contacting users through the details they provide in order to follow up on their request.",
+            "Legal basis: pre-contractual measures at the request of the data subject (Art. 6(1)(b) GDPR) and, where necessary, legitimate interests of the controller (Art. 6(1)(f) GDPR)."
           ]
         },
         {
           "title": "4. Processing methods and retention",
           "paragraphs": [
-            "Data is processed using electronic and/or paper tools with appropriate safeguards.",
-            "Data is retained only for as long as necessary for the stated purposes, unless legal obligations require otherwise.",
-            "Estimated retention period: [RETENTION PERIOD OR CRITERIA]."
+            "Data is processed with electronic tools and appropriate security measures by authorized personnel.",
+            "Data is retained for the time needed to manage the request and related follow-up communications.",
+            "Indicative retention period: [E.G. 12/24 MONTHS FROM LAST CONTACT], unless a longer period is required by law or for legal protection."
           ]
         },
         {
-          "title": "5. Recipients and transfers outside the EU",
+          "title": "5. Data recipients",
           "paragraphs": [
-            "Data may be processed by technical suppliers acting as data processors.",
-            "Recipient categories: [HOSTING, EMAIL, ANALYTICS, ETC.].",
-            "Any non-EU transfers are carried out with appropriate safeguards (for example SCCs)."
+            "Data is not sold or shared with third parties for commercial or marketing purposes.",
+            "Data may be processed only by technical providers necessary to deliver the service (for example hosting and email providers), appointed as processors where required.",
+            "If any provider is outside the EU, transfers are carried out in compliance with GDPR using appropriate safeguards (for example SCCs)."
           ]
         },
         {
           "title": "6. Data subject rights",
           "paragraphs": [
-            "Data subjects may exercise rights of access, rectification, erasure, restriction, objection, and portability where applicable.",
-            "To exercise rights, contact: [PRIVACY EMAIL].",
-            "You may also lodge a complaint with your supervisory authority."
+            "Data subjects may exercise rights under Arts. 15-22 GDPR: access, rectification, erasure, restriction, objection, and portability (where applicable).",
+            "To exercise your rights, contact: Imperial-line-siberians@hotmail.com.",
+            "You may also lodge a complaint with the competent supervisory authority."
           ]
         },
         {
-          "title": "7. Children",
+          "title": "7. Nature of data provision",
           "paragraphs": [
-            "This website is not intentionally directed to children under [AGE].",
-            "If you believe a child provided personal data, contact us for removal."
+            "Providing data marked as mandatory in the form is necessary to process the request.",
+            "Without mandatory data, we may be unable to provide a response."
           ]
         },
         {
-          "title": "8. Policy updates",
+          "title": "8. Updates",
           "paragraphs": [
-            "This policy may be updated from time to time.",
-            "Changes will be posted on this page with the updated date."
+            "This policy may be updated over time.",
+            "Any changes will be published on this page with the updated date."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Cookie Policy",
-      "lastUpdated": "Last updated: [DATE]",
-      "intro": "This Cookie Policy is a template to complete with the actual cookies used by your website and cookie banner/CMP settings.",
+      "lastUpdated": "Last updated: 09/04/2026",
+      "intro": "At present, this website does not use profiling, marketing, or analytics cookies and does not set non-essential cookies on user devices.",
       "emptyState": "Content is being updated.",
       "sections": [
         {
@@ -174,46 +172,45 @@
           ]
         },
         {
-          "title": "2. Types of cookies used",
+          "title": "2. Cookies used on this website",
           "paragraphs": [
-            "Necessary technical cookies: [LIST / DESCRIPTION].",
-            "Analytics cookies: [LIST, FOR EXAMPLE GA4, MATOMO, IP ANONYMIZATION YES/NO].",
-            "Marketing/profiling cookies: [OPTIONAL LIST]."
+            "Currently, no profiling or marketing cookies are used.",
+            "Currently, no analytics cookies are used.",
+            "No third-party cookies are currently set through this website."
           ]
         },
         {
           "title": "3. Legal basis",
           "paragraphs": [
-            "Technical cookies are used based on legitimate interest for website operation.",
-            "Non-technical cookies are set only with user consent through banner/CMP."
+            "As no non-essential cookies are currently used, cookie banner consent is not required at this time.",
+            "If non-technical cookies are introduced in the future, a compliant consent mechanism will be implemented."
           ]
         },
         {
-          "title": "4. Cookie duration",
+          "title": "4. Duration and retention",
           "paragraphs": [
-            "Session cookies: deleted when the browser is closed.",
-            "Persistent cookies: stored until expiration or manual deletion.",
-            "Detailed duration for each cookie: [COOKIE TABLE]."
+            "As no cookies are currently used, no cookie duration table applies.",
+            "Any future updates will be reflected in this policy."
           ]
         },
         {
           "title": "5. Preference management",
           "paragraphs": [
-            "Users can accept, reject, or change cookie preferences via the banner/CMP.",
-            "Cookies can also be managed through browser settings."
+            "Users can always manage or block cookies through browser settings.",
+            "As no non-essential cookies are currently used, there is no cookie preference panel on the site at this time."
           ]
         },
         {
-          "title": "6. Third-party cookies",
+          "title": "6. Third-party services",
           "paragraphs": [
-            "The website may include third-party services that set their own cookies.",
-            "See third-party privacy/cookie notices for details: [THIRD-PARTY POLICY LINKS]."
+            "At present, no third-party services are known to set cookies through this website.",
+            "If such services are added, this policy will be updated accordingly."
           ]
         },
         {
           "title": "7. Contact",
           "paragraphs": [
-            "For privacy and cookie information contact: [PRIVACY EMAIL]."
+            "For privacy and cookie information contact: Imperial-line-siberians@hotmail.com."
           ]
         }
       ]

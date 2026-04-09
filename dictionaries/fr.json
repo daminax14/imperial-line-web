@@ -91,79 +91,77 @@
   "legalTemplates": {
     "privacy": {
       "title": "Politique de confidentialite",
-      "lastUpdated": "Derniere mise a jour: [DATE]",
-      "intro": "Ce document est un modele a personnaliser avec les donnees reelles de votre activite. Avant publication, faites valider le contenu par un conseiller juridique.",
+      "lastUpdated": "Derniere mise a jour: 09/04/2026",
+      "intro": "Cette politique explique comment nous traitons les donnees personnelles transmises via le formulaire de contact/reservation pour des demandes d'information sur nos chatons. Les donnees ne sont ni vendues ni cedees a des tiers a des fins commerciales.",
       "emptyState": "Contenu en cours de mise a jour.",
       "sections": [
         {
           "title": "1. Responsable du traitement",
           "paragraphs": [
-            "Responsable: [NOM ENTREPRISE / PERSONNE]",
-            "Adresse: [ADRESSE COMPLETE]",
-            "Email confidentialite: [EMAIL PRIVACY]",
-            "Numero fiscal / TVA: [NUMERO FISCAL OU TVA]"
+            "Responsable: Anamaria Colniceanu",
+            "Adresse: 86830 Schwabmuenchen, Allemagne",
+            "Email confidentialite: Imperial-line-siberians@hotmail.com"
           ]
         },
         {
-          "title": "2. Types de donnees collectees",
+          "title": "2. Donnees personnelles traitees",
           "paragraphs": [
-            "Donnees d'identification et de contact (par exemple nom, email, telephone).",
-            "Donnees fournies volontairement via formulaires de contact ou reservation.",
-            "Donnees techniques de navigation (par exemple adresse IP, user agent, logs d'acces)."
+            "Nous traitons les donnees fournies volontairement par l'utilisateur dans le formulaire: nom et prenom, email, telephone (si renseigne), preferences et informations utiles a la demande.",
+            "Des donnees techniques de navigation (par exemple adresse IP et logs techniques) peuvent egalement etre traitees lorsque cela est necessaire a la securite et au fonctionnement du site."
           ]
         },
         {
           "title": "3. Finalites et base juridique",
           "paragraphs": [
-            "Repondre aux demandes des utilisateurs (mesures precontractuelles / interet legitime).",
-            "Gerer les communications sur les chatons, disponibilites et services.",
-            "Respecter les obligations legales et proteger les droits du responsable."
+            "Gerer et repondre aux demandes d'information sur les chatons, disponibilites et reservations.",
+            "Recontacter l'utilisateur via les coordonnees fournies afin de donner suite a sa demande.",
+            "Base juridique: mesures precontractuelles a la demande de la personne concernee (art. 6, par. 1, let. b RGPD) et, si necessaire, interet legitime du responsable (art. 6, par. 1, let. f RGPD)."
           ]
         },
         {
           "title": "4. Modalites de traitement et conservation",
           "paragraphs": [
-            "Les donnees sont traitees avec des moyens electroniques et/ou papier avec des mesures de securite appropriees.",
-            "Les donnees sont conservees pendant la duree strictement necessaire, sauf obligations legales differentes.",
-            "Duree estimee de conservation: [DUREE OU CRITERE]."
+            "Les donnees sont traitees par des moyens electroniques avec des mesures de securite adequates, par du personnel autorise.",
+            "Les donnees sont conservees pendant la duree necessaire au traitement de la demande et des echanges de suivi lies.",
+            "Duree indicative de conservation: [PAR EX. 12/24 MOIS APRES LE DERNIER CONTACT], sauf obligations legales ou necessite de defense des droits du responsable."
           ]
         },
         {
-          "title": "5. Destinataires et transferts hors UE",
+          "title": "5. Destinataires des donnees",
           "paragraphs": [
-            "Les donnees peuvent etre traitees par des fournisseurs techniques en tant que sous-traitants.",
-            "Categories de destinataires: [HEBERGEMENT, EMAIL, ANALYTICS, ETC.].",
-            "Les transferts hors UE eventuels sont realises avec des garanties adequates (par exemple SCC)."
+            "Les donnees ne sont ni vendues ni cedees a des tiers a des fins commerciales ou marketing.",
+            "Les donnees peuvent etre traitees uniquement par des prestataires techniques necessaires a la fourniture du service (par exemple hebergement et service email), designes sous-traitants lorsque requis.",
+            "Si certains fournisseurs sont hors UE, les transferts sont effectues conformement au RGPD avec des garanties adequates (par exemple SCC)."
           ]
         },
         {
           "title": "6. Droits des personnes concernees",
           "paragraphs": [
-            "Vous pouvez exercer les droits d'acces, rectification, effacement, limitation, opposition et portabilite selon la loi applicable.",
-            "Pour exercer vos droits: [EMAIL PRIVACY].",
-            "Vous pouvez aussi introduire une reclamation aupres de l'autorite de controle competente."
+            "La personne concernee peut exercer les droits prevus aux art. 15-22 RGPD: acces, rectification, effacement, limitation, opposition et portabilite (lorsqu'applicable).",
+            "Pour exercer vos droits, ecrivez a: Imperial-line-siberians@hotmail.com.",
+            "Vous pouvez egalement introduire une reclamation aupres de l'autorite de controle competente."
           ]
         },
         {
-          "title": "7. Mineurs",
+          "title": "7. Nature de la fourniture des donnees",
           "paragraphs": [
-            "Le site n'est pas destine intentionnellement aux mineurs de moins de [AGE].",
-            "Si vous pensez qu'un mineur a fourni des donnees personnelles, contactez-nous pour suppression."
+            "La fourniture des donnees indiquees comme obligatoires dans le formulaire est necessaire pour traiter la demande.",
+            "En l'absence de donnees obligatoires, il peut etre impossible de fournir une reponse."
           ]
         },
         {
           "title": "8. Mises a jour",
           "paragraphs": [
-            "Cette politique peut etre mise a jour periodiquement.",
-            "Les modifications seront publiees sur cette page avec la date de mise a jour."
+            "Cette politique peut etre mise a jour au fil du temps.",
+            "Toute modification sera publiee sur cette page avec la date de mise a jour."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Politique de cookies",
-      "lastUpdated": "Derniere mise a jour: [DATE]",
-      "intro": "Cette politique de cookies est un modele a completer avec les cookies reellement utilises sur votre site et les reglages de votre CMP.",
+      "lastUpdated": "Derniere mise a jour: 09/04/2026",
+      "intro": "Ce site n'utilise actuellement aucun cookie de profilage, marketing ou analytique et ne depose pas de cookies non essentiels sur l'appareil de l'utilisateur.",
       "emptyState": "Contenu en cours de mise a jour.",
       "sections": [
         {
@@ -174,46 +172,45 @@
           ]
         },
         {
-          "title": "2. Types de cookies utilises",
+          "title": "2. Cookies utilises sur ce site",
           "paragraphs": [
-            "Cookies techniques necessaires: [LISTE / DESCRIPTION].",
-            "Cookies analytiques: [LISTE, PAR EXEMPLE GA4, MATOMO, ANONYMISATION IP OUI/NON].",
-            "Cookies marketing/profilage: [LISTE EVENTUELLE]."
+            "Actuellement, aucun cookie de profilage ou marketing n'est utilise.",
+            "Actuellement, aucun cookie analytique n'est utilise.",
+            "Aucun cookie tiers n'est actuellement depose via ce site."
           ]
         },
         {
           "title": "3. Base juridique",
           "paragraphs": [
-            "Les cookies techniques reposent sur l'interet legitime de fonctionnement du site.",
-            "Les cookies non techniques sont installes uniquement avec le consentement de l'utilisateur via le bandeau/CMP."
+            "Puisqu'aucun cookie non essentiel n'est actuellement utilise, un bandeau de consentement cookie n'est pas requis a ce stade.",
+            "Si des cookies non techniques sont introduits a l'avenir, un mecanisme de consentement conforme sera mis en place."
           ]
         },
         {
-          "title": "4. Duree de conservation",
+          "title": "4. Duree et conservation",
           "paragraphs": [
-            "Cookies de session: supprimes a la fermeture du navigateur.",
-            "Cookies persistants: conserves jusqu'a expiration ou suppression manuelle.",
-            "Detail de duree par cookie: [TABLEAU DES COOKIES]."
+            "Comme aucun cookie n'est actuellement utilise, aucun tableau de duree des cookies n'est applicable.",
+            "Toute evolution future sera indiquee dans cette politique."
           ]
         },
         {
           "title": "5. Gestion des preferences",
           "paragraphs": [
-            "L'utilisateur peut accepter, refuser ou modifier ses choix via le bandeau/CMP.",
-            "Il est aussi possible de gerer les cookies via les parametres du navigateur."
+            "L'utilisateur peut toujours gerer ou bloquer les cookies via les parametres de son navigateur.",
+            "En l'absence de cookies non essentiels, il n'existe actuellement pas de panneau de preferences cookies sur le site."
           ]
         },
         {
-          "title": "6. Cookies tiers",
+          "title": "6. Services tiers",
           "paragraphs": [
-            "Le site peut integrer des services tiers qui installent leurs propres cookies.",
-            "Pour plus d'informations: [LIENS VERS POLITIQUES TIERS]."
+            "A ce jour, aucun service tiers n'est connu pour deposer des cookies via ce site.",
+            "Si de tels services sont ajoutes, cette politique sera mise a jour en consequence."
           ]
         },
         {
           "title": "7. Contact",
           "paragraphs": [
-            "Pour toute question privacy/cookies: [EMAIL PRIVACY]."
+            "Pour toute question privacy/cookies: Imperial-line-siberians@hotmail.com."
           ]
         }
       ]

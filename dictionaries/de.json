@@ -91,79 +91,77 @@
   "legalTemplates": {
     "privacy": {
       "title": "Datenschutzerklarung",
-      "lastUpdated": "Letzte Aktualisierung: [DATUM]",
-      "intro": "Dieses Dokument ist eine Vorlage und muss mit den echten Daten deiner Tatigkeit ausgefullt werden. Vor der Veroffentlichung rechtlich pru fen lassen.",
+      "lastUpdated": "Letzte Aktualisierung: 09/04/2026",
+      "intro": "Diese Datenschutzerklarung beschreibt, wie wir personenbezogene Daten verarbeiten, die uber das Kontakt-/Reservierungsformular fur Anfragen zu unseren Kitten ubermittelt werden. Die Daten werden nicht verkauft und nicht zu kommerziellen Zwecken an Dritte weitergegeben.",
       "emptyState": "Inhalte werden aktualisiert.",
       "sections": [
         {
           "title": "1. Verantwortlicher",
           "paragraphs": [
-            "Verantwortlicher: [NAME UNTERNEHMEN / PERSON]",
-            "Anschrift: [VOLLSTANDIGE ADRESSE]",
-            "Datenschutz E-Mail: [PRIVACY EMAIL]",
-            "Steuer-/USt-ID: [STEUER- ODER UST-ID]"
+            "Verantwortlicher: Anamaria Colniceanu",
+            "Anschrift: 86830 Schwabmuenchen, Deutschland",
+            "Datenschutz E-Mail: Imperial-line-siberians@hotmail.com"
           ]
         },
         {
-          "title": "2. Arten der erhobenen Daten",
+          "title": "2. Verarbeitete personenbezogene Daten",
           "paragraphs": [
-            "Identifikations- und Kontaktdaten (zum Beispiel Name, E-Mail, Telefon).",
-            "Freiwillig uber Kontakt- oder Reservierungsformulare ubermittelte Daten.",
-            "Technische Nutzungsdaten (zum Beispiel IP-Adresse, User Agent, Zugriffsprotokolle)."
+            "Wir verarbeiten Daten, die Nutzer freiwillig im Formular angeben: Vor- und Nachname, E-Mail, Telefonnummer (falls angegeben), Praferenzen und fur die Anfrage relevante Informationen.",
+            "Zusatzlich konnen technische Nutzungsdaten (z. B. IP-Adresse und technische Logs) verarbeitet werden, soweit dies fur Sicherheit und Betrieb der Website erforderlich ist."
           ]
         },
         {
           "title": "3. Zwecke und Rechtsgrundlagen",
           "paragraphs": [
-            "Bearbeitung von Anfragen (vorvertragliche Massnahmen / berechtigtes Interesse).",
-            "Kommunikation zu Kitten, Verfugbarkeit und Dienstleistungen.",
-            "Erfullung gesetzlicher Pflichten und Rechtsverteidigung falls erforderlich."
+            "Bearbeitung und Beantwortung von Informationsanfragen zu Kitten, Verfugbarkeit und Reservierungen.",
+            "Kontaktaufnahme mit Nutzern uber die von ihnen angegebenen Kontaktdaten, um ihre Anfrage zu bearbeiten.",
+            "Rechtsgrundlage: vorvertragliche Massnahmen auf Anfrage der betroffenen Person (Art. 6 Abs. 1 lit. b DSGVO) und, soweit erforderlich, berechtigte Interessen des Verantwortlichen (Art. 6 Abs. 1 lit. f DSGVO)."
           ]
         },
         {
           "title": "4. Verarbeitung und Speicherdauer",
           "paragraphs": [
-            "Die Verarbeitung erfolgt elektronisch und/oder auf Papier mit geeigneten Schutzmassnahmen.",
-            "Daten werden nur so lange gespeichert, wie fur die Zwecke erforderlich, sofern keine gesetzlichen Pflichten entgegenstehen.",
-            "Geschaftzte Speicherdauer: [SPEICHERDAUER ODER KRITERIUM]."
+            "Die Daten werden mit elektronischen Mitteln und angemessenen Sicherheitsmassnahmen durch autorisierte Personen verarbeitet.",
+            "Die Daten werden fur die Dauer gespeichert, die zur Bearbeitung der Anfrage und zugehoriger Folgekommunikation erforderlich ist.",
+            "Richtwert fur die Speicherdauer: [Z. B. 12/24 MONATE AB LETZTEM KONTAKT], vorbehaltlich gesetzlicher Aufbewahrungspflichten oder Rechtsverteidigung."
           ]
         },
         {
-          "title": "5. Empfanger und Drittlandtransfer",
+          "title": "5. Empfanger der Daten",
           "paragraphs": [
-            "Daten konnen durch technische Dienstleister als Auftragsverarbeiter verarbeitet werden.",
-            "Empfangerkategorien: [HOSTING, EMAIL, ANALYTICS, USW.].",
-            "Etwaige Ubermittlungen ausserhalb der EU erfolgen mit geeigneten Garantien (zum Beispiel SCC)."
+            "Die Daten werden nicht verkauft und nicht zu kommerziellen oder Marketingzwecken an Dritte weitergegeben.",
+            "Die Daten konnen ausschliesslich von technischen Dienstleistern verarbeitet werden, die fur die Bereitstellung des Dienstes erforderlich sind (z. B. Hosting- und E-Mail-Anbieter), soweit erforderlich als Auftragsverarbeiter benannt.",
+            "Wenn Anbieter ausserhalb der EU eingesetzt werden, erfolgt die Ubermittlung gemass DSGVO mit geeigneten Garantien (z. B. SCC)."
           ]
         },
         {
           "title": "6. Rechte der betroffenen Personen",
           "paragraphs": [
-            "Betroffene konnen die Rechte auf Auskunft, Berichtigung, Loschung, Einschrankung, Widerspruch und Datenubertragbarkeit ausuben.",
-            "Zur Ausubung der Rechte: [PRIVACY EMAIL].",
-            "Zusatzlich besteht ein Beschwerderecht bei der zustandigen Aufsichtsbehorde."
+            "Betroffene konnen die Rechte nach Art. 15-22 DSGVO ausuben: Auskunft, Berichtigung, Loschung, Einschrankung, Widerspruch und Datenubertragbarkeit (soweit anwendbar).",
+            "Zur Ausubung Ihrer Rechte schreiben Sie an: Imperial-line-siberians@hotmail.com.",
+            "Daruber hinaus besteht ein Beschwerderecht bei der zustandigen Aufsichtsbehorde."
           ]
         },
         {
-          "title": "7. Minderjahrige",
+          "title": "7. Art der Bereitstellung",
           "paragraphs": [
-            "Diese Website richtet sich nicht gezielt an Kinder unter [ALTER].",
-            "Falls ein Kind personenbezogene Daten ubermittelt hat, kontaktiere uns fur die Loschung."
+            "Die Bereitstellung der im Formular als Pflichtfelder gekennzeichneten Daten ist erforderlich, um die Anfrage bearbeiten zu konnen.",
+            "Ohne Pflichtangaben konnen wir moglicherweise keine Ruckmeldung geben."
           ]
         },
         {
           "title": "8. Aktualisierungen",
           "paragraphs": [
-            "Diese Datenschutzerklarung kann regelmassig aktualisiert werden.",
-            "Anderungen werden auf dieser Seite mit dem Aktualisierungsdatum veroffentlicht."
+            "Diese Datenschutzerklarung kann im Laufe der Zeit aktualisiert werden.",
+            "Etwaige Anderungen werden auf dieser Seite mit Aktualisierungsdatum veroffentlicht."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Cookie-Richtlinie",
-      "lastUpdated": "Letzte Aktualisierung: [DATUM]",
-      "intro": "Diese Cookie-Richtlinie ist eine Vorlage und muss mit den tatsachlich verwendeten Cookies sowie den CMP-Einstellungen erganzt werden.",
+      "lastUpdated": "Letzte Aktualisierung: 09/04/2026",
+      "intro": "Diese Website verwendet derzeit keine Profiling-, Marketing- oder Analyse-Cookies und setzt keine nicht notwendigen Cookies auf dem Endgerat des Nutzers.",
       "emptyState": "Inhalte werden aktualisiert.",
       "sections": [
         {
@@ -174,46 +172,45 @@
           ]
         },
         {
-          "title": "2. Verwendete Cookie-Typen",
+          "title": "2. Auf dieser Website verwendete Cookies",
           "paragraphs": [
-            "Notwendige technische Cookies: [LISTE / BESCHREIBUNG].",
-            "Analyse-Cookies: [LISTE, ZUM BEISPIEL GA4, MATOMO, IP-ANONYMISIERUNG JA/NEIN].",
-            "Marketing-/Profiling-Cookies: [OPTIONALE LISTE]."
+            "Derzeit werden keine Profiling- oder Marketing-Cookies verwendet.",
+            "Derzeit werden keine Analyse-Cookies verwendet.",
+            "Aktuell werden uber diese Website keine Third-Party-Cookies gesetzt."
           ]
         },
         {
           "title": "3. Rechtsgrundlage",
           "paragraphs": [
-            "Technische Cookies basieren auf berechtigtem Interesse zur Bereitstellung der Website.",
-            "Nicht notwendige Cookies werden nur mit Einwilligung uber Banner/CMP gesetzt."
+            "Da derzeit keine nicht notwendigen Cookies eingesetzt werden, ist aktuell kein Cookie-Banner mit Einwilligung erforderlich.",
+            "Sollten in Zukunft nicht technische Cookies eingefuhrt werden, wird ein rechtskonformer Einwilligungsmechanismus implementiert."
           ]
         },
         {
-          "title": "4. Speicherdauer",
+          "title": "4. Speicherdauer und Aufbewahrung",
           "paragraphs": [
-            "Session-Cookies werden nach Schliessen des Browsers geloscht.",
-            "Persistente Cookies bleiben bis zum Ablauf oder manueller Loschung gespeichert.",
-            "Details je Cookie: [COOKIE-TABELLE]."
+            "Da derzeit keine Cookies verwendet werden, ist keine Cookie-Tabelle zur Speicherdauer erforderlich.",
+            "Etwaige zukunftige Anderungen werden in dieser Richtlinie erganzt."
           ]
         },
         {
           "title": "5. Verwaltung der Einstellungen",
           "paragraphs": [
-            "Nutzer konnen Cookies uber Banner/CMP akzeptieren, ablehnen oder anpassen.",
-            "Cookies lassen sich auch uber Browsereinstellungen verwalten."
+            "Nutzer konnen Cookies jederzeit uber die Browsereinstellungen verwalten oder blockieren.",
+            "Da aktuell keine nicht notwendigen Cookies eingesetzt werden, gibt es derzeit kein Cookie-Praferenzpanel auf der Website."
           ]
         },
         {
-          "title": "6. Drittanbieter-Cookies",
+          "title": "6. Dienste Dritter",
           "paragraphs": [
-            "Die Website kann Dienste Dritter einbinden, die eigene Cookies setzen.",
-            "Weitere Informationen: [LINKS ZU DRITTANBIETER-RICHTLINIEN]."
+            "Derzeit sind keine Drittanbieter-Dienste bekannt, die uber diese Website Cookies setzen.",
+            "Falls solche Dienste hinzugefugt werden, wird diese Richtlinie entsprechend aktualisiert."
           ]
         },
         {
           "title": "7. Kontakt",
           "paragraphs": [
-            "Fur Fragen zu Datenschutz und Cookies: [PRIVACY EMAIL]."
+            "Fur Fragen zu Datenschutz und Cookies: Imperial-line-siberians@hotmail.com."
           ]
         }
       ]

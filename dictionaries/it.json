@@ -91,79 +91,77 @@
   "legalTemplates": {
     "privacy": {
       "title": "Privacy Policy",
-      "lastUpdated": "Ultimo aggiornamento:   [DATA]",
-      "intro": "Questo documento e un template informativo da personalizzare con i dati reali della tua attivita. Prima della pubblicazione, verifica i contenuti con un consulente legale/privacy.",
+      "lastUpdated": "Ultimo aggiornamento: 09/04/2026",
+      "intro": "Questa informativa descrive come trattiamo i dati personali inviati tramite il modulo contatti/prenotazione per richieste informative sui nostri mici. I dati non sono venduti ne ceduti a terzi per finalita commerciali.",
       "emptyState": "Contenuti in aggiornamento.",
       "sections": [
         {
           "title": "1. Titolare del trattamento",
           "paragraphs": [
-            "Titolare: [NOME AZIENDA / PERSONA]",
-            "Sede: [INDIRIZZO COMPLETO]",
-            "Email privacy: [EMAIL PRIVACY]",
-            "P.IVA / Codice fiscale: [P.IVA O CF]"
+            "Titolare: Anamaria Colniceanu",
+            "Sede: 86830 Schwabmünchen, Germania",
+            "Email privacy: Imperial-line-siberians@hotmail.com"
           ]
         },
         {
-          "title": "2. Tipologie di dati raccolti",
+          "title": "2. Dati personali trattati",
           "paragraphs": [
-            "Dati identificativi e di contatto (es. nome, email, telefono).",
-            "Dati forniti volontariamente tramite moduli di contatto o prenotazione.",
-            "Dati tecnici di navigazione (es. indirizzo IP, user agent, log di accesso)."
+            "Trattiamo i dati inviati volontariamente dall'utente nel modulo: nome e cognome, email, telefono (se fornito), preferenze e informazioni utili alla richiesta.",
+            "Possono inoltre essere trattati dati tecnici di navigazione (es. indirizzo IP e log tecnici) necessari alla sicurezza e al funzionamento del sito."
           ]
         },
         {
           "title": "3. Finalita e base giuridica",
           "paragraphs": [
-            "Rispondere alle richieste inviate dall'utente (misure precontrattuali / legittimo interesse).",
-            "Gestire comunicazioni relative a informazioni su cuccioli, disponibilita e servizi.",
-            "Adempiere obblighi di legge e tutelare i diritti del titolare in sede giudiziaria."
+            "Gestire e rispondere alle richieste informative su cuccioli, disponibilita e prenotazioni.",
+            "Ricontattare l'utente tramite i recapiti forniti per dare seguito alla richiesta.",
+            "Base giuridica: misure precontrattuali su richiesta dell'interessato (art. 6, par. 1, lett. b GDPR) e, ove necessario, legittimo interesse del titolare (art. 6, par. 1, lett. f GDPR)."
           ]
         },
         {
-          "title": "4. Modalita di trattamento e conservazione",
+          "title": "4. Modalita del trattamento e conservazione",
           "paragraphs": [
-            "I dati sono trattati con strumenti elettronici e/o cartacei, con misure tecniche e organizzative adeguate.",
-            "I dati sono conservati per il tempo strettamente necessario alle finalita indicate, salvo obblighi di legge diversi.",
-            "Periodo di conservazione stimato: [PERIODO O CRITERIO DI CONSERVAZIONE]."
+            "I dati sono trattati con strumenti elettronici e misure di sicurezza adeguate, da personale autorizzato.",
+            "I dati sono conservati per il tempo necessario a gestire la richiesta e i successivi contatti correlati.",
+            "Periodo indicativo di conservazione: [ES. 12/24 MESI DALL'ULTIMO CONTATTO], salvo obblighi di legge o necessita di tutela dei diritti del titolare."
           ]
         },
         {
-          "title": "5. Destinatari e trasferimenti extra UE",
+          "title": "5. Destinatari dei dati",
           "paragraphs": [
-            "I dati possono essere trattati da fornitori tecnici nominati responsabili del trattamento.",
-            "Elenco categorie destinatari: [HOSTING, EMAIL, ANALYTICS, ECC.]",
-            "Eventuali trasferimenti extra UE avvengono secondo garanzie adeguate (es. SCC)."
+            "I dati non sono venduti ne ceduti a terzi per finalita commerciali o di marketing.",
+            "I dati possono essere trattati esclusivamente da fornitori tecnici necessari all'erogazione del servizio (es. hosting e servizio email), nominati responsabili del trattamento ove richiesto.",
+            "Se alcuni fornitori sono extra UE, il trasferimento avviene nel rispetto del GDPR tramite garanzie adeguate (es. SCC)."
           ]
         },
         {
           "title": "6. Diritti dell'interessato",
           "paragraphs": [
-            "L'interessato puo esercitare i diritti di accesso, rettifica, cancellazione, limitazione, opposizione e portabilita nei casi previsti.",
-            "Per esercitare i diritti scrivere a: [EMAIL PRIVACY].",
+            "L'interessato puo esercitare i diritti previsti dagli artt. 15-22 GDPR: accesso, rettifica, cancellazione, limitazione, opposizione e portabilita (nei casi applicabili).",
+            "Per esercitare i diritti scrivere a: Imperial-line-siberians@hotmail.com.",
             "Resta salvo il diritto di proporre reclamo al Garante per la protezione dei dati personali."
           ]
         },
         {
-          "title": "7. Minori",
+          "title": "7. Natura del conferimento",
           "paragraphs": [
-            "Il sito non e destinato intenzionalmente a minori di anni [ETA].",
-            "Se ritieni che un minore abbia fornito dati personali, contattaci per la rimozione."
+            "Il conferimento dei dati indicati come obbligatori nel modulo e necessario per poter gestire la richiesta.",
+            "In assenza dei dati obbligatori non sara possibile fornire riscontro."
           ]
         },
         {
-          "title": "8. Aggiornamenti della policy",
+          "title": "8. Aggiornamenti",
           "paragraphs": [
-            "La presente informativa puo essere aggiornata periodicamente.",
-            "Le modifiche saranno pubblicate su questa pagina con data di aggiornamento."
+            "La presente informativa puo essere aggiornata nel tempo.",
+            "Le eventuali modifiche saranno pubblicate su questa pagina con la data di aggiornamento."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Cookie Policy",
-      "lastUpdated": "Ultimo aggiornamento: [DATA]",
-      "intro": "Questa Cookie Policy e un template da completare con i cookie effettivamente utilizzati dal tuo sito e dal relativo cookie banner/CMP.",
+      "lastUpdated": "Ultimo aggiornamento: 09/04/2026",
+      "intro": "Questo sito, allo stato attuale, non utilizza cookie di profilazione, marketing o analytics e non imposta cookie non necessari sul dispositivo dell'utente.",
       "emptyState": "Contenuti in aggiornamento.",
       "sections": [
         {
@@ -174,46 +172,45 @@
           ]
         },
         {
-          "title": "2. Tipi di cookie utilizzati",
+          "title": "2. Cookie utilizzati su questo sito",
           "paragraphs": [
-            "Cookie tecnici necessari: [ELENCO / DESCRIZIONE].",
-            "Cookie analitici: [ELENCO, ES. GA4, MATOMO, ANONIMIZZAZIONE IP SI/NO].",
-            "Cookie di marketing/profilazione: [ELENCO EVENTUALE]."
+            "Al momento non vengono utilizzati cookie di profilazione o marketing.",
+            "Al momento non vengono utilizzati cookie analytics.",
+            "Non risultano installati cookie di terze parti tramite il sito."
           ]
         },
         {
           "title": "3. Base giuridica",
           "paragraphs": [
-            "I cookie tecnici sono utilizzati sulla base del legittimo interesse a garantire il funzionamento del sito.",
-            "I cookie non tecnici sono installati solo con il consenso dell'utente tramite banner/CMP."
+            "Non essendo utilizzati cookie non necessari, non e richiesto il consenso tramite banner cookie.",
+            "Qualora in futuro venissero introdotti cookie non tecnici, verra implementato un meccanismo di consenso conforme alla normativa applicabile."
           ]
         },
         {
-          "title": "4. Durata dei cookie",
+          "title": "4. Durata e conservazione",
           "paragraphs": [
-            "Cookie di sessione: cancellati alla chiusura del browser.",
-            "Cookie persistenti: restano memorizzati fino alla scadenza indicata o cancellazione manuale.",
-            "Dettaglio durata per ciascun cookie: [TABELLA COOKIE]."
+            "Non essendo attualmente utilizzati cookie, non e prevista una tabella delle durate cookie.",
+            "Eventuali aggiornamenti saranno riportati in questa pagina."
           ]
         },
         {
-          "title": "5. Gestione preferenze",
+          "title": "5. Gestione preferenze utente",
           "paragraphs": [
-            "L'utente puo accettare, rifiutare o modificare le preferenze cookie tramite il banner/CMP.",
-            "E possibile inoltre gestire i cookie dalle impostazioni del browser."
+            "L'utente puo sempre gestire o bloccare i cookie tramite le impostazioni del browser.",
+            "In assenza di cookie non necessari, al momento non e presente un pannello preferenze cookie sul sito."
           ]
         },
         {
-          "title": "6. Cookie di terze parti",
+          "title": "6. Servizi di terze parti",
           "paragraphs": [
-            "Il sito puo integrare servizi di terze parti che impostano cookie autonomi.",
-            "Per maggiori dettagli consultare le rispettive informative: [LINK POLICY TERZE PARTI]."
+            "Al momento non risultano servizi terzi che impostano cookie tramite il sito.",
+            "Se tali servizi verranno introdotti, questa policy verra aggiornata con i relativi dettagli."
           ]
         },
         {
           "title": "7. Contatti",
           "paragraphs": [
-            "Per informazioni su privacy e cookie: [EMAIL PRIVACY]."
+            "Per informazioni su privacy e cookie: Imperial-line-siberians@hotmail.com."
           ]
         }
       ]
