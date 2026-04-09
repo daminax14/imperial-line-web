@@ -213,7 +213,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const hasStructuredTests = tests.some((t) => typeof t.raw === 'string' && t.raw.trim().length > 0)
 
   return (
-    <main className="relative bg-[#edf3fb] min-h-screen pt-[132px] pb-24 overflow-hidden">
+    <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
       <CatsEtherealBackground />
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {listGroup && (

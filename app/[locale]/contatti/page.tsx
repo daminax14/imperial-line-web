@@ -53,7 +53,7 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
   const breeder = dict?.breederContacts || {}
 
   return (
-    <main className="relative min-h-screen pt-[120px] pb-24 overflow-hidden bg-[#edf3fb]">
+    <main className="relative min-h-screen pt-[156px] pb-24 overflow-hidden bg-[#edf3fb]">
       <CatsEtherealBackground />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">

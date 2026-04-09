@@ -56,6 +56,7 @@ export default function CatLineageSection({
                 imageUrl={father.imageUrl}
                 onZoom={(src) => setZoomImage({ src, label: father.name || texts.sire })}
                 zoomAriaPrefix={texts.zoomAriaPrefix}
+                unknownLabel={texts.unknownParent}
                 compact={compact}
               />
             )}
@@ -67,6 +68,7 @@ export default function CatLineageSection({
                 imageUrl={mother.imageUrl}
                 onZoom={(src) => setZoomImage({ src, label: mother.name || texts.dam })}
                 zoomAriaPrefix={texts.zoomAriaPrefix}
+                unknownLabel={texts.unknownParent}
                 compact={compact}
               />
             )}
@@ -107,6 +109,7 @@ function ParentCard({
   imageUrl,
   onZoom,
   zoomAriaPrefix,
+  unknownLabel,
   compact,
 }: {
   role: string
@@ -114,9 +117,11 @@ function ParentCard({
   imageUrl?: string
   onZoom: (src: string) => void
   zoomAriaPrefix?: string
+  unknownLabel?: string
   compact?: boolean
 }) {
   const zoomAria = zoomAriaPrefix || 'Zoom photo of'
+  const unknownText = unknownLabel || 'Unknown'
 
   return (
     <div className="text-center flex flex-col items-center gap-0 self-start">
@@ -136,6 +141,8 @@ function ParentCard({
           <span className="flex items-center justify-center w-full h-full text-[10px] uppercase tracking-widest text-zinc-400">Img</span>
         )}
       </div>
+      <p className="mt-3 text-[10px] uppercase tracking-[0.18em] text-gold-200 font-bold">{role}</p>
+      <p className={`${compact ? 'text-base md:text-lg' : 'text-lg md:text-xl'} mt-3 font-serif italic text-slate-800 leading-tight`}>{name || unknownText}</p>
     </div>
   )
 }

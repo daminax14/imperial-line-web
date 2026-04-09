@@ -26,10 +26,10 @@ export default function Navbar({ dict, locale }: { dict: any, locale: string }) 
       <nav className="max-w-7xl mx-auto px-5 md:px-6 py-4 md:py-5 flex items-center justify-between gap-4 lg:gap-8">
         
         {/* CONTENITORE LOGO CON POSIZIONAMENTO A SBALZO */}
-        <div className="relative w-[150px] md:w-[170px] h-[88px] md:h-[96px] flex-shrink-0"> 
+        <div className="relative w-[166px] md:w-[188px] h-[98px] md:h-[108px] flex-shrink-0"> 
           <Link 
             href={`/${locale}`} 
-            className="absolute -top-2 md:-top-3 left-0 w-[190px] md:w-[210px] h-[120px] md:h-[132px] z-[40] transition-transform hover:scale-105"
+            className="absolute -top-2 md:-top-3 left-0 w-[208px] md:w-[232px] h-[132px] md:h-[146px] z-[40] transition-transform hover:scale-105"
           >
             <img
               src="/logo.jpeg"

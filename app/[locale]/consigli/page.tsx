@@ -66,12 +66,13 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
   const { locale } = await params
   const [dict, cmsSections] = await Promise.all([getDictionary(locale), getAdviceSections(locale)])
   const advice = dict?.advicePage || {}
+  const contactEmail = 'Imperial-line-siberians@hotmail.com'
   const tips = (advice?.tips || []) as AdviceTip[]
 
   const hasCmsSections = cmsSections.length > 0
 
   return (
-    <main className="relative pt-[150px] pb-24 bg-[#edf3fb] min-h-screen overflow-hidden">
+    <main className="relative pt-[186px] pb-24 bg-[#edf3fb] min-h-screen overflow-hidden">
       <CatsEtherealBackground />
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         
@@ -149,8 +150,8 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
           <p className="text-slate-400 max-w-xl mx-auto mb-10 text-lg">
             {advice?.ctaDescription || 'Siamo a tua disposizione per consulenze pre e post-adozione. La salute dei nostri cuccioli e la nostra priorita assoluta.'}
           </p>
-          <a href={`/${locale}/contatti`} className="inline-block bg-gold-200 text-white font-bold py-5 px-14 rounded-full hover:bg-white hover:text-slate-900 transition-all shadow-lg">
-            {advice?.ctaButton || 'Scrivici su WhatsApp'}
+          <a href={`mailto:${contactEmail}`} className="inline-block bg-gold-200 text-white font-bold py-5 px-14 rounded-full hover:bg-white hover:text-slate-900 transition-all shadow-lg break-all">
+            {contactEmail}
           </a>
         </div>
 

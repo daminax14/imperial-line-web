@@ -282,7 +282,7 @@ export default async function LitterPage({
   const localizedLitterStatus = litterStatusLabels[litterStatusKey] || litter.status
 
   return (
-    <main className="relative pt-[120px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
+    <main className="relative pt-[156px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
       <CatsEtherealBackground />
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 

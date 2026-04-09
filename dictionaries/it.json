@@ -219,6 +219,12 @@
       ]
     }
   },
+  "maintenancePage": {
+    "title": "Sito in manutenzione",
+    "message": "Stiamo effettuando un aggiornamento tecnico. Torneremo online il prima possibile.",
+    "contactLabel": "Contatto rapido",
+    "retryButton": "Riprova homepage"
+  },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
     "facebookUrl": "https://facebook.com/",

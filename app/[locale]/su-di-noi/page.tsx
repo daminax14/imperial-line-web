@@ -57,7 +57,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const sections = cmsSections.length > 0 ? normalizeSections(cmsSections) : normalizeSections(about?.sections)
 
   return (
-    <main className="relative min-h-screen bg-[#edf3fb] pt-[120px] pb-24 overflow-hidden">
+    <main className="relative min-h-screen bg-[#edf3fb] pt-[156px] pb-24 overflow-hidden">
       <CatsEtherealBackground />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">

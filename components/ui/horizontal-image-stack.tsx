@@ -50,6 +50,8 @@ const defaultImages: HorizontalImageItem[] = [
 export function HorizontalImageStack({ images = defaultImages, className = "", texts }: HorizontalImageStackProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const lastNavigationTime = useRef(0)
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
   const navigationCooldown = 360
 
   const navigate = useCallback(
@@ -90,8 +92,38 @@ export function HorizontalImageStack({ images = defaultImages, className = "", t
     return Math.abs(diff) <= 2
   }
 
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touch = event.changedTouches[0]
+    touchStartX.current = touch.clientX
+    touchStartY.current = touch.clientY
+  }
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+
+    const touch = event.changedTouches[0]
+    const dx = touch.clientX - touchStartX.current
+    const dy = touch.clientY - touchStartY.current
+
+    touchStartX.current = null
+    touchStartY.current = null
+
+    // Handle swipe only when horizontal movement is intentional.
+    if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return
+
+    if (dx < 0) {
+      navigate(1)
+    } else {
+      navigate(-1)
+    }
+  }
+
   return (
-    <div className={`relative flex h-full min-h-[420px] w-full items-center justify-center overflow-hidden ${className}`}>
+    <div
+      className={`relative flex h-full min-h-[420px] w-full items-center justify-center overflow-hidden ${className}`}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/50 blur-3xl" />
       </div>
