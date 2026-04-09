@@ -56,6 +56,34 @@ function normalizeGroupFromCategory(category?: string): 'kings' | 'queens' | nul
   return null
 }
 
+function normalizeCategoryKey(category?: string): 'kittens' | 'kings' | 'queens' | 'other' {
+  const value = (category || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+
+  if (['cuccioli', 'cucciolo', 'kitten', 'kittens', 'chaton', 'chatons', 'katzchen', 'jungtier'].includes(value)) return 'kittens'
+  if (value === 'king' || value === 'kings' || value === 'maschio' || value === 'male') return 'kings'
+  if (value === 'queen' || value === 'queens' || value === 'femmina' || value === 'female') return 'queens'
+  return 'other'
+}
+
+function getLocalizedCategory(category: string | undefined, locale: string, categoryLabels: Record<string, string>): string {
+  const key = normalizeCategoryKey(category)
+  if (categoryLabels[key]) return categoryLabels[key]
+
+  const defaultsByLocale: Record<string, Record<string, string>> = {
+    it: { kittens: 'Cuccioli', kings: 'Kings', queens: 'Queens' },
+    en: { kittens: 'Kittens', kings: 'Kings', queens: 'Queens' },
+    de: { kittens: 'Kitten', kings: 'Kings', queens: 'Queens' },
+    fr: { kittens: 'Chatons', kings: 'Kings', queens: 'Queens' },
+  }
+
+  const localeMap = defaultsByLocale[locale] || defaultsByLocale.en
+  return localeMap[key] || category || 'Cat'
+}
+
 function getCountryCode(country?: string): string | null {
   const value = (country || '').trim().toLowerCase()
   const codes: Record<string, string> = {
@@ -72,14 +100,18 @@ function getCountryCode(country?: string): string | null {
 }
 
 function normalizeStatusKey(status?: string): string {
-  const s = (status || '').trim().toLowerCase()
+  const s = (status || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
   if (!s) return 'unknown'
-  if (s.includes('disponib') || s.includes('available') || s.includes('disponible') || s.includes('free') || s.includes('libero')) return 'available'
+  if (s.includes('disponib') || s.includes('available') || s.includes('disponible') || s.includes('free') || s.includes('libero') || s.includes('verfugbar')) return 'available'
   if (s.includes('valutaz') || s.includes('evaluation') || s.includes('evaluate')) return 'evaluation'
-  if (s.includes('riserv') || s.includes('reserved') || s.includes('reserve')) return 'reserved'
+  if (s.includes('riserv') || s.includes('reserved') || s.includes('reserve') || s.includes('reserv')) return 'reserved'
   if (s.includes('tenut') || s.includes('held')) return 'held'
   if (s.includes('non in vendita') || s.includes('not for sale')) return 'notForSale'
-  if (s.includes('cedut') || s.includes('sold') || s.includes('vendu')) return 'sold'
+  if (s.includes('cedut') || s.includes('sold') || s.includes('vendu') || s.includes('cede') || s.includes('vergeben')) return 'sold'
   if (s.includes('rimane in allevamento') || s.includes('stays in cattery')) return 'staysInCattery'
   return 'unknown'
 }
@@ -134,7 +166,7 @@ function normalizeSexKey(value?: string): string {
 export default async function CatPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const cat = await getCat(slug, locale);
-  const dict = await getDictionary(locale as 'it' | 'en' | 'de');
+  const dict = await getDictionary(locale as 'it' | 'en' | 'de' | 'fr');
   const catText = dict?.catPage || {}
 
   if (!cat) return <div className="p-20 text-center text-xl font-serif">{catText?.notFound || 'Cat not found.'}</div>
@@ -152,7 +184,9 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   }
   const statusKey = normalizeStatusKey(cat.status)
   const statusLabels = (catText?.statusLabels || {}) as Record<string, string>
+  const categoryLabels = ((catText as any)?.categoryLabels || {}) as Record<string, string>
   const countryLabels = (catText?.countryLabels || {}) as Record<string, string>
+  const localizedCategory = getLocalizedCategory(cat.category, locale, categoryLabels)
   const localizedStatus = statusLabels[statusKey] || cat.status
   const statusStyle = cat.status ? statusColors[statusKey] || statusColors.unknown : 'hidden';
   const soldStatus = statusKey === 'sold'
@@ -245,7 +279,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
 
           <div className="flex flex-col justify-start pt-2">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/70 bg-white/85 px-3.5 py-1.5 font-bold uppercase tracking-widest text-[11px] text-[#1f3c57] shadow-sm">
-              <span>{cat.category}</span>
+              <span>{localizedCategory}</span>
               <span className="text-gold-200">•</span>
               <span>{cat.breed || catText?.defaultBreed || 'Siberian Neva Masquerade'}</span>
             </span>
@@ -324,7 +358,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                 compact
                 className="mt-4"
                 texts={{
-                  title: dict.catPage.lineage,
+                  title: "",
                   subtitle: dict.catPage.lineage_sub,
                   sire: dict.catPage.sire,
                   dam: dict.catPage.dam,
@@ -336,7 +370,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               />
             </div>
 
-            {!staysInCattery && (
+            {statusKey === 'available' && (
               <Link href={`/${locale}/contatti`} className="inline-block text-center mt-10 bg-slate-900 text-white py-5 px-10 rounded-full font-bold hover:bg-gold-200 transition-all shadow-lg hover:shadow-gold-200/40 uppercase tracking-widest text-sm">
                 {dict.catPage.inquire}
               </Link>

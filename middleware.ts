@@ -5,6 +5,22 @@ let locales = ['it', 'en', 'de', 'fr']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const maintenanceMode = process.env.MAINTENANCE_MODE === 'true'
+
+  if (maintenanceMode) {
+    const localeInPath = locales.find(
+      (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    )
+    const targetLocale = localeInPath || 'it'
+    const maintenancePath = `/${targetLocale}/maintenance`
+
+    if (pathname === maintenancePath || pathname === `${maintenancePath}/`) {
+      return
+    }
+
+    request.nextUrl.pathname = maintenancePath
+    return NextResponse.redirect(request.nextUrl)
+  }
 
   const legacyGroupMatch = pathname.match(/^\/(it|en|de|fr)\/i-nostri-gatti\/(king|queen)\/?$/)
   if (legacyGroupMatch) {

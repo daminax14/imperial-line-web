@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'facebook' | 'email' | 'phone' | 'pin' }) {
+function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'email' | 'phone' | 'pin' }) {
   const cls = 'w-4 h-4 text-slate-500 flex-shrink-0'
   if (kind === 'instagram') {
     return (
@@ -16,13 +16,6 @@ function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'facebook' | 'ema
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
         <path d="M14 4v9.2a3.8 3.8 0 1 1-2.7-3.64" />
         <path d="M14 4c1 2 2.5 3.2 4.5 3.5" />
-      </svg>
-    )
-  }
-  if (kind === 'facebook') {
-    return (
-      <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-        <path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.3c0-.8.2-1.3 1.4-1.3h1.5V5.5c-.3 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2h-2.5V14h2.5v7h3Z" />
       </svg>
     )
   }
@@ -120,12 +113,6 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
               {footer.socialTitle || 'Social'}
             </h4>
             <ul className="text-sm text-slate-500 space-y-2 font-light">
-              <li>
-                <a href={breeder?.facebookUrl || '#'} className="inline-flex items-center gap-2 hover:text-slate-900 transition-colors" target="_blank" rel="noreferrer">
-                  <SocialIcon kind="facebook" />
-                  <span>{breeder?.facebookLabel || 'Imperial Line'}</span>
-                </a>
-              </li>
               <li>
                 <a href={breeder?.instagramUrl || 'https://instagram.com/imperial_line_siberians'} className="inline-flex items-center gap-2 hover:text-slate-900 transition-colors" target="_blank" rel="noreferrer">
                   <SocialIcon kind="instagram" />

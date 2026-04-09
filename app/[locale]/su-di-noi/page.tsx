@@ -73,7 +73,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
         <section className="space-y-4">
           {sections.map((section) => (
-            <details key={section.id} className="group rounded-3xl border border-white/75 bg-white/75 backdrop-blur-sm shadow-[0_16px_40px_-30px_rgba(32,72,112,0.45)] overflow-hidden" open={section.id === sections[0]?.id}>
+            <details key={section.id} className="group rounded-3xl border border-white/75 bg-white/75 backdrop-blur-sm shadow-[0_16px_40px_-30px_rgba(32,72,112,0.45)] overflow-hidden">
               <summary className="list-none cursor-pointer px-6 md:px-8 py-5 flex items-center justify-between gap-4">
                 <h2 className="text-2xl md:text-3xl font-serif text-[#1f3c57] leading-tight">{section.title}</h2>
                 <span className="w-8 h-8 rounded-full border border-[#2f6f99]/25 text-[#2f6f99] flex items-center justify-center text-lg transition-transform group-open:rotate-45">+</span>

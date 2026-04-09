@@ -238,8 +238,8 @@
     "color": "Colore",
     "ems": "Codice EMS",
     "pedigree": "Pedigree",
-    "lineage": "Albero Genealogico",
-    "lineage_sub": "The Lineage",
+    "lineage": "Genitori",
+    "lineage_sub": "Genitori",
     "sire": "Sire (Padre)",
     "dam": "Dam (Madre)",
     "zoom": "Ingrandisci",
@@ -521,6 +521,13 @@
   "litterPage": {
     "litterTitle": "Cucciolata",
     "statusLabel": "Stato",
+    "statusLabels": {
+      "planned": "Pianificata",
+      "waiting": "In attesa",
+      "active": "Attiva",
+      "historical": "Storica",
+      "other": "Stato"
+    },
     "expectedDateLabel": "Data prevista",
     "birthDateLabel": "Data di nascita",
     "kittensCountLabel": "Numero cuccioli",

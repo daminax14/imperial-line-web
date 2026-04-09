@@ -23,15 +23,18 @@ aumento font dei menu
 pedigrre pulsante cambiare da nero in blu scuro e che diventa oro --
 
 
-- tema nero da mobile
+- tema nero da mobile su navbar
 - scroll foto su mobile da riattivare con lo swipe ( capire )
-- pedigree deve sparire da elenco gatti
-- view details al click su foto anche del singolo gatto
-- tradurre su cucciolate alcune frasi ( rivedere tutta )
-- cuccioli dentro gattini tradurre 
-- maschio sempre dentro gattini 
-- ceduto  tradurre
-- allineare genitori dentro gatti
-- advice tutte chiuse sezioni di default
-
+- pedigree deve sparire da elenco gatti , solo dentro il gatto - test ok
+- view details al click su foto anche del singolo gatto - test ok
+- tradurre su cucciolate alcune frasi ( rivedere tutta ) - test ok
+- cuccioli dentro gattini tradurre  - test ok
+- maschio sempre dentro gattini - testare
+- ceduto  tradurre - testare
+- allineare genitori dentro gatti - testare
+- advice tutte chiuse sezioni di default 
+- Albero Genealogico IN GENITORI - testare
+- togli numero cuccioli da pianificate - test ok 
+- togli chiedi info su gattini già ceduti - test ok 
+- togli fb - test ok 
 

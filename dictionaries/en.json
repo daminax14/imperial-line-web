@@ -238,8 +238,8 @@
     "color": "Color",
     "ems": "EMS Code",
     "pedigree": "Pedigree",
-    "lineage": "Family Tree",
-    "lineage_sub": "The Lineage",
+    "lineage": "Parents",
+    "lineage_sub": "Parents",
     "sire": "Sire (Father)",
     "dam": "Dam (Mother)",
     "zoom": "Enlarge",
@@ -521,6 +521,13 @@
   "litterPage": {
     "litterTitle": "Litter",
     "statusLabel": "Status",
+    "statusLabels": {
+      "planned": "Planned",
+      "waiting": "Waiting",
+      "active": "Active",
+      "historical": "Historical",
+      "other": "Status"
+    },
     "expectedDateLabel": "Expected date",
     "birthDateLabel": "Birth date",
     "kittensCountLabel": "Number of kittens",

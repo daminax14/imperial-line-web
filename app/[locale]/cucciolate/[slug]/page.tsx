@@ -85,10 +85,11 @@ async function getLitter(slug: string, locale: string): Promise<Litter | null> {
 
 /* ─── Utils ─────────────────────────────────────────────────────────── */
 
-function fmtDate(value?: string, locale: string = 'en'): string {
+function fmtDate(value?: string, locale: string = 'it'): string {
   if (!value) return '—'
   try {
-    return new Date(value + 'T12:00:00').toLocaleDateString('it-IT', {
+    const targetLocale = locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-GB' : 'it-IT'
+    return new Date(value + 'T12:00:00').toLocaleDateString(targetLocale, {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -96,6 +97,20 @@ function fmtDate(value?: string, locale: string = 'en'): string {
   } catch {
     return value
   }
+}
+
+function normalizeLitterStatusKey(value?: string): 'planned' | 'waiting' | 'active' | 'historical' | 'other' {
+  const v = (value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+
+  if (v.includes('pianificat') || v.includes('planned') || v.includes('planifie') || v.includes('geplant')) return 'planned'
+  if (v.includes('in attesa') || v.includes('waiting') || v.includes('attente') || v.includes('wartend')) return 'waiting'
+  if (v.includes('attiva') || v.includes('active') || v.includes('aktiv') || v.includes('actif')) return 'active'
+  if (v.includes('storica') || v.includes('historic') || v.includes('historique') || v.includes('historisch')) return 'historical'
+  return 'other'
 }
 
 /* ─── Status pill ────────────────────────────────────────────────────── */
@@ -262,6 +277,9 @@ export default async function LitterPage({
   const kittens = Array.isArray(litter.kittens) ? litter.kittens : []
   const pageText = dict?.litterPage || {}
   const listText = dict?.availableKittensPage || {}
+  const litterStatusLabels = (pageText?.statusLabels || {}) as Record<string, string>
+  const litterStatusKey = normalizeLitterStatusKey(litter.status)
+  const localizedLitterStatus = litterStatusLabels[litterStatusKey] || litter.status
 
   return (
     <main className="relative pt-[120px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
@@ -324,7 +342,7 @@ export default async function LitterPage({
                 {litter.status && (
                   <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>📌</span>{pageText?.statusLabel || 'Stato'}</p>
-                    <p className="font-semibold text-slate-900">{litter.status}</p>
+                    <p className="font-semibold text-slate-900">{localizedLitterStatus}</p>
                   </div>
                 )}
                 {isPlanned && litter.plannedDate && (
@@ -339,10 +357,12 @@ export default async function LitterPage({
                     <p className="font-semibold text-slate-900">{fmtDate(litter.birthDate, locale)}</p>
                   </div>
                 )}
-                <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
-                  <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🐾</span>{pageText?.kittensCountLabel || 'Kittens count'}</p>
-                  <p className="font-semibold text-slate-900">{kittens.length}</p>
-                </div>
+                {!isPlanned && (
+                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
+                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🐾</span>{pageText?.kittensCountLabel || 'Kittens count'}</p>
+                    <p className="font-semibold text-slate-900">{kittens.length}</p>
+                  </div>
+                )}
               </div>
             </div>
 

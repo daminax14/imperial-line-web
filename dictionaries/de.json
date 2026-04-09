@@ -238,8 +238,8 @@
     "color": "Farbe",
     "ems": "EMS-Code",
     "pedigree": "Stammbaum",
-    "lineage": "Ahnentafel",
-    "lineage_sub": "Die Abstammung",
+    "lineage": "Eltern",
+    "lineage_sub": "Eltern",
     "sire": "Vater",
     "dam": "Mutter",
     "zoom": "Vergrossern",
@@ -521,6 +521,13 @@
   "litterPage": {
     "litterTitle": "Wurf",
     "statusLabel": "Status",
+    "statusLabels": {
+      "planned": "Geplant",
+      "waiting": "Wartend",
+      "active": "Aktiv",
+      "historical": "Historisch",
+      "other": "Status"
+    },
     "expectedDateLabel": "Erwartetes Datum",
     "birthDateLabel": "Geburtsdatum",
     "kittensCountLabel": "Anzahl der Kitten",

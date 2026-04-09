@@ -88,10 +88,11 @@ function isPlannedLitter(item: LitterItem): boolean {
   )
 }
 
-function fmtDate(value?: string): string {
+function fmtDate(value?: string, locale: string = 'it'): string {
   if (!value) return '—'
   try {
-    return new Date(value + 'T12:00:00').toLocaleDateString('it-IT', {
+    const targetLocale = locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-GB' : 'it-IT'
+    return new Date(value + 'T12:00:00').toLocaleDateString(targetLocale, {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
@@ -127,13 +128,14 @@ function StatusPill({ status, labels }: { status?: string; labels?: Record<strin
   if (!status) return null
   const s = status.toLowerCase()
   const getStatusKey = (raw: string): string => {
-    const value = raw.toLowerCase()
+    const value = raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     if (value.includes('disponib') || value.includes('available') || value.includes('disponible') || value.includes('free') || value.includes('libero')) return 'available'
+    if (value.includes('verfugbar')) return 'available'
     if (value.includes('valutaz') || value.includes('evaluation')) return 'evaluation'
     if (value.includes('riserv') || value.includes('reserved')) return 'reserved'
     if (value.includes('tenut') || value.includes('held')) return 'held'
     if (value.includes('non in vendita') || value.includes('not for sale')) return 'notForSale'
-    if (value.includes('cedut') || value.includes('sold')) return 'sold'
+    if (value.includes('cedut') || value.includes('sold') || value.includes('cede') || value.includes('vendu') || value.includes('vergeben')) return 'sold'
     if (value.includes('rimane in allevamento') || value.includes('stays in cattery')) return 'staysInCattery'
     return 'unknown'
   }
@@ -211,6 +213,8 @@ function KittenCard({
   dict: any
   catLabels?: Record<string, string>
 }) {
+  const detailsText = dict?.viewDetails || dict?.details || 'View details'
+
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
       <div className="relative aspect-[3/4] bg-slate-100 overflow-hidden">
@@ -230,6 +234,17 @@ function KittenCard({
             <StatusPill status={kitten.status} labels={catLabels} />
           </div>
         )}
+        {kitten.slug && (
+          <Link
+            href={`/${locale}/cat/${kitten.slug}`}
+            aria-label={`${detailsText}: ${kitten.name}`}
+            className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
+          >
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+              {detailsText} →
+            </span>
+          </Link>
+        )}
       </div>
       <div className="px-5 pt-4 pb-5">
         <h3 className="text-[1.55rem] font-serif italic text-[#1f3c57] leading-tight">
@@ -240,7 +255,7 @@ function KittenCard({
         </p>
         {kitten.birthDate && (
           <p className="text-xs text-[#6a85a0] mt-1">
-            {dict?.bornLabel || 'Born'}: {fmtDate(kitten.birthDate)}
+            {dict?.bornLabel || 'Born'}: {fmtDate(kitten.birthDate, locale)}
           </p>
         )}
         {kitten.slug && (
@@ -269,12 +284,13 @@ function PlannedLitterCard({
   locale: string
 }) {
   const coverImg = litter.coverImage ?? null
+  const detailsText = dict?.viewDetails || dict?.litterDetails || 'View details'
 
   return (
-    <article className="rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:shadow-xl">
+    <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:shadow-xl">
       <div className="flex flex-col md:flex-row">
         {coverImg && (
-          <div className="md:w-72 flex-shrink-0 overflow-hidden">
+          <div className="relative md:w-72 flex-shrink-0 overflow-hidden">
             <div className="aspect-[4/3] md:h-full md:aspect-auto">
               <img
                 src={urlFor(coverImg).width(600).height(480).fit('crop').url()}
@@ -282,6 +298,17 @@ function PlannedLitterCard({
                 className="w-full h-full object-cover"
               />
             </div>
+            {litter.slug && (
+              <Link
+                href={`/${locale}/cucciolate/${litter.slug}`}
+                aria-label={`${detailsText}: ${litter.title || dict?.plannedTitle || 'Planned litter'}`}
+                className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
+              >
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+                  {detailsText} →
+                </span>
+              </Link>
+            )}
           </div>
         )}
         <div className="flex-1 p-6 md:p-8 flex flex-col justify-center gap-5">
@@ -306,7 +333,7 @@ function PlannedLitterCard({
             {litter.plannedDate && (
               <p className="text-sm text-[#4a6580] mt-1.5">
                 {dict?.expectedLabel || 'Prevista'}:{' '}
-                <span className="font-semibold">{fmtDate(litter.plannedDate)}</span>
+                <span className="font-semibold">{fmtDate(litter.plannedDate, locale)}</span>
               </p>
             )}
           </div>
@@ -381,7 +408,7 @@ function HistoryLitterCard({
             {litter.title || dict?.litterTitle || 'Litter'}
           </p>
           {litter.birthDate && (
-            <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate)}</p>
+            <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate, locale)}</p>
           )}
         </div>
         {href && (

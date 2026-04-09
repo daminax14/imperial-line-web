@@ -1,6 +1,7 @@
 import React from 'react'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+import { client } from '@/lib/sanity'
 
 type AdviceTip = {
   title: string
@@ -9,11 +10,65 @@ type AdviceTip = {
   points: string[]
 }
 
+type AdviceSectionTip = {
+  emoji?: string
+  title?: string
+  text?: string
+}
+
+type AdviceSection = {
+  id: string
+  title: string
+  subtitle: string
+  tips: AdviceSectionTip[]
+}
+
+function safeLocale(locale: string): 'it' | 'en' | 'de' | 'fr' {
+  if (locale === 'en' || locale === 'de' || locale === 'fr') return locale
+  return 'it'
+}
+
+async function getAdviceSections(locale: string): Promise<AdviceSection[]> {
+  const currentLocale = safeLocale(locale)
+  const query = `*[_type == "adviceSection" && isVisible != false] | order(order asc) {
+    _id,
+    "title": coalesce(title.${currentLocale}, title.it, ""),
+    "subtitle": coalesce(subtitle.${currentLocale}, subtitle.it, ""),
+    "tips": tips[]{
+      "emoji": coalesce(emoji, "✨"),
+      "title": coalesce(title.${currentLocale}, title.it, ""),
+      "text": coalesce(text.${currentLocale}, text.it, "")
+    }
+  }`
+
+  const rows = await client.fetch(query)
+  if (!Array.isArray(rows)) return []
+
+  return rows
+    .map((row: any, index: number) => ({
+      id: typeof row?._id === 'string' && row._id.trim().length > 0 ? row._id : `advice-${index + 1}`,
+      title: typeof row?.title === 'string' ? row.title.trim() : '',
+      subtitle: typeof row?.subtitle === 'string' ? row.subtitle.trim() : '',
+      tips: Array.isArray(row?.tips)
+        ? row.tips
+            .map((tip: any) => ({
+              emoji: typeof tip?.emoji === 'string' ? tip.emoji : '✨',
+              title: typeof tip?.title === 'string' ? tip.title.trim() : '',
+              text: typeof tip?.text === 'string' ? tip.text.trim() : '',
+            }))
+            .filter((tip: AdviceSectionTip) => tip.title)
+        : [],
+    }))
+    .filter((section: AdviceSection) => section.title.length > 0 && section.tips.length > 0)
+}
+
 export default async function ConsigliPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const dict = await getDictionary(locale)
+  const [dict, cmsSections] = await Promise.all([getDictionary(locale), getAdviceSections(locale)])
   const advice = dict?.advicePage || {}
   const tips = (advice?.tips || []) as AdviceTip[]
+
+  const hasCmsSections = cmsSections.length > 0
 
   return (
     <main className="relative pt-[150px] pb-24 bg-[#edf3fb] min-h-screen overflow-hidden">
@@ -32,31 +87,58 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
         </div>
 
         {/* Griglia Consigli */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {tips.map((tip, index) => (
-            <div key={index} className="group p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-50 relative overflow-hidden">
-              {/* Decorazione asimmetrica */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-slate-50 rounded-full group-hover:bg-gold-200/10 transition-colors"></div>
-              
-              <div className="relative z-10">
-                <span className="text-4xl mb-6 block">{tip.icon}</span>
-                <h3 className="text-2xl font-serif text-slate-900 mb-4">{tip.title}</h3>
-                <p className="text-slate-500 mb-8 leading-relaxed">
-                  {tip.description}
-                </p>
-                
-                <ul className="space-y-3">
-                  {tip.points.map((point, pIndex) => (
-                    <li key={pIndex} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                      <span className="w-1.5 h-1.5 bg-gold-200 rounded-full"></span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+        {hasCmsSections ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
+            {cmsSections.map((section) => (
+              <div key={section.id} className="group p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-50 relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-slate-50 rounded-full group-hover:bg-gold-200/10 transition-colors"></div>
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4">{section.title}</h3>
+                  {section.subtitle && <p className="text-slate-500 mb-8 leading-relaxed">{section.subtitle}</p>}
+
+                  <ul className="space-y-5">
+                    {section.tips.map((tip, tipIndex) => (
+                      <li key={tipIndex} className="space-y-1.5">
+                        <p className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                          <span className="text-lg leading-none">{tip.emoji || '✨'}</span>
+                          <span>{tip.title}</span>
+                        </p>
+                        {tip.text && <p className="text-sm text-slate-600 leading-relaxed pl-7">{tip.text}</p>}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {tips.map((tip, index) => (
+              <div key={index} className="group p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-slate-50 relative overflow-hidden">
+                {/* Decorazione asimmetrica */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-slate-50 rounded-full group-hover:bg-gold-200/10 transition-colors"></div>
+                
+                <div className="relative z-10">
+                  <span className="text-4xl mb-6 block">{tip.icon}</span>
+                  <h3 className="text-2xl font-serif text-slate-900 mb-4">{tip.title}</h3>
+                  <p className="text-slate-500 mb-8 leading-relaxed">
+                    {tip.description}
+                  </p>
+                  
+                  <ul className="space-y-3">
+                    {tip.points.map((point, pIndex) => (
+                      <li key={pIndex} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                        <span className="w-1.5 h-1.5 bg-gold-200 rounded-full"></span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* CTA Finale */}
         <div className="mt-24 bg-slate-900 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">

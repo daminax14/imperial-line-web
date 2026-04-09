@@ -238,8 +238,8 @@
     "color": "Couleur",
     "ems": "Code EMS",
     "pedigree": "Pedigree",
-    "lineage": "Arbre genealogique",
-    "lineage_sub": "La Lignee",
+    "lineage": "Parents",
+    "lineage_sub": "Parents",
     "sire": "Sire (Pere)",
     "dam": "Dam (Mere)",
     "zoom": "Agrandir",
@@ -521,6 +521,13 @@
   "litterPage": {
     "litterTitle": "Portee",
     "statusLabel": "Statut",
+    "statusLabels": {
+      "planned": "Planifiee",
+      "waiting": "En attente",
+      "active": "Active",
+      "historical": "Historique",
+      "other": "Statut"
+    },
     "expectedDateLabel": "Date prevue",
     "birthDateLabel": "Date de naissance",
     "kittensCountLabel": "Nombre de chatons",

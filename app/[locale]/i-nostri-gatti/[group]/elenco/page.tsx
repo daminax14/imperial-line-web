@@ -13,7 +13,6 @@ type CatGridItem = {
   image?: any
   category?: string
   color?: string
-  pedigreeUrl?: string
 }
 
 function normalizeGroup(value: string): GroupView | null {
@@ -40,8 +39,7 @@ async function getCats(locale: string): Promise<CatGridItem[]> {
     "slug": slug.current,
     image,
     category,
-    "color": coalesce(color[${locale}], color.it, color),
-    pedigreeUrl
+    "color": coalesce(color[${locale}], color.it, color)
   }`
 
   const data = await client.fetch(query)
@@ -77,7 +75,7 @@ export default async function CatsGroupListPage({
         <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-16 pb-6 border-b border-zinc-200/60">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.32em] text-zinc-500 font-semibold mb-3">Imperial Line</p>
+              <p className="text-[10px] uppercase tracking-[0.32em] text-zinc-500 font-semibold mb-3"></p>
               <h1 className="text-4xl md:text-6xl font-serif text-zinc-900">{sectionTitle}</h1>
             </div>
 
@@ -125,6 +123,17 @@ export default async function CatsGroupListPage({
                         {groupText?.imageUnavailable || 'Immagine non disponibile'}
                       </div>
                     )}
+                    {cat.slug && (
+                      <Link
+                        href={`/${locale}/cat/${cat.slug}`}
+                        aria-label={`${dict?.availableKittensPage?.details || 'Dettagli'}: ${cat.name}`}
+                        className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
+                      >
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+                          {dict?.availableKittensPage?.details || 'Dettagli'} →
+                        </span>
+                      </Link>
+                    )}
                   </div>
 
                   <div className="p-5">
@@ -139,17 +148,6 @@ export default async function CatsGroupListPage({
                         >
                           {dict?.availableKittensPage?.details || 'Dettagli'}
                         </Link>
-                      )}
-
-                      {cat.pedigreeUrl && (
-                        <a
-                          href={cat.pedigreeUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center rounded-full bg-[#2f6f99] text-white text-[11px] uppercase tracking-[0.18em] font-semibold px-4 py-2 hover:bg-gold-200 hover:text-slate-900 transition-colors"
-                        >
-                          {groupText?.pedigreeButton || 'Pedigree'} ↗
-                        </a>
                       )}
                     </div>
                   </div>

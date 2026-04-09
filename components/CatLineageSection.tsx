@@ -48,15 +48,13 @@ export default function CatLineageSection({
         </div>
 
         <div className="flex flex-col items-center gap-0 relative z-10 px-6">
-          <div className={`flex items-end justify-center w-full ${compact ? 'gap-8 md:gap-14' : 'gap-10 md:gap-36'}`}>
+          <div className={`flex items-start justify-center w-full ${compact ? 'gap-8 md:gap-14' : 'gap-10 md:gap-36'}`}>
             {father && (
               <ParentCard
                 role={texts.sire}
                 name={father.name}
                 imageUrl={father.imageUrl}
                 onZoom={(src) => setZoomImage({ src, label: father.name || texts.sire })}
-                zoomLabel={texts.zoom}
-                unknownLabel={texts.unknownParent}
                 zoomAriaPrefix={texts.zoomAriaPrefix}
                 compact={compact}
               />
@@ -68,8 +66,6 @@ export default function CatLineageSection({
                 name={mother.name}
                 imageUrl={mother.imageUrl}
                 onZoom={(src) => setZoomImage({ src, label: mother.name || texts.dam })}
-                zoomLabel={texts.zoom}
-                unknownLabel={texts.unknownParent}
                 zoomAriaPrefix={texts.zoomAriaPrefix}
                 compact={compact}
               />
@@ -110,8 +106,6 @@ function ParentCard({
   name,
   imageUrl,
   onZoom,
-  zoomLabel,
-  unknownLabel,
   zoomAriaPrefix,
   compact,
 }: {
@@ -119,19 +113,13 @@ function ParentCard({
   name?: string
   imageUrl?: string
   onZoom: (src: string) => void
-  zoomLabel?: string
-  unknownLabel?: string
   zoomAriaPrefix?: string
   compact?: boolean
 }) {
-  const zoomText = zoomLabel || 'Zoom'
-  const unknownText = unknownLabel || 'Unknown'
   const zoomAria = zoomAriaPrefix || 'Zoom photo of'
 
   return (
-    <div className="text-center flex flex-col items-center gap-4">
-      <p className="text-[10px] uppercase tracking-widest text-gold-200 font-bold">{role}</p>
-
+    <div className="text-center flex flex-col items-center gap-0 self-start">
       <div className={`relative rounded-full overflow-hidden border-4 border-white shadow-xl bg-slate-100 ${compact ? 'w-32 h-32 md:w-40 md:h-40' : 'w-36 h-36 md:w-48 md:h-48'}`}>
         {imageUrl ? (
           <>
@@ -143,26 +131,11 @@ function ParentCard({
             >
               <img src={imageUrl} className="w-full h-full object-cover" alt={name || role} />
             </button>
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent px-2 py-2 text-center pointer-events-none">
-              <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] font-bold text-slate-800">
-                🔍 {zoomText}
-              </span>
-            </div>
-            <button
-              type="button"
-              onClick={() => onZoom(imageUrl)}
-              className="absolute top-2 right-2 bg-[#2f6f99] text-white rounded-full w-9 h-9 text-lg leading-none hover:bg-gold-200 hover:text-slate-900 transition-colors shadow-md"
-              aria-label={`${zoomAria} ${name || role}`}
-            >
-              ↗
-            </button>
           </>
         ) : (
           <span className="flex items-center justify-center w-full h-full text-[10px] uppercase tracking-widest text-zinc-400">Img</span>
         )}
       </div>
-
-      <p className={`${compact ? 'text-lg' : 'text-xl'} font-serif italic text-slate-800`}>{name || unknownText}</p>
     </div>
   )
 }
