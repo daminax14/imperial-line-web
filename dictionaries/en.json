@@ -160,8 +160,8 @@
     },
     "cookies": {
       "title": "Cookie Policy",
-      "lastUpdated": "Last updated: 09/04/2026",
-      "intro": "At present, this website does not use profiling, marketing, or analytics cookies and does not set non-essential cookies on user devices.",
+      "lastUpdated": "Last updated: 11/04/2026",
+      "intro": "This website does not use profiling, marketing, or analytics cookies. It only uses limited technical cookies for cookie consent management and, if accepted, for saving the preferred site language.",
       "emptyState": "Content is being updated.",
       "sections": [
         {
@@ -174,22 +174,25 @@
         {
           "title": "2. Cookies used on this website",
           "paragraphs": [
-            "Currently, no profiling or marketing cookies are used.",
-            "Currently, no analytics cookies are used.",
+            "No profiling or marketing cookies are used.",
+            "No analytics cookies are used.",
+            "The website uses one technical consent cookie to remember the user's choice about preference storage.",
+            "If the user accepts, an additional technical cookie is used to remember the preferred site language.",
             "No third-party cookies are currently set through this website."
           ]
         },
         {
           "title": "3. Legal basis",
           "paragraphs": [
-            "As no non-essential cookies are currently used, cookie banner consent is not required at this time.",
+            "The consent cookie and the language preference cookie are handled as technical or low-impact preference cookies.",
+            "Language preference is stored only if the user gives consent through the informational banner.",
             "If non-technical cookies are introduced in the future, a compliant consent mechanism will be implemented."
           ]
         },
         {
           "title": "4. Duration and retention",
           "paragraphs": [
-            "As no cookies are currently used, no cookie duration table applies.",
+            "The consent cookie and the language preference cookie may be stored for up to 12 months.",
             "Any future updates will be reflected in this policy."
           ]
         },
@@ -197,7 +200,8 @@
           "title": "5. Preference management",
           "paragraphs": [
             "Users can always manage or block cookies through browser settings.",
-            "As no non-essential cookies are currently used, there is no cookie preference panel on the site at this time."
+            "The first-visit banner allows users to accept or refuse storage of language preference.",
+            "Users may also delete cookies at any time through their browser settings."
           ]
         },
         {

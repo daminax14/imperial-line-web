@@ -7,6 +7,7 @@ import { getDictionary, isSupportedLocale } from "@/lib/get-dictionary";
 import { notFound } from "next/navigation";
 
 import AppBackground from "@/components/AppBackground";
+import CookieConsentToast from "@/components/CookieConsentToast";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -40,6 +41,7 @@ export default async function RootLayout({
         <Navbar dict={dict} locale={locale} />
         {children}
         <Footer dict={dict} locale={locale} />
+        <CookieConsentToast locale={locale} />
       </body>
     </html>
   );

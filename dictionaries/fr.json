@@ -160,8 +160,8 @@
     },
     "cookies": {
       "title": "Politique de cookies",
-      "lastUpdated": "Dernière mise à jour : 09/04/2026",
-      "intro": "Ce site, dans son état actuel, n'utilise aucun cookie de profilage, marketing ou analytique et ne dépose pas de cookies non essentiels sur l'appareil de l'utilisateur.",
+      "lastUpdated": "Dernière mise à jour : 11/04/2026",
+      "intro": "Ce site n'utilise aucun cookie de profilage, marketing ou analytique. Il utilise uniquement des cookies techniques limités pour la gestion du consentement et, après acceptation, pour mémoriser la langue préférée du site.",
       "emptyState": "Contenu en cours de mise à jour.",
       "sections": [
         {
@@ -174,22 +174,25 @@
         {
           "title": "2. Cookies utilisés sur ce site",
           "paragraphs": [
-            "À ce jour, aucun cookie de profilage ou marketing n'est utilisé.",
-            "À ce jour, aucun cookie analytique n'est utilisé.",
+            "Aucun cookie de profilage ou marketing n'est utilisé.",
+            "Aucun cookie analytique n'est utilisé.",
+            "Le site utilise un cookie technique de consentement pour mémoriser le choix de l'utilisateur concernant l'enregistrement des préférences.",
+            "Si l'utilisateur accepte, un cookie technique supplémentaire est utilisé pour mémoriser la langue préférée du site.",
             "Aucun cookie tiers n'est actuellement installé via le site."
           ]
         },
         {
           "title": "3. Base juridique",
           "paragraphs": [
-            "Puisqu'aucun cookie non essentiel n'est utilisé, le consentement via une bannière de cookies n'est pas requis.",
+            "Le cookie de consentement et le cookie de préférence linguistique sont traités comme des cookies techniques ou de préférence à faible impact.",
+            "La préférence de langue n'est enregistrée que si l'utilisateur y consent via la bannière d'information.",
             "Si des cookies non techniques venaient à être introduits à l'avenir, un mécanisme de consentement conforme à la réglementation applicable sera mis en place."
           ]
         },
         {
           "title": "4. Durée et conservation",
           "paragraphs": [
-            "Aucun cookie n'étant actuellement utilisé, il n'y a pas de tableau des durées de conservation.",
+            "Le cookie de consentement et le cookie de préférence linguistique peuvent être conservés jusqu'à 12 mois.",
             "Toute mise à jour éventuelle sera indiquée sur cette page."
           ]
         },
@@ -197,7 +200,8 @@
           "title": "5. Gestion des préférences",
           "paragraphs": [
             "L'utilisateur peut toujours gérer ou bloquer les cookies via les paramètres de son navigateur.",
-            "En l'absence de cookies non essentiels, il n'y a actuellement pas de panneau de préférences de cookies sur le site."
+            "La bannière affichée lors de la première visite permet d'accepter ou de refuser l'enregistrement de la préférence de langue.",
+            "L'utilisateur peut également supprimer les cookies à tout moment depuis son navigateur."
           ]
         },
         {

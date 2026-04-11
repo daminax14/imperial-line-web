@@ -160,8 +160,8 @@
     },
     "cookies": {
       "title": "Cookie-Richtlinie",
-      "lastUpdated": "Letzte Aktualisierung: 09/04/2026",
-      "intro": "Diese Website verwendet derzeit keine Profiling-, Marketing- oder Analyse-Cookies und setzt keine nicht notwendigen Cookies auf dem Endgerät des Nutzers.",
+      "lastUpdated": "Letzte Aktualisierung: 11/04/2026",
+      "intro": "Diese Website verwendet keine Profiling-, Marketing- oder Analyse-Cookies. Es werden nur begrenzte technische Cookies für die Verwaltung der Cookie-Einwilligung und, nach Zustimmung, für die Speicherung der bevorzugten Sprache verwendet.",
       "emptyState": "Inhalte werden aktualisiert.",
       "sections": [
         {
@@ -174,22 +174,25 @@
         {
           "title": "2. Auf dieser Website verwendete Cookies",
           "paragraphs": [
-            "Derzeit werden keine Profiling- oder Marketing-Cookies verwendet.",
-            "Derzeit werden keine Analyse-Cookies verwendet.",
+            "Es werden keine Profiling- oder Marketing-Cookies verwendet.",
+            "Es werden keine Analyse-Cookies verwendet.",
+            "Die Website verwendet ein technisches Einwilligungs-Cookie, um die Entscheidung des Nutzers zur Speicherung von Präferenzen zu merken.",
+            "Wenn der Nutzer zustimmt, wird zusätzlich ein technisches Cookie verwendet, um die bevorzugte Sprache der Website zu speichern.",
             "Es sind keine Cookies von Drittanbietern über die Website installiert."
           ]
         },
         {
           "title": "3. Rechtsgrundlage",
           "paragraphs": [
-            "Da keine nicht notwendigen Cookies verwendet werden, ist keine Einwilligung über ein Cookie-Banner erforderlich.",
+            "Das Einwilligungs-Cookie und das Sprachpräferenz-Cookie werden als technische oder wenig eingriffsintensive Präferenz-Cookies behandelt.",
+            "Die Sprachpräferenz wird nur gespeichert, wenn der Nutzer über das Informationsbanner zustimmt.",
             "Sollten in Zukunft nicht-technische Cookies eingeführt werden, wird ein Zustimmungsmechanismus gemäß den geltenden Vorschriften implementiert."
           ]
         },
         {
           "title": "4. Dauer und Aufbewahrung",
           "paragraphs": [
-            "Da derzeit keine Cookies verwendet werden, ist keine Tabelle für die Cookie-Dauer vorgesehen.",
+            "Das Einwilligungs-Cookie und das Sprachpräferenz-Cookie können bis zu 12 Monate gespeichert werden.",
             "Etwaige Aktualisierungen werden auf dieser Seite aufgeführt."
           ]
         },
@@ -197,7 +200,8 @@
           "title": "5. Verwaltung der Nutzereinstellungen",
           "paragraphs": [
             "Der Nutzer kann Cookies jederzeit über die Browsereinstellungen verwalten oder blockieren.",
-            "In Ermangelung nicht notwendiger Cookies gibt es derzeit kein Cookie-Präferenzpanel auf der Website."
+            "Das Banner beim ersten Besuch ermöglicht es, die Speicherung der Sprachpräferenz zu akzeptieren oder abzulehnen.",
+            "Der Nutzer kann Cookies jederzeit auch direkt im Browser löschen."
           ]
         },
         {

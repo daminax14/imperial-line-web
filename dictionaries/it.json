@@ -160,8 +160,8 @@
     },
     "cookies": {
       "title": "Cookie Policy",
-      "lastUpdated": "Ultimo aggiornamento: 09/04/2026",
-      "intro": "Questo sito, allo stato attuale, non utilizza cookie di profilazione, marketing o analytics e non imposta cookie non necessari sul dispositivo dell'utente.",
+      "lastUpdated": "Ultimo aggiornamento: 11/04/2026",
+      "intro": "Questo sito non utilizza cookie di profilazione, marketing o analytics. Utilizza esclusivamente cookie tecnici limitati alla gestione del consenso cookie e, previo consenso, al salvataggio della preferenza lingua.",
       "emptyState": "Contenuti in aggiornamento.",
       "sections": [
         {
@@ -174,22 +174,25 @@
         {
           "title": "2. Cookie utilizzati su questo sito",
           "paragraphs": [
-            "Al momento non vengono utilizzati cookie di profilazione o marketing.",
-            "Al momento non vengono utilizzati cookie analytics.",
+            "Non vengono utilizzati cookie di profilazione o marketing.",
+            "Non vengono utilizzati cookie analytics.",
+            "Il sito utilizza un cookie tecnico di consenso per memorizzare la scelta dell'utente in merito al salvataggio delle preferenze.",
+            "Se l'utente accetta, viene utilizzato anche un cookie tecnico per ricordare la lingua preferita del sito.",
             "Non risultano installati cookie di terze parti tramite il sito."
           ]
         },
         {
           "title": "3. Base giuridica",
           "paragraphs": [
-            "Non essendo utilizzati cookie non necessari, non e richiesto il consenso tramite banner cookie.",
+            "Il cookie di consenso e il cookie di preferenza lingua sono trattati come cookie tecnici o di preferenza a basso impatto.",
+            "La preferenza lingua viene salvata solo se l'utente presta il consenso tramite il banner informativo.",
             "Qualora in futuro venissero introdotti cookie non tecnici, verra implementato un meccanismo di consenso conforme alla normativa applicabile."
           ]
         },
         {
           "title": "4. Durata e conservazione",
           "paragraphs": [
-            "Non essendo attualmente utilizzati cookie, non e prevista una tabella delle durate cookie.",
+            "Il cookie di consenso e il cookie di preferenza lingua possono essere conservati fino a 12 mesi.",
             "Eventuali aggiornamenti saranno riportati in questa pagina."
           ]
         },
@@ -197,7 +200,8 @@
           "title": "5. Gestione preferenze utente",
           "paragraphs": [
             "L'utente puo sempre gestire o bloccare i cookie tramite le impostazioni del browser.",
-            "In assenza di cookie non necessari, al momento non e presente un pannello preferenze cookie sul sito."
+            "Il banner presente al primo accesso consente di accettare o rifiutare il salvataggio della preferenza lingua.",
+            "L'utente puo in ogni momento eliminare i cookie anche dal proprio browser."
           ]
         },
         {
