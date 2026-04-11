@@ -44,7 +44,9 @@ export default async function AdoptionConditionsPage({
       <div className="relative z-10 max-w-5xl mx-auto px-6">
         <div className="rounded-[2rem] border border-[#c7d9eb] bg-[#f6fbff] p-6 md:p-10 shadow-[0_20px_45px_-30px_rgba(35,81,120,0.45)]">
         <header className="mb-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-serif italic text-[#2f6f99]">{title}</h1>
+          <h1 className={`${locale === 'de' ? 'text-3xl sm:text-4xl md:text-5xl' : 'text-4xl md:text-5xl'} font-serif italic text-[#2f6f99]`}>
+            {title}
+          </h1>
           {intro && <p className="text-[#2f5f86] mt-3 leading-relaxed">{intro}</p>}
         </header>
 

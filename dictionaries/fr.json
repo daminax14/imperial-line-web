@@ -1,216 +1,216 @@
 {
   "nav": {
     "home": "Accueil",
-    "cats": "Nos Chats",
+    "cats": "Nos chats",
     "availableKittens": "Chatons disponibles",
-    "aboutUs": "A propos",
+    "aboutUs": "À propos",
     "advice": "Conseils",
     "adoptionConditions": "Conditions d'adoption",
     "contact": "Contact",
-    "book": "Reserver"
+    "book": "Réserver"
   },
   "hero": {
-    "title": "Elegance feline",
-    "subtitle": "Authentique",
-    "description": "Nous preservons la majeste et la douceur du chat Siberien d'origine."
+    "title": "Chatons Sibériens",
+    "subtitle": "Certifiés FIFe",
+    "description": "Petit élevage familial de chats Sibériens traditionnels et Neva Masquerade."
   },
   "homePage": {
-    "galleryTitle": "Notre elevage",
+    "galleryTitle": "Notre élevage",
     "knowledgeEyebrow": "Base de connaissances",
-    "knowledgeTitle": "Approfondissements",
-    "knowledgeEmpty": "Contenu en cours de mise a jour.",
+    "knowledgeTitle": "En savoir plus",
+    "knowledgeEmpty": "Contenu en cours de mise à jour.",
     "topics": [
       {
         "id": "topic-1",
-        "title": "Histoire et origines du chat Siberien",
-        "content": "Le chat Siberien est originaire des regions froides de Russie et s'est adapte au fil des siecles a des climats rigoureux, avec un pelage dense et hydrofuge. C'est une race naturelle, faconnee davantage par l'environnement que par l'intervention humaine, avec un caractere equilibre et une grande resistance."
+        "title": "Histoire et origines du chat Sibérien",
+        "content": "Le chat Sibérien est originaire des régions froides de Russie et s'est adapté au fil des siècles à des climats rigoureux, avec un pelage dense et hydrofuge. C'est une race naturelle, façonnée davantage par l'environnement que par l'intervention humaine, avec un caractère équilibré et une grande résistance."
       },
       {
         "id": "topic-2",
-        "title": "La variete Neva Masquerade et ses caracteristiques",
-        "content": "Le Neva Masquerade est la variete colorpoint du Siberien, reconnaissable au contraste entre un corps clair et des extremites plus foncees, souvent accompagnees d'yeux bleus intenses. Il conserve la structure, le temperament et la robustesse du Siberien classique, avec une allure particulierement elegante."
+        "title": "La variété Neva Masquerade et ses caractéristiques",
+        "content": "Le Neva Masquerade est la variété colorpoint du Sibérien, reconnaissable au contraste entre un corps clair et des extrémités plus foncées, souvent avec des yeux bleus intenses. Il conserve la structure, le tempérament et la robustesse du Sibérien classique, avec une allure particulièrement élégante."
       },
       {
         "id": "topic-3",
-        "title": "Pourquoi choisir un chat Siberien ?",
-        "content": "C'est un choix ideal pour ceux qui recherchent un chat affectueux mais non envahissant, intelligent et adapte a la vie de famille. Il s'attache fortement aux personnes, cohabite bien avec les enfants et les autres animaux, et montre une grande capacite d'adaptation au cadre domestique."
+        "title": "Pourquoi choisir un chat Sibérien ?",
+        "content": "C'est un choix idéal pour ceux qui recherchent un chat affectueux mais non envahissant, intelligent et adapté à la vie de famille. Il s'attache fortement aux personnes, cohabite bien avec les enfants et les autres animaux, et montre une grande capacité d'adaptation aux espaces domestiques."
       },
       {
         "id": "topic-4",
-        "title": "Le chat Siberien est-il hypoallergenique ?",
-        "content": "Il n'existe pas de chat totalement anallergique, mais de nombreux Siberiens produisent des niveaux plus faibles de la proteine Fel d1 que d'autres races. Pour les personnes souffrant d'allergies legeres ou moderees, il peut etre mieux tolere, meme si l'evaluation reste toujours individuelle."
+        "title": "Le chat Sibérien est-il hypoallergénique ?",
+        "content": "Il n'existe pas de chat totalement anallergique, mais de nombreux Sibériens produisent des niveaux plus faibles de la protéine Fel d1 que d'autres races. Pour les personnes souffrant d'allergies légères ou modérées, il peut être mieux toléré, bien que l'évaluation reste toujours individuelle."
       },
       {
         "id": "topic-5",
-        "title": "Saviez-vous que le chat Siberien est aussi utilise en mediation animale ?",
-        "content": "Grace a son temperament sociable et a sa sensibilite a l'humeur humaine, le Siberien est implique dans certains contextes de parcours assistes. Sa presence peut favoriser la detente, la motivation et l'interaction, notamment dans des activites educatives ou de soutien emotionnel."
+        "title": "Saviez-vous que le chat Sibérien est aussi utilisé en médiation animale ?",
+        "content": "Grâce à son tempérament sociable et à sa sensibilité à l'humeur humaine, le Sibérien est impliqué dans certains parcours assistés. Sa présence peut favoriser la détente, la motivation et l'interaction, notamment dans des activités éducatives ou de soutien émotionnel."
       }
     ]
   },
   "aboutPage": {
-    "title": "A propos",
-    "intro": "Nous sommes un petit elevage familial dedie au Siberien et au Neva Masquerade. Nous travaillons avec soin, ethique et passion, en selectionnant des lignes saines et des temperaments equilibres.",
-    "emptyState": "Contenu en cours de mise a jour.",
+    "title": "À propos",
+    "intro": "Nous sommes un petit élevage familial dédié au Sibérien et au Neva Masquerade. Nous travaillons avec soin, éthique et passion, en sélectionnant des lignées saines et des caractères équilibrés.",
+    "emptyState": "Contenu en cours de mise à jour.",
     "sections": [
       {
         "id": "qui-nous-sommes",
-        "title": "Qui nous sommes",
-        "content": "Imperial Line est ne d'un projet familial : elever peu de chats, les suivre chaque jour et offrir aux chatons une croissance sereine a la maison.\n\nNous croyons a la qualite avant la quantite : chaque portee est planifiee avec soin, dans le respect de la mere et du bien-etre des petits.",
+        "title": "Qui sommes-nous",
+        "content": "Imperial Line est né d'un projet familial : élever peu de sujets, les suivre chaque jour et offrir aux chatons une croissance sereine à la maison.\n\nNous croyons à la qualité plutôt qu'à la quantité : chaque portée est planifiée avec soin, dans le respect des temps de la mère et du bien-être des petits.",
         "image": "/home_1.JPG"
       },
       {
         "id": "objectifs",
         "title": "Nos objectifs",
-        "content": "Notre objectif est de preserver le type traditionnel du Siberien : structure robuste, pelage correct et temperament doux et sociable.\n\nNous selectionnons des lignes testees et travaillons a ameliorer la sante, l'equilibre du caractere et la qualite globale de la race.",
+        "content": "Notre objectif est de préserver le type traditionnel du Sibérien : structure robuste, pelage correct, tempérament doux et sociable.\n\nNous sélectionnons des lignées testées et travaillons pour améliorer la santé, l'équilibre du caractère et la qualité globale de la race.",
         "image": "/home_2.JPG"
       },
       {
         "id": "mission",
         "title": "Notre mission",
-        "content": "Notre mission est d'accompagner chaque famille de la reservation a l'arrivee du chaton a la maison.\n\nNous restons disponibles apres l'adoption avec conseils pratiques, suivi et support continu.",
+        "content": "Notre mission est d'accompagner chaque famille dans une démarche consciente, de la réservation à l'arrivée du chaton à la maison.\n\nNous restons présents même après l'adoption avec des conseils pratiques, un soutien continu et des mises à jour, pour garantir une vie longue et heureuse à nos chats.",
         "image": "/home_3.JPG"
       },
       {
         "id": "approche",
         "title": "Notre approche quotidienne",
-        "content": "Les chatons grandissent a la maison, au contact de personnes, de sons et de routines reelles. Cela renforce confiance, securite et adaptation.\n\nAvant le depart, nous travaillons la socialisation, les bases du toilettage et l'autonomie.",
+        "content": "Les chatons grandissent à la maison, au contact de personnes, de sons et de routines réelles. Cela aide à développer la sécurité, la confiance et la capacité d'adaptation.\n\nAvant le départ, nous travaillons sur la socialisation, les bases du toilettage et l'autonomie, afin de confier un chaton prêt pour sa nouvelle vie.",
         "image": "/home_4.JPG"
       }
     ]
   },
   "footer": {
-    "tagline": "Elevage d'excellence Siberien Neva Masquerade",
+    "tagline": "Élevage d'excellence de chats Sibériens et Neva Masquerade",
     "explore": "Explorer",
     "contacts": "Contacts",
-    "socialTitle": "Reseaux sociaux",
+    "socialTitle": "Réseaux sociaux",
     "location": "Allemagne",
-    "privacy": "Confidentialite",
+    "privacy": "Confidentialité",
     "cookies": "Cookies",
-    "rights": "Tous droits reserves"
+    "rights": "Tous droits réservés"
   },
   "legalTemplates": {
     "privacy": {
-      "title": "Politique de confidentialite",
-      "lastUpdated": "Derniere mise a jour: 09/04/2026",
-      "intro": "Cette politique explique comment nous traitons les donnees personnelles transmises via le formulaire de contact/reservation pour des demandes d'information sur nos chatons. Les donnees ne sont ni vendues ni cedees a des tiers a des fins commerciales.",
-      "emptyState": "Contenu en cours de mise a jour.",
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : 09/04/2026",
+      "intro": "Cette politique décrit comment nous traitons les données personnelles transmises via le formulaire de contact/réservation pour des demandes d'information sur nos chatons. Les données ne sont ni vendues ni cédées à des tiers à des fins commerciales.",
+      "emptyState": "Contenu en cours de mise à jour.",
       "sections": [
         {
           "title": "1. Responsable du traitement",
           "paragraphs": [
-            "Responsable: Anamaria Colniceanu",
-            "Adresse: 86830 Schwabmuenchen, Allemagne",
-            "Email confidentialite: Imperial-line-siberians@hotmail.com"
+            "Responsable : Anamaria Colniceanu",
+            "Adresse : 86830 Schwabmünchen, Allemagne",
+            "Email confidentialité : Imperial-line-siberians@hotmail.com"
           ]
         },
         {
-          "title": "2. Donnees personnelles traitees",
+          "title": "2. Données personnelles traitées",
           "paragraphs": [
-            "Nous traitons les donnees fournies volontairement par l'utilisateur dans le formulaire: nom et prenom, email, telephone (si renseigne), preferences et informations utiles a la demande.",
-            "Des donnees techniques de navigation (par exemple adresse IP et logs techniques) peuvent egalement etre traitees lorsque cela est necessaire a la securite et au fonctionnement du site."
+            "Nous traitons les données fournies volontairement par l'utilisateur dans le formulaire : nom et prénom, email, téléphone (si renseigné), préférences et informations utiles à la demande.",
+            "Des données techniques de navigation (par exemple adresse IP et logs techniques) peuvent également être traitées lorsque cela est nécessaire à la sécurité et au fonctionnement du site."
           ]
         },
         {
-          "title": "3. Finalites et base juridique",
+          "title": "3. Finalités et base juridique",
           "paragraphs": [
-            "Gerer et repondre aux demandes d'information sur les chatons, disponibilites et reservations.",
-            "Recontacter l'utilisateur via les coordonnees fournies afin de donner suite a sa demande.",
-            "Base juridique: mesures precontractuelles a la demande de la personne concernee (art. 6, par. 1, let. b RGPD) et, si necessaire, interet legitime du responsable (art. 6, par. 1, let. f RGPD)."
+            "Gérer et répondre aux demandes d'information sur les chatons, disponibilités et réservations.",
+            "Recontacter l'utilisateur via les coordonnées fournies afin de donner suite à sa demande.",
+            "Base juridique : mesures précontractuelles à la demande de la personne concernée (art. 6, par. 1, let. b RGPD) et, si nécessaire, intérêt légitime du responsable (art. 6, par. 1, let. f RGPD)."
           ]
         },
         {
-          "title": "4. Modalites de traitement et conservation",
+          "title": "4. Modalités de traitement et conservation",
           "paragraphs": [
-            "Les donnees sont traitees par des moyens electroniques avec des mesures de securite adequates, par du personnel autorise.",
-            "Les donnees sont conservees pendant la duree necessaire au traitement de la demande et des echanges de suivi lies.",
-            "Duree indicative de conservation: [PAR EX. 12/24 MOIS APRES LE DERNIER CONTACT], sauf obligations legales ou necessite de defense des droits du responsable."
+            "Les données sont traitées par des moyens électroniques avec des mesures de sécurité adéquates, par du personnel autorisé.",
+            "Les données sont conservées pendant la durée nécessaire au traitement de la demande et des échanges liés.",
+            "Durée indicative de conservation : [PAR EX. 12/24 MOIS APRÈS LE DERNIER CONTACT], sauf obligations légales ou nécessité de défense des droits du responsable."
           ]
         },
         {
-          "title": "5. Destinataires des donnees",
+          "title": "5. Destinataires des données",
           "paragraphs": [
-            "Les donnees ne sont ni vendues ni cedees a des tiers a des fins commerciales ou marketing.",
-            "Les donnees peuvent etre traitees uniquement par des prestataires techniques necessaires a la fourniture du service (par exemple hebergement et service email), designes sous-traitants lorsque requis.",
-            "Si certains fournisseurs sont hors UE, les transferts sont effectues conformement au RGPD avec des garanties adequates (par exemple SCC)."
+            "Les données ne sont ni vendues ni cédées à des tiers à des fins commerciales ou marketing.",
+            "Les données peuvent être traitées uniquement par des prestataires techniques nécessaires à la fourniture du service (par exemple hébergement et service email), désignés comme sous-traitants lorsque requis.",
+            "Si certains fournisseurs sont hors UE, le transfert s'effectue conformément au RGPD via des garanties adéquates (par exemple SCC)."
           ]
         },
         {
-          "title": "6. Droits des personnes concernees",
+          "title": "6. Droits des personnes concernées",
           "paragraphs": [
-            "La personne concernee peut exercer les droits prevus aux art. 15-22 RGPD: acces, rectification, effacement, limitation, opposition et portabilite (lorsqu'applicable).",
-            "Pour exercer vos droits, ecrivez a: Imperial-line-siberians@hotmail.com.",
-            "Vous pouvez egalement introduire une reclamation aupres de l'autorite de controle competente."
+            "La personne concernée peut exercer les droits prévus aux art. 15-22 RGPD : accès, rectification, effacement, limitation, opposition et portabilité (lorsqu'applicable).",
+            "Pour exercer vos droits, écrivez à : Imperial-line-siberians@hotmail.com.",
+            "Il reste le droit d'introduire une réclamation auprès de l'autorité de contrôle pour la protection des données."
           ]
         },
         {
-          "title": "7. Nature de la fourniture des donnees",
+          "title": "7. Nature de la fourniture des données",
           "paragraphs": [
-            "La fourniture des donnees indiquees comme obligatoires dans le formulaire est necessaire pour traiter la demande.",
-            "En l'absence de donnees obligatoires, il peut etre impossible de fournir une reponse."
+            "La fourniture des données indiquées comme obligatoires dans le formulaire est nécessaire pour pouvoir traiter la demande.",
+            "En l'absence des données obligatoires, il ne sera pas possible de fournir une réponse."
           ]
         },
         {
-          "title": "8. Mises a jour",
+          "title": "8. Mises à jour",
           "paragraphs": [
-            "Cette politique peut etre mise a jour au fil du temps.",
-            "Toute modification sera publiee sur cette page avec la date de mise a jour."
+            "La présente politique peut être mise à jour au fil du temps.",
+            "Toute modification sera publiée sur cette page avec la date de mise à jour."
           ]
         }
       ]
     },
     "cookies": {
       "title": "Politique de cookies",
-      "lastUpdated": "Derniere mise a jour: 09/04/2026",
-      "intro": "Ce site n'utilise actuellement aucun cookie de profilage, marketing ou analytique et ne depose pas de cookies non essentiels sur l'appareil de l'utilisateur.",
-      "emptyState": "Contenu en cours de mise a jour.",
+      "lastUpdated": "Dernière mise à jour : 09/04/2026",
+      "intro": "Ce site, dans son état actuel, n'utilise aucun cookie de profilage, marketing ou analytique et ne dépose pas de cookies non essentiels sur l'appareil de l'utilisateur.",
+      "emptyState": "Contenu en cours de mise à jour.",
       "sections": [
         {
           "title": "1. Qu'est-ce qu'un cookie",
           "paragraphs": [
-            "Un cookie est un petit fichier texte depose sur l'appareil de l'utilisateur pendant la navigation.",
-            "Les cookies peuvent etre techniques, analytiques ou marketing, de premiere ou tierce partie."
+            "Les cookies sont de petits fichiers texte déposés sur l'appareil de l'utilisateur pendant la navigation.",
+            "Ils peuvent être des cookies techniques, analytiques ou de profilage, de première ou tierce partie."
           ]
         },
         {
-          "title": "2. Cookies utilises sur ce site",
+          "title": "2. Cookies utilisés sur ce site",
           "paragraphs": [
-            "Actuellement, aucun cookie de profilage ou marketing n'est utilise.",
-            "Actuellement, aucun cookie analytique n'est utilise.",
-            "Aucun cookie tiers n'est actuellement depose via ce site."
+            "À ce jour, aucun cookie de profilage ou marketing n'est utilisé.",
+            "À ce jour, aucun cookie analytique n'est utilisé.",
+            "Aucun cookie tiers n'est actuellement installé via le site."
           ]
         },
         {
           "title": "3. Base juridique",
           "paragraphs": [
-            "Puisqu'aucun cookie non essentiel n'est actuellement utilise, un bandeau de consentement cookie n'est pas requis a ce stade.",
-            "Si des cookies non techniques sont introduits a l'avenir, un mecanisme de consentement conforme sera mis en place."
+            "Puisqu'aucun cookie non essentiel n'est utilisé, le consentement via une bannière de cookies n'est pas requis.",
+            "Si des cookies non techniques venaient à être introduits à l'avenir, un mécanisme de consentement conforme à la réglementation applicable sera mis en place."
           ]
         },
         {
-          "title": "4. Duree et conservation",
+          "title": "4. Durée et conservation",
           "paragraphs": [
-            "Comme aucun cookie n'est actuellement utilise, aucun tableau de duree des cookies n'est applicable.",
-            "Toute evolution future sera indiquee dans cette politique."
+            "Aucun cookie n'étant actuellement utilisé, il n'y a pas de tableau des durées de conservation.",
+            "Toute mise à jour éventuelle sera indiquée sur cette page."
           ]
         },
         {
-          "title": "5. Gestion des preferences",
+          "title": "5. Gestion des préférences",
           "paragraphs": [
-            "L'utilisateur peut toujours gerer ou bloquer les cookies via les parametres de son navigateur.",
-            "En l'absence de cookies non essentiels, il n'existe actuellement pas de panneau de preferences cookies sur le site."
+            "L'utilisateur peut toujours gérer ou bloquer les cookies via les paramètres de son navigateur.",
+            "En l'absence de cookies non essentiels, il n'y a actuellement pas de panneau de préférences de cookies sur le site."
           ]
         },
         {
           "title": "6. Services tiers",
           "paragraphs": [
-            "A ce jour, aucun service tiers n'est connu pour deposer des cookies via ce site.",
-            "Si de tels services sont ajoutes, cette politique sera mise a jour en consequence."
+            "À l'heure actuelle, aucun service tiers ne dépose de cookies via le site.",
+            "Si de tels services sont ajoutés, cette politique sera mise à jour avec les détails pertinents."
           ]
         },
         {
-          "title": "7. Contact",
+          "title": "7. Contacts",
           "paragraphs": [
-            "Pour toute question privacy/cookies: Imperial-line-siberians@hotmail.com."
+            "Pour toute information sur la confidentialité et les cookies : Imperial-line-siberians@hotmail.com."
           ]
         }
       ]
@@ -218,9 +218,9 @@
   },
   "maintenancePage": {
     "title": "Site en maintenance",
-    "message": "Nous effectuons une mise a jour technique. Nous reviendrons en ligne des que possible.",
+    "message": "Nous effectuons une mise à jour technique. Nous serons de retour en ligne dès que possible.",
     "contactLabel": "Contact rapide",
-    "retryButton": "Reessayer l'accueil"
+    "retryButton": "Réessayer l'accueil"
   },
   "breederContacts": {
     "facebookLabel": "Imperial Line",
@@ -233,38 +233,38 @@
     "phone": "+49 17660923988"
   },
   "catPage": {
-    "birth": "Naissance",
-    "health": "Sante",
+    "birth": "Date de naissance",
+    "health": "Santé",
     "inquire": "Demander des informations",
-    "techDetails": "Details techniques",
+    "techDetails": "Détails techniques",
     "sex": "Sexe",
     "color": "Couleur",
     "ems": "Code EMS",
     "pedigree": "Pedigree",
     "lineage": "Parents",
     "lineage_sub": "Parents",
-    "sire": "Sire (Pere)",
-    "dam": "Dam (Mere)",
+    "sire": "Père (Sire)",
+    "dam": "Mère (Dam)",
     "zoom": "Agrandir",
     "close": "Fermer",
     "unknownParent": "Inconnu",
     "zoomAriaPrefix": "Agrandir la photo de",
     "sexLabels": {
-      "male": "Male",
+      "male": "Mâle",
       "female": "Femelle",
-      "unknown": "Non specifie"
+      "unknown": "Non spécifié"
     },
-    "current": "Sujet actuel",
+    "current": "Chat actuel",
     "notFound": "Chat introuvable.",
-    "backToKingsList": "Retour a la liste Kings",
-    "backToQueensList": "Retour a la liste Queens",
-    "backToLitter": "Retour a la portee",
-    "backToPrevious": "Retour a la page precedente",
-    "litterFallbackTitle": "Portee",
+    "backToKingsList": "Retour à la liste Kings",
+    "backToQueensList": "Retour à la liste Queens",
+    "backToLitter": "Retour à la portée",
+    "backToPrevious": "Retour à la page précédente",
+    "litterFallbackTitle": "Portée",
     "livesIn": "Vit maintenant en",
     "willLiveIn": "Vivra en",
-    "defaultBreed": "Siberien Neva Masquerade",
-    "defaultHealth": "Tests effectues",
+    "defaultBreed": "Sibérien Neva Masquerade",
+    "defaultHealth": "Tests effectués",
     "testLabels": {
       "fiv": "FIV",
       "felv": "FeLV",
@@ -272,22 +272,22 @@
       "pkd": "PKD"
     },
     "testResultLabels": {
-      "negative": "Negatif",
+      "negative": "Négatif",
       "positive": "Positif",
-      "notTested": "Non teste"
+      "notTested": "Non testé"
     },
     "photoUnavailable": "Photo non disponible",
-    "galleryPrevious": "Image precedente",
+    "galleryPrevious": "Image précédente",
     "galleryNext": "Image suivante",
-    "galleryGoTo": "Aller a l'image",
+    "galleryGoTo": "Aller à l'image",
     "statusLabels": {
       "available": "Disponible",
-      "evaluation": "En evaluation",
-      "reserved": "Reserve",
-      "held": "En attente",
-      "notForSale": "Non a vendre",
-      "sold": "Cede",
-      "staysInCattery": "Reste a l'elevage",
+      "evaluation": "En évaluation",
+      "reserved": "Réservé",
+      "held": "En option",
+      "notForSale": "Non à vendre",
+      "sold": "Adopté",
+      "staysInCattery": "Reste à l'élevage",
       "unknown": "Statut"
     },
     "countryLabels": {
@@ -304,148 +304,148 @@
   },
   "adoptionPage": {
     "title": "Conditions d'adoption",
-    "intro": "Pour garantir le bien-etre et la serenite de nos chatons et de leurs nouvelles familles, nous suivons des regles claires et transparentes a chaque etape de l'adoption.",
-    "emptyState": "Contenu en cours de mise a jour.",
+    "intro": "Pour garantir le bien-être et la sérénité de nos chatons et de leurs nouvelles familles, nous suivons des règles précises et transparentes à chaque étape de l'adoption.",
+    "emptyState": "Contenu en cours de mise à jour.",
     "sections": [
       {
-        "title": "Depart a 14 semaines",
+        "title": "Départ à la 14ème semaine de vie",
         "paragraphs": [
-          "Nos chatons quittent notre maison et rejoignent leur nouvelle famille uniquement a partir de 14 semaines.",
-          "Cette periode est essentielle pour un developpement sain et complet aux cotes de leur mere et de leur fratrie."
+          "Les chatons quitteront notre maison et seront confiés à leurs nouvelles familles uniquement à partir de leur 14ème semaine.",
+          "Cette période est essentielle pour un développement sain et complet aux côtés de la mère et de la fratrie."
         ],
         "points": []
       },
       {
-        "title": "Garantie de sante et tests genetiques",
+        "title": "Garantie de santé et tests génétiques",
         "paragraphs": [
-          "Tous nos chats adultes sont testes pour les pathologies les plus courantes : FIV, FeLV, PKD et HCM.",
-          "Une copie des resultats des tests est remise aux nouveaux proprietaires lors de la remise du chaton."
+          "Tous nos chats adultes sont soumis à des tests génétiques pour les pathologies les plus courantes : FIV, FeLV, PKD et HCM.",
+          "Une copie des résultats des tests est remise aux nouveaux propriétaires au moment du départ."
         ],
         "points": []
       },
       {
         "title": "Pedigree original",
         "paragraphs": [
-          "Chaque chaton est confie avec un pedigree original FIFe ou WCF, afin de proteger la lignee et l'integrite de la race.",
-          "Nous fournissons egalement une copie des pedigrees des deux parents."
+          "Chaque chaton est cédé avec un pedigree original FIFe ou WCF, afin de protéger la généalogie et la pureté de la race.",
+          "Nous fournissons également une copie du pedigree des parents."
         ],
         "points": []
       },
       {
-        "title": "Suivi veterinaire complet",
+        "title": "Soins vétérinaires complets",
         "paragraphs": [
-          "Les chatons recoivent deux vermifugations et deux vaccinations.",
-          "Au moment de la remise, un carnet de sante est fourni pour certifier leur bon etat general."
+          "Les chatons reçoivent deux cycles de traitements vermifuges et deux vaccinations.",
+          "À la livraison, un carnet de santé est fourni pour certifier leur bon état général."
         ],
         "points": []
       },
       {
-        "title": "Mises a jour et accompagnement continu",
+        "title": "Mises à jour et soutien continu",
         "paragraphs": [
-          "Apres la reservation, nous partageons regulierement des photos, videos et nouvelles de croissance.",
-          "Nous restons disponibles dans le temps pour des conseils et un accompagnement, afin de favoriser le bien-etre et l'adaptation dans le nouveau foyer."
+          "Après la réservation, nous envoyons régulièrement des photos, des vidéos et des mises à jour sur la croissance du chaton.",
+          "Nous restons disponibles dans le temps pour des conseils et un soutien, avec l'objectif de favoriser le bien-être et l'adaptation dans la nouvelle maison."
         ],
         "points": []
       },
       {
-        "title": "Chatons de compagnie et sterilisation",
+        "title": "Chatons de compagnie et stérilisation",
         "paragraphs": [
-          "Sauf accord contraire, les chatons sont confies avec pedigree de compagnie.",
-          "La sterilisation est demandee vers 6 a 8 mois, ou selon l'avis du veterinaire, lorsque le chaton atteint environ 70 a 80 pour cent de son poids adulte attendu.",
-          "Nous ne sterilisons pas les chatons avant leur depart car nous les considerons trop jeunes pour une intervention precoce."
+          "Sauf accord contraire, les chatons sont cédés avec un pedigree de compagnie.",
+          "La stérilisation est exigée autour de 6 à 8 mois, ou selon les indications du vétérinaire, lorsqu'il atteint environ 70 à 80 % de son poids adulte attendu.",
+          "Nous ne stérilisons pas les chatons avant leur livraison, car nous les considérons trop jeunes pour faire face à une intervention précoce."
         ],
         "points": []
       },
       {
         "title": "Pedigree de reproduction",
         "paragraphs": [
-          "La cession avec pedigree de reproduction est possible uniquement apres accord specifique avant la signature du contrat.",
-          "Nous ne confions pas de chatons a des elevages en cages d'isolement ni a des programmes de croisement : familles et eleveurs sont selectionnes avec soin."
+          "La cession avec un pedigree de reproduction n'est possible que sur accord spécifique préalable à la signature du contrat.",
+          "Nous ne cédons pas de chatons à des élevages en cages d'isolement ou qui mélangent différentes races : nous sélectionnons avec soin les familles et les éleveurs."
         ],
         "points": []
       },
       {
-        "title": "Chatons pour l'etranger",
+        "title": "Chatons destinés à l'étranger",
         "paragraphs": [
-          "Pour les adoptions internationales, la vaccination antirabique, les delais legaux et le passeport international sont obligatoires.",
-          "Les frais supplementaires pour documents et vaccinations sont a la charge de l'acheteur."
+          "Pour l'étranger, le vaccin antirabique, les délais d'attente légaux et un passeport international sont nécessaires.",
+          "Les frais supplémentaires pour les documents et les vaccinations sont à la charge de l'acheteur."
         ],
         "points": []
       },
       {
-        "title": "Reservation, acompte et liste d'attente",
+        "title": "Réservation, acompte et liste d'attente",
         "paragraphs": [
-          "Un chaton est considere reserve uniquement apres reception d'un acompte de 350 euros.",
-          "En cas de changement d'avis, l'acompte n'est generalement pas remboursable, sauf exceptions justifiees et communiquees rapidement.",
-          "Une liste d'attente gratuite est disponible pour les personnes qui souhaitent un chaton Imperial Line sans etre encore pretes a reserver."
+          "Un chaton n'est considéré réservé qu'après le versement de l'acompte de 350 euros.",
+          "En cas de désistement, l'acompte n'est généralement pas remboursable, sauf exceptions justifiées et communiquées rapidement.",
+          "Une liste d'attente gratuite est disponible pour ceux qui souhaitent un chaton Imperial Line mais ne sont pas encore prêts à réserver."
         ],
         "points": []
       },
       {
-        "title": "Transport et voyage",
+        "title": "Expédition et voyage",
         "paragraphs": [
-          "Quand cela est possible, nous privilegions la remise en main propre ou le retrait par la nouvelle famille.",
-          "Le transport aerien vers l'etranger est possible, tandis que l'envoi par transporteur n'est pas accepte."
+          "Dans la mesure du possible, nous préférons la remise en main propre ou le retrait par la nouvelle famille.",
+          "L'expédition aérienne pour l'étranger est possible, tandis que nous refusons l'expédition par transporteur."
         ],
         "points": []
       },
       {
         "title": "Notre engagement quotidien",
         "paragraphs": [
-          "Nous elevons les chatons a la maison et les preparons progressivement a la vie familiale et a la socialisation.",
-          "Avant leur depart, nous verifions qu'ils sont autonomes, en bonne sante et a l'aise dans le contact humain."
+          "Nous élevons les chatons à la maison et les habituons progressivement à la vie domestique et à la socialisation.",
+          "Avant la livraison, nous nous assurons qu'ils sont autonomes, en pleine santé et sereins au contact humain."
         ],
         "points": [
-          "Habituation aux bruits habituels de la maison.",
-          "Socialisation avec les personnes et les autres chats.",
-          "Initiation au toilettage : brosse, griffes, premier bain.",
-          "Bonne utilisation de la litiere.",
-          "Alimentation autonome avec croquettes et patee de qualite.",
-          "Mises a jour regulieres avec photos, videos et notes de caractere.",
-          "Remise d'un chaton en excellent etat de sante.",
-          "Kit de depart offert avec nourriture, jouet et couverture."
+          "Habituation aux bruits quotidiens de la maison.",
+          "Socialisation avec des personnes et d'autres chats.",
+          "Éducation au toilettage : brosse, griffes, premier bain.",
+          "Utilisation correcte de la litière.",
+          "Alimentation autonome avec nourriture humide et sèche de qualité.",
+          "Mises à jour régulières avec photos, vidéos et informations sur le caractère.",
+          "Livraison d'un chaton en excellent état de santé.",
+          "Kit de départ offert avec nourriture, jouet et couverture."
         ]
       },
       {
         "title": "Relation avec les nouvelles familles",
         "paragraphs": [
-          "Nous maintenons un contact continu et cordial avec les familles meme apres l'adoption.",
-          "Nous repondons aux questions et offrons un accompagnement afin que les chatons vivent dans un environnement ideal."
+          "Nous maintenons un contact continu et serein avec les familles même après l'adoption.",
+          "Nous répondons aux doutes et aux questions, en offrant notre soutien pour garantir aux chatons un environnement idéal."
         ],
         "points": []
       }
     ]
   },
   "contactPage": {
-    "title": "Reservation",
-    "subtitle": "Formulaire de pre-adoption",
-    "intro": "Remplissez ce formulaire pour nous aider a vous accompagner dans le choix du chaton le plus adapte.",
-    "introLead": "Remplissez ici vos informations et aidez-nous a choisir la famille parfaite avec laquelle nos chatons passeront le reste de leur vie.",
-    "introConditions": "Avant de remplir le formulaire, assurez-vous d'avoir lu les conditions de base selon lesquelles les chatons Imperial Line quitteront leur maison. Si vous ne l'avez pas encore fait, vous les trouverez ici.",
+    "title": "Réservation",
+    "subtitle": "Formulaire de pré-adoption",
+    "intro": "Remplissez le formulaire pour nous aider à mieux connaître vos besoins et vous guider dans le choix du chaton le plus adapté.",
+    "introLead": "Remplissez ici vos coordonnées et aidez-nous à choisir la famille parfaite avec laquelle nos chatons passeront le reste de leur vie.",
+    "introConditions": "Avant de remplir le formulaire, assurez-vous d'avoir lu les conditions de base auxquelles les chatons Imperial Line quitteront leur maison. Si vous ne l'avez pas encore fait, vous les trouverez ici.",
     "conditionsCta": "Aller aux conditions d'adoption",
-    "afterFormNote": "Merci pour l'interet et la confiance accordes a notre petit elevage Imperial Line. Une fois le formulaire ci-dessus rempli et envoye, vous serez contacte par nous dans les 24 heures par email (ou via un autre moyen de contact que vous aurez fourni). Ensuite, lorsque votre demande d'adoption sera acceptee, nous pourrons proceder a la signature du contrat de reservation du chaton souhaite. Si vous avez d'autres questions ou besoin de precisions, n'hesitez pas a nous contacter. Nous serons ravis de vous connaitre et de repondre a toutes vos questions. Merci !",
-    "socialTitle": "Contacts et reseaux sociaux",
+    "afterFormNote": "Merci pour l'intérêt et la confiance accordés à notre petit élevage Imperial Line. Une fois le formulaire ci-dessus rempli et envoyé, nous vous contacterons dans les 24 heures par email (ou via un autre moyen de contact que vous aurez fourni). Ensuite, lorsque votre demande d'adoption sera acceptée, nous pourrons procéder à la signature du contrat de réservation pour le chaton souhaité. Si vous avez d'autres questions ou des éclaircissements, n'hésitez pas à nous contacter ! Nous serons ravis de vous connaître et de répondre à toutes vos questions. Merci !",
+    "socialTitle": "Coordonnées et réseaux sociaux",
     "submit": "Envoyer",
     "messages": {
-      "required": "Veuillez remplir tous les champs obligatoires avant l'envoi.",
-      "sendFailed": "Echec de l'envoi de la demande.",
+      "required": "Veuillez remplir tous les champs obligatoires avant d'envoyer.",
+      "sendFailed": "L'envoi a échoué.",
       "sendInProgress": "Envoi en cours...",
-      "sendSuccess": "Demande envoyee avec succes."
+      "sendSuccess": "Demande envoyée avec succès."
     },
-    "thanks": "Merci pour votre interessement. Nous repondrons dans les plus brefs delais par email ou via le contact fourni.",
+    "thanks": "Merci pour votre intérêt pour Imperial Line. Après l'envoi du formulaire, nous vous contacterons dans les 24 heures par e-mail ou au numéro de téléphone indiqué.",
     "fields": {
-      "name": "Nom et prenom*",
-      "namePlaceholder": "Votre nom et prenom",
-      "allergic": "Etes-vous allergique aux chats ?*",
-      "genderPreference": "Souhaitez-vous une femelle ou un male ?*",
-      "specificKitten": "Etes-vous interesse par un chaton en particulier ? *facultatif",
-      "specificKittenPlaceholder": "Ecrivez votre message",
-      "futureLitter": "Souhaitez-vous reserver un chaton d'une prochaine portee ? *facultatif",
-      "colorPreference": "Avez-vous une preference de couleur ? *facultatif",
-      "colorPlaceholder": "Reponse courte",
-      "otherPets": "Avez-vous d'autres animaux domestiques ?*",
+      "name": "Nom et prénom*",
+      "namePlaceholder": "Votre nom et prénom",
+      "allergic": "Êtes-vous allergique aux chats ?*",
+      "genderPreference": "Souhaitez-vous une femelle ou un mâle ?*",
+      "specificKitten": "Êtes-vous intéressé par un chaton en particulier ? *facultatif",
+      "specificKittenPlaceholder": "Insérez votre message",
+      "futureLitter": "Souhaitez-vous réserver un chaton d'une prochaine portée ? *facultatif",
+      "colorPreference": "Si oui, avez-vous une préférence de couleur ? *facultatif",
+      "colorPlaceholder": "Réponse courte",
+      "otherPets": "Avez-vous d'autres animaux de compagnie ?*",
       "aboutYou": "Parlez-nous de vous*",
-      "aboutYouPlaceholder": "Ecrivez votre message",
+      "aboutYouPlaceholder": "Insérez votre message",
       "email": "Email*",
       "emailPlaceholder": "Votre adresse email"
     },
@@ -453,130 +453,130 @@
       "yes": "Oui",
       "no": "Non",
       "female": "Femelle",
-      "male": "Male",
-      "noPreference": "Pas de preference / Je ne sais pas encore",
+      "male": "Mâle",
+      "noPreference": "Ce n'est pas important / Je ne sais pas encore",
       "otherCats": "Oui, j'ai d'autres chats",
       "noOtherCats": "Oui, mais je n'ai pas d'autres chats",
-      "wantCat": "Non, mais je souhaite un chat"
+      "wantCat": "Non, mais j'aimerais avoir un chat"
     }
   },
   "advicePage": {
     "eyebrow": "Guide d'Excellence",
     "titleLine1": "Vivre avec un",
-    "titleAccent": "Siberien",
-    "intro": "Ce n'est pas seulement un chat, c'est un membre de votre famille. Voici comment lui offrir une vie saine et heureuse, digne de sa majeste.",
+    "titleAccent": "Sibérien",
+    "intro": "Ce n'est pas seulement un chat, c'est un membre royal de la famille. Voici comment lui garantir une vie saine, heureuse et digne de sa majesté.",
     "ctaTitle": "Vous avez d'autres questions ?",
-    "ctaDescription": "Nous restons disponibles avant et apres l'adoption. La sante de nos chatons est toujours notre priorite absolue.",
-    "ctaButton": "Ecrivez-nous sur WhatsApp",
+    "ctaDescription": "Nous sommes à votre disposition pour des conseils avant et après l'adoption. La santé de nos chatons est notre priorité absolue.",
+    "ctaButton": "Écrivez-nous sur WhatsApp",
     "tips": [
       {
-        "title": "L'arrivee a la maison",
-        "description": "Les premiers jours sont essentiels. Preparez une piece securisee avec tout le necessaire avant de lui laisser explorer le reste de la maison. Le Siberien est curieux mais a besoin de son rythme.",
+        "title": "L'arrivée à la maison",
+        "description": "Les premiers jours sont cruciaux. Préparez une pièce sécurisée avec tout le nécessaire avant de le laisser explorer le reste de la maison. Le Sibérien est curieux mais a besoin de prendre son temps.",
         "icon": "🏠",
         "points": [
-          "Preparer une litiere propre",
-          "Eviter les bruits forts les premiers jours",
-          "Utiliser des diffuseurs de pheromones pour l'apaiser"
+          "Préparer une litière propre",
+          "Éviter les bruits forts les premiers jours",
+          "Utiliser des diffuseurs de phéromones pour la détente"
         ]
       },
       {
         "title": "Nutrition royale",
-        "description": "Un chat imposant comme le Siberien a besoin de proteines de tres haute qualite. Evitez les exces de cereales et privilegiez une alimentation equilibree, seche et humide.",
+        "description": "Un chat imposant comme le Sibérien a besoin de protéines de très haute qualité. Évitez les céréales et misez sur des alimentations équilibrées, sèches et humides.",
         "icon": "🥩",
         "points": [
-          "Proteines animales en priorite",
-          "Eau fraiche en permanence (idealement une fontaine)",
-          "Complement en taurine"
+          "Protéines animales en premier lieu",
+          "Eau toujours fraîche (de préférence en fontaine)",
+          "Complémentation en taurine"
         ]
       },
       {
         "title": "Vie sociale",
-        "description": "Le Siberien est souvent appele le chat-chien. Il aime la compagnie et supporte mal la solitude prolongee. Jouez avec lui chaque jour.",
+        "description": "Le Sibérien est souvent appelé le chat-chien. Il aime la compagnie et souffre de la solitude prolongée. Apprenez à jouer avec lui quotidiennement.",
         "icon": "🐈",
         "points": [
-          "Sessions de jeu de 15 minutes",
+          "Sessions de jeu de 15 min",
           "Stimulation mentale avec des puzzles",
-          "Socialisation progressive avec d'autres animaux"
+          "Socialisation progressive avec les autres animaux"
         ]
       }
     ]
   },
   "availableKittensPage": {
     "title": "Chatons disponibles",
-    "intro": "Retrouvez ici les chatons actuellement disponibles ainsi que l'historique des portees passees et planifiees.",
-    "availableSup": "A adopter",
+    "intro": "Dans cette section, vous trouverez les chatons actuellement disponibles ainsi que l'historique des portées déjà nées ou planifiées.",
+    "availableSup": "À adopter",
     "availableTitle": "Disponibles maintenant",
-    "plannedSup": "A venir",
-    "plannedTitle": "Portees planifiees",
-    "historySup": "Historique",
-    "historyTitle": "Historique des portees",
-    "emptyAvailable": "Aucun chaton disponible pour le moment.",
-    "emptyPlanned": "Aucune portee planifiee actuellement.",
+    "plannedSup": "À venir",
+    "plannedTitle": "Portées planifiées",
+    "historySup": "Passé",
+    "historyTitle": "Historique des portées",
+    "emptyAvailable": "Pour le moment, il n'y a pas de chatons disponibles.",
+    "emptyPlanned": "Aucune portée planifiée pour le moment.",
     "emptyHistory": "Historique non disponible pour le moment.",
     "photoUnavailable": "Photo non disponible",
-    "details": "Details",
-    "viewDetails": "Voir les details",
-    "kittenDetails": "Details des chatons",
-    "newLitterTitle": "Nouvelle portee",
-    "litterTitle": "Portee",
-    "fatherLabel": "Pere",
-    "motherLabel": "Mere",
-    "plannedLabel": "Prevue",
-    "expectedLabel": "Prevue",
-    "bornLabel": "Nee"
+    "details": "Détails",
+    "viewDetails": "Voir les détails",
+    "kittenDetails": "Détails du chaton",
+    "newLitterTitle": "Nouvelle portée",
+    "litterTitle": "Portée",
+    "fatherLabel": "Père",
+    "motherLabel": "Mère",
+    "plannedLabel": "Prévue",
+    "expectedLabel": "Prévue",
+    "bornLabel": "Née"
   },
   "litterPage": {
-    "litterTitle": "Portee",
+    "litterTitle": "Portée",
     "statusLabel": "Statut",
     "statusLabels": {
-      "planned": "Planifiee",
+      "planned": "Planifiée",
       "waiting": "En attente",
       "active": "Active",
       "historical": "Historique",
       "other": "Statut"
     },
-    "expectedDateLabel": "Date prevue",
+    "expectedDateLabel": "Date prévue",
     "birthDateLabel": "Date de naissance",
     "kittensCountLabel": "Nombre de chatons",
     "parentsSup": "Parents",
     "parentsTitle": "King & Queen",
-    "sireLabel": "Pere (Sire)",
-    "damLabel": "Mere (Dam)",
+    "sireLabel": "Père (Sire)",
+    "damLabel": "Mère (Dam)",
     "expectedKittensSup": "Chatons attendus",
     "kittensSup": "Les chatons",
-    "comingSoonTitle": "A venir...",
+    "comingSoonTitle": "À venir...",
     "individualSheetsTitle": "Fiches individuelles",
-    "expectedEmpty": "Les chatons seront ajoutes des leur naissance.",
-    "kittensEmpty": "Aucun chaton lie a cette portee.",
-    "details": "Fiche complete",
+    "expectedEmpty": "Les chatons seront ajoutés dès leur naissance.",
+    "kittensEmpty": "Aucun chaton n'est lié à cette portée.",
+    "details": "Fiche complète",
     "sheetNotAvailable": "Fiche pas encore disponible",
     "photoUnavailable": "Photo non disponible",
-    "bornLabel": "Ne",
-    "backToAvailable": "Retour aux chatons disponibles",
+    "bornLabel": "Né(e)",
+    "backToAvailable": "Retour à Chatons disponibles",
     "notesLabel": "Notes",
-    "galleryScrollLeft": "Faire defiler les photos vers la gauche",
-    "galleryScrollRight": "Faire defiler les photos vers la droite",
+    "galleryScrollLeft": "Faire défiler la photo à gauche",
+    "galleryScrollRight": "Faire défiler la photo à droite",
     "galleryOpenPhoto": "Ouvrir la photo",
-    "galleryScrollHint": "Faites defiler pour voir toutes les photos"
+    "galleryScrollHint": "Faites défiler pour voir toutes les photos"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",
     "queensLabel": "Queens",
     "emptyTitle": "Aucun sujet disponible",
-    "emptyDescription": "Le contenu de cette section sera publie prochainement.",
+    "emptyDescription": "Les contenus pour cette section seront publiés prochainement.",
     "imageUnavailable": "Image non disponible",
-    "defaultColor": "Siberien Neva Masquerade",
+    "defaultColor": "Sibérien Neva Masquerade",
     "fivLabel": "FIV",
     "felvLabel": "FeLV",
     "hcmLabel": "HCM",
     "pkdLabel": "PKD",
     "bloodGroupLabel": "Groupe sanguin",
-    "showResultsLabel": "Resultats des expositions",
-    "dataPlaceholder": "(donnees)",
+    "showResultsLabel": "Résultats des expositions",
+    "dataPlaceholder": "(date)",
     "pedigreeButton": "Pedigree",
     "parentsTitle": "Parents",
-    "motherLabel": "Mere",
-    "fatherLabel": "Pere",
+    "motherLabel": "Mère",
+    "fatherLabel": "Père",
     "unknownMother": "Inconnue",
     "unknownFather": "Inconnu"
   }

@@ -2,84 +2,84 @@
   "nav": {
     "home": "Startseite",
     "cats": "Unsere Katzen",
-    "availableKittens": "Verfugbare Kitten",
-    "aboutUs": "Uber uns",
+    "availableKittens": "Verfügbare Kitten",
+    "aboutUs": "Über uns",
     "advice": "Ratgeber",
     "adoptionConditions": "Adoptionsbedingungen",
     "contact": "Kontakt",
     "book": "Buchen"
   },
   "hero": {
-    "title": "Feline Eleganz",
-    "subtitle": "Authentisch",
-    "description": "Wir bewahren die Erhabenheit und das sanfte Gemüt der ursprünglichen sibirischen Katze."
+    "title": "Sibirische Kitten",
+    "subtitle": "FIFe-zertifiziert",
+    "description": "Kleine familiäre Zucht traditioneller Sibirischer Katzen und Neva Masquerade."
   },
   "homePage": {
     "galleryTitle": "Unsere Zucht",
     "knowledgeEyebrow": "Wissensbasis",
-    "knowledgeTitle": "Vertiefungen",
+    "knowledgeTitle": "Wissensvertiefungen",
     "knowledgeEmpty": "Inhalte werden aktualisiert.",
     "topics": [
       {
         "id": "topic-1",
         "title": "Geschichte und Ursprung der Sibirischen Katze",
-        "content": "Die Sibirische Katze stammt aus den kalten Regionen Russlands und hat sich uber Jahrhunderte an harte Klimabedingungen angepasst, mit einem dichten und wasserabweisenden Fell. Sie ist eine naturliche Rasse, die eher von der Umwelt als vom Menschen gepragt wurde, mit ausgeglichenem Charakter und grosser Widerstandskraft."
+        "content": "Die Sibirische Katze stammt aus den kalten Regionen Russlands und hat sich über Jahrhunderte an harte Klimabedingungen angepasst, mit einem dichten und wasserabweisenden Fell. Sie ist eine natürliche Rasse, die eher von der Umwelt als vom Menschen geprägt wurde, mit ausgeglichenem Charakter und großer Widerstandskraft."
       },
       {
         "id": "topic-2",
         "title": "Die Neva Masquerade Variante und ihre Merkmale",
-        "content": "Die Neva Masquerade ist die Colorpoint-Variante der Sibirischen Katze, erkennbar am Kontrast zwischen hellem Korper und dunkleren Extremitaten, oft mit intensiv blauen Augen. Sie behalt Struktur, Temperament und Robustheit der klassischen Sibirischen Katze bei und wirkt besonders elegant."
+        "content": "Die Neva Masquerade ist die Colorpoint-Variante der Sibirischen Katze, erkennbar am Kontrast zwischen hellem Körper und dunkleren Extremitäten, oft mit intensiv blauen Augen. Sie behält Struktur, Temperament und Robustheit der klassischen Sibirischen Katze bei und wirkt besonders elegant."
       },
       {
         "id": "topic-3",
-        "title": "Warum eine Sibirische Katze wahlen?",
-        "content": "Sie ist die ideale Wahl fur alle, die eine liebevolle, aber nicht aufdringliche Katze suchen, intelligent und familientauglich. Sie bindet sich stark an Menschen, lebt gut mit Kindern und anderen Tieren zusammen und zeigt eine bemerkenswerte Anpassungsfahigkeit an den Alltag im Haus."
+        "title": "Warum eine Sibirische Katze wählen?",
+        "content": "Sie ist die ideale Wahl für alle, die eine liebevolle, aber nicht aufdringliche Katze suchen, intelligent und familientauglich. Sie bindet sich stark an Menschen, lebt gut mit Kindern und anderen Tieren zusammen und zeigt eine bemerkenswerte Anpassungsfähigkeit an den Alltag im Haus."
       },
       {
         "id": "topic-4",
         "title": "Ist die Sibirische Katze hypoallergen?",
-        "content": "Es gibt keine vollstandig allergenfreie Katze, aber viele Sibirische Katzen produzieren geringere Mengen des Proteins Fel d1 als andere Rassen. Fur Menschen mit leichten oder mittleren Allergien kann sie besser vertraglich sein, die Bewertung bleibt jedoch immer individuell."
+        "content": "Es gibt keine vollständig allergenfreie Katze, aber viele Sibirische Katzen produzieren geringere Mengen des Proteins Fel d1 als andere Rassen. Für Menschen mit leichten oder mittleren Allergien kann sie besser verträglich sein, die Bewertung bleibt jedoch immer individuell."
       },
       {
         "id": "topic-5",
-        "title": "Wussten Sie, dass die Sibirische Katze auch in der tiergestutzten Therapie eingesetzt wird?",
-        "content": "Dank ihres sozialen Temperaments und ihrer Sensibilitat fur menschliche Stimmungen wird die Sibirische Katze in manchen Kontexten in assistierte Programme eingebunden. Ihre Anwesenheit kann Entspannung, Motivation und Interaktion fordern, besonders in padagogischen oder emotionalen Unterstutzungsangeboten."
+        "title": "Wussten Sie, dass die Sibirische Katze auch in der tiergestützten Therapie eingesetzt wird?",
+        "content": "Dank ihres sozialen Temperaments und ihrer Sensibilität für menschliche Stimmungen wird die Sibirische Katze in manchen Kontexten in assistierte Programme eingebunden. Ihre Anwesenheit kann Entspannung, Motivation und Interaktion fördern, besonders in pädagogischen oder emotionalen Unterstützungsangeboten."
       }
     ]
   },
   "aboutPage": {
-    "title": "Uber uns",
-    "intro": "Wir sind eine kleine Familienzucht fur Sibirische Katzen und Neva Masquerade. Wir arbeiten mit Sorgfalt, Ethik und Leidenschaft und wahlen gesunde Linien mit ausgeglichenem Charakter.",
+    "title": "Über uns",
+    "intro": "Wir sind eine kleine Familienzucht, die sich der Sibirischen Katze und der Neva Masquerade widmet. Wir arbeiten mit Sorgfalt, Ethik und Leidenschaft und wählen gesunde Linien mit ausgeglichenem Charakter.",
     "emptyState": "Inhalte werden aktualisiert.",
     "sections": [
       {
         "id": "wer-wir-sind",
         "title": "Wer wir sind",
-        "content": "Imperial Line entstand als Familienprojekt: wenige Tiere aufziehen, sie taglich begleiten und den Kitten ein ruhiges Aufwachsen im Zuhause bieten.\n\nWir setzen auf Qualitat statt Quantitat: Jeder Wurf wird sorgfaltig geplant, mit Respekt fur die Mutter und das Wohl der Kitten.",
+        "content": "Imperial Line entstand als Familienprojekt: wenige Tiere aufziehen, sie täglich begleiten und den Kitten ein ruhiges Aufwachsen im Zuhause bieten.\n\nWir setzen auf Qualität statt Quantität: Jeder Wurf wird sorgfältig geplant, mit Respekt für die Mutter und das Wohl der Kitten.",
         "image": "/home_1.JPG"
       },
       {
         "id": "ziele",
         "title": "Unsere Ziele",
-        "content": "Unser Ziel ist es, den traditionellen sibirischen Typ zu bewahren: robuste Struktur, korrektes Fell und sanftes, soziales Temperament.\n\nWir arbeiten mit getesteten Linien und verbessern Gesundheit, Charakterbalance und allgemeine Rassequalitat.",
+        "content": "Unser Ziel ist es, den traditionellen sibirischen Typ zu bewahren: robuste Struktur, korrektes Fell und sanftes, soziales Temperament.\n\nWir wählen getestete Linien aus und arbeiten daran, Gesundheit, Charakterbalance und die allgemeine Qualität der Rasse zu verbessern.",
         "image": "/home_2.JPG"
       },
       {
         "id": "mission",
         "title": "Unsere Mission",
-        "content": "Unsere Mission ist es, Familien vom Reservierungsprozess bis zur Eingewohnung des Kittens bewusst zu begleiten.\n\nAuch nach der Abgabe bleiben wir mit praktischen Tipps, Support und Updates an eurer Seite.",
+        "content": "Unsere Mission ist es, jede Familie auf einem bewussten Weg zu begleiten, von der Reservierung bis zur Eingewöhnung des Kittens im Haus.\n\nAuch nach der Abgabe bleiben wir mit praktischen Tipps, kontinuierlicher Unterstützung und Updates präsent, um unseren Samtpfoten ein langes und glückliches Leben zu garantieren.",
         "image": "/home_3.JPG"
       },
       {
         "id": "alltag",
-        "title": "Unser Alltag",
-        "content": "Unsere Kitten wachsen im Haus auf und erleben echte Menschen, Gerausche und Routinen. So entwickeln sie Sicherheit, Vertrauen und Anpassungsfahigkeit.\n\nVor der Abgabe arbeiten wir an Sozialisierung, Basispflege und Selbststandigkeit.",
+        "title": "Unser täglicher Ansatz",
+        "content": "Die Kitten wachsen im Haus auf, in Kontakt mit Menschen, Geräuschen und realen Routinen. Das hilft, Sicherheit, Vertrauen und Anpassungsfähigkeit zu entwickeln.\n\nVor der Abgabe arbeiten wir an Sozialisierung, Basispflege und Selbstständigkeit, um eine Katze zu übergeben, die bereit für ihr neues Leben ist.",
         "image": "/home_4.JPG"
       }
     ]
   },
   "footer": {
-    "tagline": "Exzellenzzucht Sibirische Neva Masquerade",
+    "tagline": "Exzellenzzucht für Sibirische Katzen & Neva Masquerade",
     "explore": "Entdecken",
     "contacts": "Kontakte",
     "socialTitle": "Soziale Netzwerke",
@@ -90,70 +90,70 @@
   },
   "legalTemplates": {
     "privacy": {
-      "title": "Datenschutzerklarung",
+      "title": "Datenschutzerklärung",
       "lastUpdated": "Letzte Aktualisierung: 09/04/2026",
-      "intro": "Diese Datenschutzerklarung beschreibt, wie wir personenbezogene Daten verarbeiten, die uber das Kontakt-/Reservierungsformular fur Anfragen zu unseren Kitten ubermittelt werden. Die Daten werden nicht verkauft und nicht zu kommerziellen Zwecken an Dritte weitergegeben.",
+      "intro": "Diese Informationsschrift beschreibt, wie wir personenbezogene Daten verarbeiten, die über das Kontakt-/Reservierungsformular für Informationsanfragen zu unseren Kitten übermittelt werden. Die Daten werden nicht verkauft und nicht zu kommerziellen Zwecken an Dritte weitergegeben.",
       "emptyState": "Inhalte werden aktualisiert.",
       "sections": [
         {
           "title": "1. Verantwortlicher",
           "paragraphs": [
             "Verantwortlicher: Anamaria Colniceanu",
-            "Anschrift: 86830 Schwabmuenchen, Deutschland",
+            "Anschrift: 86830 Schwabmünchen, Deutschland",
             "Datenschutz E-Mail: Imperial-line-siberians@hotmail.com"
           ]
         },
         {
           "title": "2. Verarbeitete personenbezogene Daten",
           "paragraphs": [
-            "Wir verarbeiten Daten, die Nutzer freiwillig im Formular angeben: Vor- und Nachname, E-Mail, Telefonnummer (falls angegeben), Praferenzen und fur die Anfrage relevante Informationen.",
-            "Zusatzlich konnen technische Nutzungsdaten (z. B. IP-Adresse und technische Logs) verarbeitet werden, soweit dies fur Sicherheit und Betrieb der Website erforderlich ist."
+            "Wir verarbeiten Daten, die der Nutzer freiwillig im Formular angibt: Vor- und Nachname, E-Mail, Telefonnummer (falls angegeben), Präferenzen und für die Anfrage nützliche Informationen.",
+            "Zusätzlich können technische Nutzungsdaten (z. B. IP-Adresse und technische Logs) verarbeitet werden, die für die Sicherheit und den Betrieb der Website erforderlich sind."
           ]
         },
         {
           "title": "3. Zwecke und Rechtsgrundlagen",
           "paragraphs": [
-            "Bearbeitung und Beantwortung von Informationsanfragen zu Kitten, Verfugbarkeit und Reservierungen.",
-            "Kontaktaufnahme mit Nutzern uber die von ihnen angegebenen Kontaktdaten, um ihre Anfrage zu bearbeiten.",
-            "Rechtsgrundlage: vorvertragliche Massnahmen auf Anfrage der betroffenen Person (Art. 6 Abs. 1 lit. b DSGVO) und, soweit erforderlich, berechtigte Interessen des Verantwortlichen (Art. 6 Abs. 1 lit. f DSGVO)."
+            "Bearbeitung und Beantwortung von Informationsanfragen zu Kitten, Verfügbarkeit und Reservierungen.",
+            "Kontaktaufnahme mit dem Nutzer über die angegebenen Kontaktdaten, um der Anfrage nachzugehen.",
+            "Rechtsgrundlage: vorvertragliche Maßnahmen auf Anfrage der betroffenen Person (Art. 6 Abs. 1 lit. b DSGVO) und, wo erforderlich, berechtigtes Interesse des Verantwortlichen (Art. 6 Abs. 1 lit. f DSGVO)."
           ]
         },
         {
-          "title": "4. Verarbeitung und Speicherdauer",
+          "title": "4. Art der Verarbeitung und Speicherung",
           "paragraphs": [
-            "Die Daten werden mit elektronischen Mitteln und angemessenen Sicherheitsmassnahmen durch autorisierte Personen verarbeitet.",
-            "Die Daten werden fur die Dauer gespeichert, die zur Bearbeitung der Anfrage und zugehoriger Folgekommunikation erforderlich ist.",
-            "Richtwert fur die Speicherdauer: [Z. B. 12/24 MONATE AB LETZTEM KONTAKT], vorbehaltlich gesetzlicher Aufbewahrungspflichten oder Rechtsverteidigung."
+            "Die Daten werden mit elektronischen Werkzeugen und angemessenen Sicherheitsmaßnahmen von autorisiertem Personal verarbeitet.",
+            "Die Daten werden für die Zeit gespeichert, die zur Bearbeitung der Anfrage und der damit verbundenen Folgekontakte erforderlich ist.",
+            "Richtwert für die Speicherdauer: [Z. B. 12/24 MONATE AB LETZTEM KONTAKT], vorbehaltlich gesetzlicher Verpflichtungen oder der Notwendigkeit, die Rechte des Verantwortlichen zu schützen."
           ]
         },
         {
-          "title": "5. Empfanger der Daten",
+          "title": "5. Empfänger der Daten",
           "paragraphs": [
             "Die Daten werden nicht verkauft und nicht zu kommerziellen oder Marketingzwecken an Dritte weitergegeben.",
-            "Die Daten konnen ausschliesslich von technischen Dienstleistern verarbeitet werden, die fur die Bereitstellung des Dienstes erforderlich sind (z. B. Hosting- und E-Mail-Anbieter), soweit erforderlich als Auftragsverarbeiter benannt.",
-            "Wenn Anbieter ausserhalb der EU eingesetzt werden, erfolgt die Ubermittlung gemass DSGVO mit geeigneten Garantien (z. B. SCC)."
+            "Die Daten können ausschließlich von technischen Lieferanten verarbeitet werden, die für die Erbringung des Dienstes erforderlich sind (z. B. Hosting- und E-Mail-Dienste), und die, wo erforderlich, als Auftragsverarbeiter benannt sind.",
+            "Wenn einige Anbieter außerhalb der EU ansässig sind, erfolgt die Übermittlung in Übereinstimmung mit der DSGVO durch angemessene Garantien (z. B. SCC)."
           ]
         },
         {
-          "title": "6. Rechte der betroffenen Personen",
+          "title": "6. Rechte der betroffenen Person",
           "paragraphs": [
-            "Betroffene konnen die Rechte nach Art. 15-22 DSGVO ausuben: Auskunft, Berichtigung, Loschung, Einschrankung, Widerspruch und Datenubertragbarkeit (soweit anwendbar).",
-            "Zur Ausubung Ihrer Rechte schreiben Sie an: Imperial-line-siberians@hotmail.com.",
-            "Daruber hinaus besteht ein Beschwerderecht bei der zustandigen Aufsichtsbehorde."
+            "Die betroffene Person kann die in den Art. 15-22 DSGVO vorgesehenen Rechte ausüben: Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit (in den anwendbaren Fällen).",
+            "Zur Ausübung der Rechte schreiben Sie an: Imperial-line-siberians@hotmail.com.",
+            "Das Recht, eine Beschwerde bei der Aufsichtsbehörde für den Datenschutz einzureichen, bleibt unberührt."
           ]
         },
         {
           "title": "7. Art der Bereitstellung",
           "paragraphs": [
-            "Die Bereitstellung der im Formular als Pflichtfelder gekennzeichneten Daten ist erforderlich, um die Anfrage bearbeiten zu konnen.",
-            "Ohne Pflichtangaben konnen wir moglicherweise keine Ruckmeldung geben."
+            "Die Bereitstellung der im Formular als obligatorisch gekennzeichneten Daten ist notwendig, um die Anfrage bearbeiten zu können.",
+            "Ohne die obligatorischen Daten wird es nicht möglich sein, eine Rückmeldung zu geben."
           ]
         },
         {
           "title": "8. Aktualisierungen",
           "paragraphs": [
-            "Diese Datenschutzerklarung kann im Laufe der Zeit aktualisiert werden.",
-            "Etwaige Anderungen werden auf dieser Seite mit Aktualisierungsdatum veroffentlicht."
+            "Diese Datenschutzerklärung kann im Laufe der Zeit aktualisiert werden.",
+            "Etwaige Änderungen werden auf dieser Seite mit dem Datum der Aktualisierung veröffentlicht."
           ]
         }
       ]
@@ -161,14 +161,14 @@
     "cookies": {
       "title": "Cookie-Richtlinie",
       "lastUpdated": "Letzte Aktualisierung: 09/04/2026",
-      "intro": "Diese Website verwendet derzeit keine Profiling-, Marketing- oder Analyse-Cookies und setzt keine nicht notwendigen Cookies auf dem Endgerat des Nutzers.",
+      "intro": "Diese Website verwendet derzeit keine Profiling-, Marketing- oder Analyse-Cookies und setzt keine nicht notwendigen Cookies auf dem Endgerät des Nutzers.",
       "emptyState": "Inhalte werden aktualisiert.",
       "sections": [
         {
-          "title": "1. Was Cookies sind",
+          "title": "1. Was sind Cookies",
           "paragraphs": [
-            "Cookies sind kleine Textdateien, die beim Besuch einer Website auf dem Endgerat gespeichert werden.",
-            "Sie konnen technisch notwendig, analytisch oder zu Marketingzwecken eingesetzt werden."
+            "Cookies sind kleine Textdateien, die während der Navigation an das Endgerät des Nutzers gesendet werden.",
+            "Es können technische, analytische oder Profiling-Cookies von Erstanbietern oder Drittanbietern sein."
           ]
         },
         {
@@ -176,41 +176,41 @@
           "paragraphs": [
             "Derzeit werden keine Profiling- oder Marketing-Cookies verwendet.",
             "Derzeit werden keine Analyse-Cookies verwendet.",
-            "Aktuell werden uber diese Website keine Third-Party-Cookies gesetzt."
+            "Es sind keine Cookies von Drittanbietern über die Website installiert."
           ]
         },
         {
           "title": "3. Rechtsgrundlage",
           "paragraphs": [
-            "Da derzeit keine nicht notwendigen Cookies eingesetzt werden, ist aktuell kein Cookie-Banner mit Einwilligung erforderlich.",
-            "Sollten in Zukunft nicht technische Cookies eingefuhrt werden, wird ein rechtskonformer Einwilligungsmechanismus implementiert."
+            "Da keine nicht notwendigen Cookies verwendet werden, ist keine Einwilligung über ein Cookie-Banner erforderlich.",
+            "Sollten in Zukunft nicht-technische Cookies eingeführt werden, wird ein Zustimmungsmechanismus gemäß den geltenden Vorschriften implementiert."
           ]
         },
         {
-          "title": "4. Speicherdauer und Aufbewahrung",
+          "title": "4. Dauer und Aufbewahrung",
           "paragraphs": [
-            "Da derzeit keine Cookies verwendet werden, ist keine Cookie-Tabelle zur Speicherdauer erforderlich.",
-            "Etwaige zukunftige Anderungen werden in dieser Richtlinie erganzt."
+            "Da derzeit keine Cookies verwendet werden, ist keine Tabelle für die Cookie-Dauer vorgesehen.",
+            "Etwaige Aktualisierungen werden auf dieser Seite aufgeführt."
           ]
         },
         {
-          "title": "5. Verwaltung der Einstellungen",
+          "title": "5. Verwaltung der Nutzereinstellungen",
           "paragraphs": [
-            "Nutzer konnen Cookies jederzeit uber die Browsereinstellungen verwalten oder blockieren.",
-            "Da aktuell keine nicht notwendigen Cookies eingesetzt werden, gibt es derzeit kein Cookie-Praferenzpanel auf der Website."
+            "Der Nutzer kann Cookies jederzeit über die Browsereinstellungen verwalten oder blockieren.",
+            "In Ermangelung nicht notwendiger Cookies gibt es derzeit kein Cookie-Präferenzpanel auf der Website."
           ]
         },
         {
           "title": "6. Dienste Dritter",
           "paragraphs": [
-            "Derzeit sind keine Drittanbieter-Dienste bekannt, die uber diese Website Cookies setzen.",
-            "Falls solche Dienste hinzugefugt werden, wird diese Richtlinie entsprechend aktualisiert."
+            "Derzeit gibt es keine Dienste Dritter, die Cookies über die Website setzen.",
+            "Wenn solche Dienste eingeführt werden, wird diese Richtlinie mit den entsprechenden Details aktualisiert."
           ]
         },
         {
-          "title": "7. Kontakt",
+          "title": "7. Kontakte",
           "paragraphs": [
-            "Fur Fragen zu Datenschutz und Cookies: Imperial-line-siberians@hotmail.com."
+            "Für Informationen zu Datenschutz und Cookies: Imperial-line-siberians@hotmail.com."
           ]
         }
       ]
@@ -218,7 +218,7 @@
   },
   "maintenancePage": {
     "title": "Website in Wartung",
-    "message": "Wir fuhren ein technisches Update durch. Wir sind so schnell wie moglich wieder online.",
+    "message": "Wir führen ein technisches Update durch. Wir sind so schnell wie möglich wieder online.",
     "contactLabel": "Schneller Kontakt",
     "retryButton": "Startseite erneut laden"
   },
@@ -235,7 +235,7 @@
   "catPage": {
     "birth": "Geburtsdatum",
     "health": "Gesundheit",
-    "inquire": "Jetzt anfragen",
+    "inquire": "Informationen anfragen",
     "techDetails": "Technische Details",
     "sex": "Geschlecht",
     "color": "Farbe",
@@ -243,28 +243,28 @@
     "pedigree": "Stammbaum",
     "lineage": "Eltern",
     "lineage_sub": "Eltern",
-    "sire": "Vater",
-    "dam": "Mutter",
-    "zoom": "Vergrossern",
-    "close": "Schliessen",
+    "sire": "Vater (Sire)",
+    "dam": "Mutter (Dam)",
+    "zoom": "Vergrößern",
+    "close": "Schließen",
     "unknownParent": "Unbekannt",
-    "zoomAriaPrefix": "Foto vergroessern von",
+    "zoomAriaPrefix": "Foto vergrößern von",
     "sexLabels": {
-      "male": "Mannlich",
+      "male": "Männlich",
       "female": "Weiblich",
       "unknown": "Nicht angegeben"
     },
-    "current": "Aktuelles Exemplar",
+    "current": "Aktuelle Katze",
     "notFound": "Katze nicht gefunden.",
-    "backToKingsList": "Zuruck zur Kings-Liste",
-    "backToQueensList": "Zuruck zur Queens-Liste",
-    "backToLitter": "Zuruck zum Wurf",
-    "backToPrevious": "Zuruck zur vorherigen Seite",
+    "backToKingsList": "Zurück zur Kings-Liste",
+    "backToQueensList": "Zurück zur Queens-Liste",
+    "backToLitter": "Zurück zum Wurf",
+    "backToPrevious": "Zurück zur vorherigen Seite",
     "litterFallbackTitle": "Wurf",
     "livesIn": "Lebt jetzt in",
     "willLiveIn": "Wird leben in",
     "defaultBreed": "Sibirische Neva Masquerade",
-    "defaultHealth": "Getestet",
+    "defaultHealth": "Durchgeführte Tests",
     "testLabels": {
       "fiv": "FIV",
       "felv": "FeLV",
@@ -276,16 +276,16 @@
       "positive": "Positiv",
       "notTested": "Nicht getestet"
     },
-    "photoUnavailable": "Foto nicht verfugbar",
+    "photoUnavailable": "Foto nicht verfügbar",
     "galleryPrevious": "Vorheriges Bild",
-    "galleryNext": "Nachstes Bild",
+    "galleryNext": "Nächstes Bild",
     "galleryGoTo": "Gehe zu Bild",
     "statusLabels": {
-      "available": "Verfugbar",
+      "available": "Verfügbar",
       "evaluation": "In Bewertung",
       "reserved": "Reserviert",
-      "held": "Gehalten",
-      "notForSale": "Nicht zum Verkauf",
+      "held": "Vorläufig reserviert",
+      "notForSale": "Steht nicht zum Verkauf",
       "sold": "Vergeben",
       "staysInCattery": "Bleibt in der Zucht",
       "unknown": "Status"
@@ -297,154 +297,154 @@
       "italy": "Italien",
       "switzerland": "Schweiz",
       "belgium": "Belgien",
-      "austria": "Osterreich",
+      "austria": "Österreich",
       "netherlands": "Niederlande",
       "other": "Andere"
     }
   },
   "adoptionPage": {
     "title": "Adoptionsbedingungen",
-      "intro": "Um das Wohlbefinden und die Gelassenheit unserer Kitten und ihrer neuen Familien zu sichern, folgen wir in jeder Phase der Adoption klaren und transparenten Regeln.",
+    "intro": "Um das Wohlbefinden und die Gelassenheit unserer Kitten und der neuen Familien zu gewährleisten, folgen wir in jeder Phase der Adoption präzisen und transparenten Regeln.",
     "emptyState": "Inhalte werden aktualisiert.",
     "sections": [
       {
-          "title": "Abgabe mit 14 Wochen",
+        "title": "Abgabe in der 14. Lebenswoche",
         "paragraphs": [
-            "Unsere Kitten verlassen unser Zuhause und ziehen erst mit 14 Wochen in ihre neuen Familien.",
-            "Diese Zeit ist grundlegend für eine gesunde und vollständige Entwicklung an der Seite der Mutter und Geschwister."
+          "Die Kitten werden unser Haus verlassen und den neuen Familien erst nach Vollendung der 14. Woche anvertraut.",
+          "Dieser Zeitraum ist grundlegend für eine gesunde und vollständige Entwicklung in der Nähe von Mutter und Geschwistern."
         ],
         "points": []
-        },
-        {
-          "title": "Gesundheitsgarantie und Gentests",
-          "paragraphs": [
-            "Alle unsere erwachsenen Katzen werden auf die häufigsten Erkrankungen getestet: FIV, FeLV, PKD und HCM.",
-            "Eine Kopie der Testergebnisse wird den neuen Besitzern bei der Übergabe ausgehändigt."
-          ],
-          "points": []
-        },
-        {
-          "title": "Original-Stammbaum",
-          "paragraphs": [
-            "Jedes Kitten wird mit einem originalen FIFe- oder WCF-Stammbaum abgegeben, zum Schutz von Abstammung und Rasse.",
-            "Wir stellen zudem eine Kopie der Stammbäume beider Eltern bereit."
-          ],
-          "points": []
-        },
-        {
-          "title": "Vollständige tierärztliche Betreuung",
-          "paragraphs": [
-            "Die Kitten erhalten zwei Entwurmungen und zwei Impfungen.",
-            "Bei der Abgabe wird ein Gesundheitsheft übergeben, das ihren guten Gesundheitszustand bescheinigt."
-          ],
-          "points": []
-        },
-        {
-          "title": "Updates und kontinuierliche Unterstützung",
-          "paragraphs": [
-            "Nach der Reservierung senden wir regelmäßig Fotos, Videos und Entwicklungsupdates.",
-            "Wir bleiben auch danach verfügbar für Beratung und Unterstützung, damit Eingewöhnung und Wohlbefinden im neuen Zuhause optimal verlaufen."
-          ],
-          "points": []
-        },
-        {
-          "title": "Begleitkatzen und Kastration",
-          "paragraphs": [
-            "Sofern nicht anders vereinbart, werden Kitten mit Liebhaber-Stammbaum abgegeben.",
-            "Die Kastration ist etwa mit 6 bis 8 Monaten erforderlich oder nach tierärztlicher Empfehlung, sobald das Kitten etwa 70 bis 80 Prozent des erwarteten Endgewichts erreicht hat.",
-            "Wir kastrieren Kitten vor der Abgabe nicht, da wir sie für einen frühen Eingriff noch zu jung halten."
-          ],
-          "points": []
-        },
-        {
-          "title": "Stammbaum für Zucht",
-          "paragraphs": [
-            "Die Abgabe mit Zuchtstammbaum ist nur nach einer spezifischen Vereinbarung vor Vertragsunterzeichnung möglich.",
-            "Wir geben keine Kitten an Zuchten mit Isolationskäfigen oder Mischzuchtprogrammen ab: Familien und Züchter werden sorgfältig ausgewählt."
-          ],
-          "points": []
-        },
-        {
-          "title": "Kitten für das Ausland",
-          "paragraphs": [
-            "Bei internationaler Abgabe sind Tollwutimpfung, gesetzliche Wartezeiten und ein internationaler Heimtierausweis erforderlich.",
-            "Zusatzkosten für Dokumente und Impfungen trägt der Käufer."
-          ],
-          "points": []
-        },
-        {
-          "title": "Reservierung, Anzahlung und Warteliste",
-          "paragraphs": [
-            "Ein Kitten gilt erst nach Eingang einer Anzahlung von 350 Euro als reserviert.",
-            "Bei einem Rücktritt wird die Anzahlung in der Regel nicht erstattet, außer bei begründeten und zeitnah mitgeteilten Ausnahmen.",
-            "Für alle, die ein Imperial Line Kitten möchten, aber noch nicht reservieren können, gibt es eine kostenlose Warteliste."
-          ],
-          "points": []
-        },
-        {
-          "title": "Versand und Reise",
-          "paragraphs": [
-            "Wann immer möglich, bevorzugen wir die persönliche Übergabe oder die Abholung durch die neue Familie.",
-            "Flugtransport ins Ausland ist möglich, Kuriertransport wird nicht akzeptiert."
-          ],
-          "points": []
-        },
-        {
-          "title": "Unser täglicher Einsatz",
-          "paragraphs": [
-            "Wir ziehen die Kitten im Haus auf und bereiten sie schrittweise auf Alltag und Sozialisierung vor.",
-            "Vor der Abgabe stellen wir sicher, dass sie selbstständig, gesund und im Kontakt mit Menschen sicher sind."
-          ],
-          "points": [
-            "Gewöhnung an typische Haushaltsgeräusche.",
-            "Sozialisierung mit Menschen und anderen Katzen.",
-            "Gewöhnung an Pflege: Bürste, Krallenpflege, erstes Bad.",
-            "Richtige Nutzung der Katzentoilette.",
-            "Selbstständige Fütterung mit hochwertigem Nass- und Trockenfutter.",
-            "Regelmäßige Updates mit Fotos, Videos und Charakterhinweisen.",
-            "Abgabe eines Kittens in ausgezeichnetem Gesundheitszustand.",
-            "Kostenloses Starter-Set mit Futter, Spielzeug und Decke."
-          ]
-        },
-        {
-          "title": "Beziehung zu den neuen Familien",
-          "paragraphs": [
-            "Wir pflegen auch nach der Abgabe einen kontinuierlichen und freundlichen Kontakt zu den Familien.",
-            "Wir beantworten Fragen und bieten Unterstützung, damit die Kitten in einem idealen Umfeld leben können."
-          ],
-          "points": []
+      },
+      {
+        "title": "Gesundheitsgarantie und Gentests",
+        "paragraphs": [
+          "Alle unsere erwachsenen Katzen werden genetischen Tests für die häufigsten Pathologien unterzogen: FIV, FeLV, PKD und HCM.",
+          "Eine Kopie der Testergebnisse wird den neuen Besitzern bei der Übergabe ausgehändigt."
+        ],
+        "points": []
+      },
+      {
+        "title": "Original-Stammbaum",
+        "paragraphs": [
+          "Jedes Kitten wird mit einem originalen FIFe- oder WCF-Stammbaum abgegeben, um die Genealogie und Reinheit der Rasse zu schützen.",
+          "Wir stellen außerdem eine Kopie des Stammbaums der Eltern zur Verfügung."
+        ],
+        "points": []
+      },
+      {
+        "title": "Vollständige tierärztliche Versorgung",
+        "paragraphs": [
+          "Die Kitten erhalten zwei Entwurmungszyklen und zwei Impfungen.",
+          "Bei der Lieferung wird das Gesundheitsheft übergeben, das den guten Gesundheitszustand bescheinigt."
+        ],
+        "points": []
+      },
+      {
+        "title": "Updates und kontinuierliche Unterstützung",
+        "paragraphs": [
+          "Nach der Reservierung senden wir regelmäßig Fotos, Videos und Updates zum Wachstum des Kittens.",
+          "Wir bleiben im Laufe der Zeit für Ratschläge und Unterstützung verfügbar, mit dem Ziel, das Wohlbefinden und die Anpassung im neuen Zuhause zu fördern."
+        ],
+        "points": []
+      },
+      {
+        "title": "Liebhabertiere und Kastration",
+        "paragraphs": [
+          "Sofern nicht anders vereinbart, werden die Kitten mit einem Liebhaber-Stammbaum abgegeben.",
+          "Die Kastration ist im Alter von etwa 6-8 Monaten erforderlich, oder wenn vom Tierarzt empfohlen, bei Erreichen von etwa 70-80% des Erwachsenengewichts.",
+          "Wir kastrieren die Kitten nicht vor der Abgabe, da wir sie für zu jung halten, um sich einem frühen Eingriff zu unterziehen."
+        ],
+        "points": []
+      },
+      {
+        "title": "Stammbaum für die Zucht",
+        "paragraphs": [
+          "Die Abgabe mit einem Zuchtstammbaum ist nur nach spezifischer Vereinbarung vor Vertragsabschluss möglich.",
+          "Wir geben keine Kitten an Zuchten in Isolationskäfigen oder an solche, die verschiedene Rassen mischen, ab: Wir wählen Familien und Züchter sorgfältig aus."
+        ],
+        "points": []
+      },
+      {
+        "title": "Kitten für das Ausland",
+        "paragraphs": [
+          "Für das Ausland sind Tollwutimpfung, gesetzliche Wartezeiten und ein internationaler Reisepass erforderlich.",
+          "Die zusätzlichen Kosten für Dokumente und Impfungen gehen zu Lasten des Käufers."
+        ],
+        "points": []
+      },
+      {
+        "title": "Reservierung, Anzahlung und Warteliste",
+        "paragraphs": [
+          "Ein Kitten gilt erst nach Zahlung der Anzahlung von 350 Euro als reserviert.",
+          "Im Falle eines Sinneswandels ist die Anzahlung in der Regel nicht erstattungsfähig, außer bei begründeten und rechtzeitig mitgeteilten Ausnahmen.",
+          "Für diejenigen, die ein Imperial Line Kitten wünschen, aber noch nicht zur Reservierung bereit sind, steht eine kostenlose Warteliste zur Verfügung."
+        ],
+        "points": []
+      },
+      {
+        "title": "Versand und Reise",
+        "paragraphs": [
+          "Soweit möglich, bevorzugen wir die direkte Übergabe oder die Abholung durch die neue Familie.",
+          "Luftfracht ins Ausland ist möglich, während wir den Versand per Kurier ablehnen."
+        ],
+        "points": []
+      },
+      {
+        "title": "Unser täglicher Einsatz",
+        "paragraphs": [
+          "Wir ziehen die Kitten im Haus auf und gewöhnen sie schrittweise an das häusliche Leben und die Sozialisation.",
+          "Vor der Abgabe stellen wir sicher, dass sie unabhängig, bei voller Gesundheit und gelassen im menschlichen Kontakt sind."
+        ],
+        "points": [
+          "Gewöhnung an die täglichen Geräusche des Hauses.",
+          "Sozialisation mit Personen und anderen Katzen.",
+          "Erziehung zur Pflege: Bürste, Krallen, erstes Bad.",
+          "Richtige Nutzung der Katzentoilette.",
+          "Unabhängige Fütterung mit hochwertigem Nass- und Trockenfutter.",
+          "Regelmäßige Updates mit Fotos, Videos und Informationen zum Charakter.",
+          "Übergabe eines Kittens in ausgezeichnetem gesundheitlichen Zustand.",
+          "Kostenloses Starter-Kit mit Futter, Spielzeug und Decke."
+        ]
+      },
+      {
+        "title": "Beziehung zu den neuen Familien",
+        "paragraphs": [
+          "Wir halten auch nach der Abgabe einen kontinuierlichen und gelassenen Kontakt mit den Familien.",
+          "Wir beantworten Zweifel und Fragen und bieten Unterstützung, um den Kitten ein ideales Umfeld zu garantieren."
+        ],
+        "points": []
       }
     ]
   },
   "contactPage": {
     "title": "Reservierung",
     "subtitle": "Voradoptionsformular",
-    "intro": "Fullen Sie dieses Formular aus, damit wir Ihre Wunsche besser verstehen und das passende Kitten empfehlen konnen.",
-    "introLead": "Füllen Sie hier Ihre Daten aus und helfen Sie uns, die perfekte Familie auszuwählen, bei der unsere Kitten den Rest ihres Lebens verbringen werden.",
-    "introConditions": "Bevor Sie das Formular ausfüllen, lesen Sie bitte die grundlegenden Bedingungen, unter denen Imperial Line Kitten ihr Zuhause verlassen. Falls Sie das noch nicht getan haben, finden Sie sie hier.",
+    "intro": "Füllen Sie das Formular aus, um uns zu helfen, Ihre Bedürfnisse besser kennenzulernen und Sie bei der Auswahl des am besten geeigneten Kittens zu beraten.",
+    "introLead": "Füllen Sie hier Ihre Daten aus und helfen Sie uns, die perfekte Familie auszuwählen, mit der unsere Kitten den Rest ihres Lebens verbringen werden.",
+    "introConditions": "Bevor Sie das Formular ausfüllen, stellen Sie sicher, dass Sie die grundlegenden Bedingungen gelesen haben, unter denen die Imperial Line Kitten ihr Zuhause verlassen werden. Wenn Sie das noch nicht getan haben, finden Sie sie hier.",
     "conditionsCta": "Zu den Adoptionsbedingungen",
-    "afterFormNote": "Vielen Dank für Ihr Interesse und Ihr Vertrauen in unsere kleine Imperial Line Zucht. Sobald Sie das obige Formular ausgefüllt und gesendet haben, werden wir Sie innerhalb von 24 Stunden per E-Mail (oder über eine andere von Ihnen angegebene Kontaktmethode) kontaktieren. Wenn Ihre Adoptionsanfrage angenommen wird, können wir anschließend mit der Unterzeichnung des Reservierungsvertrags für das gewünschte Kitten fortfahren. Falls Sie weitere Fragen oder Klärungen benötigen, zögern Sie nicht, uns zu kontaktieren. Wir freuen uns, Sie kennenzulernen und alle Ihre Fragen zu beantworten. Vielen Dank!",
-    "socialTitle": "Kontakte und soziale Netzwerke",
+    "afterFormNote": "Vielen Dank für das Interesse und das Vertrauen, das Sie unserer kleinen Imperial Line Zucht entgegenbringen. Sobald Sie das obige Formular ausgefüllt und gesendet haben, werden Sie von uns innerhalb von 24 Stunden per E-Mail (oder über eine andere von Ihnen angegebene Kontaktmethode) kontaktiert. Wenn Ihre Adoptionsanfrage angenommen wird, können wir anschließend mit dem Abschluss des Reservierungsvertrags für das gewünschte Kitten fortfahren. Wenn Sie jedoch andere Fragen und Klärungsbedarf haben, zögern Sie nicht, uns zu kontaktieren! Wir freuen uns darauf, Sie kennenzulernen und alle Ihre Fragen zu beantworten. Danke!",
+    "socialTitle": "Kontaktdaten und soziale Netzwerke",
     "submit": "Senden",
     "messages": {
-      "required": "Bitte fullen Sie alle Pflichtfelder aus, bevor Sie senden.",
-      "sendFailed": "Anfrage konnte nicht gesendet werden.",
-      "sendInProgress": "Wird gesendet...",
+      "required": "Füllen Sie alle Pflichtfelder aus, bevor Sie senden.",
+      "sendFailed": "Senden fehlgeschlagen.",
+      "sendInProgress": "Senden läuft...",
       "sendSuccess": "Anfrage erfolgreich gesendet."
     },
-    "thanks": "Vielen Dank fur Ihr Interesse an Imperial Line. Nach dem Absenden melden wir uns innerhalb von 24 Stunden per E-Mail oder uber den angegebenen Kontaktweg.",
+    "thanks": "Vielen Dank für Ihr Interesse an Imperial Line. Nach dem Absenden des Formulars werden wir Sie innerhalb von 24 Stunden per E-Mail oder unter der angegebenen Kontaktnummer kontaktieren.",
     "fields": {
       "name": "Vor- und Nachname*",
       "namePlaceholder": "Ihr Vor- und Nachname",
       "allergic": "Sind Sie gegen Katzen allergisch?*",
-      "genderPreference": "Wunschen Sie ein weibliches oder mannliches Kitten?*",
-      "specificKitten": "Interessieren Sie sich fur ein bestimmtes Kitten? *optional",
+      "genderPreference": "Möchten Sie ein weibliches oder ein männliches Kitten?*",
+      "specificKitten": "Sind Sie an einem bestimmten Kitten interessiert? *optional",
       "specificKittenPlaceholder": "Geben Sie Ihre Nachricht ein",
-      "futureLitter": "Mochten Sie ein Kitten aus einem kommenden Wurf reservieren? *optional",
-      "colorPreference": "Falls ja, haben Sie eine Farbprferenz? *optional",
+      "futureLitter": "Möchten Sie ein Kitten aus einem zukünftigen Wurf reservieren? *optional",
+      "colorPreference": "Falls ja, haben Sie eine Farbpräferenz? *optional",
       "colorPlaceholder": "Kurze Antwort",
       "otherPets": "Haben Sie andere Haustiere?*",
-      "aboutYou": "Erzahlen Sie uns etwas uber sich*",
+      "aboutYou": "Erzählen Sie uns von sich*",
       "aboutYouPlaceholder": "Geben Sie Ihre Nachricht ein",
       "email": "E-Mail*",
       "emailPlaceholder": "Ihre E-Mail-Adresse"
@@ -453,67 +453,67 @@
       "yes": "Ja",
       "no": "Nein",
       "female": "Weiblich",
-      "male": "Mannlich",
-      "noPreference": "Keine Prferenz / Noch unsicher",
+      "male": "Männlich",
+      "noPreference": "Es ist nicht wichtig / Ich weiß es noch nicht",
       "otherCats": "Ja, ich habe andere Katzen",
-      "noOtherCats": "Ja, aber keine anderen Katzen",
-      "wantCat": "Nein, aber ich mochte eine Katze"
+      "noOtherCats": "Ja, aber keine weiteren Katzen",
+      "wantCat": "Nein, aber ich möchte eine Katze haben"
     }
   },
   "advicePage": {
     "eyebrow": "Leitfaden zur Exzellenz",
-    "titleLine1": "Leben mit einer",
-    "titleAccent": "Sibirischen Katze",
-    "intro": "Sie ist nicht nur eine Katze, sondern ein Mitglied Ihrer Familie. So sichern Sie ihr ein gesundes, gluckliches Leben, das ihrer Majestat wurdig ist.",
+    "titleLine1": "Leben mit einem",
+    "titleAccent": "Sibirischen",
+    "intro": "Es ist nicht nur eine Katze, es ist ein royales Familienmitglied. Hier erfahren Sie, wie Sie ihm ein gesundes, glückliches Leben garantieren, das seiner Majestät würdig ist.",
     "ctaTitle": "Haben Sie weitere Fragen?",
-    "ctaDescription": "Wir stehen fur Beratung vor und nach der Adoption zur Verfugung. Die Gesundheit unserer Kitten hat immer oberste Prioritat.",
+    "ctaDescription": "Wir stehen Ihnen für Beratungen vor und nach der Adoption zur Verfügung. Die Gesundheit unserer Kitten ist unsere absolute Priorität.",
     "ctaButton": "Schreiben Sie uns auf WhatsApp",
     "tips": [
       {
-        "title": "Ankunft zu Hause",
-        "description": "Die ersten Tage sind entscheidend. Richten Sie einen sicheren Raum mit allem Notigen ein, bevor das ganze Zuhause erkundet wird. Die Sibirische Katze ist neugierig, braucht aber ihr eigenes Tempo.",
+        "title": "Die Ankunft zu Hause",
+        "description": "Die ersten Tage sind entscheidend. Richten Sie einen sicheren Raum mit allem Notwendigen ein, bevor der Rest des Hauses erkundet wird. Der Sibirier ist neugierig, braucht aber seine Zeit.",
         "icon": "🏠",
         "points": [
-          "Saubere Katzentoilette vorbereiten",
-          "In den ersten Tagen laute Gerausche vermeiden",
-          "Pheromon-Diffuser zur Beruhigung nutzen"
+          "Bereiten Sie eine saubere Katzentoilette vor",
+          "Vermeiden Sie laute Geräusche in den ersten Tagen",
+          "Verwenden Sie Pheromon-Diffusoren zur Entspannung"
         ]
       },
       {
-        "title": "Konigliche Ernahrung",
-        "description": "Eine imposante Katze wie die Sibirische braucht hochwertiges Eiweiss. Vermeiden Sie zu viele Getreideanteile und setzen Sie auf ausgewogene Trocken- und Nassnahrung.",
+        "title": "Königliche Ernährung",
+        "description": "Eine imposante Katze wie der Sibirier benötigt Proteine von höchster Qualität. Vermeiden Sie Getreide und setzen Sie auf ausgewogene Trocken- und Nassdiäten.",
         "icon": "🥩",
         "points": [
           "Tierische Proteine an erster Stelle",
-          "Stets frisches Wasser (am besten aus einem Brunnen)",
-          "Erganzung mit Taurin"
+          "Immer frisches Wasser (am besten aus einem Brunnen)",
+          "Ergänzung von Taurin"
         ]
       },
       {
         "title": "Soziales Leben",
-        "description": "Die Sibirische Katze wird oft Katzen-Hund genannt. Sie liebt Gesellschaft und leidet bei langer Einsamkeit. Spielen Sie taglich mit ihr.",
+        "description": "Der Sibirier wird oft als Hunde-Katze bezeichnet. Er liebt Gesellschaft und leidet unter längerer Einsamkeit. Lernen Sie, täglich mit ihm zu spielen.",
         "icon": "🐈",
         "points": [
-          "Spielrunden von 15 Minuten",
-          "Mentale Forderung mit Intelligenzspielen",
-          "Schrittweise Sozialisierung mit anderen Haustieren"
+          "Spielsitzungen von 15 Min.",
+          "Geistige Stimulation mit Rätseln",
+          "Schrittweise Sozialisation mit anderen Haustieren"
         ]
       }
     ]
   },
   "availableKittensPage": {
-    "title": "Verfugbare Kitten",
-    "intro": "Hier finden Sie aktuell verfugbare Kitten sowie die Historie vergangener und geplanter Wurfe.",
+    "title": "Verfügbare Kitten",
+    "intro": "In diesem Bereich finden Sie die derzeit verfügbaren Kitten und die Historie der bereits geborenen oder geplanten Würfe.",
     "availableSup": "Zur Adoption",
-    "availableTitle": "Jetzt verfugbar",
-    "plannedSup": "Demnachst",
-    "plannedTitle": "Geplante Wurfe",
+    "availableTitle": "Jetzt verfügbar",
+    "plannedSup": "In Kürze",
+    "plannedTitle": "Geplante Würfe",
     "historySup": "Vergangenheit",
-    "historyTitle": "Wurf-Historie",
-    "emptyAvailable": "Derzeit sind keine Kitten verfugbar.",
-    "emptyPlanned": "Momentan sind keine Wurfe geplant.",
-    "emptyHistory": "Noch keine Historie verfugbar.",
-    "photoUnavailable": "Foto nicht verfugbar",
+    "historyTitle": "Historie der Würfe",
+    "emptyAvailable": "Im Moment sind keine Kitten verfügbar.",
+    "emptyPlanned": "Im Moment sind keine Würfe geplant.",
+    "emptyHistory": "Historie derzeit nicht verfügbar.",
+    "photoUnavailable": "Foto nicht verfügbar",
     "details": "Details",
     "viewDetails": "Details ansehen",
     "kittenDetails": "Kitten-Details",
@@ -530,7 +530,7 @@
     "statusLabel": "Status",
     "statusLabels": {
       "planned": "Geplant",
-      "waiting": "Wartend",
+      "waiting": "In Erwartung",
       "active": "Aktiv",
       "historical": "Historisch",
       "other": "Status"
@@ -544,27 +544,27 @@
     "damLabel": "Mutter (Dam)",
     "expectedKittensSup": "Erwartete Kitten",
     "kittensSup": "Die Kitten",
-    "comingSoonTitle": "Demnachst...",
-    "individualSheetsTitle": "Einzelprofile",
-    "expectedEmpty": "Die Kitten werden hinzugefugt, sobald sie geboren sind.",
-    "kittensEmpty": "Keine Kitten mit diesem Wurf verknupft.",
-    "details": "Vollstandiges Profil",
-    "sheetNotAvailable": "Profil noch nicht verfugbar",
-    "photoUnavailable": "Foto nicht verfugbar",
+    "comingSoonTitle": "In Kürze...",
+    "individualSheetsTitle": "Einzelne Steckbriefe",
+    "expectedEmpty": "Die Kitten werden hinzugefügt, sobald sie geboren sind.",
+    "kittensEmpty": "Keine Kitten mit diesem Wurf verknüpft.",
+    "details": "Vollständiger Steckbrief",
+    "sheetNotAvailable": "Steckbrief noch nicht verfügbar",
+    "photoUnavailable": "Foto nicht verfügbar",
     "bornLabel": "Geboren",
-    "backToAvailable": "Zuruck zu verfugbaren Kitten",
+    "backToAvailable": "Zurück zu Verfügbare Kitten",
     "notesLabel": "Notizen",
     "galleryScrollLeft": "Fotos nach links scrollen",
     "galleryScrollRight": "Fotos nach rechts scrollen",
-    "galleryOpenPhoto": "Foto offnen",
-    "galleryScrollHint": "Scrollen, um alle Fotos zu sehen"
+    "galleryOpenPhoto": "Foto öffnen",
+    "galleryScrollHint": "Scrollen Sie, um alle Fotos zu sehen"
   },
   "catsGroupPage": {
     "kingsLabel": "Kings",
     "queensLabel": "Queens",
-    "emptyTitle": "Keine Tiere verfugbar",
-    "emptyDescription": "Inhalte fur diesen Bereich werden in Kurze veroffentlicht.",
-    "imageUnavailable": "Bild nicht verfugbar",
+    "emptyTitle": "Kein Tier verfügbar",
+    "emptyDescription": "Die Inhalte für diesen Bereich werden in Kürze veröffentlicht.",
+    "imageUnavailable": "Bild nicht verfügbar",
     "defaultColor": "Sibirische Neva Masquerade",
     "fivLabel": "FIV",
     "felvLabel": "FeLV",
@@ -572,7 +572,7 @@
     "pkdLabel": "PKD",
     "bloodGroupLabel": "Blutgruppe",
     "showResultsLabel": "Show-Ergebnisse",
-    "dataPlaceholder": "(Daten)",
+    "dataPlaceholder": "(Datum)",
     "pedigreeButton": "Stammbaum",
     "parentsTitle": "Eltern",
     "motherLabel": "Mutter",

@@ -276,6 +276,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const resolvedFather = cat.father || litterRef?.father
   const resolvedMother = cat.mother || litterRef?.mother
   const inquiryHref = categoryKey === 'kittens' ? `/${locale}/richiedi-informazioni/${slug}` : `/${locale}/contatti`
+  const inquiryLabel = categoryKey === 'kittens' ? 'RICHIESDI INFORMAZIONI / RISERVA' : dict.catPage.inquire
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
@@ -469,7 +470,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
 
             {statusKey === 'available' && (
               <Link href={inquiryHref} className="gold-hover-button inline-block text-center mt-10 bg-slate-900 text-white py-5 px-10 rounded-full font-bold shadow-lg uppercase tracking-widest text-sm">
-                {dict.catPage.inquire}
+                {inquiryLabel}
               </Link>
             )}
           </div>
