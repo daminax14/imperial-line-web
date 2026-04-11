@@ -278,7 +278,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             {kittenLitterHref && (
               <Link
                 href={kittenLitterHref}
-                className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
+                className="gold-hover-button inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5"
               >
                 <span className="text-sm">←</span>
                 <span>{catText?.backToLitter || 'Back to litter'}</span>
@@ -290,7 +290,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             <GoBackButton
               label={catText?.backToPrevious || 'Back to previous page'}
               fallbackHref={kittenLitterHref || `/${locale}/gattini-disponibili`}
-              className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/18 bg-white/70 px-4 py-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-[#2f6f99] hover:bg-white/95 transition-colors"
+              className="gold-hover-button inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/18 bg-white/70 px-4 py-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-[#2f6f99]"
             />
           </div>
         )}
@@ -298,7 +298,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
           <div className="mt-3 mb-8">
             <Link
               href={`/${locale}/i-nostri-gatti/${listGroup}/elenco`}
-              className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/30 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] hover:bg-[#2f6f99] hover:text-white transition-colors"
+              className="gold-hover-button inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/30 bg-white/80 px-4 py-2 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99]"
             >
               ← {listGroup === 'kings' ? (catText?.backToKingsList || 'Back to Kings list') : (catText?.backToQueensList || 'Back to Queens list')}
             </Link>
@@ -426,7 +426,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                     href={cat.pedigreeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center bg-[#2f6f99] text-white py-3.5 px-7 rounded-full font-bold hover:bg-gold-200 hover:text-slate-900 transition-all shadow-md uppercase tracking-widest text-[11px]"
+                    className="gold-hover-button inline-flex items-center justify-center bg-[#2f6f99] text-white py-3.5 px-7 rounded-full font-bold shadow-md uppercase tracking-widest text-[11px]"
                   >
                     {dict.catPage.pedigree} ↗
                   </a>
@@ -454,7 +454,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             </div>
 
             {statusKey === 'available' && (
-              <Link href={`/${locale}/contatti`} className="inline-block text-center mt-10 bg-slate-900 text-white py-5 px-10 rounded-full font-bold hover:bg-gold-200 transition-all shadow-lg hover:shadow-gold-200/40 uppercase tracking-widest text-sm">
+              <Link href={`/${locale}/contatti`} className="gold-hover-button inline-block text-center mt-10 bg-slate-900 text-white py-5 px-10 rounded-full font-bold shadow-lg uppercase tracking-widest text-sm">
                 {dict.catPage.inquire}
               </Link>
             )}

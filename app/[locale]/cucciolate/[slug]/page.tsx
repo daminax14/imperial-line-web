@@ -329,7 +329,7 @@ function KittenCard({
             aria-label={`${viewDetailsLabel}: ${kitten.name}`}
             className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
           >
-            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md hover:bg-gold-200 hover:text-slate-900">
+            <span className="gold-hover-reveal opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md">
               {viewDetailsLabel} →
             </span>
           </Link>
@@ -375,7 +375,7 @@ function KittenCard({
         {kitten.slug ? (
           <Link
             href={`/${locale}/cat/${kitten.slug}`}
-            className="inline-flex items-center justify-center gap-1 mt-3 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md transition-all hover:bg-gold-200 hover:text-slate-900 group/link"
+            className="gold-hover-button inline-flex items-center justify-center gap-1 mt-3 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md group/link"
           >
             <span>{pageText?.details || 'Full profile'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
@@ -435,7 +435,7 @@ export default async function LitterPage({
         <div className="mb-10 flex flex-wrap items-center gap-3">
           <Link
             href={`/${locale}/gattini-disponibili`}
-            className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
+            className="gold-hover-button inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5"
           >
             <span className="text-sm">←</span>
             <span>{pageText?.backToAvailable || 'Back to available kittens'}</span>
@@ -603,7 +603,7 @@ export default async function LitterPage({
         <div className="mt-16">
           <Link
             href={`/${locale}/gattini-disponibili`}
-            className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
+            className="gold-hover-button inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5"
           >
             <span className="text-sm">←</span>
             <span>{pageText?.backToAvailable || 'Back to available kittens'}</span>

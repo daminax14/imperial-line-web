@@ -131,7 +131,7 @@ export default async function CatsGroupListPage({
                         aria-label={`${dict?.availableKittensPage?.details || 'Dettagli'}: ${cat.name}`}
                         className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
                       >
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+                        <span className="gold-hover-reveal opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
                           {dict?.availableKittensPage?.details || 'Dettagli'} →
                         </span>
                       </Link>
@@ -146,7 +146,7 @@ export default async function CatsGroupListPage({
                       {cat.slug && (
                         <Link
                           href={`/${locale}/cat/${cat.slug}`}
-                          className="inline-flex items-center rounded-full border border-[#2f6f99]/30 bg-white text-[#2f6f99] text-[11px] uppercase tracking-[0.18em] font-semibold px-4 py-2 hover:border-[#2f6f99] hover:bg-[#2f6f99] hover:text-white transition-colors"
+                          className="gold-hover-button inline-flex items-center rounded-full border border-[#2f6f99]/30 bg-white text-[#2f6f99] text-[11px] uppercase tracking-[0.18em] font-semibold px-4 py-2"
                         >
                           {dict?.availableKittensPage?.details || 'Dettagli'}
                         </Link>

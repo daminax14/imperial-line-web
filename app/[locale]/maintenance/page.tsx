@@ -32,7 +32,7 @@ export default async function MaintenancePage({ params }: { params: Promise<{ lo
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center rounded-full border border-[#2f6f99]/25 bg-white px-5 py-2.5 text-sm font-semibold text-[#2f6f99] hover:bg-[#2f6f99] hover:text-white transition-colors"
+              className="gold-hover-button inline-flex items-center rounded-full border border-[#2f6f99]/25 bg-white px-5 py-2.5 text-sm font-semibold text-[#2f6f99]"
             >
               {maintenance?.retryButton || 'Riprova homepage'}
             </Link>

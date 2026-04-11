@@ -260,7 +260,7 @@ function KittenCard({
             aria-label={`${detailsText}: ${kitten.name}`}
             className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
           >
-            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md hover:bg-gold-200 hover:text-slate-900">
+            <span className="gold-hover-reveal opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md">
               {detailsText} →
             </span>
           </Link>
@@ -281,7 +281,7 @@ function KittenCard({
         {kitten.slug && (
           <Link
             href={`/${locale}/cat/${kitten.slug}`}
-            className="inline-flex items-center justify-center gap-1 mt-4 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md transition-all hover:bg-gold-200 hover:text-slate-900 group/link"
+            className="gold-hover-button inline-flex items-center justify-center gap-1 mt-4 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md group/link"
           >
             <span>{dict?.details || 'Full profile'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
@@ -326,7 +326,7 @@ function PlannedLitterCard({
                 aria-label={`${detailsText}: ${litterDisplayTitle}`}
                 className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
               >
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+                <span className="gold-hover-reveal opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
                   {detailsText} →
                 </span>
               </Link>
@@ -384,7 +384,7 @@ function PlannedLitterCard({
           {litter.slug && (
             <Link
               href={`/${locale}/cucciolate/${litter.slug}`}
-              className="inline-flex items-center gap-1 mt-1 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
+              className="gold-hover-button inline-flex items-center gap-1 mt-1 rounded-full border border-[#2f6f99]/25 bg-white px-4 py-2 text-sm font-semibold text-[#2f6f99] group/link"
             >
               <span>{dict?.litterDetails || 'View litter'}</span>
               <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
@@ -436,7 +436,7 @@ function HistoryLitterCard({
         </div>
         {href && (
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+            <span className="gold-hover-reveal opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
               {dict?.viewDetails || 'View details'} →
             </span>
           </div>
@@ -465,7 +465,7 @@ function HistoryLitterCard({
           </p>
         )}
         {href && (
-          <p className="inline-flex items-center gap-1 mt-3 text-xs font-semibold text-[#2f6f99]">
+          <p className="gold-hover-button inline-flex items-center gap-1 mt-3 rounded-full border border-[#2f6f99]/25 bg-white px-4 py-2 text-xs font-semibold text-[#2f6f99]">
             {dict?.kittenDetails || 'Kitten details'} <span>→</span>
           </p>
         )}
