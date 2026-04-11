@@ -7,6 +7,22 @@ import CatLineageSection from '@/components/CatLineageSection'
 import GoBackButton from '@/components/ui/GoBackButton'
 import { getLitterDisplayTitle } from '@/lib/utils'
 
+type ParentRef = {
+  name?: string
+  imageUrl?: string
+  titles?: string
+  slug?: string
+  emsCode?: string
+}
+
+type LitterRef = {
+  slug?: string
+  title?: string
+  letter?: string
+  father?: ParentRef
+  mother?: ParentRef
+}
+
 // Funzione per prendere i dati del gatto filtrando per lingua
 async function getCat(slug: string, locale: string) {
   const query = `*[_type == "cat" && slug.current == $slug][0] {
@@ -29,17 +45,35 @@ async function getCat(slug: string, locale: string) {
     "litter": *[_type == "litter" && references(^._id)][0] {
       "slug": slug.current,
       letter,
-      "title": coalesce(title[$locale], title.it, title)
+      "title": coalesce(title[$locale], title.it, title),
+      "father": father->{
+        name,
+        "imageUrl": image.asset->url,
+        titles,
+        "slug": slug.current,
+        emsCode
+      },
+      "mother": mother->{
+        name,
+        "imageUrl": image.asset->url,
+        titles,
+        "slug": slug.current,
+        emsCode
+      }
     },
     father->{
       name,
       "imageUrl": image.asset->url,
-      titles
+      titles,
+      "slug": slug.current,
+      emsCode
     },
     mother->{
       name,
       "imageUrl": image.asset->url,
-      titles
+      titles,
+      "slug": slug.current,
+      emsCode
     }
   }`
   const data = await client.fetch(query, { slug, locale })
@@ -191,7 +225,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   }
   const statusKey = normalizeStatusKey(cat.status)
   const statusLabels = (catText?.statusLabels || {}) as Record<string, string>
-  const categoryLabels = ((catText as any)?.categoryLabels || {}) as Record<string, string>
+  const categoryLabels = ((catText as { categoryLabels?: Record<string, string> })?.categoryLabels || {}) as Record<string, string>
   const countryLabels = (catText?.countryLabels || {}) as Record<string, string>
   const localizedCategory = getLocalizedCategory(cat.category, locale, categoryLabels)
   const localizedStatus = statusLabels[statusKey] || cat.status
@@ -201,7 +235,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const staysInCattery = statusKey === 'staysInCattery'
   const categoryKey = normalizeCategoryKey(cat.category)
   const listGroup = normalizeGroupFromCategory(cat.category)
-  const litterRef = (cat as any)?.litter as { slug?: string; title?: string; letter?: string } | undefined
+  const litterRef = (cat as { litter?: LitterRef })?.litter
   const litterTitle = getLitterDisplayTitle(litterRef?.title, litterRef?.letter, catText?.litterFallbackTitle || 'Litter')
   const kittenLitterHref = litterRef?.slug ? `/${locale}/cucciolate/${litterRef.slug}` : null
   const destinationCode = getCountryCode(cat.destinationCountry)
@@ -213,7 +247,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
     de: 'Wird leben in',
     fr: 'Vivra en',
   }
-  const willLiveInLabel = (catText as any)?.willLiveIn || reservedLabelsByLocale[locale] || reservedLabelsByLocale.en
+  const willLiveInLabel = (catText as { willLiveIn?: string })?.willLiveIn || reservedLabelsByLocale[locale] || reservedLabelsByLocale.en
   const sexLabels = (catText?.sexLabels || {}) as Record<string, string>
   const sexKey = normalizeSexKey(cat.sex)
   const localizedSex = sexLabels[sexKey] || cat.sex || '---'
@@ -232,6 +266,8 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const hasStructuredTests = tests.some((t) => typeof t.raw === 'string' && t.raw.trim().length > 0)
   const hasPlainHealth = typeof cat.health === 'string' && cat.health.trim().length > 0
   const hasHealthSection = hasStructuredTests || hasPlainHealth
+  const resolvedFather = cat.father || litterRef?.father
+  const resolvedMother = cat.mother || litterRef?.mother
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
@@ -398,19 +434,21 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
               </div>
 
               <CatLineageSection
-                father={cat.father}
-                mother={cat.mother}
+                father={resolvedFather}
+                mother={resolvedMother}
                 compact
                 className="mt-4"
                 texts={{
-                  title: "",
+                  title: dict?.litterPage?.parentsTitle || 'King & Queen',
                   subtitle: dict.catPage.lineage_sub,
                   sire: dict.catPage.sire,
                   dam: dict.catPage.dam,
+                  details: dict?.litterPage?.details || 'Full profile',
                   zoom: dict.catPage.zoom,
                   close: dict.catPage.close,
                   unknownParent: dict.catPage.unknownParent,
                   zoomAriaPrefix: dict.catPage.zoomAriaPrefix,
+                  locale,
                 }}
               />
             </div>

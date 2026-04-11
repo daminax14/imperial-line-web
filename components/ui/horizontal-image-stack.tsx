@@ -57,20 +57,15 @@ export function HorizontalImageStack({ images = defaultImages, className = "", o
   const dotsRailRef = useRef<HTMLDivElement | null>(null)
   const dotButtonRefs = useRef<Array<HTMLButtonElement | null>>([])
   const navigationCooldown = 360
+  const activeIndex = images.length === 0 ? 0 : Math.min(currentIndex, images.length - 1)
 
   useEffect(() => {
-    if (images.length === 0) {
-      setCurrentIndex(0)
-      return
-    }
-
-    setCurrentIndex((prev) => (prev >= images.length ? images.length - 1 : prev))
     dotButtonRefs.current = dotButtonRefs.current.slice(0, images.length)
   }, [images.length])
 
   useEffect(() => {
     const rail = dotsRailRef.current
-    const currentDot = dotButtonRefs.current[currentIndex]
+    const currentDot = dotButtonRefs.current[activeIndex]
     if (!rail || !currentDot) return
 
     // Keep dot navigation local to the rail and avoid horizontal page shifts.
@@ -82,7 +77,7 @@ export function HorizontalImageStack({ images = defaultImages, className = "", o
       left: nextLeft,
       behavior: 'smooth',
     })
-  }, [currentIndex, images.length])
+  }, [activeIndex, images.length])
 
   const navigate = useCallback(
     (direction: number) => {
@@ -102,7 +97,7 @@ export function HorizontalImageStack({ images = defaultImages, className = "", o
 
   const getCardStyle = (index: number) => {
     const total = images.length
-    let diff = index - currentIndex
+    let diff = index - activeIndex
     if (diff > total / 2) diff -= total
     if (diff < -total / 2) diff += total
 
@@ -116,7 +111,7 @@ export function HorizontalImageStack({ images = defaultImages, className = "", o
 
   const isVisible = (index: number) => {
     const total = images.length
-    let diff = index - currentIndex
+    let diff = index - activeIndex
     if (diff > total / 2) diff -= total
     if (diff < -total / 2) diff += total
     return Math.abs(diff) <= 2

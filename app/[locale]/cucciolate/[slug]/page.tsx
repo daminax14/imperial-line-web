@@ -12,7 +12,7 @@ type Kitten = {
   _id: string
   name: string
   slug?: string
-  image?: any
+  image?: unknown
   sex?: string
   color?: string
   birthDate?: string
@@ -24,7 +24,7 @@ type Kitten = {
 type Parent = {
   name: string
   slug?: string
-  image?: any
+  image?: unknown
   titles?: string
   emsCode?: string
 }
@@ -37,7 +37,7 @@ type Litter = {
   notes?: string
   plannedDate?: string
   birthDate?: string
-  coverImage?: any
+  coverImage?: unknown
   galleryUrls?: string[]
   father?: Parent | null
   mother?: Parent | null
@@ -220,10 +220,10 @@ function ParentCard({
   parent: Parent
   role: string
   locale: string
-  pageText: any
+  pageText: Record<string, unknown>
 }) {
   const inner = (
-    <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0">
+    <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm px-4 py-4">
       <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 group-hover/parent:scale-105">
         {parent.image ? (
           <img
@@ -282,7 +282,7 @@ function KittenCard({
 }: {
   kitten: Kitten
   locale: string
-  pageText: any
+  pageText: Record<string, unknown>
   viewDetailsLabel: string
   countryLabels: Record<string, string>
   statusLabels: Record<string, string>
@@ -479,34 +479,38 @@ export default async function LitterPage({
             </h1>
             <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
 
-            <div className="mt-5 bg-gradient-to-br from-white/95 to-white/80 p-5 rounded-[1.6rem] border border-white/80 shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#2f6f99]/10 text-[#2f6f99] flex items-center justify-center text-sm">✦</span>
-                <h2 className="text-xl font-serif text-slate-900">{pageText?.litterTitle || 'Litter details'}</h2>
-              </div>
-
+            <div className="relative mt-5 p-7 rounded-[2rem] border border-[#2f6f99]/35 bg-white/25 backdrop-blur-md shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] overflow-hidden">
+              <div className="absolute -inset-[2px] -z-10 rounded-[2rem]" style={{ backgroundColor: 'rgba(47, 111, 153, 0.14)' }} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
                 {litter.status && (
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>📌</span>{pageText?.statusLabel || 'Stato'}</p>
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
+                    {pageText?.statusLabel && (
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>📌</span>{pageText.statusLabel}</p>
+                    )}
                     <p className="font-semibold text-slate-900">{localizedLitterStatus}</p>
                   </div>
                 )}
                 {isPlanned && litter.plannedDate && (
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🗓️</span>{pageText?.expectedDateLabel || 'Expected date'}</p>
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
+                    {pageText?.expectedDateLabel && (
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🗓️</span>{pageText.expectedDateLabel}</p>
+                    )}
                     <p className="font-semibold text-slate-900">{fmtDate(litter.plannedDate, locale)}</p>
                   </div>
                 )}
                 {!isPlanned && litter.birthDate && (
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎂</span>{pageText?.birthDateLabel || 'Birth date'}</p>
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
+                    {pageText?.birthDateLabel && (
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎂</span>{pageText.birthDateLabel}</p>
+                    )}
                     <p className="font-semibold text-slate-900">{fmtDate(litter.birthDate, locale)}</p>
                   </div>
                 )}
                 {!isPlanned && (
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3">
-                    <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🐾</span>{pageText?.kittensCountLabel || 'Kittens count'}</p>
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
+                    {pageText?.kittensCountLabel && (
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🐾</span>{pageText.kittensCountLabel}</p>
+                    )}
                     <p className="font-semibold text-slate-900">{kittens.length}</p>
                   </div>
                 )}
@@ -524,7 +528,8 @@ export default async function LitterPage({
             )}
 
             {(litter.father || litter.mother) && (
-              <div className="mt-6 rounded-[2rem] border border-white/75 bg-white/85 p-5 shadow-[0_18px_40px_-32px_rgba(32,72,112,0.45)]">
+              <div className="relative mt-6 p-7 rounded-[2rem] border border-[#2f6f99]/35 bg-white/25 backdrop-blur-md shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] overflow-hidden">
+                <div className="absolute -inset-[2px] -z-10 rounded-[2rem]" style={{ backgroundColor: 'rgba(47, 111, 153, 0.14)' }} />
                 <p className="text-xs uppercase tracking-[0.32em] text-[#2f6f99]/70 font-semibold mb-2">
                   {pageText?.parentsSup || 'Parents'}
                 </p>
