@@ -11,9 +11,6 @@ type KittenRef = {
 type FormState = {
   fullName: string
   allergic: string
-  specificKitten: string
-  futureLitter: string
-  colorPreference: string
   aboutYou: string
   email: string
 }
@@ -24,9 +21,6 @@ type FieldErrors = Partial<Record<FieldKey, string>>
 const initialState: FormState = {
   fullName: '',
   allergic: '',
-  specificKitten: '',
-  futureLitter: '',
-  colorPreference: '',
   aboutYou: '',
   email: '',
 }
@@ -207,40 +201,6 @@ export default function KittenInquiryForm({ locale, kitten }: { locale: string; 
         </label>
         {fieldErrors.allergic ? <p className="text-xs font-medium text-rose-600">{fieldErrors.allergic}</p> : null}
       </fieldset>
-
-      <div className="space-y-2" data-field="specificKitten">
-        <label className="text-[12px] font-semibold text-slate-800">Vuoi proprio questo gattino o vuoi valutarne altri? (opzionale)</label>
-        <textarea
-          rows={2}
-          value={formState.specificKitten}
-          onChange={(event) => setField('specificKitten', event.target.value)}
-          placeholder={`Es. Sono interessato a ${kitten.name}, ma valuto anche alternative`}
-          className={getFieldClassName('specificKitten')}
-        ></textarea>
-      </div>
-
-      <fieldset className="space-y-2" data-field="futureLitter">
-        <legend className="text-[12px] font-semibold text-slate-800">Vuoi prenotare anche per una prossima cucciolata? (opzionale)</legend>
-        <label className={getChoiceClassName('futureLitter')}>
-          <input type="radio" name="futureLitter" className="mr-2" checked={formState.futureLitter === 'yes'} onChange={() => setField('futureLitter', 'yes')} />
-          Sì
-        </label>
-        <label className={getChoiceClassName('futureLitter')}>
-          <input type="radio" name="futureLitter" className="mr-2" checked={formState.futureLitter === 'no'} onChange={() => setField('futureLitter', 'no')} />
-          No
-        </label>
-      </fieldset>
-
-      <div className="space-y-2" data-field="colorPreference">
-        <label className="text-[12px] font-semibold text-slate-800">Preferenze di colore (opzionale)</label>
-        <input
-          type="text"
-          value={formState.colorPreference}
-          onChange={(event) => setField('colorPreference', event.target.value)}
-          placeholder="Es. Neva Masquerade, Blue tabby, ..."
-          className={getFieldClassName('colorPreference')}
-        />
-      </div>
 
       <div className="space-y-2" data-field="aboutYou">
         <label className="text-[12px] font-semibold text-slate-800">Raccontaci di te*</label>
