@@ -546,9 +546,6 @@ export default async function LitterPage({
                 <p className="text-xs uppercase tracking-[0.32em] text-[#2f6f99]/70 font-semibold mb-2">
                   {pageText?.parentsSup || 'Parents'}
                 </p>
-                <h2 className="text-xl md:text-2xl font-serif italic text-[#1f3c57] mb-4">
-                  {pageText?.parentsTitle || 'King & Queen'}
-                </h2>
 
                 <div className="grid grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-start gap-3 md:gap-5">
                   {litter.father && (

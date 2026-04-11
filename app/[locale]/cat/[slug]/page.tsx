@@ -453,7 +453,7 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                 compact
                 className="mt-4"
                 texts={{
-                  title: dict?.litterPage?.parentsTitle || 'King & Queen',
+                  title: '',
                   subtitle: dict.catPage.lineage_sub,
                   sire: dict.catPage.sire,
                   dam: dict.catPage.dam,
