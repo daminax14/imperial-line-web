@@ -17,15 +17,39 @@ type ContactPayload = {
   locale?: string
 }
 
+type RequestOrigin = {
+  ip: string
+  country: string
+  region: string
+  city: string
+}
+
 function required(value: string | undefined) {
   return typeof value === 'string' && value.trim().length > 0
 }
 
-function buildMessage(payload: ContactPayload) {
+function getRequestOrigin(headers: Headers): RequestOrigin {
+  const forwardedFor = headers.get('x-forwarded-for') || ''
+  const firstForwardedIp = forwardedFor.split(',')[0]?.trim()
+  const ip =
+    firstForwardedIp ||
+    headers.get('x-real-ip') ||
+    headers.get('cf-connecting-ip') ||
+    'unknown'
+
+  const country = headers.get('x-vercel-ip-country') || 'unknown'
+  const region = headers.get('x-vercel-ip-country-region') || 'unknown'
+  const city = headers.get('x-vercel-ip-city') || 'unknown'
+
+  return { ip, country, region, city }
+}
+
+function buildMessage(payload: ContactPayload, origin: RequestOrigin) {
   const subject = `New Imperial Line contact request - ${payload.fullName}`
   const userLocale = payload.locale || 'unknown'
   const text = [
     `Navigation language: ${userLocale}`,
+    `IP origin: ${origin.ip} (${origin.city}, ${origin.region}, ${origin.country})`,
     `Name: ${payload.fullName}`,
     `Email: ${payload.email}`,
     `Cat allergy: ${payload.allergic}`,
@@ -43,6 +67,7 @@ function buildMessage(payload: ContactPayload) {
       <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
         <h2 style="margin-bottom: 12px;">New Imperial Line contact request</h2>
         <p><strong>Navigation language:</strong> ${userLocale}</p>
+        <p><strong>IP origin:</strong> ${origin.ip} (${origin.city}, ${origin.region}, ${origin.country})</p>
         <p><strong>Name:</strong> ${payload.fullName}</p>
         <p><strong>Email:</strong> ${payload.email}</p>
         <p><strong>Cat allergy:</strong> ${payload.allergic}</p>
@@ -61,6 +86,7 @@ function buildMessage(payload: ContactPayload) {
 export async function POST(request: Request) {
   try {
     const payload = (await request.json()) as ContactPayload
+    const origin = getRequestOrigin(request.headers)
 
     if (!required(payload.fullName) || !required(payload.email) || !required(payload.aboutYou) || !required(payload.allergic) || !required(payload.gender) || !required(payload.otherPets)) {
       return NextResponse.json({ message: 'Required fields are missing.' }, { status: 400 })
@@ -78,7 +104,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const { subject, text, html } = buildMessage(payload)
+    const { subject, text, html } = buildMessage(payload, origin)
 
     let resendError: unknown = null
 
