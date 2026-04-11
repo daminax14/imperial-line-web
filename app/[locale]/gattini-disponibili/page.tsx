@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+import { getLitterDisplayTitle } from '@/lib/utils'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
 
@@ -19,6 +20,7 @@ type AvailableKitten = {
 type LitterItem = {
   _id: string
   slug?: string
+  letter?: string
   title?: string
   status?: string
   notes?: string
@@ -60,6 +62,7 @@ async function getLitters(locale: string): Promise<LitterItem[]> {
   const query = `*[_type == "litter"] | order(coalesce(plannedDate, birthDate, _createdAt) desc) {
     _id,
     "slug": slug.current,
+    letter,
     "title": coalesce(title[$locale], title.it, title),
     status,
     "notes": coalesce(notes[$locale], notes.it, notes),
@@ -100,6 +103,14 @@ function fmtDate(value?: string, locale: string = 'it'): string {
   } catch {
     return value
   }
+}
+
+function normalizeSexKey(value?: string): 'male' | 'female' | 'unknown' {
+  const v = (value || '').trim().toLowerCase()
+  if (!v) return 'unknown'
+  if (v.includes('masch') || v.includes('male') || v === 'm') return 'male'
+  if (v.includes('femmin') || v.includes('female') || v === 'f') return 'female'
+  return 'unknown'
 }
 
 /* ─── Shared primitives ─────────────────────────────────────────────── */
@@ -207,13 +218,17 @@ function KittenCard({
   locale,
   dict,
   catLabels,
+  sexLabels,
 }: {
   kitten: AvailableKitten
   locale: string
   dict: any
   catLabels?: Record<string, string>
+  sexLabels?: Record<string, string>
 }) {
   const detailsText = dict?.viewDetails || dict?.details || 'View details'
+  const sexKey = normalizeSexKey(kitten.sex)
+  const localizedSex = sexLabels?.[sexKey] || kitten.sex || '—'
 
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
@@ -251,7 +266,7 @@ function KittenCard({
           {kitten.name}
         </h3>
         <p className="text-sm text-[#4a6580] mt-1.5">
-          {kitten.sex || '—'}&nbsp;&middot;&nbsp;{kitten.color || '—'}
+          {localizedSex}&nbsp;&middot;&nbsp;{kitten.color || '—'}
         </p>
         {kitten.birthDate && (
           <p className="text-xs text-[#6a85a0] mt-1">
@@ -285,6 +300,7 @@ function PlannedLitterCard({
 }) {
   const coverImg = litter.coverImage ?? null
   const detailsText = dict?.viewDetails || dict?.litterDetails || 'View details'
+  const litterDisplayTitle = getLitterDisplayTitle(litter.title, litter.letter, dict?.newLitterTitle || 'New litter')
 
   return (
     <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:shadow-xl">
@@ -294,14 +310,14 @@ function PlannedLitterCard({
             <div className="aspect-[4/3] md:h-full md:aspect-auto">
               <img
                 src={urlFor(coverImg).width(600).height(480).fit('crop').url()}
-                alt={litter.title || dict?.plannedTitle || 'Planned litter'}
+                alt={litterDisplayTitle}
                 className="w-full h-full object-cover"
               />
             </div>
             {litter.slug && (
               <Link
                 href={`/${locale}/cucciolate/${litter.slug}`}
-                aria-label={`${detailsText}: ${litter.title || dict?.plannedTitle || 'Planned litter'}`}
+                aria-label={`${detailsText}: ${litterDisplayTitle}`}
                 className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
               >
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
@@ -322,12 +338,12 @@ function PlannedLitterCard({
                 className="group/title inline-block"
               >
                 <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug group-hover/title:text-[#2f6f99] transition-colors">
-                  {litter.title || dict?.newLitterTitle || 'New litter'}
+                  {litterDisplayTitle}
                 </h3>
               </Link>
             ) : (
               <h3 className="text-2xl md:text-3xl font-serif italic text-[#1f3c57] leading-snug">
-                {litter.title || dict?.newLitterTitle || 'New litter'}
+                {litterDisplayTitle}
               </h3>
             )}
             {litter.plannedDate && (
@@ -387,6 +403,7 @@ function HistoryLitterCard({
 }) {
   const coverImg = litter.coverImage ?? litter.motherImage ?? litter.fatherImage ?? null
   const href = litter.slug ? `/${locale}/cucciolate/${litter.slug}` : undefined
+  const litterDisplayTitle = getLitterDisplayTitle(litter.title, litter.letter, dict?.litterTitle || 'Litter')
 
   const cardContent = (
     <>
@@ -394,7 +411,7 @@ function HistoryLitterCard({
         {coverImg ? (
           <img
             src={urlFor(coverImg).width(700).height(525).fit('crop').url()}
-            alt={litter.title || dict?.litterTitle || 'Litter'}
+            alt={litterDisplayTitle}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
@@ -405,7 +422,7 @@ function HistoryLitterCard({
         <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/65 to-transparent" />
         <div className="absolute bottom-3 left-4 right-4">
           <p className="text-white font-serif italic text-lg leading-tight drop-shadow">
-            {litter.title || dict?.litterTitle || 'Litter'}
+            {litterDisplayTitle}
           </p>
           {litter.birthDate && (
             <p className="text-white/75 text-xs mt-0.5">{fmtDate(litter.birthDate, locale)}</p>
@@ -472,6 +489,7 @@ export default async function AvailableKittensPage({
   const dict = await getDictionary(locale)
   const pageText = dict?.availableKittensPage || {}
   const catLabels = dict?.catPage?.statusLabels || {}
+  const catSexLabels = dict?.catPage?.sexLabels || {}
 
   const [availableKittens, litters] = await Promise.all([
     getAvailableKittens(locale),
@@ -517,6 +535,7 @@ export default async function AvailableKittensPage({
                   locale={locale}
                   dict={pageText}
                   catLabels={catLabels}
+                  sexLabels={catSexLabels}
                 />
               ))}
             </div>

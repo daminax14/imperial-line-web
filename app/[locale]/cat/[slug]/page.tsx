@@ -4,6 +4,8 @@ import { getDictionary } from '@/lib/get-dictionary'
 import CatPhotoGallery from '@/components/CatPhotoGallery'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import CatLineageSection from '@/components/CatLineageSection'
+import GoBackButton from '@/components/ui/GoBackButton'
+import { getLitterDisplayTitle } from '@/lib/utils'
 
 // Funzione per prendere i dati del gatto filtrando per lingua
 async function getCat(slug: string, locale: string) {
@@ -24,6 +26,11 @@ async function getCat(slug: string, locale: string) {
     status,
     destinationCountry,
     pedigreeUrl,
+    "litter": *[_type == "litter" && references(^._id)][0] {
+      "slug": slug.current,
+      letter,
+      "title": coalesce(title[$locale], title.it, title)
+    },
     father->{
       name,
       "imageUrl": image.asset->url,
@@ -35,7 +42,7 @@ async function getCat(slug: string, locale: string) {
       titles
     }
   }`
-  const data = await client.fetch(query, { slug })
+  const data = await client.fetch(query, { slug, locale })
   return data
 }
 
@@ -190,11 +197,23 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const localizedStatus = statusLabels[statusKey] || cat.status
   const statusStyle = cat.status ? statusColors[statusKey] || statusColors.unknown : 'hidden';
   const soldStatus = statusKey === 'sold'
+  const reservedStatus = statusKey === 'reserved'
   const staysInCattery = statusKey === 'staysInCattery'
+  const categoryKey = normalizeCategoryKey(cat.category)
   const listGroup = normalizeGroupFromCategory(cat.category)
+  const litterRef = (cat as any)?.litter as { slug?: string; title?: string; letter?: string } | undefined
+  const litterTitle = getLitterDisplayTitle(litterRef?.title, litterRef?.letter, catText?.litterFallbackTitle || 'Litter')
+  const kittenLitterHref = litterRef?.slug ? `/${locale}/cucciolate/${litterRef.slug}` : null
   const destinationCode = getCountryCode(cat.destinationCountry)
   const destinationKey = normalizeCountryKey(cat.destinationCountry)
   const localizedDestination = countryLabels[destinationKey] || cat.destinationCountry
+  const reservedLabelsByLocale: Record<string, string> = {
+    it: 'Vivra in',
+    en: 'Will live in',
+    de: 'Wird leben in',
+    fr: 'Vivra en',
+  }
+  const willLiveInLabel = (catText as any)?.willLiveIn || reservedLabelsByLocale[locale] || reservedLabelsByLocale.en
   const sexLabels = (catText?.sexLabels || {}) as Record<string, string>
   const sexKey = normalizeSexKey(cat.sex)
   const localizedSex = sexLabels[sexKey] || cat.sex || '---'
@@ -218,7 +237,28 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
     <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
       <CatsEtherealBackground />
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {listGroup && (
+        {categoryKey === 'kittens' && (
+          <div className="mt-3 mb-8 flex flex-wrap items-center gap-3">
+            {kittenLitterHref && (
+              <Link
+                href={kittenLitterHref}
+                className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
+              >
+                <span className="text-sm">←</span>
+                <span>{catText?.backToLitter || 'Back to litter'}</span>
+                <span className="rounded-full border border-current/30 px-2 py-0.5 text-[10px] tracking-[0.14em]">
+                  {litterRef?.letter ? litterRef.letter.toUpperCase() : litterTitle}
+                </span>
+              </Link>
+            )}
+            <GoBackButton
+              label={catText?.backToPrevious || 'Back to previous page'}
+              fallbackHref={kittenLitterHref || `/${locale}/gattini-disponibili`}
+              className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/18 bg-white/70 px-4 py-2 text-[11px] uppercase tracking-[0.18em] font-semibold text-[#2f6f99] hover:bg-white/95 transition-colors"
+            />
+          </div>
+        )}
+        {categoryKey !== 'kittens' && listGroup && (
           <div className="mt-3 mb-8">
             <Link
               href={`/${locale}/i-nostri-gatti/${listGroup}/elenco`}
@@ -259,10 +299,10 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                 {localizedStatus}
               </div>
             )}
-            {soldStatus && cat.destinationCountry && (
+            {(soldStatus || reservedStatus) && cat.destinationCountry && (
               <div className="absolute top-6 left-6 z-20 rotate-[-6deg] rounded-2xl border-2 border-[#2f6f99] bg-white/95 px-4 py-2.5 shadow-[0_12px_26px_-18px_rgba(22,52,82,0.7)]">
                 <div className="absolute inset-1 rounded-xl border border-dashed border-[#2f6f99]/35 pointer-events-none" />
-                <p className="relative text-[9px] uppercase tracking-[0.22em] text-[#2f6f99] font-bold">{catText?.livesIn || 'Now lives in'}</p>
+                <p className="relative text-[9px] uppercase tracking-[0.22em] text-[#2f6f99] font-bold">{reservedStatus ? willLiveInLabel : (catText?.livesIn || 'Now lives in')}</p>
                 <p className="relative text-sm md:text-base font-serif font-semibold text-[#1f3c57] leading-tight inline-flex items-center gap-1.5">
                   {destinationCode ? (
                     <img
@@ -292,36 +332,37 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
             <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
               <p>{cat.description}</p>
 
-              <div className="bg-gradient-to-br from-white/95 to-white/80 p-7 rounded-[2rem] border border-white/80 shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] space-y-5 mt-8">
+              <div className="relative mt-8 p-7 rounded-[2rem] border border-[#2f6f99]/35 bg-white/25 backdrop-blur-md shadow-[0_20px_45px_-35px_rgba(32,72,112,0.45)] space-y-5 overflow-hidden">
+                <div className="absolute -inset-[2px] -z-10 rounded-[2rem]" style={{ backgroundColor: 'rgba(47, 111, 153, 0.14)' }} />
                 <div className="flex items-center gap-3">
                   <span className="w-9 h-9 rounded-full bg-[#2f6f99]/10 text-[#2f6f99] flex items-center justify-center text-base">✦</span>
                   <h2 className="text-2xl font-serif text-slate-900">{dict.catPage.techDetails}</h2>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-base">
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎂</span>{dict.catPage.birth}</p>
                     <p className="font-semibold text-slate-900">{formatBirthDate(cat.birthDate)}</p>
                   </div>
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>⚥</span>{dict.catPage.sex}</p>
                     <p className="font-semibold text-slate-900">{localizedSex}</p>
                   </div>
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🎨</span>{dict.catPage.color}</p>
                     <p className="font-semibold text-slate-900">{cat.color || '---'}</p>
                   </div>
-                  <div className="rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                  <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🧬</span>{dict.catPage.ems}</p>
                     <p className="font-semibold text-slate-900">{cat.emsCode || '---'}</p>
                   </div>
                   {hasHealthSection && (
-                    <div className="sm:col-span-2 rounded-xl border border-slate-100 bg-white/85 p-3.5">
+                    <div className="sm:col-span-2 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                       <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>
                       {hasStructuredTests ? (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-1">
                           {tests.map((test) => (
-                            <div key={test.key} className="rounded-lg border border-slate-200 bg-white px-2.5 py-2 flex items-center justify-between gap-3">
+                            <div key={test.key} className="rounded-lg border border-[#2f6f99]/18 bg-white/70 px-2.5 py-2 flex items-center justify-between gap-3">
                               <span className="text-xs font-semibold text-slate-700 uppercase tracking-[0.12em]">{test.label}</span>
                               <span
                                 className={`text-xs font-semibold px-2 py-0.5 rounded-full ${

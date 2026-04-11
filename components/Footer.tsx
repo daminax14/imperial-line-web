@@ -136,9 +136,8 @@ export default function Footer({ dict, locale }: { dict: any, locale: string }) 
             <Link href={`/${locale}/privacy`} className="hover:text-slate-900 transition-colors">{footer.privacy}</Link>
             <Link href={`/${locale}/cookies`} className="hover:text-slate-900 transition-colors">{footer.cookies}</Link>
             <p className="text-[9px] normal-case tracking-[0.18em] text-slate-300/70">
-              Experience Designed by{' '}
-              <a href="#" className="underline underline-offset-2 hover:text-slate-400 transition-colors">
-                Arrowing
+              <a href="https://alebraga.com" target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-slate-400 transition-colors">
+                Experience Designed by Alebraga
               </a>
             </p>
           </div>

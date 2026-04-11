@@ -258,7 +258,11 @@
     "notFound": "Cat not found.",
     "backToKingsList": "Back to Kings list",
     "backToQueensList": "Back to Queens list",
+    "backToLitter": "Back to litter",
+    "backToPrevious": "Back to previous page",
+    "litterFallbackTitle": "Litter",
     "livesIn": "Now lives in",
+    "willLiveIn": "Will live in",
     "defaultBreed": "Siberian Neva Masquerade",
     "defaultHealth": "Tested",
     "testLabels": {

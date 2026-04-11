@@ -258,7 +258,11 @@
     "notFound": "Katze nicht gefunden.",
     "backToKingsList": "Zuruck zur Kings-Liste",
     "backToQueensList": "Zuruck zur Queens-Liste",
+    "backToLitter": "Zuruck zum Wurf",
+    "backToPrevious": "Zuruck zur vorherigen Seite",
+    "litterFallbackTitle": "Wurf",
     "livesIn": "Lebt jetzt in",
+    "willLiveIn": "Wird leben in",
     "defaultBreed": "Sibirische Neva Masquerade",
     "defaultHealth": "Getestet",
     "testLabels": {

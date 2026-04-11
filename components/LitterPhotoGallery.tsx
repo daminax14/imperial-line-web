@@ -1,12 +1,16 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
+import { HorizontalImageStack } from '@/components/ui/horizontal-image-stack'
 
 type LitterPhotoGalleryProps = {
   mainImage?: string
   extraImages?: string[]
   title: string
   texts?: {
+    previousLabel?: string
+    nextLabel?: string
+    dotLabel?: string
     scrollLeft?: string
     scrollRight?: string
     openPhoto?: string
@@ -15,20 +19,18 @@ type LitterPhotoGalleryProps = {
 }
 
 export default function LitterPhotoGallery({ mainImage, extraImages, title, texts }: LitterPhotoGalleryProps) {
+  const [zoomImage, setZoomImage] = useState<{ src: string; alt: string } | null>(null)
+
   const images = useMemo(() => {
     const list = [mainImage, ...(extraImages || [])].filter((item): item is string => Boolean(item))
-    return Array.from(new Set(list))
-  }, [mainImage, extraImages])
+    return Array.from(new Set(list)).map((src, index) => ({
+      id: `${title}-${index + 1}`,
+      src,
+      alt: `${title} ${index + 1}`,
+    }))
+  }, [mainImage, extraImages, title])
 
-  const [activeImage, setActiveImage] = useState(images[0] || '')
-  const thumbsRef = useRef<HTMLDivElement | null>(null)
-
-  const scrollThumbs = (direction: 'left' | 'right') => {
-    if (!thumbsRef.current) return
-    thumbsRef.current.scrollBy({ left: direction === 'left' ? -220 : 220, behavior: 'smooth' })
-  }
-
-  if (!activeImage) {
+  if (images.length === 0) {
     return (
       <div className="w-full aspect-[4/3] bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center rounded-[1.7rem]">
         <span className="text-slate-300 text-4xl font-serif italic tracking-widest">◦ ◦ ◦</span>
@@ -37,64 +39,44 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title, text
   }
 
   return (
-    <div className="space-y-3">
-      <div className="rounded-[1.7rem] overflow-hidden aspect-[4/3] bg-slate-100">
-        <img src={activeImage} alt={title} className="w-full h-full object-cover" />
+    <>
+      <div className="relative rounded-[1.7rem] overflow-hidden">
+        <HorizontalImageStack
+          images={images}
+          className="h-[540px] min-h-0 rounded-[1.7rem] bg-transparent"
+          onImageClick={(image) => setZoomImage({ src: image.src, alt: image.alt })}
+          imageClickLabel={texts?.openPhoto || 'Open photo'}
+          texts={{
+            previousLabel: texts?.previousLabel || texts?.scrollLeft,
+            nextLabel: texts?.nextLabel || texts?.scrollRight,
+            dotLabel: texts?.dotLabel || texts?.openPhoto,
+          }}
+        />
       </div>
 
-      {images.length > 1 && (
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            {images.length > 4 && (
-              <button
-                type="button"
-                onClick={() => scrollThumbs('left')}
-                className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label={texts?.scrollLeft || 'Scroll photos left'}
-              >
-                ‹
-              </button>
-            )}
-
-            <div
-              ref={thumbsRef}
-              className="flex gap-2 overflow-x-auto pb-1 flex-1 scrollbar-thin scrollbar-thumb-[#2f6f99]/40 scrollbar-track-transparent"
+      {zoomImage && (
+        <div
+          className="fixed inset-0 z-[120] bg-black/75 backdrop-blur-sm flex items-center justify-center p-5"
+          onClick={() => setZoomImage(null)}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              onClick={() => setZoomImage(null)}
+              className="absolute -top-10 right-0 text-white text-sm uppercase tracking-widest"
             >
-              {images.map((imgSrc, index) => {
-                const selected = imgSrc === activeImage
-                return (
-                  <button
-                    key={`${imgSrc}-${index}`}
-                    type="button"
-                    onClick={() => setActiveImage(imgSrc)}
-                    className={`relative rounded-xl overflow-hidden border-2 transition-all flex-shrink-0 w-[78px] ${
-                      selected ? 'border-gold-200 shadow-md' : 'border-white/70 hover:border-[#2f6f99]'
-                    }`}
-                    aria-label={`${texts?.openPhoto || 'Open photo'} ${index + 1}`}
-                  >
-                    <img src={imgSrc} alt={`${title} ${index + 1}`} className="w-full aspect-square object-cover" />
-                  </button>
-                )
-              })}
-            </div>
-
-            {images.length > 4 && (
-              <button
-                type="button"
-                onClick={() => scrollThumbs('right')}
-                className="flex-shrink-0 w-8 h-8 rounded-full border border-white/70 bg-white/85 text-slate-700 hover:bg-[#2f6f99] hover:text-white transition-colors"
-                aria-label={texts?.scrollRight || 'Scroll photos right'}
-              >
-                ›
-              </button>
-            )}
+              Close ✕
+            </button>
+            <img
+              src={zoomImage.src}
+              alt={zoomImage.alt}
+              className="w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
+            />
           </div>
-
-          {images.length > 4 && (
-            <p className="text-[10px] uppercase tracking-[0.2em] text-slate-500">{texts?.scrollHint || 'Scroll to see all photos'}</p>
-          )}
         </div>
       )}
-    </div>
+    </>
   )
 }

@@ -258,7 +258,11 @@
     "notFound": "Chat introuvable.",
     "backToKingsList": "Retour a la liste Kings",
     "backToQueensList": "Retour a la liste Queens",
+    "backToLitter": "Retour a la portee",
+    "backToPrevious": "Retour a la page precedente",
+    "litterFallbackTitle": "Portee",
     "livesIn": "Vit maintenant en",
+    "willLiveIn": "Vivra en",
     "defaultBreed": "Siberien Neva Masquerade",
     "defaultHealth": "Tests effectues",
     "testLabels": {

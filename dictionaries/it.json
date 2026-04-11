@@ -258,7 +258,11 @@
     "notFound": "Gatto non trovato.",
     "backToKingsList": "Torna all'elenco Kings",
     "backToQueensList": "Torna all'elenco Queens",
+    "backToLitter": "Torna alla cucciolata",
+    "backToPrevious": "Torna alla pagina precedente",
+    "litterFallbackTitle": "Cucciolata",
     "livesIn": "Ora vive in",
+    "willLiveIn": "Vivra in",
     "defaultBreed": "Siberian Neva Masquerade",
     "defaultHealth": "Test effettuati",
     "testLabels": {

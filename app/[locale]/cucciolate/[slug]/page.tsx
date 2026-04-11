@@ -4,6 +4,7 @@ import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import LitterPhotoGallery from '@/components/LitterPhotoGallery'
+import { getLitterDisplayTitle } from '@/lib/utils'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
 
@@ -17,6 +18,7 @@ type Kitten = {
   birthDate?: string
   status?: string
   emsCode?: string
+  destinationCountry?: string
 }
 
 type Parent = {
@@ -29,6 +31,7 @@ type Parent = {
 
 type Litter = {
   _id: string
+  letter?: string
   title?: string
   status?: string
   notes?: string
@@ -46,6 +49,7 @@ type Litter = {
 async function getLitter(slug: string, locale: string): Promise<Litter | null> {
   const query = `*[_type == "litter" && slug.current == $slug][0] {
     _id,
+    letter,
     "title": coalesce(title[$locale], title.it, title),
     status,
     "notes": coalesce(notes[$locale], notes.it, notes),
@@ -76,7 +80,8 @@ async function getLitter(slug: string, locale: string): Promise<Litter | null> {
       "color": coalesce(color[$locale], color.it, color),
       birthDate,
       status,
-      emsCode
+      emsCode,
+      destinationCountry
     }
   }`
   const data = await client.fetch(query, { slug, locale })
@@ -113,24 +118,93 @@ function normalizeLitterStatusKey(value?: string): 'planned' | 'waiting' | 'acti
   return 'other'
 }
 
+function normalizeCatStatusKey(status?: string): string {
+  const s = (status || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+  if (!s) return 'unknown'
+  if (s.includes('disponib') || s.includes('available') || s.includes('disponible') || s.includes('free') || s.includes('libero') || s.includes('verfugbar')) return 'available'
+  if (s.includes('valutaz') || s.includes('evaluation') || s.includes('evaluate')) return 'evaluation'
+  if (s.includes('riserv') || s.includes('reserved') || s.includes('reserve') || s.includes('reserv')) return 'reserved'
+  if (s.includes('tenut') || s.includes('held')) return 'held'
+  if (s.includes('non in vendita') || s.includes('not for sale')) return 'notForSale'
+  if (s.includes('cedut') || s.includes('sold') || s.includes('vendu') || s.includes('cede') || s.includes('vergeben')) return 'sold'
+  if (s.includes('rimane in allevamento') || s.includes('stays in cattery')) return 'staysInCattery'
+  return 'unknown'
+}
+
+function getCountryCode(country?: string): string | null {
+  const value = (country || '').trim().toLowerCase()
+  const codes: Record<string, string> = {
+    francia: 'fr',
+    germania: 'de',
+    spagna: 'es',
+    italia: 'it',
+    svizzera: 'ch',
+    belgio: 'be',
+    austria: 'at',
+    'paesi bassi': 'nl',
+  }
+  return codes[value] || null
+}
+
+function normalizeCountryKey(country?: string): string {
+  const value = (country || '').trim().toLowerCase()
+  const map: Record<string, string> = {
+    francia: 'france',
+    france: 'france',
+    germania: 'germany',
+    deutschland: 'germany',
+    germany: 'germany',
+    spagna: 'spain',
+    espana: 'spain',
+    spain: 'spain',
+    italia: 'italy',
+    italy: 'italy',
+    svizzera: 'switzerland',
+    suisse: 'switzerland',
+    schweiz: 'switzerland',
+    switzerland: 'switzerland',
+    belgio: 'belgium',
+    belgique: 'belgium',
+    belgien: 'belgium',
+    belgium: 'belgium',
+    austria: 'austria',
+    'paesi bassi': 'netherlands',
+    niederlande: 'netherlands',
+    pays_bas: 'netherlands',
+    netherlands: 'netherlands',
+  }
+  return map[value] || 'other'
+}
+
+function normalizeSexKey(value?: string): string {
+  const v = (value || '').trim().toLowerCase()
+  if (!v) return 'unknown'
+  if (v.includes('masch') || v.includes('male') || v === 'm') return 'male'
+  if (v.includes('femmin') || v.includes('female') || v === 'f') return 'female'
+  return 'unknown'
+}
+
 /* ─── Status pill ────────────────────────────────────────────────────── */
 
-function StatusPill({ status }: { status?: string }) {
-  if (!status) return null
-  const s = status.toLowerCase()
+function StatusPill({ label, statusKey }: { label?: string; statusKey: string }) {
+  if (!label) return null
   const cls =
-    s.includes('disponib') || s.includes('availab')
+    statusKey === 'available'
       ? 'bg-emerald-500 text-white'
-      : s.includes('riservat') || s.includes('reserv')
+      : statusKey === 'reserved'
         ? 'bg-gold-200 text-slate-900'
-        : s.includes('valutaz')
+        : statusKey === 'evaluation'
           ? 'bg-sky-500 text-white'
           : 'bg-slate-500 text-white'
   return (
     <span
       className={`${cls} text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-sm`}
     >
-      {status}
+      {label}
     </span>
   )
 }
@@ -199,11 +273,32 @@ function KittenCard({
   kitten,
   locale,
   pageText,
+  viewDetailsLabel,
+  countryLabels,
+  statusLabels,
+  sexLabels,
+  livesInLabel,
+  willLiveInLabel,
 }: {
   kitten: Kitten
   locale: string
   pageText: any
+  viewDetailsLabel: string
+  countryLabels: Record<string, string>
+  statusLabels: Record<string, string>
+  sexLabels: Record<string, string>
+  livesInLabel: string
+  willLiveInLabel: string
 }) {
+  const statusKey = normalizeCatStatusKey(kitten.status)
+  const localizedStatus = statusLabels[statusKey] || kitten.status
+  const sexKey = normalizeSexKey(kitten.sex)
+  const localizedSex = sexLabels[sexKey] || kitten.sex || '—'
+  const showDestination = (statusKey === 'sold' || statusKey === 'reserved') && Boolean(kitten.destinationCountry)
+  const destinationCode = getCountryCode(kitten.destinationCountry)
+  const destinationKey = normalizeCountryKey(kitten.destinationCountry)
+  const localizedDestination = countryLabels[destinationKey] || kitten.destinationCountry
+
   return (
     <article className="group rounded-2xl overflow-hidden bg-[#2f6f99]/12 border border-[#2f6f99]/35 backdrop-blur-md shadow-[0_16px_32px_-24px_rgba(24,60,95,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_36px_-20px_rgba(24,60,95,0.75)]">
       <div className="relative aspect-[3/4] bg-white/25 backdrop-blur-sm overflow-hidden m-2 rounded-xl border border-white/45">
@@ -220,7 +315,38 @@ function KittenCard({
         )}
         {kitten.status && (
           <div className="absolute top-3 right-3">
-            <StatusPill status={kitten.status} />
+            <StatusPill label={localizedStatus} statusKey={statusKey} />
+          </div>
+        )}
+        {kitten.slug && (
+          <Link
+            href={`/${locale}/cat/${kitten.slug}`}
+            aria-label={`${viewDetailsLabel}: ${kitten.name}`}
+            className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
+          >
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+              {viewDetailsLabel} →
+            </span>
+          </Link>
+        )}
+        {showDestination && (
+          <div className="absolute top-3 left-3 z-20 rotate-[-6deg] rounded-2xl border-2 border-[#2f6f99] bg-white/95 px-3 py-2 shadow-[0_12px_26px_-18px_rgba(22,52,82,0.7)]">
+            <div className="absolute inset-1 rounded-xl border border-dashed border-[#2f6f99]/35 pointer-events-none" />
+            <p className="relative text-[9px] uppercase tracking-[0.22em] text-[#2f6f99] font-bold">
+              {statusKey === 'reserved' ? willLiveInLabel : livesInLabel}
+            </p>
+            <p className="relative text-xs font-serif font-semibold text-[#1f3c57] leading-tight inline-flex items-center gap-1.5">
+              {destinationCode ? (
+                <img
+                  src={`https://flagcdn.com/24x18/${destinationCode}.png`}
+                  alt={localizedDestination || 'Destination'}
+                  className="w-4 h-3 rounded-[2px] border border-[#2f6f99]/20 object-cover"
+                />
+              ) : (
+                <span>📍</span>
+              )}
+              <span>{localizedDestination}</span>
+            </p>
           </div>
         )}
       </div>
@@ -231,7 +357,7 @@ function KittenCard({
         </h3>
         {(kitten.sex || kitten.color) && (
           <p className="text-sm text-[#4a6580]">
-            {kitten.sex || '—'}&nbsp;&middot;&nbsp;{kitten.color || '—'}
+            {localizedSex}&nbsp;&middot;&nbsp;{kitten.color || '—'}
           </p>
         )}
         {kitten.emsCode && (
@@ -277,23 +403,41 @@ export default async function LitterPage({
   const kittens = Array.isArray(litter.kittens) ? litter.kittens : []
   const pageText = dict?.litterPage || {}
   const listText = dict?.availableKittensPage || {}
+  const catText = dict?.catPage || {}
+  const viewDetailsLabel = listText?.viewDetails || pageText?.details || 'View details'
   const litterStatusLabels = (pageText?.statusLabels || {}) as Record<string, string>
+  const catStatusLabels = (catText?.statusLabels || {}) as Record<string, string>
+  const sexLabels = (catText?.sexLabels || {}) as Record<string, string>
+  const countryLabels = (catText?.countryLabels || {}) as Record<string, string>
+  const livesInLabel = catText?.livesIn || 'Now lives in'
+  const reservedLabelsByLocale: Record<string, string> = {
+    it: 'Vivrà in',
+    en: 'Will live in',
+    de: 'Wird leben in',
+    fr: 'Vivra en',
+  }
+  const willLiveInLabel = reservedLabelsByLocale[locale] || reservedLabelsByLocale.en
   const litterStatusKey = normalizeLitterStatusKey(litter.status)
   const localizedLitterStatus = litterStatusLabels[litterStatusKey] || litter.status
+  const litterDisplayTitle = getLitterDisplayTitle(litter.title, litter.letter, pageText?.litterTitle || 'Litter')
 
   return (
     <main className="relative pt-[156px] pb-32 bg-[#edf3fb] min-h-screen text-[#1f2f43] overflow-hidden">
       <CatsEtherealBackground />
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── Breadcrumb ───────────────────────────────────────────── */}
-        <nav className="mb-10 flex items-center gap-2 text-xs text-[#4a6580]">
-          <Link href={`/${locale}/gattini-disponibili`} className="hover:text-[#2f6f99] transition-colors">
-            {listText?.title || 'Available kittens'}
+        <div className="mb-10 flex flex-wrap items-center gap-3">
+          <Link
+            href={`/${locale}/gattini-disponibili`}
+            className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
+          >
+            <span className="text-sm">←</span>
+            <span>{pageText?.backToAvailable || 'Back to available kittens'}</span>
           </Link>
-          <span className="opacity-40">/</span>
-          <span className="text-[#1f3c57] font-medium">{litter.title || pageText?.litterTitle || 'Litter'}</span>
-        </nav>
+          <span className="inline-flex items-center rounded-full border border-white/80 bg-white/75 px-3 py-1 text-[11px] uppercase tracking-[0.2em] font-semibold text-[#2f6f99]/80">
+            {litterDisplayTitle}
+          </span>
+        </div>
 
         {/* ── Hero: cover + title ───────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start mb-16">
@@ -310,8 +454,11 @@ export default async function LitterPage({
                 <LitterPhotoGallery
                   mainImage={coverImg ? urlFor(coverImg).width(1400).height(1050).fit('crop').url() : undefined}
                   extraImages={litter.galleryUrls}
-                  title={litter.title || pageText?.litterTitle || 'Litter'}
+                  title={litterDisplayTitle}
                   texts={{
+                    previousLabel: catText?.galleryPrevious,
+                    nextLabel: catText?.galleryNext,
+                    dotLabel: catText?.galleryGoTo,
                     scrollLeft: pageText?.galleryScrollLeft,
                     scrollRight: pageText?.galleryScrollRight,
                     openPhoto: pageText?.galleryOpenPhoto,
@@ -328,7 +475,7 @@ export default async function LitterPage({
               Imperial Line
             </p>
             <h1 className="text-4xl md:text-5xl font-serif italic text-[#1f3c57] leading-tight">
-              {litter.title || pageText?.litterTitle || 'Litter'}
+              {litterDisplayTitle}
             </h1>
             <div className="mt-3 w-10 h-[2px] rounded-full bg-[#2f6f99]/35" />
 
@@ -424,7 +571,18 @@ export default async function LitterPage({
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {kittens.map((kitten) => (
-                <KittenCard key={kitten._id} kitten={kitten} locale={locale} pageText={pageText} />
+                <KittenCard
+                  key={kitten._id}
+                  kitten={kitten}
+                  locale={locale}
+                  pageText={pageText}
+                  viewDetailsLabel={viewDetailsLabel}
+                  countryLabels={countryLabels}
+                  statusLabels={catStatusLabels}
+                  sexLabels={sexLabels}
+                  livesInLabel={livesInLabel}
+                  willLiveInLabel={willLiveInLabel}
+                />
               ))}
             </div>
           )}
@@ -434,9 +592,9 @@ export default async function LitterPage({
         <div className="mt-16">
           <Link
             href={`/${locale}/gattini-disponibili`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/back"
+            className="inline-flex items-center gap-2 rounded-full border border-[#2f6f99]/35 bg-white/90 px-5 py-2.5 text-xs uppercase tracking-[0.2em] font-semibold text-[#2f6f99] shadow-sm hover:-translate-y-0.5 hover:bg-[#2f6f99] hover:text-white transition-all"
           >
-            <span className="transition-transform duration-200 group-hover/back:-translate-x-1">←</span>
+            <span className="text-sm">←</span>
             <span>{pageText?.backToAvailable || 'Back to available kittens'}</span>
           </Link>
         </div>
