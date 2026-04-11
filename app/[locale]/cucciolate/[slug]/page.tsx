@@ -221,8 +221,10 @@ function ParentCard({
   parent: Parent
   role: string
   locale: string
-  pageText: Record<string, string | undefined>
+  pageText: Record<string, unknown>
 }) {
+  const detailsLabel = typeof pageText?.details === 'string' ? pageText.details : 'Full profile'
+
   const inner = (
     <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm px-4 py-4">
       <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 group-hover/parent:scale-105">
@@ -251,7 +253,7 @@ function ParentCard({
         )}
         {parent.slug && (
           <span className="inline-block mt-2 text-xs font-semibold text-[#2f6f99]">
-            {pageText?.details || 'Full profile'} →
+            {detailsLabel} →
           </span>
         )}
       </div>
@@ -283,7 +285,7 @@ function KittenCard({
 }: {
   kitten: Kitten
   locale: string
-  pageText: Record<string, string | undefined>
+  pageText: Record<string, unknown>
   viewDetailsLabel: string
   countryLabels: Record<string, string>
   statusLabels: Record<string, string>
@@ -291,6 +293,11 @@ function KittenCard({
   livesInLabel: string
   willLiveInLabel: string
 }) {
+  const photoUnavailableLabel = typeof pageText?.photoUnavailable === 'string' ? pageText.photoUnavailable : 'Photo not available'
+  const bornLabel = typeof pageText?.bornLabel === 'string' ? pageText.bornLabel : 'Born'
+  const detailsLabel = typeof pageText?.details === 'string' ? pageText.details : 'Full profile'
+  const sheetNotAvailableLabel = typeof pageText?.sheetNotAvailable === 'string' ? pageText.sheetNotAvailable : 'Profile not available yet'
+
   const statusKey = normalizeCatStatusKey(kitten.status)
   const localizedStatus = statusLabels[statusKey] || kitten.status
   const sexKey = normalizeSexKey(kitten.sex)
@@ -315,7 +322,7 @@ function KittenCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-400 italic text-sm bg-slate-50">
-            {pageText?.photoUnavailable || 'Photo not available'}
+            {photoUnavailableLabel}
           </div>
         )}
         {kitten.status && (
@@ -369,7 +376,7 @@ function KittenCard({
           <p className="text-xs font-mono text-[#6a85a0]">{kitten.emsCode}</p>
         )}
         {kitten.birthDate && (
-          <p className="text-xs text-[#6a85a0]">{pageText?.bornLabel || 'Born'}: {fmtDate(kitten.birthDate, locale)}</p>
+          <p className="text-xs text-[#6a85a0]">{bornLabel}: {fmtDate(kitten.birthDate, locale)}</p>
         )}
 
         {kitten.slug ? (
@@ -377,11 +384,11 @@ function KittenCard({
             href={`/${locale}/cat/${kitten.slug}`}
             className="gold-hover-button inline-flex items-center justify-center gap-1 mt-3 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md group/link"
           >
-            <span>{pageText?.details || 'Full profile'}</span>
+            <span>{detailsLabel}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
           </Link>
         ) : (
-          <p className="mt-3 text-xs text-slate-400 italic">{pageText?.sheetNotAvailable || 'Profile not available yet'}</p>
+          <p className="mt-3 text-xs text-slate-400 italic">{sheetNotAvailableLabel}</p>
         )}
       </div>
       </article>
