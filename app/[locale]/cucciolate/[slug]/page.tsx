@@ -221,7 +221,7 @@ function ParentCard({
   parent: Parent
   role: string
   locale: string
-  pageText: Record<string, unknown>
+  pageText: Record<string, string | undefined>
 }) {
   const inner = (
     <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm px-4 py-4">
@@ -283,7 +283,7 @@ function KittenCard({
 }: {
   kitten: Kitten
   locale: string
-  pageText: Record<string, unknown>
+  pageText: Record<string, string | undefined>
   viewDetailsLabel: string
   countryLabels: Record<string, string>
   statusLabels: Record<string, string>
