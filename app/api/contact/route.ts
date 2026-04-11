@@ -14,6 +14,7 @@ type ContactPayload = {
   otherPets?: string
   aboutYou?: string
   email?: string
+  locale?: string
 }
 
 function required(value: string | undefined) {
@@ -22,7 +23,9 @@ function required(value: string | undefined) {
 
 function buildMessage(payload: ContactPayload) {
   const subject = `New Imperial Line contact request - ${payload.fullName}`
+  const userLocale = payload.locale || 'unknown'
   const text = [
+    `Navigation language: ${userLocale}`,
     `Name: ${payload.fullName}`,
     `Email: ${payload.email}`,
     `Cat allergy: ${payload.allergic}`,
@@ -39,6 +42,7 @@ function buildMessage(payload: ContactPayload) {
   const html = `
       <div style="font-family: Arial, sans-serif; color: #1f2937; line-height: 1.6;">
         <h2 style="margin-bottom: 12px;">New Imperial Line contact request</h2>
+        <p><strong>Navigation language:</strong> ${userLocale}</p>
         <p><strong>Name:</strong> ${payload.fullName}</p>
         <p><strong>Email:</strong> ${payload.email}</p>
         <p><strong>Cat allergy:</strong> ${payload.allergic}</p>

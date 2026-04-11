@@ -39,6 +39,7 @@ async function getCat(slug: string, locale: string) {
     breed,
     sex,
     emsCode,
+    bloodGroup,
     status,
     destinationCountry,
     pedigreeUrl,
@@ -266,6 +267,12 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const hasStructuredTests = tests.some((t) => typeof t.raw === 'string' && t.raw.trim().length > 0)
   const hasPlainHealth = typeof cat.health === 'string' && cat.health.trim().length > 0
   const hasHealthSection = hasStructuredTests || hasPlainHealth
+  const hasBloodGroup = typeof cat.bloodGroup === 'string' && cat.bloodGroup.trim().length > 0
+  const bloodGroupLabelFromCatPage = (catText as { bloodGroupLabel?: string } | undefined)?.bloodGroupLabel
+  const bloodGroupLabel =
+    bloodGroupLabelFromCatPage ||
+    (dict?.catsGroupPage as { bloodGroupLabel?: string } | undefined)?.bloodGroupLabel ||
+    'Blood group'
   const resolvedFather = cat.father || litterRef?.father
   const resolvedMother = cat.mother || litterRef?.mother
 
@@ -392,6 +399,12 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                     <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🧬</span>{dict.catPage.ems}</p>
                     <p className="font-semibold text-slate-900">{cat.emsCode || '---'}</p>
                   </div>
+                  {hasBloodGroup && (
+                    <div className="rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩸</span>{bloodGroupLabel}</p>
+                      <p className="font-semibold text-slate-900">{cat.bloodGroup}</p>
+                    </div>
+                  )}
                   {hasHealthSection && (
                     <div className="sm:col-span-2 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm p-3.5">
                       <p className="text-[10px] uppercase tracking-widest text-slate-500 mb-1 flex items-center gap-1.5"><span>🩺</span>{dict.catPage.health}</p>

@@ -80,7 +80,7 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
 
         <section className="grid grid-cols-1 lg:grid-cols-[1.08fr,0.92fr] gap-8 items-start">
           <div className="rounded-[2rem] border border-white/50 bg-white/40 backdrop-blur-md shadow-[0_24px_60px_-35px_rgba(32,72,112,0.5)] p-5 md:p-7">
-            <ContactRequestForm fields={fields} options={options} contact={contact} />
+            <ContactRequestForm fields={fields} options={options} contact={contact} locale={locale} />
           </div>
 
           <aside className="space-y-4">

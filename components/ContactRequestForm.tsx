@@ -72,10 +72,12 @@ export default function ContactRequestForm({
   fields,
   options,
   contact,
+  locale,
 }: {
   fields: ContactFields
   options: ContactOptions
   contact: ContactTexts
+  locale: string
 }) {
   const [formState, setFormState] = useState<ContactFormState>(initialState)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -173,7 +175,7 @@ export default function ContactRequestForm({
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formState),
+        body: JSON.stringify({ ...formState, locale }),
       })
 
       const payload = (await response.json()) as { message?: string }
@@ -194,6 +196,8 @@ export default function ContactRequestForm({
 
   return (
     <form ref={formRef} className="space-y-5" onSubmit={handleSubmit} noValidate>
+      <input type="hidden" name="locale" value={locale} />
+
       {feedback && (
         <div
           className={`rounded-2xl border px-4 py-3.5 text-sm shadow-sm ${

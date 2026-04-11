@@ -144,21 +144,20 @@ function ParentCard({
 }) {
   const zoomAria = zoomAriaPrefix || 'Zoom photo of'
   const unknownText = unknownLabel || 'Unknown'
+  const detailsHref = slug && locale ? `/${locale}/cat/${slug}` : null
 
-  const content = (
+  return (
     <div className="group/parent flex flex-col items-center text-center gap-2 min-w-0 rounded-xl border border-[#2f6f99]/18 bg-white/55 backdrop-blur-sm px-4 py-4">
       <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-4 border-white shadow-lg transition-transform duration-300 group-hover/parent:scale-105">
         {imageUrl ? (
-          <>
-            <button
-              type="button"
-              onClick={() => onZoom(imageUrl)}
-              className="w-full h-full"
-              aria-label={`${zoomAria} ${name || role}`}
-            >
-              <img src={imageUrl} className="w-full h-full object-cover" alt={name || role} />
-            </button>
-          </>
+          <button
+            type="button"
+            onClick={() => onZoom(imageUrl)}
+            className="w-full h-full"
+            aria-label={`${zoomAria} ${name || role}`}
+          >
+            <img src={imageUrl} className="w-full h-full object-cover" alt={name || role} />
+          </button>
         ) : (
           <div className="w-full h-full bg-slate-100 flex items-center justify-center text-slate-300 text-2xl">◦</div>
         )}
@@ -169,18 +168,16 @@ function ParentCard({
         </p>
         <p className="text-lg md:text-xl font-serif italic text-[#1f3c57] mt-0.5 leading-tight">{name || unknownText}</p>
         {emsCode ? <p className="text-xs font-mono text-[#6a85a0]">{emsCode}</p> : null}
-        {slug ? <span className="inline-block mt-2 text-xs font-semibold text-[#2f6f99]">{detailsLabel || 'Full profile'} →</span> : null}
+        {detailsHref ? (
+          <Link
+            href={detailsHref}
+            className="gold-hover-button inline-flex items-center justify-center gap-1 mt-3 rounded-full bg-[#2f6f99] px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-white shadow-md"
+          >
+            <span>{detailsLabel || 'Full profile'}</span>
+            <span>→</span>
+          </Link>
+        ) : null}
       </div>
     </div>
   )
-
-  if (slug && locale) {
-    return (
-      <Link href={`/${locale}/cat/${slug}`} className="hover:opacity-90 transition-opacity">
-        {content}
-      </Link>
-    )
-  }
-
-  return content
 }
