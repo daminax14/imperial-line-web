@@ -10,14 +10,14 @@
     "book": "Book Now"
   },
   "hero": {
-    "title": "Feline Elegance",
-    "subtitle": "Authentic",
-    "description": "Preserving the majesty and gentle temperament of the original Siberian cat."
+    "title": "Siberian Kittens",
+    "subtitle": "FIFe Certified",
+    "description": "Small family cattery of traditional Siberian and Neva Masquerade cats."
   },
   "homePage": {
     "galleryTitle": "Our cattery",
     "knowledgeEyebrow": "Knowledge Base",
-    "knowledgeTitle": "Insights",
+    "knowledgeTitle": "Learn More",
     "knowledgeEmpty": "Content is being updated.",
     "topics": [
       {
@@ -55,7 +55,7 @@
       {
         "id": "who-we-are",
         "title": "Who we are",
-        "content": "Imperial Line was born from a family project: to raise a small number of cats, follow them every day, and give kittens a calm growth path in a home environment.\n\nWe believe in quality over quantity: each litter is planned with care, respecting the mother timing and each kitten wellbeing.",
+        "content": "Imperial Line was born from a family project: to raise a small number of cats, follow them every day, and give kittens a calm growth path in a home environment.\n\nWe believe in quality over quantity: each litter is planned with care, respecting the mother's timing and each kitten's wellbeing.",
         "image": "/home_1.JPG"
       },
       {
@@ -67,7 +67,7 @@
       {
         "id": "mission",
         "title": "Our mission",
-        "content": "Our mission is to guide each family through a conscious path, from reservation to the kitten first days at home.\n\nWe stay available even after placement with practical advice, ongoing support and updates.",
+        "content": "Our mission is to guide each family through a conscious path, from reservation to the kitten's first days at home.\n\nWe stay available even after placement with practical advice, ongoing support and updates.",
         "image": "/home_3.JPG"
       },
       {
@@ -79,7 +79,7 @@
     ]
   },
   "footer": {
-    "tagline": "Excellence Breeding Siberian Neva Masquerade",
+    "tagline": "Siberian & Neva Masquerade Cattery of Excellence",
     "explore": "Explore",
     "contacts": "Contacts",
     "socialTitle": "Social",
@@ -107,7 +107,7 @@
           "title": "2. Personal data processed",
           "paragraphs": [
             "We process data voluntarily submitted by users in the form: full name, email, phone number (if provided), preferences, and information useful to handle the request.",
-            "Technical browsing data (for example IP address and technical logs) may also be processed as necessary for security and website operation."
+            "Technical browsing data (e.g., IP address and technical logs) may also be processed as necessary for security and website operation."
           ]
         },
         {
@@ -130,8 +130,8 @@
           "title": "5. Data recipients",
           "paragraphs": [
             "Data is not sold or shared with third parties for commercial or marketing purposes.",
-            "Data may be processed only by technical providers necessary to deliver the service (for example hosting and email providers), appointed as processors where required.",
-            "If any provider is outside the EU, transfers are carried out in compliance with GDPR using appropriate safeguards (for example SCCs)."
+            "Data may be processed only by technical providers necessary to deliver the service (e.g., hosting and email providers), appointed as processors where required.",
+            "If any provider is outside the EU, transfers are carried out in compliance with GDPR using appropriate safeguards (e.g., SCCs)."
           ]
         },
         {
@@ -160,39 +160,36 @@
     },
     "cookies": {
       "title": "Cookie Policy",
-      "lastUpdated": "Last updated: 11/04/2026",
-      "intro": "This website does not use profiling, marketing, or analytics cookies. It only uses limited technical cookies for cookie consent management and, if accepted, for saving the preferred site language.",
+      "lastUpdated": "Last updated: 09/04/2026",
+      "intro": "At present, this website does not use profiling, marketing, or analytics cookies and does not set non-essential cookies on user devices.",
       "emptyState": "Content is being updated.",
       "sections": [
         {
           "title": "1. What cookies are",
           "paragraphs": [
-            "Cookies are small text files stored on the user device while browsing.",
+            "Cookies are small text files stored on the user's device while browsing.",
             "They may be technical, analytics, or profiling cookies, first-party or third-party."
           ]
         },
         {
           "title": "2. Cookies used on this website",
           "paragraphs": [
-            "No profiling or marketing cookies are used.",
-            "No analytics cookies are used.",
-            "The website uses one technical consent cookie to remember the user's choice about preference storage.",
-            "If the user accepts, an additional technical cookie is used to remember the preferred site language.",
+            "Currently, no profiling or marketing cookies are used.",
+            "Currently, no analytics cookies are used.",
             "No third-party cookies are currently set through this website."
           ]
         },
         {
           "title": "3. Legal basis",
           "paragraphs": [
-            "The consent cookie and the language preference cookie are handled as technical or low-impact preference cookies.",
-            "Language preference is stored only if the user gives consent through the informational banner.",
+            "As no non-essential cookies are currently used, cookie banner consent is not required at this time.",
             "If non-technical cookies are introduced in the future, a compliant consent mechanism will be implemented."
           ]
         },
         {
           "title": "4. Duration and retention",
           "paragraphs": [
-            "The consent cookie and the language preference cookie may be stored for up to 12 months.",
+            "As no cookies are currently used, no cookie duration table applies.",
             "Any future updates will be reflected in this policy."
           ]
         },
@@ -200,8 +197,7 @@
           "title": "5. Preference management",
           "paragraphs": [
             "Users can always manage or block cookies through browser settings.",
-            "The first-visit banner allows users to accept or refuse storage of language preference.",
-            "Users may also delete cookies at any time through their browser settings."
+            "As no non-essential cookies are currently used, there is no cookie preference panel on the site at this time."
           ]
         },
         {
@@ -258,7 +254,7 @@
       "female": "Female",
       "unknown": "Unspecified"
     },
-    "current": "Current Exemplar",
+    "current": "Current Cat",
     "notFound": "Cat not found.",
     "backToKingsList": "Back to Kings list",
     "backToQueensList": "Back to Queens list",
@@ -288,7 +284,7 @@
       "available": "Available",
       "evaluation": "Under evaluation",
       "reserved": "Reserved",
-      "held": "Held",
+      "held": "On Hold",
       "notForSale": "Not for sale",
       "sold": "Sold",
       "staysInCattery": "Stays in cattery",
@@ -331,7 +327,7 @@
         "title": "Original pedigree",
         "paragraphs": [
           "Each kitten is placed with an original FIFe or WCF pedigree, protecting lineage and breed integrity.",
-          "We also provide a copy of both parents pedigrees."
+          "We also provide a copy of both parents' pedigrees."
         ],
         "points": []
       },
@@ -352,24 +348,24 @@
         "points": []
       },
       {
-        "title": "Companion kittens and neutering",
+        "title": "Pet kittens and neutering",
         "paragraphs": [
-          "Unless otherwise agreed, kittens are placed with companion pedigree.",
+          "Unless otherwise agreed, kittens are placed as pets.",
           "Neutering is required around 6 to 8 months, or when indicated by your veterinarian, once the kitten reaches about 70 to 80 percent of expected adult weight.",
           "We do not neuter kittens before delivery because we consider them too young for early surgery."
         ],
         "points": []
       },
       {
-        "title": "Breeding pedigree",
+        "title": "Breeding rights",
         "paragraphs": [
-          "Placement with breeding pedigree is possible only after a specific agreement before contract signing.",
+          "Placement with breeding rights is possible only after a specific agreement before contract signing.",
           "We do not place kittens in isolation-cage breeding facilities or mixed-breed programs: we carefully select families and breeders."
         ],
         "points": []
       },
       {
-        "title": "International placements",
+        "title": "Kittens for abroad",
         "paragraphs": [
           "For international placement, rabies vaccination, legal waiting periods and an international passport are required.",
           "Additional costs for documents and vaccinations are covered by the buyer."
@@ -424,7 +420,7 @@
     "title": "Reservation",
     "subtitle": "Pre-adoption form",
     "intro": "Fill out this form to help us understand your needs and guide you toward the most suitable kitten.",
-    "introLead": "Fill in your details here and help us choose the perfect family for our kittens to spend the rest of their lives with.",
+    "introLead": "Fill in your details here to help us choose the perfect families with whom our kittens will spend the rest of their lives.",
     "introConditions": "Before completing the form, please make sure you have read the basic conditions under which Imperial Line kittens will leave their home. If you have not done so yet, you can find them here.",
     "conditionsCta": "Go to adoption conditions",
     "afterFormNote": "Thank you for your interest and trust in our small Imperial Line cattery. Once you complete and submit the form above, we will contact you within 24 hours by email (or another contact method you provided). Afterwards, once your adoption request is accepted, we can proceed with signing the reservation contract for your desired kitten. If you have any other questions or need clarification, do not hesitate to contact us. We will be happy to meet you and answer all your questions. Thank you!",
@@ -468,9 +464,9 @@
     "eyebrow": "Guide to Excellence",
     "titleLine1": "Living with a",
     "titleAccent": "Siberian",
-    "intro": "It is not just a cat, it is a member of your royal family. Here is how to guarantee a healthy, happy life worthy of its majesty.",
+    "intro": "It is not just a cat; it is a royal member of your family. Here is how to guarantee a healthy, happy life worthy of its majesty.",
     "ctaTitle": "Do you have more questions?",
-    "ctaDescription": "We are available for pre and post-adoption support. The health of our kittens is always our top priority.",
+    "ctaDescription": "We are available for pre- and post-adoption support. The health of our kittens is always our top priority.",
     "ctaButton": "Write to us on WhatsApp",
     "tips": [
       {
@@ -576,7 +572,7 @@
     "pkdLabel": "PKD",
     "bloodGroupLabel": "Blood Group",
     "showResultsLabel": "Show Results",
-    "dataPlaceholder": "(data)",
+    "dataPlaceholder": "(date)",
     "pedigreeButton": "Pedigree",
     "parentsTitle": "Parents",
     "motherLabel": "Mother",
