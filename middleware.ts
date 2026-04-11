@@ -5,20 +5,26 @@ let locales = ['it', 'en', 'de', 'fr']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const maintenanceMode = process.env.MAINTENANCE_MODE === 'true'
+  const maintenanceMode = process.env.MAINTENANCE_MODE?.trim().toLowerCase() === 'true'
+
+  const localeInPath = locales.find(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
+  const targetLocale = localeInPath || 'it'
+  const maintenancePath = `/${targetLocale}/maintenance`
 
   if (maintenanceMode) {
-    const localeInPath = locales.find(
-      (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-    )
-    const targetLocale = localeInPath || 'it'
-    const maintenancePath = `/${targetLocale}/maintenance`
-
     if (pathname === maintenancePath || pathname === `${maintenancePath}/`) {
       return
     }
 
     request.nextUrl.pathname = maintenancePath
+    return NextResponse.redirect(request.nextUrl)
+  }
+
+  // If maintenance mode has been disabled, avoid keeping users on the maintenance page.
+  if (pathname === maintenancePath || pathname === `${maintenancePath}/`) {
+    request.nextUrl.pathname = `/${targetLocale}`
     return NextResponse.redirect(request.nextUrl)
   }
 
