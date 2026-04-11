@@ -230,6 +230,14 @@ function KittenCard({
   const detailsText = dict?.viewDetails || dict?.details || 'View details'
   const sexKey = normalizeSexKey(kitten.sex)
   const localizedSex = sexLabels?.[sexKey] || kitten.sex || '—'
+  const bornLabel =
+    locale === 'it'
+      ? sexKey === 'male'
+        ? 'Nato'
+        : sexKey === 'female'
+          ? 'Nata'
+          : (dict?.bornLabel || 'Nato/a')
+      : (dict?.bornLabel || 'Born')
 
   return (
     <GoldBorderCard
@@ -275,7 +283,7 @@ function KittenCard({
         </p>
         {kitten.birthDate && (
           <p className="text-xs text-[#6a85a0] mt-1">
-            {dict?.bornLabel || 'Born'}: {fmtDate(kitten.birthDate, locale)}
+            {bornLabel}: {fmtDate(kitten.birthDate, locale)}
           </p>
         )}
         {kitten.slug && (
