@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+import GoldBorderCard from '@/components/ui/GoldBorderCard'
 import { getLitterDisplayTitle } from '@/lib/utils'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
@@ -231,7 +232,11 @@ function KittenCard({
   const localizedSex = sexLabels?.[sexKey] || kitten.sex || '—'
 
   return (
-    <article className="group rounded-2xl overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+    <GoldBorderCard
+      className="group h-full"
+      contentClassName="h-full rounded-[calc(1rem-3px)] bg-[#f3f8fd]"
+    >
+      <article className="h-full rounded-[calc(1rem-3px)] overflow-hidden bg-white/90 border border-white/60 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
       <div className="relative aspect-[3/4] bg-slate-100 overflow-hidden">
         {kitten.image ? (
           <img
@@ -255,7 +260,7 @@ function KittenCard({
             aria-label={`${detailsText}: ${kitten.name}`}
             className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
           >
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md hover:bg-gold-200 hover:text-slate-900">
               {detailsText} →
             </span>
           </Link>
@@ -276,14 +281,15 @@ function KittenCard({
         {kitten.slug && (
           <Link
             href={`/${locale}/cat/${kitten.slug}`}
-            className="inline-flex items-center gap-1 mt-4 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
+            className="inline-flex items-center justify-center gap-1 mt-4 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md transition-all hover:bg-gold-200 hover:text-slate-900 group/link"
           >
             <span>{dict?.details || 'Full profile'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
           </Link>
         )}
       </div>
-    </article>
+      </article>
+    </GoldBorderCard>
   )
 }
 

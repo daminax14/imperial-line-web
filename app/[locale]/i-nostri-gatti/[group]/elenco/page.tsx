@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { client, urlFor } from '@/lib/sanity'
 import { getDictionary, isSupportedLocale } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+import GoldBorderCard from '@/components/ui/GoldBorderCard'
 
 type GroupView = 'kings' | 'queens'
 
@@ -10,7 +11,7 @@ type CatGridItem = {
   _id: string
   name: string
   slug?: string
-  image?: any
+  image?: unknown
   category?: string
   color?: string
 }
@@ -107,9 +108,10 @@ export default async function CatsGroupListPage({
           ) : (
             <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
               {filteredCats.map((cat) => (
-                <article
+                <GoldBorderCard
                   key={cat._id}
-                  className="group rounded-2xl overflow-hidden bg-white/75 border border-white/70 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  className="group"
+                  contentClassName="hover:shadow-xl"
                 >
                   <div className="relative aspect-[4/5] bg-zinc-100 overflow-hidden">
                     {cat.image ? (
@@ -151,7 +153,7 @@ export default async function CatsGroupListPage({
                       )}
                     </div>
                   </div>
-                </article>
+                </GoldBorderCard>
               ))}
             </section>
           )}

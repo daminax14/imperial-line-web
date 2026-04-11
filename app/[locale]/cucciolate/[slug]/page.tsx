@@ -4,6 +4,7 @@ import { client, urlFor } from '@/lib/sanity'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import LitterPhotoGallery from '@/components/LitterPhotoGallery'
+import GoldBorderCard from '@/components/ui/GoldBorderCard'
 import { getLitterDisplayTitle } from '@/lib/utils'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
@@ -300,7 +301,11 @@ function KittenCard({
   const localizedDestination = countryLabels[destinationKey] || kitten.destinationCountry
 
   return (
-    <article className="group rounded-2xl overflow-hidden bg-[#2f6f99]/12 border border-[#2f6f99]/35 backdrop-blur-md shadow-[0_16px_32px_-24px_rgba(24,60,95,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_36px_-20px_rgba(24,60,95,0.75)]">
+    <GoldBorderCard
+      className="group h-full"
+      contentClassName="h-full rounded-[calc(1rem-3px)] bg-[#f3f8fd]"
+    >
+      <article className="h-full rounded-[calc(1rem-3px)] overflow-hidden bg-[#2f6f99]/12 border border-[#2f6f99]/35 backdrop-blur-md shadow-[0_16px_32px_-24px_rgba(24,60,95,0.65)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_36px_-20px_rgba(24,60,95,0.75)]">
       <div className="relative aspect-[3/4] bg-white/25 backdrop-blur-sm overflow-hidden m-2 rounded-xl border border-white/45">
         {kitten.image ? (
           <img
@@ -324,7 +329,7 @@ function KittenCard({
             aria-label={`${viewDetailsLabel}: ${kitten.name}`}
             className="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center"
           >
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-[#1f3c57] text-xs font-semibold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+            <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 bg-[#2f6f99] text-white text-[11px] font-bold uppercase tracking-widest px-4 py-2.5 rounded-full shadow-md hover:bg-gold-200 hover:text-slate-900">
               {viewDetailsLabel} →
             </span>
           </Link>
@@ -370,7 +375,7 @@ function KittenCard({
         {kitten.slug ? (
           <Link
             href={`/${locale}/cat/${kitten.slug}`}
-            className="inline-flex items-center gap-1 mt-3 text-sm font-semibold text-[#2f6f99] hover:text-[#1a4f72] transition-colors group/link"
+            className="inline-flex items-center justify-center gap-1 mt-3 self-start rounded-full bg-[#2f6f99] px-5 py-3 text-[11px] font-bold uppercase tracking-widest text-white shadow-md transition-all hover:bg-gold-200 hover:text-slate-900 group/link"
           >
             <span>{pageText?.details || 'Full profile'}</span>
             <span className="transition-transform duration-200 group-hover/link:translate-x-1">→</span>
@@ -379,7 +384,8 @@ function KittenCard({
           <p className="mt-3 text-xs text-slate-400 italic">{pageText?.sheetNotAvailable || 'Profile not available yet'}</p>
         )}
       </div>
-    </article>
+      </article>
+    </GoldBorderCard>
   )
 }
 
