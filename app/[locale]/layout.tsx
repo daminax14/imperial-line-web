@@ -29,14 +29,21 @@ export async function generateMetadata({
   const metadataBase = new URL(siteUrl);
   const canonicalPath = `/${isSupportedLocale(locale) ? locale : "it"}`;
 
+  const descriptions: Record<string, string> = {
+    it: "Allevamento familiare certificato FIFe di gatti Siberiani e Neva Masquerade. Scopri i nostri gattini disponibili, i nostri gatti e come adottare.",
+    en: "FIFe certified family cattery of Siberian and Neva Masquerade cats. Discover our available kittens, our cats and how to adopt.",
+    fr: "Élevage familial certifié FIFe de chats Sibériens et Neva Masquerade. Découvrez nos chatons disponibles et nos conditions d'adoption.",
+    de: "FIFe-zertifizierte Familienzucht von Sibirischen Katzen und Neva Masquerade. Entdecken Sie unsere verfügbaren Kätzchen und Adoptionsbedingungen.",
+  };
+  const description = descriptions[locale] ?? descriptions.it;
+
   return {
     metadataBase,
     title: {
-      default: "Imperial Line Siberians",
+      default: "Imperial Line Siberians – Allevamento Siberiani & Neva Masquerade",
       template: "%s | Imperial Line Siberians",
     },
-    description:
-      "Allevamento etico di gatti Siberiani con informazioni su cucciolate, gatti disponibili e condizioni di adozione.",
+    description,
     alternates: {
       canonical: canonicalPath,
       languages: {
@@ -50,9 +57,8 @@ export async function generateMetadata({
       type: "website",
       url: canonicalPath,
       siteName: "Imperial Line Siberians",
-      title: "Imperial Line Siberians",
-      description:
-        "Allevamento etico di gatti Siberiani con informazioni su cucciolate, gatti disponibili e condizioni di adozione.",
+      title: "Imperial Line Siberians – Allevamento Siberiani & Neva Masquerade",
+      description,
       locale,
     },
   };
