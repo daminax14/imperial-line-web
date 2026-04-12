@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getDictionary, isSupportedLocale } from "@/lib/get-dictionary";
 import { notFound } from "next/navigation";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import AppBackground from "@/components/AppBackground";
 import CookieConsentToast from "@/components/CookieConsentToast";
