@@ -1,11 +1,12 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import RichTextContent from '@/components/RichTextContent'
 
 type TopicItem = {
   id: string
   title: string
-  content: string
+  content: unknown
 }
 
 export default function HomeKnowledgeTopics({
@@ -58,9 +59,7 @@ export default function HomeKnowledgeTopics({
               {activeTopic ? (
                 <>
                   <h3 className="text-2xl md:text-4xl font-serif text-slate-900 mb-6 leading-tight">{activeTopic.title}</h3>
-                  <div className="text-slate-700 leading-relaxed text-base md:text-lg whitespace-pre-line max-h-[56vh] overflow-y-auto pr-1">
-                    {activeTopic.content}
-                  </div>
+                  <RichTextContent value={activeTopic.content} className="text-slate-700 leading-relaxed text-base md:text-lg max-h-[56vh] overflow-y-auto pr-1" />
                 </>
               ) : (
                 <p className="text-slate-600">{emptyText || 'Content is being updated.'}</p>

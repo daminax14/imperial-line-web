@@ -1,11 +1,12 @@
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import { client, urlFor } from '@/lib/sanity'
+import RichTextContent from '@/components/RichTextContent'
 
 type AboutSection = {
   id: string
   title: string
-  content: string
+  content: unknown
   image?: string
 }
 
@@ -15,7 +16,7 @@ async function getAboutSections(locale: string): Promise<AboutSection[]> {
   const query = `*[_type == "aboutSection" && isVisible != false] | order(order asc) {
     _id,
     "title": coalesce(title.${safeLocale}, title.it, ""),
-    "content": coalesce(content.${safeLocale}, content.it, ""),
+    "content": coalesce(content.${safeLocale}, content.it, []),
     image
   }`
 
@@ -25,7 +26,7 @@ async function getAboutSections(locale: string): Promise<AboutSection[]> {
   return rows.map((row, index) => ({
     id: typeof row?._id === 'string' && row._id.trim().length > 0 ? row._id : `about-${index + 1}`,
     title: typeof row?.title === 'string' ? row.title : '',
-    content: typeof row?.content === 'string' ? row.content : '',
+    content: row?.content,
     image: row?.image ? urlFor(row.image).width(1200).height(900).fit('crop').url() : undefined,
   }))
 }
@@ -36,7 +37,7 @@ function normalizeSections(raw: unknown): AboutSection[] {
   return raw
     .map((item, index) => {
       const title = typeof item?.title === 'string' ? item.title.trim() : ''
-      const content = typeof item?.content === 'string' ? item.content.trim() : ''
+      const content = item?.content
       const image = typeof item?.image === 'string' ? item.image.trim() : ''
       const id = typeof item?.id === 'string' ? item.id.trim() : `about-${index + 1}`
       return {
@@ -46,7 +47,12 @@ function normalizeSections(raw: unknown): AboutSection[] {
         image: image || undefined,
       }
     })
-    .filter((section) => section.title.length > 0 && section.content.length > 0)
+    .filter((section) => {
+      if (section.title.length === 0) return false
+      if (typeof section.content === 'string') return section.content.trim().length > 0
+      if (Array.isArray(section.content)) return section.content.length > 0
+      return false
+    })
 }
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -80,7 +86,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
               </summary>
 
               <div className="px-6 md:px-8 pb-7 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 items-start border-t border-white/70">
-                <p className="text-[#3a5570] leading-relaxed whitespace-pre-line pt-6">{section.content}</p>
+                <RichTextContent value={section.content} className="text-[#3a5570] leading-relaxed pt-6" />
 
                 {section.image ? (
                   <div className="pt-6">

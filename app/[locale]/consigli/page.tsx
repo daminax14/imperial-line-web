@@ -2,6 +2,7 @@ import React from 'react'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import { client } from '@/lib/sanity'
+import RichTextContent from '@/components/RichTextContent'
 
 type AdviceTip = {
   title: string
@@ -13,14 +14,20 @@ type AdviceTip = {
 type AdviceSectionTip = {
   emoji?: string
   title?: string
-  text?: string
+  text?: unknown
 }
 
 type AdviceSection = {
   id: string
   title: string
-  subtitle: string
+  subtitle: unknown
   tips: AdviceSectionTip[]
+}
+
+function hasRenderableContent(value: unknown): boolean {
+  if (typeof value === 'string') return value.trim().length > 0
+  if (Array.isArray(value)) return value.length > 0
+  return false
 }
 
 function safeLocale(locale: string): 'it' | 'en' | 'de' | 'fr' {
@@ -33,11 +40,11 @@ async function getAdviceSections(locale: string): Promise<AdviceSection[]> {
   const query = `*[_type == "adviceSection" && isVisible != false] | order(order asc) {
     _id,
     "title": coalesce(title.${currentLocale}, title.it, ""),
-    "subtitle": coalesce(subtitle.${currentLocale}, subtitle.it, ""),
+    "subtitle": coalesce(subtitle.${currentLocale}, subtitle.it, []),
     "tips": tips[]{
       "emoji": coalesce(emoji, "✨"),
       "title": coalesce(title.${currentLocale}, title.it, ""),
-      "text": coalesce(text.${currentLocale}, text.it, "")
+      "text": coalesce(text.${currentLocale}, text.it, [])
     }
   }`
 
@@ -48,13 +55,13 @@ async function getAdviceSections(locale: string): Promise<AdviceSection[]> {
     .map((row: any, index: number) => ({
       id: typeof row?._id === 'string' && row._id.trim().length > 0 ? row._id : `advice-${index + 1}`,
       title: typeof row?.title === 'string' ? row.title.trim() : '',
-      subtitle: typeof row?.subtitle === 'string' ? row.subtitle.trim() : '',
+      subtitle: row?.subtitle,
       tips: Array.isArray(row?.tips)
         ? row.tips
             .map((tip: any) => ({
               emoji: typeof tip?.emoji === 'string' ? tip.emoji : '✨',
               title: typeof tip?.title === 'string' ? tip.title.trim() : '',
-              text: typeof tip?.text === 'string' ? tip.text.trim() : '',
+              text: tip?.text,
             }))
             .filter((tip: AdviceSectionTip) => tip.title)
         : [],
@@ -96,7 +103,9 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
 
                 <div className="relative z-10">
                   <h3 className="text-2xl font-serif font-bold text-slate-900 mb-4">{section.title}</h3>
-                  {section.subtitle && <p className="text-slate-500 mb-8 leading-relaxed">{section.subtitle}</p>}
+                  {hasRenderableContent(section.subtitle) && (
+                    <RichTextContent value={section.subtitle} className="text-slate-500 mb-8 leading-relaxed" />
+                  )}
 
                   <ul className="space-y-5">
                     {section.tips.map((tip, tipIndex) => (
@@ -105,7 +114,9 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
                           <span className="text-lg leading-none">{tip.emoji || '✨'}</span>
                           <span>{tip.title}</span>
                         </p>
-                        {tip.text && <p className="text-sm text-slate-600 leading-relaxed pl-7">{tip.text}</p>}
+                        {hasRenderableContent(tip.text) && (
+                          <RichTextContent value={tip.text} className="text-sm text-slate-600 leading-relaxed pl-7" />
+                        )}
                       </li>
                     ))}
                   </ul>

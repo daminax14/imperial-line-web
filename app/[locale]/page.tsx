@@ -6,7 +6,7 @@ import HomeKnowledgeTopics from '@/components/HomeKnowledgeTopics'
 type TopicItem = {
   id: string
   title: string
-  content: string
+  content: unknown
 }
 
 async function getHomeKnowledgeTopics(locale: string): Promise<TopicItem[]> {
@@ -22,7 +22,10 @@ async function getHomeKnowledgeTopics(locale: string): Promise<TopicItem[]> {
   return topics.filter((topic): topic is TopicItem => (
     typeof topic?.id === 'string' && topic.id.trim().length > 0 &&
     typeof topic?.title === 'string' && topic.title.trim().length > 0 &&
-    typeof topic?.content === 'string' && topic.content.trim().length > 0
+    (
+      (typeof topic?.content === 'string' && topic.content.trim().length > 0) ||
+      (Array.isArray(topic?.content) && topic.content.length > 0)
+    )
   ))
 }
 

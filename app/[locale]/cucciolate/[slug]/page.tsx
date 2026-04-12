@@ -5,6 +5,7 @@ import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import LitterPhotoGallery from '@/components/LitterPhotoGallery'
 import GoldBorderCard from '@/components/ui/GoldBorderCard'
+import RichTextContent from '@/components/RichTextContent'
 import { getLitterDisplayTitle } from '@/lib/utils'
 
 /* ─── Types ─────────────────────────────────────────────────────────── */
@@ -35,7 +36,7 @@ type Litter = {
   letter?: string
   title?: string
   status?: string
-  notes?: string
+  notes?: unknown
   plannedDate?: string
   birthDate?: string
   coverImage?: unknown
@@ -187,6 +188,12 @@ function normalizeSexKey(value?: string): string {
   if (v.includes('masch') || v.includes('male') || v === 'm') return 'male'
   if (v.includes('femmin') || v.includes('female') || v === 'f') return 'female'
   return 'unknown'
+}
+
+function hasRenderableContent(value: unknown): boolean {
+  if (typeof value === 'string') return value.trim().length > 0
+  if (Array.isArray(value)) return value.length > 0
+  return false
 }
 
 /* ─── Status pill ────────────────────────────────────────────────────── */
@@ -530,13 +537,13 @@ export default async function LitterPage({
               </div>
             </div>
 
-            {litter.notes && (
+            {hasRenderableContent(litter.notes) && (
               <div className="mt-5 rounded-2xl border border-[#2f6f99]/20 bg-white/80 px-5 py-4 shadow-sm">
                 <p className="text-[10px] uppercase tracking-[0.22em] text-[#2f6f99]/75 font-semibold mb-2 flex items-center gap-1.5">
                   <span>✎</span>
                   <span>{pageText?.notesLabel || 'Notes'}</span>
                 </p>
-                <p className="text-[#3a5570] leading-relaxed text-sm md:text-base">{litter.notes}</p>
+                <RichTextContent value={litter.notes} className="text-[#3a5570] leading-relaxed text-sm md:text-base" />
               </div>
             )}
 
