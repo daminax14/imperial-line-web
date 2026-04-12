@@ -237,7 +237,7 @@
     "health": "Health",
     "inquire": "Inquire Now",
     "techDetails": "Technical Details",
-    "sex": "Sex",
+    "sex": "Gender",
     "color": "Color",
     "ems": "EMS Code",
     "pedigree": "Pedigree",
@@ -375,7 +375,7 @@
       {
         "title": "Reservation, deposit and waiting list",
         "paragraphs": [
-          "A kitten is considered reserved only after receiving a 350 euro deposit.",
+          "A kitten is considered reserved only after receiving a 350 euro deposit. If you reserve more than one kitten, you only pay one deposit",
           "In case of reconsideration, the deposit is generally non-refundable, except for justified exceptions communicated promptly.",
           "A free waiting list is available for those who want an Imperial Line kitten but are not ready to reserve yet."
         ],

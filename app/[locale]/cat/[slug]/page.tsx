@@ -191,6 +191,9 @@ function normalizeCountryKey(country?: string): string {
 function normalizeHealthResultKey(value?: string): string {
   const v = (value || '').trim().toLowerCase()
   if (!v) return 'notTested'
+  if (v.includes('n/n') || v.includes('clear') || v.includes('esente')) return 'clear'
+  if (v.includes('n/mut') || v.includes('carrier') || v.includes('portatore')) return 'carrier'
+  if (v.includes('mut/mut')) return 'affected'
   if (v.includes('positiv') || v.includes('positive')) return 'positive'
   if (v.includes('negativ') || v.includes('negative')) return 'negative'
   if (v.includes('non test') || v.includes('not test') || v.includes('not available')) return 'notTested'
@@ -425,10 +428,12 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
                               <span className="text-xs font-semibold text-slate-700 uppercase tracking-[0.12em]">{test.label}</span>
                               <span
                                 className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
-                                  test.resultKey === 'negative'
+                                  test.resultKey === 'negative' || test.resultKey === 'clear'
                                     ? 'bg-emerald-100 text-emerald-800'
-                                    : test.resultKey === 'positive'
+                                    : test.resultKey === 'positive' || test.resultKey === 'affected'
                                       ? 'bg-rose-100 text-rose-800'
+                                      : test.resultKey === 'carrier'
+                                        ? 'bg-amber-100 text-amber-800'
                                       : 'bg-slate-100 text-slate-700'
                                 }`}
                               >

@@ -241,7 +241,7 @@
     "health": "Santé",
     "inquire": "Demander des informations",
     "techDetails": "Détails techniques",
-    "sex": "Sexe",
+    "sex": "Genre",
     "color": "Couleur",
     "ems": "Code EMS",
     "pedigree": "Pedigree",
@@ -379,7 +379,7 @@
       {
         "title": "Réservation, acompte et liste d'attente",
         "paragraphs": [
-          "Un chaton n'est considéré réservé qu'après le versement de l'acompte de 350 euros.",
+          "Un chaton n'est considéré réservé qu'après le versement de l'acompte de 350 euros. Si vous réservez plusieurs chatons, vous ne payez qu'un seul acompte",
           "En cas de désistement, l'acompte n'est généralement pas remboursable, sauf exceptions justifiées et communiquées rapidement.",
           "Une liste d'attente gratuite est disponible pour ceux qui souhaitent un chaton Imperial Line mais ne sont pas encore prêts à réserver."
         ],

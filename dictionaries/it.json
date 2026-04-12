@@ -241,7 +241,7 @@
     "health": "Salute",
     "inquire": "Richiedi Informazioni",
     "techDetails": "Dettagli Tecnici",
-    "sex": "Sesso",
+    "sex": "Genere",
     "color": "Colore",
     "ems": "Codice EMS",
     "pedigree": "Pedigree",
@@ -379,9 +379,9 @@
       {
         "title": "Prenotazione, caparra e lista d'attesa",
         "paragraphs": [
-          "Un cucciolo è considerato prenotato solo dopo il versamento della caparra di 350 euro.",
+          "Un cucciolo è considerato prenotato solo dopo il versamento della caparra di 350 euro. Se si prenotano piu cuccioli si paga solo una caparra.",
           "In caso di ripensamento la caparra in genere non è rimborsabile, salvo eccezioni motivate e comunicate tempestivamente.",
-          "È disponibile una lista d'attesa gratuita per chi desidera un cucciolo Imperial Line ma non è ancora pronto alla prenotazione."
+          "È disponibile una lista d'attesa per chi desidera un cucciolo Imperial Line ma non è ancora pronto alla prenotazione."
         ],
         "points": []
       },
