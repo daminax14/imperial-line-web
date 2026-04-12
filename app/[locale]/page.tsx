@@ -48,15 +48,17 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
       </div>
       
       <div className="relative z-10 text-center px-6">
-        <div className="inline-block px-3 py-1 mb-4 border border-white/30 backdrop-blur-md rounded-full">
+          <div className="inline-block px-3 py-1 mb-4 border border-[#b8891c]/70 backdrop-blur-md rounded-full">
            <p className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Est. 2024 — Excellence</p>
         </div>
         <h1 className="text-1xl md:text-5xl font-serif italic text-white leading-tight mb-6 drop-shadow-2xl break-words">
-          {dict.hero.title} <br/> 
-          <span className="text-[#D4AF37]  md:text-2xl drop-shadow-sm">{dict.hero.subtitle}</span>
+          {dict.hero.title}
         </h1>
         <p className="text-xl text-white/90 font-light leading-relaxed max-w-2xl mx-auto drop-shadow-md">
           {dict.hero.description}
+        </p>
+        <p className="mt-4 inline-block rounded-full border border-[#b8891c]/70 px-4 py-1.5 text-[10px] md:text-[11px] uppercase tracking-[0.14em] text-slate-700 font-bold italic shadow-[0_4px_14px_rgba(0,0,0,0.28)] backdrop-blur-sm">
+          {dict.hero.subtitle}
         </p>
       </div>
     </section>
