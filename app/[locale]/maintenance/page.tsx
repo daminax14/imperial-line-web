@@ -1,6 +1,15 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
+
+export const metadata: Metadata = {
+  title: 'Maintenance',
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default async function MaintenancePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
