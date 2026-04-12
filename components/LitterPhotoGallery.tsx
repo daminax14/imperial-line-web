@@ -74,6 +74,13 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title, text
               alt={zoomImage.alt}
               className="max-w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
             />
+            <button
+              type="button"
+              onClick={() => setZoomImage(null)}
+              className="mt-3 w-full text-center text-white text-xs uppercase tracking-[0.2em]"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
