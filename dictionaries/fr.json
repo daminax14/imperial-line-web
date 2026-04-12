@@ -278,6 +278,9 @@
     "testResultLabels": {
       "negative": "Négatif",
       "positive": "Positif",
+      "clear": "N/N",
+      "carrier": "N/mut",
+      "affected": "mut/mut",
       "notTested": "Non testé"
     },
     "photoUnavailable": "Photo non disponible",
