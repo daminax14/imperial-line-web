@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getDictionary, isSupportedLocale } from "@/lib/get-dictionary";
 import { notFound } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import AppBackground from "@/components/AppBackground";
 import CookieConsentToast from "@/components/CookieConsentToast";
@@ -42,6 +43,7 @@ export default async function RootLayout({
         {children}
         <Footer dict={dict} locale={locale} />
         <CookieConsentToast locale={locale} />
+        <SpeedInsights />
       </body>
     </html>
   );
