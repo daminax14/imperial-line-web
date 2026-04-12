@@ -8,6 +8,7 @@ type AboutSection = {
   title: string
   content: unknown
   image?: string
+  imageBottom?: string
 }
 
 async function getAboutSections(locale: string): Promise<AboutSection[]> {
@@ -17,7 +18,8 @@ async function getAboutSections(locale: string): Promise<AboutSection[]> {
     _id,
     "title": coalesce(title.${safeLocale}, title.it, ""),
     "content": coalesce(content.${safeLocale}, content.it, []),
-    image
+    image,
+    imageBottom
   }`
 
   const rows = await client.fetch(query)
@@ -28,6 +30,7 @@ async function getAboutSections(locale: string): Promise<AboutSection[]> {
     title: typeof row?.title === 'string' ? row.title : '',
     content: row?.content,
     image: row?.image ? urlFor(row.image).width(1200).height(900).fit('crop').url() : undefined,
+    imageBottom: row?.imageBottom ? urlFor(row.imageBottom).width(1200).height(900).fit('crop').url() : undefined,
   }))
 }
 
@@ -39,12 +42,14 @@ function normalizeSections(raw: unknown): AboutSection[] {
       const title = typeof item?.title === 'string' ? item.title.trim() : ''
       const content = item?.content
       const image = typeof item?.image === 'string' ? item.image.trim() : ''
+      const imageBottom = typeof item?.imageBottom === 'string' ? item.imageBottom.trim() : ''
       const id = typeof item?.id === 'string' ? item.id.trim() : `about-${index + 1}`
       return {
         id,
         title,
         content,
         image: image || undefined,
+        imageBottom: imageBottom || undefined,
       }
     })
     .filter((section) => {
@@ -85,13 +90,22 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <span className="w-8 h-8 rounded-full border border-[#2f6f99]/25 text-[#2f6f99] flex items-center justify-center text-lg transition-transform group-open:rotate-45">+</span>
               </summary>
 
-              <div className="px-6 md:px-8 pb-7 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 items-start border-t border-white/70">
+              <div className="px-6 md:px-8 pb-7 grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-6 items-center border-t border-white/70">
                 <RichTextContent value={section.content} className="text-[#3a5570] leading-relaxed pt-6" />
 
-                {section.image ? (
-                  <div className="pt-6">
-                    <div className="rounded-2xl border border-[#2f6f99]/25 bg-white/20 backdrop-blur-md p-2.5 shadow-[0_18px_35px_-28px_rgba(32,72,112,0.45)]">
-                      <img src={section.image} alt={section.title} className="w-full rounded-xl object-cover aspect-[4/3]" />
+                {(section.image || section.imageBottom) ? (
+                  <div className="pt-6 lg:pt-0 self-center lg:justify-self-end w-full lg:w-[92%]">
+                    <div className="flex flex-col gap-4">
+                      {section.image ? (
+                        <div className="rounded-2xl border border-[#2f6f99]/25 bg-white/20 backdrop-blur-md p-2.5 shadow-[0_18px_35px_-28px_rgba(32,72,112,0.45)]">
+                          <img src={section.image} alt={section.title} className="w-full rounded-xl object-cover aspect-[4/3]" />
+                        </div>
+                      ) : null}
+                      {section.imageBottom ? (
+                        <div className="rounded-2xl border border-[#2f6f99]/25 bg-white/20 backdrop-blur-md p-2.5 shadow-[0_18px_35px_-28px_rgba(32,72,112,0.45)]">
+                          <img src={section.imageBottom} alt={`${section.title} second image`} className="w-full rounded-xl object-cover aspect-[4/3]" />
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 ) : null}
