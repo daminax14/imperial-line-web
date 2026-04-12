@@ -9,31 +9,55 @@ type TopicItem = {
   content: unknown
 }
 
+function normalizeDictionaryTopics(raw: unknown): TopicItem[] {
+  if (!Array.isArray(raw)) return []
+
+  return raw
+    .map((item, index) => ({
+      id: typeof item?.id === 'string' && item.id.trim().length > 0 ? item.id : `topic-${index + 1}`,
+      title: typeof item?.title === 'string' ? item.title.trim() : '',
+      content: item?.content,
+    }))
+    .filter((topic) => {
+      if (topic.title.length === 0) return false
+      if (typeof topic.content === 'string') return topic.content.trim().length > 0
+      if (Array.isArray(topic.content)) return topic.content.length > 0
+      return false
+    })
+}
+
 async function getHomeKnowledgeTopics(locale: string): Promise<TopicItem[]> {
   const query = `*[_type == "homeKnowledgeTopic" && coalesce(isVisible, true) == true] | order(order asc) {
     id,
-    "title": coalesce(title[$locale], title.it),
-    "content": coalesce(content[$locale], content.it)
+    "title": coalesce(title[$locale], title.it, ""),
+    "content": coalesce(content[$locale], content.it, [])
   }`
 
   const topics = await client.fetch(query, { locale })
   if (!Array.isArray(topics)) return []
 
-  return topics.filter((topic): topic is TopicItem => (
-    typeof topic?.id === 'string' && topic.id.trim().length > 0 &&
-    typeof topic?.title === 'string' && topic.title.trim().length > 0 &&
-    (
-      (typeof topic?.content === 'string' && topic.content.trim().length > 0) ||
-      (Array.isArray(topic?.content) && topic.content.length > 0)
-    )
-  ))
+  return topics
+    .map((topic, index) => ({
+      id: typeof topic?.id === 'string' && topic.id.trim().length > 0 ? topic.id : `topic-${index + 1}`,
+      title: typeof topic?.title === 'string' ? topic.title.trim() : '',
+      content: topic?.content,
+    }))
+    .filter((topic): topic is TopicItem => (
+      topic.title.length > 0 &&
+      (
+        (typeof topic.content === 'string' && topic.content.trim().length > 0) ||
+        (Array.isArray(topic.content) && topic.content.length > 0)
+      )
+    ))
 }
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const dict = await getDictionary(locale)
   const homePage = dict?.homePage || {}
-  const siberianTopics = await getHomeKnowledgeTopics(locale)
+  const cmsTopics = await getHomeKnowledgeTopics(locale)
+  const dictionaryTopics = normalizeDictionaryTopics(homePage?.topics)
+  const siberianTopics = cmsTopics.length > 0 ? cmsTopics : dictionaryTopics
 
  return (
   <main className="relative min-h-screen text-[#1A1A1A] font-sans overflow-hidden">

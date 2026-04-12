@@ -6,11 +6,20 @@ type RichTextContentProps = {
 }
 
 type PortableTextBlock = {
-  _type?: string
+  _type: string
+  [key: string]: unknown
 }
 
 function isPortableTextValue(value: unknown): value is PortableTextBlock[] {
-  return Array.isArray(value) && value.some((item) => item && typeof item === 'object' && '_type' in item)
+  return (
+    Array.isArray(value) &&
+    value.every(
+      (item) =>
+        Boolean(item) &&
+        typeof item === 'object' &&
+        typeof (item as { _type?: unknown })._type === 'string',
+    )
+  )
 }
 
 function hasRenderableText(value: unknown): boolean {
