@@ -276,7 +276,15 @@ export default async function CatPage({ params }: { params: Promise<{ slug: stri
   const resolvedFather = cat.father || litterRef?.father
   const resolvedMother = cat.mother || litterRef?.mother
   const inquiryHref = categoryKey === 'kittens' ? `/${locale}/richiedi-informazioni/${slug}` : `/${locale}/contatti`
-  const inquiryLabel = categoryKey === 'kittens' ? 'RICHIESDI INFORMAZIONI / RISERVA' : dict.catPage.inquire
+  const kittenInquiryLabelsByLocale: Record<string, string> = {
+    it: 'Richiedi informazioni / Riserva',
+    en: 'Inquire / Reserve',
+    de: 'Anfragen / Reservieren',
+    fr: 'Demander / Reserver',
+  }
+  const inquiryLabel = categoryKey === 'kittens'
+    ? (kittenInquiryLabelsByLocale[locale] || kittenInquiryLabelsByLocale.en)
+    : dict.catPage.inquire
 
   return (
     <main className="relative bg-[#edf3fb] min-h-screen pt-[168px] pb-24 overflow-hidden">
