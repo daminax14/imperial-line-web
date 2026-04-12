@@ -61,7 +61,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title, text
           role="button"
           tabIndex={0}
         >
-          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+          <div className="relative inline-block max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               onClick={() => setZoomImage(null)}
@@ -72,7 +72,7 @@ export default function LitterPhotoGallery({ mainImage, extraImages, title, text
             <img
               src={zoomImage.src}
               alt={zoomImage.alt}
-              className="w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
+              className="max-w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
             />
           </div>
         </div>
