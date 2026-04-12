@@ -3,7 +3,7 @@ import { getDictionary } from '@/lib/get-dictionary'
 import CatsEtherealBackground from '@/components/CatsEtherealBackground'
 import ContactRequestForm from '@/components/ContactRequestForm'
 
-function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'facebook' | 'email' | 'phone' }) {
+function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'email' | 'phone' }) {
   const cls = 'w-5 h-5 text-[#2f6f99] flex-shrink-0'
   if (kind === 'instagram') {
     return (
@@ -19,13 +19,6 @@ function SocialIcon({ kind }: { kind: 'instagram' | 'tiktok' | 'facebook' | 'ema
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={cls} aria-hidden="true">
         <path d="M14 4v9.2a3.8 3.8 0 1 1-2.7-3.64" />
         <path d="M14 4c1 2 2.5 3.2 4.5 3.5" />
-      </svg>
-    )
-  }
-  if (kind === 'facebook') {
-    return (
-      <svg viewBox="0 0 24 24" fill="currentColor" className={cls} aria-hidden="true">
-        <path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.3c0-.8.2-1.3 1.4-1.3h1.5V5.5c-.3 0-1.1-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2h-2.5V14h2.5v7h3Z" />
       </svg>
     )
   }
@@ -114,15 +107,6 @@ export default async function ContattiPage({ params }: { params: Promise<{ local
                     >
                       <SocialIcon kind="instagram" />
                       <span className="text-sm">{breeder?.instagramHandle || 'imperial_line_siberians'}</span>
-                    </a>
-                    <a
-                      href={breeder?.facebookUrl || '#'}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2.5 hover:text-[#1a4f72] transition-colors"
-                    >
-                      <SocialIcon kind="facebook" />
-                      <span className="text-sm">{breeder?.facebookLabel || 'Imperial Line'}</span>
                     </a>
                   </div>
                 </div>
