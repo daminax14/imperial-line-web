@@ -54,18 +54,18 @@ export default function CatPhotoGallery({ mainImage, extraImages, name, emptyTex
           role="button"
           tabIndex={0}
         >
-          <div className="relative inline-block max-w-5xl" onClick={(e) => e.stopPropagation()}>
+          <div className="relative inline-flex flex-col items-center max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <img
               src={zoomImage.src}
               alt={zoomImage.alt}
-              className="max-w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
+              className="max-w-full max-h-[72vh] md:max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
             />
             <button
               type="button"
               onClick={() => setZoomImage(null)}
-              className="mt-3 w-full text-center text-white text-xs uppercase tracking-[0.2em]"
+              className="mt-2 w-full text-center text-[#b8891c] text-xs uppercase tracking-[0.2em] font-semibold"
             >
-              Close
+              CLOSE (X)
             </button>
           </div>
         </div>

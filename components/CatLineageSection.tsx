@@ -106,12 +106,19 @@ export default function CatLineageSection({
           role="button"
           tabIndex={0}
         >
-          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+          <div className="relative inline-flex flex-col items-center max-w-4xl" onClick={(e) => e.stopPropagation()}>
             <img
               src={zoomImage.src}
               alt={zoomImage.label}
-              className="w-full max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
+              className="max-w-full max-h-[72vh] md:max-h-[86vh] object-contain rounded-2xl bg-slate-900/50"
             />
+            <button
+              type="button"
+              onClick={() => setZoomImage(null)}
+              className="mt-2 w-full text-center text-[#b8891c] text-xs uppercase tracking-[0.2em] font-semibold"
+            >
+              CLOSE (X)
+            </button>
           </div>
         </div>
       )}
