@@ -478,33 +478,18 @@
     "tips": [
       {
         "title": "Die Ankunft zu Hause",
-        "description": "Die ersten Tage sind entscheidend. Richten Sie einen sicheren Raum mit allem Notwendigen ein, bevor der Rest des Hauses erkundet wird. Der Sibirier ist neugierig, braucht aber seine Zeit.",
-        "icon": "🏠",
-        "points": [
-          "Bereiten Sie eine saubere Katzentoilette vor",
-          "Vermeiden Sie laute Geräusche in den ersten Tagen",
-          "Verwenden Sie Pheromon-Diffusoren zur Entspannung"
-        ]
+        "description": "Die Ankunft eines Kätzchens zu Hause ist ein wichtiger und heikler Moment, der Aufmerksamkeit und Geduld erfordert. In den ersten Tagen ist es normal, dass das Kätzchen schüchtern oder verunsichert ist: Es braucht Zeit, um sich an die neuen Gerüche, Räume und Menschen zu gewöhnen. Es ist ratsam, eine ruhige Umgebung mit allem Notwendigen (Katzentoilette, Näpfe, Kratzbaum und ein gemütliches Körbchen) vorzubereiten und plötzliche Veränderungen sowie übermäßigen Lärm zu vermeiden. Die anfängliche Beibehaltung der gewohnten Ernährung und Routine hilft, Stress zu reduzieren und fördert eine harmonischere Eingewöhnung. Mit Sanftheit, Respekt vor seinem Tempo und viel Aufmerksamkeit wird sich das Kätzchen bald sicher fühlen und eine starke Bindung zu seiner neuen Familie aufbauen. Dank der Aufzucht und Sozialisierung in der Zucht ist es bereits darauf vorbereitet, sich bestmöglich in sein neues Zuhause einzufügen und bald zu einem ausgeglichenen und liebevollen Lebensgefährten zu werden.",
+        "icon": "🏠"
       },
       {
-        "title": "Königliche Ernährung",
-        "description": "Eine imposante Katze wie der Sibirier benötigt Proteine von höchster Qualität. Vermeiden Sie Getreide und setzen Sie auf ausgewogene Trocken- und Nassdiäten.",
-        "icon": "🥩",
-        "points": [
-          "Tierische Proteine an erster Stelle",
-          "Immer frisches Wasser (am besten aus einem Brunnen)",
-          "Ergänzung von Taurin"
-        ]
+        "title": "Ernährung",
+        "description": "Die Ernährung der Katze ist ein wesentlicher Faktor für ihre Gesundheit und ihr langfristiges Wohlbefinden. Als obligater Fleischfresser benötigt die Katze eine Ernährung, die reich an hochwertigen tierischen Proteinen ist und ihren natürlichen Bedürfnissen so gut wie möglich entspricht. Eine ausgewogene Ernährung trägt dazu bei, das Immunsystem stark zu halten, das Fell glänzend zu machen und eine gute Muskelmasse zu erhalten. Unsere Kätzchen werden mit einer gemischten Ernährung aufgezogen, die auch BARF-Futter (auf Basis von ausgewähltem Rohfleisch) umfasst, um sie von klein auf an eine abwechslungsreiche und natürliche Ernährung zu gewöhnen. Es ist wichtig, hochwertiges Futter zu wählen, Produkte zu vermeiden, die zu viel Getreide oder Zusatzstoffe enthalten, und die Ernährung an das Alter, den Lebensstil und die spezifischen Bedürfnisse jeder Katze anzupassen. Eine richtige Ernährung in Verbindung mit regelmäßigen Kontrolluntersuchungen ist die Grundlage für ein langes und gesundes Leben.",
+        "icon": "🥩"
       },
       {
         "title": "Soziales Leben",
-        "description": "Der Sibirier wird oft als Hunde-Katze bezeichnet. Er liebt Gesellschaft und leidet unter längerer Einsamkeit. Lernen Sie, täglich mit ihm zu spielen.",
-        "icon": "🐈",
-        "points": [
-          "Spielsitzungen von 15 Min.",
-          "Geistige Stimulation mit Rätseln",
-          "Schrittweise Sozialisation mit anderen Haustieren"
-        ]
+        "description": "Das Sozialleben der Katze ist ein wesentlicher Aspekt für ihr Gleichgewicht und ihr Wohlbefinden. Schon in den ersten Wochen werden die Kätzchen an den Kontakt mit Menschen, an Haushaltsgeräusche und an die normalen Alltagsaktivitäten gewöhnt, wodurch sie Selbstsicherheit und Vertrauen entwickeln. Wenn sie zusammen mit anderen Katzen aufwachsen, lernen sie, richtig zu kommunizieren, den Freiraum des anderen zu respektieren und beim Spielen ein ausgewogenes Verhältnis zu wahren. Dieser Sozialisierungsprozess macht sie anpassungsfähiger, neugieriger und ausgeglichener, erleichtert ihre Eingliederung in neue familiäre Umgebungen und fördert ein harmonisches Zusammenleben sowohl mit Menschen als auch mit anderen Tieren. Insbesondere die Sibirische Katze hat ein besonders geselliges, intelligentes und ausgeglichenes Wesen, was sie noch empfänglicher für eine Bindung an die Familie macht: Es handelt sich um eine Rasse, die aktiv den Kontakt zu Menschen sucht, sich leicht anpasst und oft auch im Erwachsenenalter einen verspielten und liebevollen Charakter behält.",
+        "icon": "🐈"
       }
     ]
   },

@@ -474,33 +474,18 @@
     "tips": [
       {
         "title": "Arrival at Home",
-        "description": "The first days are crucial. Create a safe room with everything needed before exploring the rest of the house. The Siberian is curious but needs its own pace.",
-        "icon": "🏠",
-        "points": [
-          "Prepare a clean litter box",
-          "Avoid loud noises in the first days",
-          "Use pheromone diffusers for relaxation"
-        ]
+        "description": "Bringing a kitten home is an important and delicate moment that requires care and patience. In the first few days, it’s normal for the kitten to be shy or disoriented: it needs time to adjust to new smells, spaces, and people. It is advisable to prepare a quiet environment with everything it needs (litter box, food and water bowls, a scratching post, and a cozy bed), avoiding sudden changes and excessive noise. Maintaining the same diet and routine initially helps reduce stress and promotes a smoother transition. With gentleness, respect for its own pace, and plenty of attention, the kitten will soon begin to feel safe and form a strong bond with its new family. Thanks to the growth and socialization it receives at the cattery, it arrives already prepared to settle into its new home and quickly become a well-balanced and affectionate lifelong companion.",
+        "icon": "🏠"
       },
       {
-        "title": "Royal Nutrition",
-        "description": "A majestic cat like the Siberian needs top quality protein. Avoid excessive grains and prefer balanced dry and wet diets.",
-        "icon": "🥩",
-        "points": [
-          "Animal proteins first",
-          "Fresh water always available (ideally a fountain)",
-          "Taurine supplementation"
-        ]
+        "title": "Nutrition",
+        "description": "A cat’s diet is essential to its long-term health and well-being. As obligate carnivores, cats require a diet rich in high-quality animal protein that closely mirrors their natural needs. A balanced diet helps maintain a strong immune system, a shiny coat, and good muscle mass. Our kittens are raised on a mixed diet, which also includes BARF (based on selected raw meat), to get them accustomed to a varied and natural diet from an early age. It is important to choose high-quality foods, avoiding products that are too high in grains or additives, and to tailor the diet to each cat’s age, lifestyle, and specific needs. Proper nutrition, combined with regular check-ups, is the foundation for ensuring a long and healthy life.",
+        "icon": "🥩"
       },
       {
         "title": "Social Life",
-        "description": "The Siberian is often called a cat-dog. It loves company and can suffer from prolonged loneliness. Play with it daily.",
-        "icon": "🐈",
-        "points": [
-          "15-minute play sessions",
-          "Mental stimulation with puzzles",
-          "Gradual socialization with other pets"
-        ]
+        "description": "A cat’s social life is essential to its emotional balance and well-being. From their very first weeks, kittens are accustomed to human contact, household noises, and normal daily activities, helping them develop confidence and trust. Growing up alongside other cats, they learn to communicate effectively, respect personal space, and engage in balanced play. This socialization process makes them more adaptable, curious, and calm, facilitating their integration into new family environments and fostering harmonious coexistence with both people and other animals. The Siberian cat, in particular, has a notably sociable, intelligent, and stable nature, which makes it even more predisposed to bonding with the family: it is a breed that tends to actively seek human contact, adapts easily, and often retains a playful and affectionate disposition even into adulthood.",
+        "icon": "🐈"
       }
     ]
   },

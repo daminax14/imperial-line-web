@@ -478,33 +478,18 @@
     "tips": [
       {
         "title": "L'arrivée à la maison",
-        "description": "Les premiers jours sont cruciaux. Préparez une pièce sécurisée avec tout le nécessaire avant de le laisser explorer le reste de la maison. Le Sibérien est curieux mais a besoin de prendre son temps.",
-        "icon": "🏠",
-        "points": [
-          "Préparer une litière propre",
-          "Éviter les bruits forts les premiers jours",
-          "Utiliser des diffuseurs de phéromones pour la détente"
-        ]
+        "description": "L'arrivée d'un chaton à la maison est un moment important et délicat, qui demande de l'attention et de la patience. Les premiers jours, il est normal que le chaton soit timide ou désorienté : il a besoin de temps pour s'habituer aux nouvelles odeurs, aux nouveaux espaces et aux nouvelles personnes. Il est conseillé de lui préparer un environnement calme, avec tout le nécessaire (litière, gamelles, griffoir et un panier douillet), en évitant les changements brusques et les bruits excessifs. Conserver au début la même alimentation et la même routine aide à réduire le stress et favorise une intégration plus sereine. Avec douceur, en respectant son rythme et en lui accordant beaucoup d'attention, le chaton commencera bientôt à se sentir en sécurité et à créer un lien fort avec sa nouvelle famille. Grâce au parcours de croissance et de socialisation qu'il suit à l'élevage, il arrive déjà prêt à s'intégrer au mieux dans son nouveau foyer et à devenir rapidement un compagnon de vie équilibré et affectueux.",
+        "icon": "🏠"
       },
       {
-        "title": "Nutrition royale",
-        "description": "Un chat imposant comme le Sibérien a besoin de protéines de très haute qualité. Évitez les céréales et misez sur des alimentations équilibrées, sèches et humides.",
-        "icon": "🥩",
-        "points": [
-          "Protéines animales en premier lieu",
-          "Eau toujours fraîche (de préférence en fontaine)",
-          "Complémentation en taurine"
-        ]
+        "title": "Nutrition",
+        "description": "L'alimentation du chat est un élément essentiel pour sa santé et son bien-être à long terme. En tant que carnivore strict, le chat a besoin d'une alimentation riche en protéines animales de haute qualité, qui reflète autant que possible ses besoins naturels. Une alimentation équilibrée contribue à maintenir un système immunitaire fort, un pelage brillant et une bonne masse musculaire. Nos chatons sont élevés avec une alimentation mixte, qui comprend également une alimentation BARF (à base de viande crue sélectionnée), afin de les habituer dès leur plus jeune âge à une alimentation variée et naturelle. Il est important de choisir des aliments de qualité, en évitant les produits trop riches en céréales ou en additifs, et d'adapter l'alimentation à l'âge, au mode de vie et aux besoins spécifiques de chaque chat. Une alimentation correcte, associée à des contrôles réguliers, est la base pour garantir une vie longue et saine.",
+        "icon": "🥩"
       },
       {
         "title": "Vie sociale",
-        "description": "Le Sibérien est souvent appelé le chat-chien. Il aime la compagnie et souffre de la solitude prolongée. Apprenez à jouer avec lui quotidiennement.",
-        "icon": "🐈",
-        "points": [
-          "Sessions de jeu de 15 min",
-          "Stimulation mentale avec des puzzles",
-          "Socialisation progressive avec les autres animaux"
-        ]
+        "description": "La vie sociale du chat est un aspect fondamental pour son équilibre et son bien-être. Dès les premières semaines, les chatons s’habituent au contact humain, aux bruits domestiques et aux activités quotidiennes normales, ce qui leur permet de développer leur assurance et leur confiance. En grandissant aux côtés d'autres chats, ils apprennent à communiquer correctement, à respecter l'espace de chacun et à jouer de manière équilibrée. Ce parcours de socialisation les rend plus adaptables, curieux et sereins, facilitant leur intégration dans de nouveaux contextes familiaux et favorisant une cohabitation harmonieuse tant avec les personnes qu'avec d'éventuels autres animaux. Le chat sibérien, en particulier, a un caractère particulièrement sociable, intelligent et stable, ce qui le rend encore plus enclin à créer des liens avec la famille : c'est une race qui a tendance à rechercher activement le contact humain, s'adapte facilement et conserve souvent un caractère joueur et affectueux même à l'âge adulte.",
+        "icon": "🐈"
       }
     ]
   },
