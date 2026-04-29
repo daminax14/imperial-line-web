@@ -471,18 +471,33 @@
     "tips": [
       {
         "title": "L'Arrivo a Casa",
-        "description": "L’arrivo a casa di un gattino è un momento importante e delicato, che richiede attenzione e pazienza. Nei primi giorni è normale che il cucciolo possa essere timido o spaesato: ha bisogno di tempo per adattarsi ai nuovi odori, spazi e persone. È consigliabile preparare un ambiente tranquillo, con tutto il necessario (lettiera, ciotole, tiragraffi e una cuccia accogliente), evitando cambiamenti bruschi e rumori eccessivi. Mantenere inizialmente la stessa alimentazione e routine aiuta a ridurre lo stress e favorisce un inserimento più sereno. Con dolcezza, rispetto dei suoi tempi e tante attenzioni, il gattino inizierà presto a sentirsi al sicuro e a creare un forte legame con la sua nuova famiglia. Grazie al percorso di crescita e socializzazione che riceve in allevamento, arriva già preparato per inserirsi al meglio nella nuova casa e diventare presto un compagno di vita equilibrato e affettuoso.",
-        "icon": "🏠"
+        "description": "I primi giorni sono cruciali. Crea una stanza sicura con tutto il necessario prima di esplorare il resto della casa. Il Siberiano e curioso ma ha bisogno dei suoi tempi.",
+        "icon": "🏠",
+        "points": [
+          "Prepara una lettiera pulita",
+          "Evita rumori forti i primi giorni",
+          "Usa diffusori di feromoni per il relax"
+        ]
       },
       {
         "title": "Nutrizione",
         "description": "L’alimentazione del gatto è un aspetto fondamentale per la sua salute e il suo benessere a lungo termine. Essendo un carnivoro obbligato, il gatto necessita di una dieta ricca di proteine animali di alta qualità, che rispecchi il più possibile le sue esigenze naturali. Una nutrizione equilibrata contribuisce a mantenere il sistema immunitario forte, il pelo lucido e una buona massa muscolare. I nostri gattini vengono cresciuti con una dieta mista, che include anche alimentazione BARF (a base di carne cruda selezionata), per abituarli fin da piccoli a un’alimentazione varia e naturale. È importante scegliere alimenti di qualità, evitando prodotti troppo ricchi di cereali o additivi, e adattare la dieta all’età, allo stile di vita e alle necessità specifiche di ogni gatto. Una corretta alimentazione, unita a controlli regolari, è la base per garantire una vita lunga e sana.",
-        "icon": "🥩"
+        "icon": "🥩",
+        "points": [
+          "Proteine animali al primo posto",
+          "Acqua sempre fresca (meglio se a fontanella)",
+          "Integrazione di Taurina"
+        ]
       },
       {
         "title": "Vita Sociale",
-        "description": "La vita sociale del gatto è un aspetto fondamentale per il suo equilibrio e benessere. Fin dalle prime settimane, i gattini vengono abituati al contatto umano, ai rumori domestici e alle normali attività quotidiane, sviluppando sicurezza e fiducia. Crescendo insieme ad altri gatti, imparano a comunicare correttamente, a rispettare gli spazi e a gestire il gioco in modo equilibrato. Questo percorso di socializzazione li rende più adattabili, curiosi e sereni, facilitando l’inserimento in nuovi contesti familiari e favorendo una convivenza armoniosa sia con le persone che con eventuali altri animali. Specialmente il gatto siberiano, ha una natura particolarmente socievole, intelligente e stabile, che lo rende ancora più predisposto al legame con la famiglia: è una razza che tende a cercare attivamente il contatto umano, si adatta facilmente e mantiene spesso un carattere giocoso e affettuoso anche in età adulta.",
-        "icon": "🐈"
+        "description": "Il Siberiano e spesso chiamato il gatto-cane. Ama la compagnia e soffre la solitudine prolungata. Impara a giocare con lui quotidianamente.",
+        "icon": "🐈",
+        "points": [
+          "Sessioni di gioco di 15 min",
+          "Stimolazione mentale con puzzle",
+          "Socializzazione graduale con altri pet"
+        ]
       }
     ]
   },
