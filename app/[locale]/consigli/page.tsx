@@ -138,14 +138,16 @@ export default async function ConsigliPage({ params }: { params: Promise<{ local
                     {tip.description}
                   </p>
                   
-                  <ul className="space-y-3">
-                    {tip.points.map((point, pIndex) => (
-                      <li key={pIndex} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                        <span className="w-1.5 h-1.5 bg-gold-200 rounded-full"></span>
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
+                  {tip.points && tip.points.length > 0 && (
+                    <ul className="space-y-3">
+                      {tip.points.map((point, pIndex) => (
+                        <li key={pIndex} className="flex items-center gap-3 text-sm font-medium text-slate-700">
+                          <span className="w-1.5 h-1.5 bg-gold-200 rounded-full"></span>
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </div>
             ))}
